@@ -633,6 +633,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\GlobalStruct.cs" />
+    <Compile Include="HardwareCom\ModbusTool.cs" />
     <Compile Include="UI\FrmPunchPress.cs">
       <SubType>Form</SubType>
     </Compile>
