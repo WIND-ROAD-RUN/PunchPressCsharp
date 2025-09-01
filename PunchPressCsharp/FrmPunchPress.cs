@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace PunchPressCsharp
 {
-    public partial class Form1 : Form
+    public partial class FrmPunchPress : Form
     {
-        public Form1()
+        public FrmPunchPress()
         {
             InitializeComponent();
         }
+
     }
 }
