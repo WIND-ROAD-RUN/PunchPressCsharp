@@ -15,15 +15,6 @@ namespace PunchPressCsharp.HardwareCom
         {
             // 创建一个 ModbusClient 对象，指定从站的 IP 地址和端口号（默认 Modbus TCP 端口为 502）
             modbusClient = new ModbusClient(addr, port);
-            // 连接到 Modbus 从站
-            try
-            {
-                modbusClient.Connect();
-            }
-            catch
-            {
-
-            }
         }
         public bool Connect()
         {

@@ -1,4 +1,4 @@
-﻿namespace PunchPressCsharp
+﻿namespace PunchPressCsharp.UI
 {
     partial class FrmPunchPress
     {
@@ -31,20 +31,20 @@
             this.vmRenderControl1 = new VMControls.Winform.Release.VmRenderControl();
             this.lb_title = new Sunny.UI.UILabel();
             this.gBox_baseOpeator = new Sunny.UI.UIGroupBox();
-            this.btn_templateLearn = new Sunny.UI.UIButton();
             this.btn_brightness = new Sunny.UI.UIButton();
+            this.btn_templateLearn = new Sunny.UI.UIButton();
             this.uiGroupBox1 = new Sunny.UI.UIGroupBox();
             this.uiRichTextBox1 = new Sunny.UI.UIRichTextBox();
-            this.uiGroupBox2 = new Sunny.UI.UIGroupBox();
-            this.uiLabel1 = new Sunny.UI.UILabel();
-            this.uiLabel2 = new Sunny.UI.UILabel();
-            this.uiLabel3 = new Sunny.UI.UILabel();
-            this.uiLabel4 = new Sunny.UI.UILabel();
+            this.gBox_systemStatus = new Sunny.UI.UIGroupBox();
             this.uiButton1 = new Sunny.UI.UIButton();
             this.uiButton2 = new Sunny.UI.UIButton();
+            this.lb_plcStatus = new Sunny.UI.UILabel();
+            this.lb_cameraStatus = new Sunny.UI.UILabel();
+            this.uiLabel2 = new Sunny.UI.UILabel();
+            this.uiLabel1 = new Sunny.UI.UILabel();
             this.gBox_baseOpeator.SuspendLayout();
             this.uiGroupBox1.SuspendLayout();
-            this.uiGroupBox2.SuspendLayout();
+            this.gBox_systemStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // vmRenderControl1
@@ -86,18 +86,6 @@
             this.gBox_baseOpeator.Text = "uiGroupBox1";
             this.gBox_baseOpeator.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // btn_templateLearn
-            // 
-            this.btn_templateLearn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_templateLearn.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_templateLearn.Location = new System.Drawing.Point(24, 72);
-            this.btn_templateLearn.MinimumSize = new System.Drawing.Size(1, 1);
-            this.btn_templateLearn.Name = "btn_templateLearn";
-            this.btn_templateLearn.Size = new System.Drawing.Size(100, 35);
-            this.btn_templateLearn.TabIndex = 1;
-            this.btn_templateLearn.Text = "模板学习";
-            this.btn_templateLearn.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            // 
             // btn_brightness
             // 
             this.btn_brightness.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -110,6 +98,18 @@
             this.btn_brightness.Text = "亮度修改";
             this.btn_brightness.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_brightness.Click += new System.EventHandler(this.btn_brightness_Click);
+            // 
+            // btn_templateLearn
+            // 
+            this.btn_templateLearn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_templateLearn.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_templateLearn.Location = new System.Drawing.Point(24, 72);
+            this.btn_templateLearn.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btn_templateLearn.Name = "btn_templateLearn";
+            this.btn_templateLearn.Size = new System.Drawing.Size(100, 35);
+            this.btn_templateLearn.TabIndex = 1;
+            this.btn_templateLearn.Text = "模板学习";
+            this.btn_templateLearn.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             // 
             // uiGroupBox1
             // 
@@ -140,65 +140,24 @@
             this.uiRichTextBox1.Text = "uiRichTextBox1";
             this.uiRichTextBox1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // uiGroupBox2
+            // gBox_systemStatus
             // 
-            this.uiGroupBox2.Controls.Add(this.uiButton1);
-            this.uiGroupBox2.Controls.Add(this.uiButton2);
-            this.uiGroupBox2.Controls.Add(this.uiLabel4);
-            this.uiGroupBox2.Controls.Add(this.uiLabel3);
-            this.uiGroupBox2.Controls.Add(this.uiLabel2);
-            this.uiGroupBox2.Controls.Add(this.uiLabel1);
-            this.uiGroupBox2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiGroupBox2.Location = new System.Drawing.Point(517, 512);
-            this.uiGroupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiGroupBox2.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiGroupBox2.Name = "uiGroupBox2";
-            this.uiGroupBox2.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
-            this.uiGroupBox2.Size = new System.Drawing.Size(348, 163);
-            this.uiGroupBox2.TabIndex = 9;
-            this.uiGroupBox2.Text = "uiGroupBox2";
-            this.uiGroupBox2.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // uiLabel1
-            // 
-            this.uiLabel1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.uiLabel1.Location = new System.Drawing.Point(14, 62);
-            this.uiLabel1.Name = "uiLabel1";
-            this.uiLabel1.Size = new System.Drawing.Size(88, 23);
-            this.uiLabel1.TabIndex = 7;
-            this.uiLabel1.Text = "相机状态";
-            // 
-            // uiLabel2
-            // 
-            this.uiLabel2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.uiLabel2.Location = new System.Drawing.Point(14, 110);
-            this.uiLabel2.Name = "uiLabel2";
-            this.uiLabel2.Size = new System.Drawing.Size(88, 23);
-            this.uiLabel2.TabIndex = 8;
-            this.uiLabel2.Text = "PLC状态";
-            // 
-            // uiLabel3
-            // 
-            this.uiLabel3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.uiLabel3.Location = new System.Drawing.Point(120, 62);
-            this.uiLabel3.Name = "uiLabel3";
-            this.uiLabel3.Size = new System.Drawing.Size(72, 23);
-            this.uiLabel3.TabIndex = 9;
-            this.uiLabel3.Text = "正常";
-            // 
-            // uiLabel4
-            // 
-            this.uiLabel4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.uiLabel4.Location = new System.Drawing.Point(120, 110);
-            this.uiLabel4.Name = "uiLabel4";
-            this.uiLabel4.Size = new System.Drawing.Size(72, 23);
-            this.uiLabel4.TabIndex = 10;
-            this.uiLabel4.Text = "正常";
-            this.uiLabel4.Click += new System.EventHandler(this.uiLabel4_Click);
+            this.gBox_systemStatus.Controls.Add(this.uiButton1);
+            this.gBox_systemStatus.Controls.Add(this.uiButton2);
+            this.gBox_systemStatus.Controls.Add(this.lb_plcStatus);
+            this.gBox_systemStatus.Controls.Add(this.lb_cameraStatus);
+            this.gBox_systemStatus.Controls.Add(this.uiLabel2);
+            this.gBox_systemStatus.Controls.Add(this.uiLabel1);
+            this.gBox_systemStatus.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.gBox_systemStatus.Location = new System.Drawing.Point(517, 512);
+            this.gBox_systemStatus.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gBox_systemStatus.MinimumSize = new System.Drawing.Size(1, 1);
+            this.gBox_systemStatus.Name = "gBox_systemStatus";
+            this.gBox_systemStatus.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
+            this.gBox_systemStatus.Size = new System.Drawing.Size(348, 163);
+            this.gBox_systemStatus.TabIndex = 9;
+            this.gBox_systemStatus.Text = "系统信息";
+            this.gBox_systemStatus.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // uiButton1
             // 
@@ -226,6 +185,47 @@
             this.uiButton2.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiButton2.Click += new System.EventHandler(this.btn_brightness_Click);
             // 
+            // lb_plcStatus
+            // 
+            this.lb_plcStatus.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lb_plcStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.lb_plcStatus.Location = new System.Drawing.Point(120, 110);
+            this.lb_plcStatus.Name = "lb_plcStatus";
+            this.lb_plcStatus.Size = new System.Drawing.Size(72, 23);
+            this.lb_plcStatus.TabIndex = 10;
+            this.lb_plcStatus.Text = "正常";
+            this.lb_plcStatus.Click += new System.EventHandler(this.uiLabel4_Click);
+            // 
+            // lb_cameraStatus
+            // 
+            this.lb_cameraStatus.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lb_cameraStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.lb_cameraStatus.Location = new System.Drawing.Point(120, 62);
+            this.lb_cameraStatus.Name = "lb_cameraStatus";
+            this.lb_cameraStatus.Size = new System.Drawing.Size(72, 23);
+            this.lb_cameraStatus.TabIndex = 9;
+            this.lb_cameraStatus.Text = "正常";
+            // 
+            // uiLabel2
+            // 
+            this.uiLabel2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.uiLabel2.Location = new System.Drawing.Point(14, 110);
+            this.uiLabel2.Name = "uiLabel2";
+            this.uiLabel2.Size = new System.Drawing.Size(88, 23);
+            this.uiLabel2.TabIndex = 8;
+            this.uiLabel2.Text = "PLC状态";
+            // 
+            // uiLabel1
+            // 
+            this.uiLabel1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.uiLabel1.Location = new System.Drawing.Point(14, 62);
+            this.uiLabel1.Name = "uiLabel1";
+            this.uiLabel1.Size = new System.Drawing.Size(88, 23);
+            this.uiLabel1.TabIndex = 7;
+            this.uiLabel1.Text = "相机状态";
+            // 
             // FrmPunchPress
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -233,16 +233,17 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(998, 720);
-            this.Controls.Add(this.uiGroupBox2);
+            this.Controls.Add(this.gBox_systemStatus);
             this.Controls.Add(this.uiGroupBox1);
             this.Controls.Add(this.gBox_baseOpeator);
             this.Controls.Add(this.lb_title);
             this.Controls.Add(this.vmRenderControl1);
             this.Name = "FrmPunchPress";
             this.Text = "u";
+            this.Load += new System.EventHandler(this.FrmPunchPress_Load);
             this.gBox_baseOpeator.ResumeLayout(false);
             this.uiGroupBox1.ResumeLayout(false);
-            this.uiGroupBox2.ResumeLayout(false);
+            this.gBox_systemStatus.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -256,10 +257,10 @@
         private Sunny.UI.UIButton btn_templateLearn;
         private Sunny.UI.UIGroupBox uiGroupBox1;
         private Sunny.UI.UIRichTextBox uiRichTextBox1;
-        private Sunny.UI.UIGroupBox uiGroupBox2;
+        private Sunny.UI.UIGroupBox gBox_systemStatus;
         private Sunny.UI.UIButton uiButton2;
-        private Sunny.UI.UILabel uiLabel4;
-        private Sunny.UI.UILabel uiLabel3;
+        private Sunny.UI.UILabel lb_plcStatus;
+        private Sunny.UI.UILabel lb_cameraStatus;
         private Sunny.UI.UILabel uiLabel2;
         private Sunny.UI.UILabel uiLabel1;
         private Sunny.UI.UIButton uiButton1;

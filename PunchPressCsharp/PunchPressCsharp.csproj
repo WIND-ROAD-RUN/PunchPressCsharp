@@ -633,7 +633,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\GlobalStruct.cs" />
+    <Compile Include="Data\GlobalData.cs" />
+    <Compile Include="Data\GlobalPath.cs" />
     <Compile Include="HardwareCom\ModbusTool.cs" />
     <Compile Include="UI\FrmPunchPress.cs">
       <SubType>Form</SubType>
@@ -643,6 +644,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\UtilityValue.cs" />
     <EmbeddedResource Include="UI\FrmPunchPress.resx">
       <DependentUpon>FrmPunchPress.cs</DependentUpon>
     </EmbeddedResource>
