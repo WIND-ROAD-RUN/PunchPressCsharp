@@ -15,7 +15,25 @@ namespace PunchPressCsharp
         public FrmPunchPress()
         {
             InitializeComponent();
+
         }
+
+        #region 初始化组件
+        private void IniCamera()
+        {
+
+        }
+
+        private void IniModbus()
+        {
+
+        }
+
+
+        #endregion
+
+
+        #region UI事件触发
 
         private void btn_brightness_Click(object sender, EventArgs e)
         {
@@ -26,5 +44,9 @@ namespace PunchPressCsharp
         {
 
         }
+
+        #endregion
+
+
     }
 }
