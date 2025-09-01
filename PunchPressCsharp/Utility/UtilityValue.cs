@@ -10,5 +10,6 @@ namespace PunchPressCsharp.Utility
     {
         public static string ModbusToolAddr = "192.168.6.6";
         public static int ModbusToolPort = 502;
+        public static string VMVersion = "V4.4.0";
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace PunchPressCsharp.UI
 {
-    partial class FrmPunchPress
+    partial class Frm_PunchPress
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -36,8 +36,8 @@
             this.uiGroupBox1 = new Sunny.UI.UIGroupBox();
             this.uiRichTextBox1 = new Sunny.UI.UIRichTextBox();
             this.gBox_systemStatus = new Sunny.UI.UIGroupBox();
-            this.uiButton1 = new Sunny.UI.UIButton();
-            this.uiButton2 = new Sunny.UI.UIButton();
+            this.btn_disTemplate = new Sunny.UI.UIButton();
+            this.btn_disCentral = new Sunny.UI.UIButton();
             this.lb_plcStatus = new Sunny.UI.UILabel();
             this.lb_cameraStatus = new Sunny.UI.UILabel();
             this.uiLabel2 = new Sunny.UI.UILabel();
@@ -142,8 +142,8 @@
             // 
             // gBox_systemStatus
             // 
-            this.gBox_systemStatus.Controls.Add(this.uiButton1);
-            this.gBox_systemStatus.Controls.Add(this.uiButton2);
+            this.gBox_systemStatus.Controls.Add(this.btn_disTemplate);
+            this.gBox_systemStatus.Controls.Add(this.btn_disCentral);
             this.gBox_systemStatus.Controls.Add(this.lb_plcStatus);
             this.gBox_systemStatus.Controls.Add(this.lb_cameraStatus);
             this.gBox_systemStatus.Controls.Add(this.uiLabel2);
@@ -159,31 +159,31 @@
             this.gBox_systemStatus.Text = "系统信息";
             this.gBox_systemStatus.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // uiButton1
+            // btn_disTemplate
             // 
-            this.uiButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiButton1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton1.Location = new System.Drawing.Point(218, 62);
-            this.uiButton1.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiButton1.Name = "uiButton1";
-            this.uiButton1.Size = new System.Drawing.Size(87, 23);
-            this.uiButton1.TabIndex = 1;
-            this.uiButton1.Text = "显示模板";
-            this.uiButton1.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton1.Click += new System.EventHandler(this.btn_brightness_Click);
+            this.btn_disTemplate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_disTemplate.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_disTemplate.Location = new System.Drawing.Point(218, 62);
+            this.btn_disTemplate.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btn_disTemplate.Name = "btn_disTemplate";
+            this.btn_disTemplate.Size = new System.Drawing.Size(87, 23);
+            this.btn_disTemplate.TabIndex = 1;
+            this.btn_disTemplate.Text = "显示模板";
+            this.btn_disTemplate.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_disTemplate.Click += new System.EventHandler(this.btn_brightness_Click);
             // 
-            // uiButton2
+            // btn_disCentral
             // 
-            this.uiButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiButton2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton2.Location = new System.Drawing.Point(218, 110);
-            this.uiButton2.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiButton2.Name = "uiButton2";
-            this.uiButton2.Size = new System.Drawing.Size(87, 23);
-            this.uiButton2.TabIndex = 1;
-            this.uiButton2.Text = "显示中心";
-            this.uiButton2.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton2.Click += new System.EventHandler(this.btn_brightness_Click);
+            this.btn_disCentral.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_disCentral.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_disCentral.Location = new System.Drawing.Point(218, 110);
+            this.btn_disCentral.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btn_disCentral.Name = "btn_disCentral";
+            this.btn_disCentral.Size = new System.Drawing.Size(87, 23);
+            this.btn_disCentral.TabIndex = 1;
+            this.btn_disCentral.Text = "显示中心";
+            this.btn_disCentral.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_disCentral.Click += new System.EventHandler(this.btn_brightness_Click);
             // 
             // lb_plcStatus
             // 
@@ -258,12 +258,12 @@
         private Sunny.UI.UIGroupBox uiGroupBox1;
         private Sunny.UI.UIRichTextBox uiRichTextBox1;
         private Sunny.UI.UIGroupBox gBox_systemStatus;
-        private Sunny.UI.UIButton uiButton2;
+        private Sunny.UI.UIButton btn_disCentral;
         private Sunny.UI.UILabel lb_plcStatus;
         private Sunny.UI.UILabel lb_cameraStatus;
         private Sunny.UI.UILabel uiLabel2;
         private Sunny.UI.UILabel uiLabel1;
-        private Sunny.UI.UIButton uiButton1;
+        private Sunny.UI.UIButton btn_disTemplate;
     }
 }
 

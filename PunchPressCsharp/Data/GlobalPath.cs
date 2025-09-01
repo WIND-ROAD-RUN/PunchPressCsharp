@@ -9,22 +9,10 @@ namespace PunchPressCsharp.Data
 {
     internal class GlobalPath
     {
-        // 私有静态只读实例
-        private static readonly GlobalPath _Instance = new GlobalPath();
-
-        private GlobalPath()
-        {
-        }
-
-        public static GlobalPath Instance
-        {
-            get { return _Instance; }
-        }
-
 
         #region 成员
          
-        public string vmSolPath = @"C:\Users\rw\Desktop\1.sol";
+        public static string vmSolPath = @"C:\Users\rw\Desktop\1.sol";
 
         #endregion
     }

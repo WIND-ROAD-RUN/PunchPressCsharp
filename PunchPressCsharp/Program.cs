@@ -18,7 +18,7 @@ namespace PunchPressCsharp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmPunchPress());
+            Application.Run(new Frm_PunchPress());
         }
     }
 }
