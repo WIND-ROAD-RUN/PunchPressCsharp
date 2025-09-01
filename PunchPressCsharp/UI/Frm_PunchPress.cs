@@ -1,4 +1,5 @@
-﻿using IMVSCalibTransformModuCs;
+﻿using GlobalCameraModuleCs;
+using IMVSCalibTransformModuCs;
 using IMVSFastFeatureMatchModuCs;
 using PunchPressCsharp.Data;
 using PunchPressCsharp.HardwareCom;
@@ -257,10 +258,35 @@ namespace PunchPressCsharp.UI
         {
 
         }
+        private void btn_templateLearn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                GlobalCameraModuleTool cameraModule1 = (GlobalCameraModuleTool)VmSolution.Instance["全局相机1"];
+                GlobalCameraModuleTool cameraModule2 = (GlobalCameraModuleTool)VmSolution.Instance["全局相机1"];
+
+
+                cameraModule1.ModuParams.TriggerSource = 7; // 设置触发源为软件触发
+                cameraModule2.ModuParams.TriggerSource = 7; // 设置触发源为软件触发
+
+
+                Frm_Learning frm_Learning = new Frm_Learning();
+                frm_Learning.ShowDialog();
+
+                cameraModule1.ModuParams.TriggerSource = 0; // 设置触发源为硬触发
+                cameraModule2.ModuParams.TriggerSource = 0; // 设置触发源为硬触发
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show(@"相机未连接", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
 
 
         #endregion
 
-       
     }
 }

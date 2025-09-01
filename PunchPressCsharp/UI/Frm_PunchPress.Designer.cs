@@ -110,6 +110,7 @@
             this.btn_templateLearn.TabIndex = 1;
             this.btn_templateLearn.Text = "模板学习";
             this.btn_templateLearn.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_templateLearn.Click += new System.EventHandler(this.btn_templateLearn_Click);
             // 
             // uiGroupBox1
             // 
@@ -226,7 +227,7 @@
             this.uiLabel1.TabIndex = 7;
             this.uiLabel1.Text = "相机状态";
             // 
-            // FrmPunchPress
+            // Frm_PunchPress
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -238,7 +239,7 @@
             this.Controls.Add(this.gBox_baseOpeator);
             this.Controls.Add(this.lb_title);
             this.Controls.Add(this.vmRenderControl1);
-            this.Name = "FrmPunchPress";
+            this.Name = "Frm_PunchPress";
             this.Text = "u";
             this.Load += new System.EventHandler(this.FrmPunchPress_Load);
             this.gBox_baseOpeator.ResumeLayout(false);
