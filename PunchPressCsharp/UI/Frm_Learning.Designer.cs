@@ -85,6 +85,7 @@
             this.btn_close.TabIndex = 2;
             this.btn_close.Text = "X";
             this.btn_close.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_close.Click += new System.EventHandler(this.btn_close_Click_1);
             // 
             // lblTitle
             // 

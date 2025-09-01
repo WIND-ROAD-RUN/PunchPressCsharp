@@ -74,5 +74,10 @@ namespace PunchPressCsharp
                 Location = mousePos;
             }
         }
+
+        private void btn_close_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
