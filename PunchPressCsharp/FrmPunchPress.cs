@@ -17,5 +17,14 @@ namespace PunchPressCsharp
             InitializeComponent();
         }
 
+        private void btn_brightness_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiLabel4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
