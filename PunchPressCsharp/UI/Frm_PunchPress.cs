@@ -251,7 +251,8 @@ namespace PunchPressCsharp.UI
 
         private void btn_brightness_Click(object sender, EventArgs e)
         {
-
+            Frm_CameraSet frm_SetCamera = new Frm_CameraSet();
+            frm_SetCamera.ShowDialog();
         }
 
         private void uiLabel4_Click(object sender, EventArgs e)
