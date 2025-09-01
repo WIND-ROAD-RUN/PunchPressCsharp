@@ -42,9 +42,13 @@
             this.lb_cameraStatus = new Sunny.UI.UILabel();
             this.uiLabel2 = new Sunny.UI.UILabel();
             this.uiLabel1 = new Sunny.UI.UILabel();
+            this.titleBar = new System.Windows.Forms.Panel();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.btnClose = new Sunny.UI.UIButton();
             this.gBox_baseOpeator.SuspendLayout();
             this.uiGroupBox1.SuspendLayout();
             this.gBox_systemStatus.SuspendLayout();
+            this.titleBar.SuspendLayout();
             this.SuspendLayout();
             // 
             // vmRenderControl1
@@ -55,7 +59,7 @@
             this.vmRenderControl1.BackColor = System.Drawing.Color.Black;
             this.vmRenderControl1.CoordinateInfoVisible = true;
             this.vmRenderControl1.ImageSource = null;
-            this.vmRenderControl1.Location = new System.Drawing.Point(12, 12);
+            this.vmRenderControl1.Location = new System.Drawing.Point(12, 43);
             this.vmRenderControl1.ModuleSource = null;
             this.vmRenderControl1.Name = "vmRenderControl1";
             this.vmRenderControl1.Size = new System.Drawing.Size(427, 663);
@@ -227,6 +231,47 @@
             this.uiLabel1.TabIndex = 7;
             this.uiLabel1.Text = "相机状态";
             // 
+            // titleBar
+            // 
+            this.titleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.titleBar.Controls.Add(this.lblTitle);
+            this.titleBar.Controls.Add(this.btnClose);
+            this.titleBar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.titleBar.Location = new System.Drawing.Point(0, 0);
+            this.titleBar.Margin = new System.Windows.Forms.Padding(0);
+            this.titleBar.Name = "titleBar";
+            this.titleBar.Size = new System.Drawing.Size(998, 40);
+            this.titleBar.TabIndex = 10;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.White;
+            this.lblTitle.Location = new System.Drawing.Point(12, 9);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(106, 21);
+            this.lblTitle.TabIndex = 1;
+            this.lblTitle.Text = "冲床检测系统";
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClose.FillHoverColor = System.Drawing.Color.Red;
+            this.btnClose.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnClose.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.btnClose.Location = new System.Drawing.Point(958, 0);
+            this.btnClose.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnClose.Size = new System.Drawing.Size(40, 40);
+            this.btnClose.Style = Sunny.UI.UIStyle.Custom;
+            this.btnClose.TabIndex = 0;
+            this.btnClose.Text = "X";
+            this.btnClose.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // Frm_PunchPress
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -234,6 +279,7 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(998, 720);
+            this.Controls.Add(this.titleBar);
             this.Controls.Add(this.gBox_systemStatus);
             this.Controls.Add(this.uiGroupBox1);
             this.Controls.Add(this.gBox_baseOpeator);
@@ -242,9 +288,12 @@
             this.Name = "Frm_PunchPress";
             this.Text = "u";
             this.Load += new System.EventHandler(this.FrmPunchPress_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmPunchPress_FormClosing);
             this.gBox_baseOpeator.ResumeLayout(false);
             this.uiGroupBox1.ResumeLayout(false);
             this.gBox_systemStatus.ResumeLayout(false);
+            this.titleBar.ResumeLayout(false);
+            this.titleBar.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -265,6 +314,9 @@
         private Sunny.UI.UILabel uiLabel2;
         private Sunny.UI.UILabel uiLabel1;
         private Sunny.UI.UIButton btn_disTemplate;
+        private System.Windows.Forms.Panel titleBar;
+        private System.Windows.Forms.Label lblTitle;
+        private Sunny.UI.UIButton btnClose;
     }
 }
 
