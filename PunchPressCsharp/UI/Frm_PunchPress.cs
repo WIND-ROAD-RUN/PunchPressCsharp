@@ -7,6 +7,7 @@ using PunchPressCsharp.Utility;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using PunchPressCsharp.Func;
 using VM.Core;
 
 namespace PunchPressCsharp.UI
@@ -15,8 +16,18 @@ namespace PunchPressCsharp.UI
     {
         public Frm_PunchPress()
         {
+            //this.FormBorderStyle = FormBorderStyle.None;
             InitializeComponent();
-            
+
+#if DEBUG
+
+#else
+            FormSizeChange formalizable = new FormSizeChange();
+            formalizable.MakeControlsResponsive(this);
+
+            this.WindowState = FormWindowState.Maximized;
+#endif
+
         }
 
         #region 窗体生命周期管理

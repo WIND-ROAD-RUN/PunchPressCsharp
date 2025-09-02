@@ -636,6 +636,7 @@
   <ItemGroup>
     <Compile Include="Data\GlobalData.cs" />
     <Compile Include="Data\GlobalPath.cs" />
+    <Compile Include="Func\FormSizeChange.cs" />
     <Compile Include="UI\Frm_Loading.cs">
       <SubType>Form</SubType>
     </Compile>

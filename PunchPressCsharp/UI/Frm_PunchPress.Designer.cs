@@ -53,16 +53,15 @@
             // 
             // vmRenderControl1
             // 
-            this.vmRenderControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.vmRenderControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.vmRenderControl1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.vmRenderControl1.BackColor = System.Drawing.Color.Black;
             this.vmRenderControl1.CoordinateInfoVisible = true;
             this.vmRenderControl1.ImageSource = null;
-            this.vmRenderControl1.Location = new System.Drawing.Point(12, 43);
+            this.vmRenderControl1.Location = new System.Drawing.Point(12, 49);
             this.vmRenderControl1.ModuleSource = null;
             this.vmRenderControl1.Name = "vmRenderControl1";
-            this.vmRenderControl1.Size = new System.Drawing.Size(427, 663);
+            this.vmRenderControl1.Size = new System.Drawing.Size(431, 663);
             this.vmRenderControl1.TabIndex = 0;
             // 
             // lb_title
@@ -287,8 +286,8 @@
             this.Controls.Add(this.vmRenderControl1);
             this.Name = "Frm_PunchPress";
             this.Text = "u";
-            this.Load += new System.EventHandler(this.FrmPunchPress_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmPunchPress_FormClosing);
+            this.Load += new System.EventHandler(this.FrmPunchPress_Load);
             this.gBox_baseOpeator.ResumeLayout(false);
             this.uiGroupBox1.ResumeLayout(false);
             this.gBox_systemStatus.ResumeLayout(false);
