@@ -86,7 +86,7 @@
             this.gBox_baseOpeator.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
             this.gBox_baseOpeator.Size = new System.Drawing.Size(348, 167);
             this.gBox_baseOpeator.TabIndex = 7;
-            this.gBox_baseOpeator.Text = "uiGroupBox1";
+            this.gBox_baseOpeator.Text = "基本操作";
             this.gBox_baseOpeator.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btn_brightness
@@ -126,7 +126,7 @@
             this.uiGroupBox1.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
             this.uiGroupBox1.Size = new System.Drawing.Size(348, 201);
             this.uiGroupBox1.TabIndex = 8;
-            this.uiGroupBox1.Text = "uiGroupBox1";
+            this.uiGroupBox1.Text = "信息日志";
             this.uiGroupBox1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // uiRichTextBox1
@@ -285,7 +285,7 @@
             this.Controls.Add(this.lb_title);
             this.Controls.Add(this.vmRenderControl1);
             this.Name = "Frm_PunchPress";
-            this.Text = "u";
+            this.Text = "冲压设备检测系统";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmPunchPress_FormClosing);
             this.Load += new System.EventHandler(this.FrmPunchPress_Load);
             this.gBox_baseOpeator.ResumeLayout(false);

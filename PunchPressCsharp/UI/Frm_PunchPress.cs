@@ -16,7 +16,6 @@ namespace PunchPressCsharp.UI
     {
         public Frm_PunchPress()
         {
-            //this.FormBorderStyle = FormBorderStyle.None;
             InitializeComponent();
 
 #if DEBUG
@@ -24,7 +23,7 @@ namespace PunchPressCsharp.UI
 #else
             FormSizeChange formalizable = new FormSizeChange();
             formalizable.MakeControlsResponsive(this);
-
+            this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
 #endif
 
