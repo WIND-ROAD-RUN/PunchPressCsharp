@@ -1,4 +1,4 @@
-﻿namespace PunchPressCsharp
+﻿namespace PunchPressCsharp.UI
 {
     partial class Frm_CameraSet
     {

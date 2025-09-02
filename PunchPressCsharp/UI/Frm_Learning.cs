@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PunchPressCsharp.Func;
 using VM.Core;
 
 namespace PunchPressCsharp
@@ -18,6 +19,15 @@ namespace PunchPressCsharp
         public Frm_Learning()
         {
             InitializeComponent();
+
+#if DEBUG
+
+#else
+            FormSizeChange formalizable = new FormSizeChange();
+            formalizable.MakeControlsResponsive(this);
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
+#endif
         }
 
         private void Frm_Learning_Load(object sender, EventArgs e)

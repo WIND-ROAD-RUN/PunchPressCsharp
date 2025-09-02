@@ -65,7 +65,7 @@
             this.titleBar.Location = new System.Drawing.Point(0, 0);
             this.titleBar.Margin = new System.Windows.Forms.Padding(0);
             this.titleBar.Name = "titleBar";
-            this.titleBar.Size = new System.Drawing.Size(1321, 40);
+            this.titleBar.Size = new System.Drawing.Size(1139, 40);
             this.titleBar.TabIndex = 2;
             this.titleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titleBar_MouseDown);
             this.titleBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.titleBar_MouseMove);
@@ -78,7 +78,7 @@
             this.btn_close.FillHoverColor = System.Drawing.Color.Red;
             this.btn_close.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btn_close.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.btn_close.Location = new System.Drawing.Point(1281, 0);
+            this.btn_close.Location = new System.Drawing.Point(1099, 0);
             this.btn_close.MinimumSize = new System.Drawing.Size(1, 1);
             this.btn_close.Name = "btn_close";
             this.btn_close.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
@@ -111,14 +111,14 @@
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(0, 0);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(1321, 1016);
+            this.panelContainer.Size = new System.Drawing.Size(1139, 779);
             this.panelContainer.TabIndex = 3;
             // 
             // uiCheckBoxGroup1
             // 
             this.uiCheckBoxGroup1.BackColor = System.Drawing.Color.Transparent;
             this.uiCheckBoxGroup1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiCheckBoxGroup1.Location = new System.Drawing.Point(703, 105);
+            this.uiCheckBoxGroup1.Location = new System.Drawing.Point(648, 105);
             this.uiCheckBoxGroup1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiCheckBoxGroup1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiCheckBoxGroup1.Name = "uiCheckBoxGroup1";
@@ -126,7 +126,7 @@
             this.uiCheckBoxGroup1.RadiusSides = Sunny.UI.UICornerRadiusSides.None;
             this.uiCheckBoxGroup1.RectSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.None;
             this.uiCheckBoxGroup1.SelectedIndexes = ((System.Collections.Generic.List<int>)(resources.GetObject("uiCheckBoxGroup1.SelectedIndexes")));
-            this.uiCheckBoxGroup1.Size = new System.Drawing.Size(504, 35);
+            this.uiCheckBoxGroup1.Size = new System.Drawing.Size(402, 35);
             this.uiCheckBoxGroup1.Style = Sunny.UI.UIStyle.Custom;
             this.uiCheckBoxGroup1.TabIndex = 4;
             this.uiCheckBoxGroup1.Text = "参数配置";
@@ -139,7 +139,7 @@
             this.btn_learning.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(89)))), ((int)(((byte)(98)))));
             this.btn_learning.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btn_learning.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.btn_learning.Location = new System.Drawing.Point(887, 56);
+            this.btn_learning.Location = new System.Drawing.Point(780, 56);
             this.btn_learning.MinimumSize = new System.Drawing.Size(1, 1);
             this.btn_learning.Name = "btn_learning";
             this.btn_learning.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
@@ -153,12 +153,12 @@
             // vmParamsConfigControl1
             // 
             this.vmParamsConfigControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(65)))));
-            this.vmParamsConfigControl1.Location = new System.Drawing.Point(703, 195);
+            this.vmParamsConfigControl1.Location = new System.Drawing.Point(648, 193);
             this.vmParamsConfigControl1.Margin = new System.Windows.Forms.Padding(5);
             this.vmParamsConfigControl1.ModuleSource = null;
             this.vmParamsConfigControl1.Name = "vmParamsConfigControl1";
             this.vmParamsConfigControl1.ParamsConfig = null;
-            this.vmParamsConfigControl1.Size = new System.Drawing.Size(504, 646);
+            this.vmParamsConfigControl1.Size = new System.Drawing.Size(402, 515);
             this.vmParamsConfigControl1.TabIndex = 2;
             // 
             // vmRenderControl1
@@ -166,11 +166,11 @@
             this.vmRenderControl1.BackColor = System.Drawing.Color.Black;
             this.vmRenderControl1.CoordinateInfoVisible = true;
             this.vmRenderControl1.ImageSource = null;
-            this.vmRenderControl1.Location = new System.Drawing.Point(14, 105);
+            this.vmRenderControl1.Location = new System.Drawing.Point(16, 105);
             this.vmRenderControl1.Margin = new System.Windows.Forms.Padding(5);
             this.vmRenderControl1.ModuleSource = null;
             this.vmRenderControl1.Name = "vmRenderControl1";
-            this.vmRenderControl1.Size = new System.Drawing.Size(679, 736);
+            this.vmRenderControl1.Size = new System.Drawing.Size(581, 603);
             this.vmRenderControl1.TabIndex = 1;
             // 
             // tim_refresh
@@ -182,7 +182,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1321, 1016);
+            this.ClientSize = new System.Drawing.Size(1139, 779);
             this.Controls.Add(this.titleBar);
             this.Controls.Add(this.panelContainer);
             this.Name = "Frm_Learning";

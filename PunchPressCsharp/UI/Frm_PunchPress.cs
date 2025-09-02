@@ -273,16 +273,6 @@ namespace PunchPressCsharp.UI
 
         #region UI事件触发
 
-        private void btn_brightness_Click(object sender, EventArgs e)
-        {
-            Frm_CameraSet frm_SetCamera = new Frm_CameraSet();
-            frm_SetCamera.ShowDialog();
-        }
-
-        private void uiLabel4_Click(object sender, EventArgs e)
-        {
-
-        }
         private void btn_templateLearn_Click(object sender, EventArgs e)
         {
             try
@@ -316,6 +306,31 @@ namespace PunchPressCsharp.UI
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btn_brightnessChange_Click(object sender, EventArgs e)
+        {
+            Frm_CameraSet frm_SetCamera = new Frm_CameraSet();
+            frm_SetCamera.ShowDialog();
+        }
+
+        private void btn_disTemplate_Click(object sender, EventArgs e)
+        {
+            VmProcedure vmProcess1 = (VmProcedure)VmSolution.Instance["流程1"];
+            //设置图像
+            IMVSFastFeatureMatchModuTool fastFeatureMatch = (IMVSFastFeatureMatchModuTool)VmSolution.Instance["流程1.快速匹配1"];
+            vmRenderControl1.ModuleSource = fastFeatureMatch;
+
+
+        }
+
+        private void btn_disCentral_Click(object sender, EventArgs e)
+        {
+            VmProcedure vmProcess1 = (VmProcedure)VmSolution.Instance["流程1"];
+
+            IMVSCalibTransformModuTool CalibTransform = (IMVSCalibTransformModuTool)VmSolution.Instance["流程1.标定转换1"];
+
+            vmRenderControl1.ModuleSource = CalibTransform;
         }
     }
 }
