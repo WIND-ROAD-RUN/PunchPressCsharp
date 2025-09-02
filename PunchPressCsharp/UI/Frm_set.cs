@@ -16,5 +16,16 @@ namespace PunchPressCsharp.UI
         {
             InitializeComponent();
         }
+
+        #region UI事件触发
+
+        private void btn_close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        #endregion
+
+
     }
 }

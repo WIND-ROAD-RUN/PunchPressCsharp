@@ -1,18 +1,11 @@
-﻿using ImageSourceModuleCs;
-using IMVSFastFeatureMatchModuCs;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using PunchPressCsharp.Func;
+using ImageSourceModuleCs;
+using IMVSFastFeatureMatchModuCs;
 using VM.Core;
 
-namespace PunchPressCsharp
+namespace PunchPressCsharp.UI
 {
     public partial class Frm_Learning : Form
     {
@@ -46,6 +39,9 @@ namespace PunchPressCsharp
             VmSolution.Save();
         }
 
+
+
+        #region UI事件触发
         private void btn_learning_Click(object sender, EventArgs e)
         {
             VmProcedure vmProcess1 = (VmProcedure)VmSolution.Instance["流程1"];
@@ -56,7 +52,7 @@ namespace PunchPressCsharp
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"操作失败: {ex.Message}", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(@"操作失败: {ex.Message}", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -84,5 +80,9 @@ namespace PunchPressCsharp
                 Location = mousePos;
             }
         }
+
+
+        #endregion
+
     }
 }

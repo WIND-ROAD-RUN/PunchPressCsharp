@@ -58,7 +58,11 @@ namespace PunchPressCsharp.UI
                 Location = mousePos;
             }
         }
+        #region UI事件触发
 
+
+
+        #endregion
 
         private void btnClose_Click(object sender, EventArgs e)
         {

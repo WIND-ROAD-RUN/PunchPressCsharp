@@ -50,6 +50,7 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnClose = new Sunny.UI.UIButton();
             this.titleBar = new System.Windows.Forms.Panel();
+            this.btn_set = new Sunny.UI.UIButton();
             this.panelContainer.SuspendLayout();
             this.uiCheckBoxGroup1.SuspendLayout();
             this.uiCheckBoxGroup3.SuspendLayout();
@@ -153,6 +154,7 @@
             // uiCheckBoxGroup3
             // 
             this.uiCheckBoxGroup3.BackColor = System.Drawing.Color.Transparent;
+            this.uiCheckBoxGroup3.Controls.Add(this.btn_set);
             this.uiCheckBoxGroup3.Controls.Add(this.btn_templateLearn);
             this.uiCheckBoxGroup3.Controls.Add(this.btn_brightnessChange);
             this.uiCheckBoxGroup3.FillColor = System.Drawing.Color.DimGray;
@@ -189,7 +191,7 @@
             // 
             this.btn_brightnessChange.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_brightnessChange.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.btn_brightnessChange.Location = new System.Drawing.Point(385, 47);
+            this.btn_brightnessChange.Location = new System.Drawing.Point(207, 47);
             this.btn_brightnessChange.MinimumSize = new System.Drawing.Size(1, 1);
             this.btn_brightnessChange.Name = "btn_brightnessChange";
             this.btn_brightnessChange.Size = new System.Drawing.Size(115, 32);
@@ -337,6 +339,20 @@
             this.titleBar.Size = new System.Drawing.Size(1114, 40);
             this.titleBar.TabIndex = 10;
             // 
+            // btn_set
+            // 
+            this.btn_set.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_set.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.btn_set.Location = new System.Drawing.Point(374, 47);
+            this.btn_set.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btn_set.Name = "btn_set";
+            this.btn_set.Size = new System.Drawing.Size(115, 32);
+            this.btn_set.Style = Sunny.UI.UIStyle.Custom;
+            this.btn_set.TabIndex = 3;
+            this.btn_set.Text = "设置";
+            this.btn_set.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_set.Click += new System.EventHandler(this.btn_set_Click);
+            // 
             // Frm_PunchPress
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -382,6 +398,7 @@
         private System.Windows.Forms.Label lblTitle;
         private Sunny.UI.UIButton btnClose;
         private System.Windows.Forms.Panel titleBar;
+        private Sunny.UI.UIButton btn_set;
     }
 }
 

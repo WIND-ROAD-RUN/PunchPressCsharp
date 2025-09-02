@@ -126,6 +126,9 @@ namespace PunchPressCsharp.UI
                 lb_cameraStatus.Text = @"连接成功";
                 lb_cameraStatus.ForeColor = Color.Green;
             }
+
+            var cameraParam = _cameraModule.ModuParams;
+            cameraParam.ExposureTime = 50;
         }
 
         private void DesVMSol()
@@ -310,8 +313,8 @@ namespace PunchPressCsharp.UI
 
         private void btn_brightnessChange_Click(object sender, EventArgs e)
         {
-            Frm_CameraSet frm_SetCamera = new Frm_CameraSet();
-            frm_SetCamera.ShowDialog();
+            Frm_CameraSet frmSetCamera = new Frm_CameraSet();
+            frmSetCamera.ShowDialog();
         }
 
         private void btn_disTemplate_Click(object sender, EventArgs e)
@@ -328,9 +331,21 @@ namespace PunchPressCsharp.UI
         {
             VmProcedure vmProcess1 = (VmProcedure)VmSolution.Instance["流程1"];
 
-            IMVSCalibTransformModuTool CalibTransform = (IMVSCalibTransformModuTool)VmSolution.Instance["流程1.标定转换1"];
+            IMVSCalibTransformModuTool calibTransform = (IMVSCalibTransformModuTool)VmSolution.Instance["流程1.标定转换1"];
 
-            vmRenderControl1.ModuleSource = CalibTransform;
+            vmRenderControl1.ModuleSource = calibTransform;
+        }
+
+        private void btn_set_Click(object sender, EventArgs e)
+        {
+            GlobalCameraModuleTool _cameraModule = (GlobalCameraModuleTool)VmSolution.Instance["全局相机1"];
+            CameraInfoList cameraInfoList = _cameraModule.ModuParams.GetCameraInfoList();
+            var cameraParam = _cameraModule.ModuParams;
+            var exposureTime = cameraParam.ExposureTime ;
+            cameraParam.ExposureTime+=10;
+            _cameraModule.ModuParams= cameraParam;
+            //Frm_set frmSet = new Frm_set();
+            //frmSet.ShowDialog();
         }
     }
 }
