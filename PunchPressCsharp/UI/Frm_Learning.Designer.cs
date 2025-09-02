@@ -67,6 +67,8 @@
             this.titleBar.Name = "titleBar";
             this.titleBar.Size = new System.Drawing.Size(1321, 40);
             this.titleBar.TabIndex = 2;
+            this.titleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titleBar_MouseDown);
+            this.titleBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.titleBar_MouseMove);
             // 
             // btn_close
             // 
@@ -85,7 +87,7 @@
             this.btn_close.TabIndex = 2;
             this.btn_close.Text = "X";
             this.btn_close.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_close.Click += new System.EventHandler(this.btn_close_Click_1);
+            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
             // lblTitle
             // 
@@ -146,6 +148,7 @@
             this.btn_learning.TabIndex = 3;
             this.btn_learning.Text = "开始学习";
             this.btn_learning.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_learning.Click += new System.EventHandler(this.btn_learning_Click);
             // 
             // vmParamsConfigControl1
             // 
