@@ -1,10 +1,16 @@
-﻿// Frm_Loading.Designer.cs
-namespace PunchPress
+﻿namespace PunchPressCsharp
 {
     partial class Frm_Loading
     {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -16,6 +22,10 @@ namespace PunchPress
 
         #region Windows Form Designer generated code
 
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
         private void InitializeComponent()
         {
             this.panelContainer = new System.Windows.Forms.Panel();
@@ -31,11 +41,10 @@ namespace PunchPress
             this.panelContainer.Controls.Add(this.lblStatus);
             this.panelContainer.Controls.Add(this.progressBar);
             this.panelContainer.Controls.Add(this.lblTitle);
-            this.panelContainer.Location = new System.Drawing.Point(15, 15);
+            this.panelContainer.Location = new System.Drawing.Point(12, 12);
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Size = new System.Drawing.Size(400, 200);
-            this.panelContainer.TabIndex = 0;
-            this.panelContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelContainer_Paint);
+            this.panelContainer.TabIndex = 1;
             // 
             // lblStatus
             // 
@@ -54,7 +63,6 @@ namespace PunchPress
             this.progressBar.Size = new System.Drawing.Size(340, 30);
             this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.progressBar.TabIndex = 1;
-            this.progressBar.Paint += new System.Windows.Forms.PaintEventHandler(this.ProgressBar_Paint);
             // 
             // lblTitle
             // 
@@ -68,18 +76,12 @@ namespace PunchPress
             // 
             // Frm_Loading
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.ClientSize = new System.Drawing.Size(430, 230);
+            this.ClientSize = new System.Drawing.Size(419, 202);
             this.Controls.Add(this.panelContainer);
-            this.DoubleBuffered = true;
-            this.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.8F);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_Loading";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "系统加载中";
-            this.Load += new System.EventHandler(this.Frm_Loading_Load);
+            this.Text = "Frm_Loading";
             this.panelContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -88,8 +90,8 @@ namespace PunchPress
         #endregion
 
         private System.Windows.Forms.Panel panelContainer;
-        private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.Label lblTitle;
     }
 }

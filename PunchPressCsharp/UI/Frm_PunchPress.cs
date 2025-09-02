@@ -102,6 +102,20 @@ namespace PunchPressCsharp.UI
             //vmRenderControl1.ModuleSource = CalibTransform;
             vmProcess1.OnWorkEndStatusCallBack += VMProcedure1OnWorkEndStatusCallBack;
             vmProcess1.Run();
+
+            GlobalCameraModuleTool _cameraModule = (GlobalCameraModuleTool)VmSolution.Instance["全局相机1"];
+            CameraInfoList cameraInfoList = _cameraModule.ModuParams.GetCameraInfoList();
+
+            if (cameraInfoList.nNum==0)
+            {
+                lb_cameraStatus.Text = @"连接失败";
+                lb_cameraStatus.ForeColor = Color.Red;
+            }
+            else
+            {
+                lb_cameraStatus.Text = @"连接成功";
+                lb_cameraStatus.ForeColor = Color.Green;
+            }
         }
 
         private void DesVMSol()
