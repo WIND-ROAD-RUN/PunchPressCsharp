@@ -29,6 +29,11 @@ namespace PunchPressCsharp.UI
 
         private void btn_close_Click(object sender, EventArgs e)
         {
+
+            var cameraParam = GlobalData.Instance.cameraModuleTool.ModuParams;
+            cameraParam.ExposureTime = GlobalData.Instance.cameraSetCfg.exposureTime;
+            cameraParam.Gain = GlobalData.Instance.cameraSetCfg.gain;
+
             this.Close();
         }
 
