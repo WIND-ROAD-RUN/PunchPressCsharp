@@ -674,6 +674,7 @@
     <Compile Include="UI\Frm_set.Designer.cs">
       <DependentUpon>Frm_set.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utility\Utility.cs" />
     <Compile Include="Utility\UtilityValue.cs" />
     <EmbeddedResource Include="UI\Frm_Loading.resx">
       <DependentUpon>Frm_Loading.cs</DependentUpon>

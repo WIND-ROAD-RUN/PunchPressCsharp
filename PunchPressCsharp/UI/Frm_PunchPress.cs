@@ -6,10 +6,13 @@ using PunchPressCsharp.Func;
 using PunchPressCsharp.HardwareCom;
 using PunchPressCsharp.Utility;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 using VM.Core;
+using VM.PlatformSDKCS;
 
 namespace PunchPressCsharp.UI
 {
@@ -112,6 +115,7 @@ namespace PunchPressCsharp.UI
             vmRenderControl1.ModuleSource = fastFeatureMatch;
 
             vmProcess1.OnWorkEndStatusCallBack += VMProcedure1OnWorkEndStatusCallBack;
+            VmSolution.OnCameraConnectStatusCallBackEvent += Handle_CameraConnectStatus;
 
             GlobalCameraModuleTool cameraModule = (GlobalCameraModuleTool)VmSolution.Instance["全局相机1"];
             GlobalData.Instance.cameraModuleTool=cameraModule;
@@ -123,6 +127,7 @@ namespace PunchPressCsharp.UI
             {
                 lb_cameraStatus.Text = @"连接失败";
                 lb_cameraStatus.ForeColor = Color.Red;
+                GlobalData.Instance.cameraIsConnect = false;
             }
             else
             {
@@ -130,6 +135,7 @@ namespace PunchPressCsharp.UI
                 {
                     lb_cameraStatus.Text = @"连接失败";
                     lb_cameraStatus.ForeColor = Color.Red;
+                    GlobalData.Instance.cameraIsConnect = false;
                 }
                 else
                 {
@@ -139,6 +145,7 @@ namespace PunchPressCsharp.UI
                     var cameraParam = cameraModule.ModuParams;
                     cameraParam.ExposureTime = GlobalData.Instance.configs.frmSetCfg.exposureTime;
                     cameraParam.Gain = GlobalData.Instance.configs.frmSetCfg.gain;
+                    GlobalData.Instance.cameraIsConnect = true;
                 }
             }
             vmProcess1.Run();
@@ -264,6 +271,24 @@ namespace PunchPressCsharp.UI
 
         }
 
+        private void Handle_CameraConnectStatus(ImvsSdkDefine.IMVS_CAMERA_CONNECT_STATUS_INFO statusInfo)
+        {
+            // statusInfo.nCameraID: 相机ID
+            // statusInfo.nConnectStatus: 连接状态 (1=连接, 0=断开)
+
+            if (statusInfo.nConnectStatus == 0) 
+            {
+                UpdateCameraStatus(ConnectStatus.Reconnecting);
+                GlobalData.Instance.cameraIsConnect = false;
+            }
+            else
+            {
+                UpdateCameraStatus(ConnectStatus.Connected);
+                GlobalData.Instance.cameraIsConnect = true;
+            }
+        }
+
+
         #endregion
 
 
@@ -283,6 +308,29 @@ namespace PunchPressCsharp.UI
 
         }
 
+        private void UpdateCameraStatus(ConnectStatus status)
+        {
+            if (lb_cameraStatus.InvokeRequired)
+            {
+                lb_cameraStatus.Invoke(new Action<ConnectStatus>(UpdateCameraStatus), status);
+                return;
+            }
+            if (status== ConnectStatus.Connected)
+            {
+                lb_cameraStatus.Text = @"连接成功";
+                lb_cameraStatus.ForeColor = Color.Green;
+            }
+            else if (status == ConnectStatus.Disconnected)
+            {
+                lb_cameraStatus.Text = @"连接失败";
+                lb_cameraStatus.ForeColor = Color.Red;
+            }
+            else if (status == ConnectStatus.Reconnecting)
+            {
+                lb_cameraStatus.Text = @"正在重连";
+                lb_cameraStatus.ForeColor = Color.Orange;
+            }
+        }
 
         #endregion
 
@@ -353,6 +401,12 @@ namespace PunchPressCsharp.UI
 
         private void btn_set_Click(object sender, EventArgs e)
         {
+            if (!GlobalData.Instance.cameraIsConnect)
+            {
+                MessageBox.Show(@"相机未连接，请等待重连。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             Frm_set frmSet = new Frm_set();
             frmSet.ShowDialog();
 

@@ -28,7 +28,9 @@ namespace PunchPressCsharp.Data
         public VmProcedure vmMainProcedure;
         public GlobalCameraModuleTool cameraModuleTool;
         public Config.Configs configs = new Config.Configs();
-
+        public volatile bool cameraIsConnect=false;
         #endregion 成员
+
+
     }
 }
