@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using ImageSourceModuleCs;
 using IMVSFastFeatureMatchModuCs;
+using PunchPressCsharp.Func;
 using VM.Core;
 
 namespace PunchPressCsharp.UI

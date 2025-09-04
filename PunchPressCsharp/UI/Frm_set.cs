@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PunchPressCsharp.Func;
 using PunchPressCsharp.Utility;
 
 namespace PunchPressCsharp.UI
@@ -17,6 +18,15 @@ namespace PunchPressCsharp.UI
         public Frm_set()
         {
             InitializeComponent();
+
+#if DEBUG
+
+#else
+            FormSizeChange formalizable = new FormSizeChange();
+            formalizable.MakeControlsResponsive(this);
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
+#endif
         }
 
         private void Frm_set_Load(object sender, EventArgs e)
