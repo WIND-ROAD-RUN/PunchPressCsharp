@@ -48,6 +48,7 @@ namespace PunchPressCsharp.UI
         {
             IniModbus();
             IniVMSol();
+            GlobalData.Instance.configs.LoadConfigs();
         }
 
         private void DesExtraComponent()
@@ -77,7 +78,7 @@ namespace PunchPressCsharp.UI
 
         private void IniVMSol()
         {
-            string solPath = GlobalPath.vmSolPath;
+            string solPath = GlobalPath.VMSolPath;
             if (!System.IO.File.Exists(solPath))
             {
                 MessageBox.Show("流程文件不存在，请检查路径是否正确。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -136,8 +137,8 @@ namespace PunchPressCsharp.UI
                     lb_cameraStatus.ForeColor = Color.Green;
 
                     var cameraParam = cameraModule.ModuParams;
-                    cameraParam.ExposureTime = GlobalData.Instance.cameraSetCfg.exposureTime;
-                    cameraParam.Gain = GlobalData.Instance.cameraSetCfg.gain;
+                    cameraParam.ExposureTime = GlobalData.Instance.configs.frmSetCfg.exposureTime;
+                    cameraParam.Gain = GlobalData.Instance.configs.frmSetCfg.gain;
                 }
             }
             vmProcess1.Run();
@@ -320,6 +321,8 @@ namespace PunchPressCsharp.UI
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            GlobalData.Instance.configs.SaveConfigs();
+
             this.Close();
         }
 
