@@ -102,6 +102,7 @@
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Size = new System.Drawing.Size(1267, 669);
             this.panelContainer.TabIndex = 12;
+            this.panelContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContainer_Paint);
             // 
             // uiLabel4
             // 
@@ -162,6 +163,7 @@
             this.btn_gainIncrease.TabIndex = 1;
             this.btn_gainIncrease.Text = "+";
             this.btn_gainIncrease.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_gainIncrease.Click += new System.EventHandler(this.btn_gainIncrease_Click);
             // 
             // btn_gainReduce
             // 
@@ -174,6 +176,7 @@
             this.btn_gainReduce.TabIndex = 0;
             this.btn_gainReduce.Text = "-";
             this.btn_gainReduce.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_gainReduce.Click += new System.EventHandler(this.btn_gainReduce_Click);
             // 
             // btn_exposureIncrease
             // 

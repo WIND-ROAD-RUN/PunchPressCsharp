@@ -10,11 +10,10 @@ using VM.Core;
 
 namespace PunchPressCsharp.Data
 {
-
     internal class CameraSetCfg
     {
         public int exposureTime=50000;
-        public int gain = 10;
+        public int gain = 5;
     }
 
     internal class GlobalData
