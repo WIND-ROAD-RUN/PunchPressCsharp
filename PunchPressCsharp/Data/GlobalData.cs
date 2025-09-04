@@ -6,46 +6,6 @@ using VM.Core;
 
 namespace PunchPressCsharp.Data
 {
-    internal class FrmSetCfg
-    {
-        public int exposureTime = 50000;
-        public int gain = 5;
-
-        public void SaveToFile(string filePath)
-        {
-            var json = JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-            File.WriteAllText(filePath, json);
-        }
-
-        public static FrmSetCfg LoadFromFile(string filePath)
-        {
-            var json = File.ReadAllText(filePath);
-            return JsonConvert.DeserializeObject<FrmSetCfg>(json);
-        }
-    }
-
-    internal class Configs
-    {
-        public FrmSetCfg frmSetCfg = new FrmSetCfg();
-
-        public void SaveConfigs()
-        {
-            frmSetCfg.SaveToFile(GlobalPath.FrmSetCfgPath);
-        }
-
-        public void LoadConfigs()
-        {
-            if (File.Exists(GlobalPath.FrmSetCfgPath))
-            {
-                frmSetCfg = FrmSetCfg.LoadFromFile(GlobalPath.FrmSetCfgPath);
-            }
-            else
-            {
-                frmSetCfg.SaveToFile(GlobalPath.FrmSetCfgPath);
-            }
-        }
-    }
-
     internal class GlobalData
     {
         // 私有静态只读实例
@@ -67,7 +27,7 @@ namespace PunchPressCsharp.Data
         public ModbusTool modbusTool;
         public VmProcedure vmMainProcedure;
         public GlobalCameraModuleTool cameraModuleTool;
-        public Configs configs = new Configs();
+        public Config.Configs configs = new Config.Configs();
 
         #endregion 成员
     }

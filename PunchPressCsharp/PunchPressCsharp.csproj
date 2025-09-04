@@ -637,6 +637,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Config.cs" />
     <Compile Include="Data\GlobalData.cs" />
     <Compile Include="Data\GlobalPath.cs" />
     <Compile Include="Func\FormSizeChange.cs" />
