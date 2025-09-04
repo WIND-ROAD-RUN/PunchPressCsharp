@@ -2,12 +2,13 @@
 using IMVSCalibTransformModuCs;
 using IMVSFastFeatureMatchModuCs;
 using PunchPressCsharp.Data;
+using PunchPressCsharp.Func;
 using PunchPressCsharp.HardwareCom;
 using PunchPressCsharp.Utility;
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
-using PunchPressCsharp.Func;
 using VM.Core;
 
 namespace PunchPressCsharp.UI
@@ -104,31 +105,38 @@ namespace PunchPressCsharp.UI
             }
 
             VmProcedure vmProcess1 = (VmProcedure)VmSolution.Instance["流程1"];
-            IMVSCalibTransformModuTool CalibTransform = (IMVSCalibTransformModuTool)VmSolution.Instance["流程1.标定转换1"];
-            //设置图像
+            GlobalData.Instance.vmMainProcedure = vmProcess1;
+
             IMVSFastFeatureMatchModuTool fastFeatureMatch = (IMVSFastFeatureMatchModuTool)VmSolution.Instance["流程1.快速匹配1"];
             vmRenderControl1.ModuleSource = fastFeatureMatch;
 
-            //vmRenderControl1.ModuleSource = CalibTransform;
             vmProcess1.OnWorkEndStatusCallBack += VMProcedure1OnWorkEndStatusCallBack;
-            vmProcess1.Run();
 
-            GlobalCameraModuleTool _cameraModule = (GlobalCameraModuleTool)VmSolution.Instance["全局相机1"];
-            CameraInfoList cameraInfoList = _cameraModule.ModuParams.GetCameraInfoList();
+            GlobalCameraModuleTool cameraModule = (GlobalCameraModuleTool)VmSolution.Instance["全局相机1"];
+            GlobalData.Instance.cameraModuleTool=cameraModule;
+            CameraInfoList cameraInfoList = cameraModule.ModuParams.GetCameraInfoList();
 
-            if (cameraInfoList.nNum==0)
+            var hasCamera=cameraInfoList.nNum > 0;
+
+            if (!hasCamera)
             {
                 lb_cameraStatus.Text = @"连接失败";
                 lb_cameraStatus.ForeColor = Color.Red;
             }
             else
             {
-                lb_cameraStatus.Text = @"连接成功";
-                lb_cameraStatus.ForeColor = Color.Green;
+                if (!cameraModule.bIsCameraConnect())
+                {
+                    lb_cameraStatus.Text = @"连接失败";
+                    lb_cameraStatus.ForeColor = Color.Red;
+                }
+                else
+                {
+                    lb_cameraStatus.Text = @"连接成功";
+                    lb_cameraStatus.ForeColor = Color.Green;
+                }
             }
-
-            var cameraParam = _cameraModule.ModuParams;
-            cameraParam.ExposureTime = 50;
+            vmProcess1.Run();
         }
 
         private void DesVMSol()
@@ -338,14 +346,14 @@ namespace PunchPressCsharp.UI
 
         private void btn_set_Click(object sender, EventArgs e)
         {
-            GlobalCameraModuleTool _cameraModule = (GlobalCameraModuleTool)VmSolution.Instance["全局相机1"];
-            CameraInfoList cameraInfoList = _cameraModule.ModuParams.GetCameraInfoList();
-            var cameraParam = _cameraModule.ModuParams;
-            var exposureTime = cameraParam.ExposureTime ;
-            cameraParam.ExposureTime+=10;
-            _cameraModule.ModuParams= cameraParam;
-            //Frm_set frmSet = new Frm_set();
-            //frmSet.ShowDialog();
+            Frm_set frmSet = new Frm_set();
+            frmSet.ShowDialog();
+
+            var cameraModule= GlobalData.Instance.cameraModuleTool;
+            CameraInfoList cameraInfoList = cameraModule.ModuParams.GetCameraInfoList();
+            var cameraParam = cameraModule.ModuParams;
+            cameraParam.ExposureTime = 800000;
+            GlobalData.Instance.vmMainProcedure.Run();
         }
     }
 }

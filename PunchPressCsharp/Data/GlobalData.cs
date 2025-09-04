@@ -1,11 +1,12 @@
-﻿using System;
+﻿using GlobalCameraModuleCs;
+using PunchPressCsharp.HardwareCom;
+using PunchPressCsharp.Utility;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-using PunchPressCsharp.HardwareCom;
-using PunchPressCsharp.Utility;
+using VM.Core;
 
 namespace PunchPressCsharp.Data
 {
@@ -28,6 +29,8 @@ namespace PunchPressCsharp.Data
 
         #region 成员
         public ModbusTool modbusTool;
+        public VmProcedure vmMainProcedure;
+        public GlobalCameraModuleTool cameraModuleTool;
         #endregion
 
     }
