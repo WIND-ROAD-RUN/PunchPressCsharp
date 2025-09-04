@@ -41,7 +41,6 @@ namespace PunchPressCsharp.UI
 
         private void FrmPunchPress_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DesExtraComponent();
         }
 
         #endregion
@@ -153,8 +152,8 @@ namespace PunchPressCsharp.UI
 
         private void DesVMSol()
         {
-            VmSolution.Instance.CloseSolution();
-            VmSolution.Instance?.Dispose();
+            //VmSolution.Instance.CloseSolution();
+            VmSolution.Instance.Dispose();
 
         }
 
@@ -370,7 +369,7 @@ namespace PunchPressCsharp.UI
         private void btnClose_Click(object sender, EventArgs e)
         {
             GlobalData.Instance.configs.SaveConfigs();
-
+            DesExtraComponent();
             this.Close();
         }
 
