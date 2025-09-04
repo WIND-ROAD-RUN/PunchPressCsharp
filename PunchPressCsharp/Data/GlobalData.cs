@@ -10,6 +10,13 @@ using VM.Core;
 
 namespace PunchPressCsharp.Data
 {
+
+    internal class CameraSetCfg
+    {
+        public int exposureTime=50000;
+        public int gain = 10;
+    }
+
     internal class GlobalData
     {
         // 私有静态只读实例
@@ -31,6 +38,7 @@ namespace PunchPressCsharp.Data
         public ModbusTool modbusTool;
         public VmProcedure vmMainProcedure;
         public GlobalCameraModuleTool cameraModuleTool;
+        public CameraSetCfg cameraSetCfg = new CameraSetCfg();
         #endregion
 
     }

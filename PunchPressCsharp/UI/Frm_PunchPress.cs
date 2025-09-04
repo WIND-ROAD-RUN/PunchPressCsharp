@@ -134,6 +134,10 @@ namespace PunchPressCsharp.UI
                 {
                     lb_cameraStatus.Text = @"连接成功";
                     lb_cameraStatus.ForeColor = Color.Green;
+
+                    var cameraParam = cameraModule.ModuParams;
+                    cameraParam.ExposureTime = GlobalData.Instance.cameraSetCfg.exposureTime;
+                    cameraParam.Gain = GlobalData.Instance.cameraSetCfg.gain;
                 }
             }
             vmProcess1.Run();
