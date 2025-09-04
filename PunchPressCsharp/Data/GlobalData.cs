@@ -1,21 +1,14 @@
 ﻿using GlobalCameraModuleCs;
-using PunchPressCsharp.HardwareCom;
-using PunchPressCsharp.Utility;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
+using PunchPressCsharp.HardwareCom;
+using System.IO;
 using VM.Core;
-using Formatting = System.Xml.Formatting;
 
 namespace PunchPressCsharp.Data
 {
     internal class FrmSetCfg
     {
-        public int exposureTime=50000;
+        public int exposureTime = 50000;
         public int gain = 5;
 
         public void SaveToFile(string filePath)
@@ -23,7 +16,6 @@ namespace PunchPressCsharp.Data
             var json = JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
             File.WriteAllText(filePath, json);
         }
-
 
         public static FrmSetCfg LoadFromFile(string filePath)
         {
@@ -40,6 +32,7 @@ namespace PunchPressCsharp.Data
         {
             frmSetCfg.SaveToFile(GlobalPath.FrmSetCfgPath);
         }
+
         public void LoadConfigs()
         {
             if (File.Exists(GlobalPath.FrmSetCfgPath))
@@ -69,13 +62,13 @@ namespace PunchPressCsharp.Data
             get { return _Instance; }
         }
 
-
         #region 成员
+
         public ModbusTool modbusTool;
         public VmProcedure vmMainProcedure;
         public GlobalCameraModuleTool cameraModuleTool;
         public Configs configs = new Configs();
-        #endregion
 
+        #endregion 成员
     }
 }
