@@ -365,7 +365,11 @@ namespace PunchPressCsharp.UI
 
         private void btn_runOnce_Click(object sender, EventArgs e)
         {
-            GlobalData.Instance.vmMainProcedure.Run();
+            var procedure = GlobalData.Instance.vmMainProcedure;
+            if (!procedure.IsRunning)
+            {
+                procedure.Run();
+            }
         }
     }
 }
