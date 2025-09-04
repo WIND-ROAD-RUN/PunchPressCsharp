@@ -359,5 +359,10 @@ namespace PunchPressCsharp.UI
             cameraParam.ExposureTime = 800000;
             GlobalData.Instance.vmMainProcedure.Run();
         }
+
+        private void btn_runOnce_Click(object sender, EventArgs e)
+        {
+            GlobalData.Instance.vmMainProcedure.Run();
+        }
     }
 }

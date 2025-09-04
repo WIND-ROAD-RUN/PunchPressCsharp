@@ -38,6 +38,7 @@
             this.uiCheckBoxGroup1 = new Sunny.UI.UICheckBoxGroup();
             this.uiRichTextBox1 = new Sunny.UI.UIRichTextBox();
             this.uiCheckBoxGroup3 = new Sunny.UI.UICheckBoxGroup();
+            this.btn_set = new Sunny.UI.UIButton();
             this.btn_templateLearn = new Sunny.UI.UIButton();
             this.btn_brightnessChange = new Sunny.UI.UIButton();
             this.uiCheckBoxGroup2 = new Sunny.UI.UICheckBoxGroup();
@@ -50,7 +51,7 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnClose = new Sunny.UI.UIButton();
             this.titleBar = new System.Windows.Forms.Panel();
-            this.btn_set = new Sunny.UI.UIButton();
+            this.btn_runOnce = new Sunny.UI.UIButton();
             this.panelContainer.SuspendLayout();
             this.uiCheckBoxGroup1.SuspendLayout();
             this.uiCheckBoxGroup3.SuspendLayout();
@@ -173,6 +174,20 @@
             this.uiCheckBoxGroup3.Text = "基本操作";
             this.uiCheckBoxGroup3.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btn_set
+            // 
+            this.btn_set.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_set.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.btn_set.Location = new System.Drawing.Point(374, 47);
+            this.btn_set.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btn_set.Name = "btn_set";
+            this.btn_set.Size = new System.Drawing.Size(115, 32);
+            this.btn_set.Style = Sunny.UI.UIStyle.Custom;
+            this.btn_set.TabIndex = 3;
+            this.btn_set.Text = "设置";
+            this.btn_set.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_set.Click += new System.EventHandler(this.btn_set_Click);
+            // 
             // btn_templateLearn
             // 
             this.btn_templateLearn.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -204,6 +219,7 @@
             // uiCheckBoxGroup2
             // 
             this.uiCheckBoxGroup2.BackColor = System.Drawing.Color.Transparent;
+            this.uiCheckBoxGroup2.Controls.Add(this.btn_runOnce);
             this.uiCheckBoxGroup2.Controls.Add(this.btn_disCentral);
             this.uiCheckBoxGroup2.Controls.Add(this.btn_disTemplate);
             this.uiCheckBoxGroup2.Controls.Add(this.lb_plcStatus);
@@ -339,19 +355,19 @@
             this.titleBar.Size = new System.Drawing.Size(1114, 40);
             this.titleBar.TabIndex = 10;
             // 
-            // btn_set
+            // btn_runOnce
             // 
-            this.btn_set.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_set.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.btn_set.Location = new System.Drawing.Point(374, 47);
-            this.btn_set.MinimumSize = new System.Drawing.Size(1, 1);
-            this.btn_set.Name = "btn_set";
-            this.btn_set.Size = new System.Drawing.Size(115, 32);
-            this.btn_set.Style = Sunny.UI.UIStyle.Custom;
-            this.btn_set.TabIndex = 3;
-            this.btn_set.Text = "设置";
-            this.btn_set.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_set.Click += new System.EventHandler(this.btn_set_Click);
+            this.btn_runOnce.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_runOnce.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.btn_runOnce.Location = new System.Drawing.Point(207, 72);
+            this.btn_runOnce.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btn_runOnce.Name = "btn_runOnce";
+            this.btn_runOnce.Size = new System.Drawing.Size(115, 32);
+            this.btn_runOnce.Style = Sunny.UI.UIStyle.Custom;
+            this.btn_runOnce.TabIndex = 4;
+            this.btn_runOnce.Text = "执行一次";
+            this.btn_runOnce.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_runOnce.Click += new System.EventHandler(this.btn_runOnce_Click);
             // 
             // Frm_PunchPress
             // 
@@ -399,6 +415,7 @@
         private Sunny.UI.UIButton btnClose;
         private System.Windows.Forms.Panel titleBar;
         private Sunny.UI.UIButton btn_set;
+        private Sunny.UI.UIButton btn_runOnce;
     }
 }
 
