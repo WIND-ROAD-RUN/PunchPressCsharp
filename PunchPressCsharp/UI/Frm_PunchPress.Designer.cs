@@ -32,15 +32,31 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_PunchPress));
             this.tim_getState = new System.Windows.Forms.Timer(this.components);
             this.panelContainer = new System.Windows.Forms.Panel();
+            this.uiCheckBoxGroup7 = new Sunny.UI.UICheckBoxGroup();
+            this.lb_gainValue = new Sunny.UI.UILabel();
+            this.lb_exposureValue = new Sunny.UI.UILabel();
+            this.btn_gainIncrease = new Sunny.UI.UIButton();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btn_gainReduce = new Sunny.UI.UIButton();
+            this.btn_exposureIncrease = new Sunny.UI.UIButton();
+            this.btn_exposureReduce = new Sunny.UI.UIButton();
+            this.uiCheckBoxGroup6 = new Sunny.UI.UICheckBoxGroup();
+            this.cBox_downLight = new Sunny.UI.UICheckBox();
+            this.cBox_upLight = new Sunny.UI.UICheckBox();
+            this.uiCheckBoxGroup5 = new Sunny.UI.UICheckBoxGroup();
+            this.cBox_workMode = new Sunny.UI.UICheckBox();
+            this.cBox_debugMode = new Sunny.UI.UICheckBox();
+            this.uiCheckBoxGroup4 = new Sunny.UI.UICheckBoxGroup();
             this.btn_runOnce = new Sunny.UI.UIButton();
+            this.btn_disTemplate = new Sunny.UI.UIButton();
+            this.btn_disCentral = new Sunny.UI.UIButton();
             this.vmRenderControl1 = new VMControls.Winform.Release.VmRenderControl();
-            this.label5 = new System.Windows.Forms.Label();
             this.uiCheckBoxGroup1 = new Sunny.UI.UICheckBoxGroup();
             this.uiRichTextBox1 = new Sunny.UI.UIRichTextBox();
             this.uiCheckBoxGroup3 = new Sunny.UI.UICheckBoxGroup();
-            this.btn_disTemplate = new Sunny.UI.UIButton();
+            this.pbtn_templateLoad = new Sunny.UI.UIButton();
             this.btn_set = new Sunny.UI.UIButton();
-            this.btn_disCentral = new Sunny.UI.UIButton();
             this.btn_templateLearn = new Sunny.UI.UIButton();
             this.uiCheckBoxGroup2 = new Sunny.UI.UICheckBoxGroup();
             this.lb_plcStatus = new System.Windows.Forms.Label();
@@ -48,35 +64,19 @@
             this.lb_cameraStatus = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.uiLabel1 = new Sunny.UI.UILabel();
+            this.label5 = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnClose = new Sunny.UI.UIButton();
             this.titleBar = new System.Windows.Forms.Panel();
-            this.pbtn_templateLoad = new Sunny.UI.UIButton();
-            this.uiCheckBoxGroup4 = new Sunny.UI.UICheckBoxGroup();
-            this.cBox_workMode = new Sunny.UI.UICheckBox();
-            this.cBox_debugMode = new Sunny.UI.UICheckBox();
-            this.uiCheckBoxGroup5 = new Sunny.UI.UICheckBoxGroup();
-            this.uiCheckBoxGroup6 = new Sunny.UI.UICheckBoxGroup();
-            this.cBox_upLight = new Sunny.UI.UICheckBox();
-            this.cBox_downLight = new Sunny.UI.UICheckBox();
-            this.uiCheckBoxGroup7 = new Sunny.UI.UICheckBoxGroup();
-            this.lb_gainValue = new Sunny.UI.UILabel();
-            this.lb_exposureValue = new Sunny.UI.UILabel();
-            this.btn_gainIncrease = new Sunny.UI.UIButton();
-            this.btn_gainReduce = new Sunny.UI.UIButton();
-            this.btn_exposureIncrease = new Sunny.UI.UIButton();
-            this.btn_exposureReduce = new Sunny.UI.UIButton();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.panelContainer.SuspendLayout();
+            this.uiCheckBoxGroup7.SuspendLayout();
+            this.uiCheckBoxGroup6.SuspendLayout();
+            this.uiCheckBoxGroup5.SuspendLayout();
+            this.uiCheckBoxGroup4.SuspendLayout();
             this.uiCheckBoxGroup1.SuspendLayout();
             this.uiCheckBoxGroup3.SuspendLayout();
             this.uiCheckBoxGroup2.SuspendLayout();
             this.titleBar.SuspendLayout();
-            this.uiCheckBoxGroup4.SuspendLayout();
-            this.uiCheckBoxGroup5.SuspendLayout();
-            this.uiCheckBoxGroup6.SuspendLayout();
-            this.uiCheckBoxGroup7.SuspendLayout();
             this.SuspendLayout();
             // 
             // tim_getState
@@ -101,6 +101,241 @@
             this.panelContainer.Size = new System.Drawing.Size(1180, 780);
             this.panelContainer.TabIndex = 11;
             // 
+            // uiCheckBoxGroup7
+            // 
+            this.uiCheckBoxGroup7.BackColor = System.Drawing.Color.Transparent;
+            this.uiCheckBoxGroup7.Controls.Add(this.lb_gainValue);
+            this.uiCheckBoxGroup7.Controls.Add(this.lb_exposureValue);
+            this.uiCheckBoxGroup7.Controls.Add(this.btn_gainIncrease);
+            this.uiCheckBoxGroup7.Controls.Add(this.label4);
+            this.uiCheckBoxGroup7.Controls.Add(this.label2);
+            this.uiCheckBoxGroup7.Controls.Add(this.btn_gainReduce);
+            this.uiCheckBoxGroup7.Controls.Add(this.btn_exposureIncrease);
+            this.uiCheckBoxGroup7.Controls.Add(this.btn_exposureReduce);
+            this.uiCheckBoxGroup7.FillColor = System.Drawing.Color.DimGray;
+            this.uiCheckBoxGroup7.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiCheckBoxGroup7.Location = new System.Drawing.Point(737, 308);
+            this.uiCheckBoxGroup7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiCheckBoxGroup7.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiCheckBoxGroup7.Name = "uiCheckBoxGroup7";
+            this.uiCheckBoxGroup7.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
+            this.uiCheckBoxGroup7.RadiusSides = Sunny.UI.UICornerRadiusSides.None;
+            this.uiCheckBoxGroup7.RectSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.None;
+            this.uiCheckBoxGroup7.SelectedIndexes = ((System.Collections.Generic.List<int>)(resources.GetObject("uiCheckBoxGroup7.SelectedIndexes")));
+            this.uiCheckBoxGroup7.Size = new System.Drawing.Size(410, 129);
+            this.uiCheckBoxGroup7.Style = Sunny.UI.UIStyle.Custom;
+            this.uiCheckBoxGroup7.TabIndex = 21;
+            this.uiCheckBoxGroup7.Text = null;
+            this.uiCheckBoxGroup7.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lb_gainValue
+            // 
+            this.lb_gainValue.Font = new System.Drawing.Font("Microsoft YaHei UI", 22F, System.Drawing.FontStyle.Bold);
+            this.lb_gainValue.ForeColor = System.Drawing.Color.White;
+            this.lb_gainValue.Location = new System.Drawing.Point(178, 70);
+            this.lb_gainValue.Name = "lb_gainValue";
+            this.lb_gainValue.Size = new System.Drawing.Size(104, 40);
+            this.lb_gainValue.Style = Sunny.UI.UIStyle.Custom;
+            this.lb_gainValue.TabIndex = 27;
+            this.lb_gainValue.Text = "10";
+            this.lb_gainValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lb_exposureValue
+            // 
+            this.lb_exposureValue.Font = new System.Drawing.Font("Microsoft YaHei UI", 22F, System.Drawing.FontStyle.Bold);
+            this.lb_exposureValue.ForeColor = System.Drawing.Color.White;
+            this.lb_exposureValue.Location = new System.Drawing.Point(178, 19);
+            this.lb_exposureValue.Name = "lb_exposureValue";
+            this.lb_exposureValue.Size = new System.Drawing.Size(119, 40);
+            this.lb_exposureValue.Style = Sunny.UI.UIStyle.Custom;
+            this.lb_exposureValue.TabIndex = 28;
+            this.lb_exposureValue.Text = "10000";
+            this.lb_exposureValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btn_gainIncrease
+            // 
+            this.btn_gainIncrease.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_gainIncrease.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_gainIncrease.Location = new System.Drawing.Point(303, 70);
+            this.btn_gainIncrease.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btn_gainIncrease.Name = "btn_gainIncrease";
+            this.btn_gainIncrease.Size = new System.Drawing.Size(68, 40);
+            this.btn_gainIncrease.TabIndex = 23;
+            this.btn_gainIncrease.Text = "+";
+            this.btn_gainIncrease.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(17, 70);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(82, 38);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "增益设置";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(17, 19);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(82, 38);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "曝光设置";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btn_gainReduce
+            // 
+            this.btn_gainReduce.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_gainReduce.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_gainReduce.Location = new System.Drawing.Point(104, 70);
+            this.btn_gainReduce.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btn_gainReduce.Name = "btn_gainReduce";
+            this.btn_gainReduce.Size = new System.Drawing.Size(68, 40);
+            this.btn_gainReduce.TabIndex = 21;
+            this.btn_gainReduce.Text = "-";
+            this.btn_gainReduce.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            // 
+            // btn_exposureIncrease
+            // 
+            this.btn_exposureIncrease.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_exposureIncrease.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_exposureIncrease.Location = new System.Drawing.Point(303, 19);
+            this.btn_exposureIncrease.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btn_exposureIncrease.Name = "btn_exposureIncrease";
+            this.btn_exposureIncrease.Size = new System.Drawing.Size(68, 40);
+            this.btn_exposureIncrease.TabIndex = 24;
+            this.btn_exposureIncrease.Text = "+";
+            this.btn_exposureIncrease.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            // 
+            // btn_exposureReduce
+            // 
+            this.btn_exposureReduce.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_exposureReduce.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_exposureReduce.Location = new System.Drawing.Point(104, 19);
+            this.btn_exposureReduce.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btn_exposureReduce.Name = "btn_exposureReduce";
+            this.btn_exposureReduce.Size = new System.Drawing.Size(68, 40);
+            this.btn_exposureReduce.TabIndex = 22;
+            this.btn_exposureReduce.Text = "-";
+            this.btn_exposureReduce.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            // 
+            // uiCheckBoxGroup6
+            // 
+            this.uiCheckBoxGroup6.BackColor = System.Drawing.Color.Transparent;
+            this.uiCheckBoxGroup6.Controls.Add(this.cBox_downLight);
+            this.uiCheckBoxGroup6.Controls.Add(this.cBox_upLight);
+            this.uiCheckBoxGroup6.FillColor = System.Drawing.Color.DimGray;
+            this.uiCheckBoxGroup6.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiCheckBoxGroup6.Location = new System.Drawing.Point(737, 236);
+            this.uiCheckBoxGroup6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiCheckBoxGroup6.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiCheckBoxGroup6.Name = "uiCheckBoxGroup6";
+            this.uiCheckBoxGroup6.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
+            this.uiCheckBoxGroup6.RadiusSides = Sunny.UI.UICornerRadiusSides.None;
+            this.uiCheckBoxGroup6.RectSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.None;
+            this.uiCheckBoxGroup6.SelectedIndexes = ((System.Collections.Generic.List<int>)(resources.GetObject("uiCheckBoxGroup6.SelectedIndexes")));
+            this.uiCheckBoxGroup6.Size = new System.Drawing.Size(410, 62);
+            this.uiCheckBoxGroup6.Style = Sunny.UI.UIStyle.Custom;
+            this.uiCheckBoxGroup6.TabIndex = 12;
+            this.uiCheckBoxGroup6.Text = null;
+            this.uiCheckBoxGroup6.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // cBox_downLight
+            // 
+            this.cBox_downLight.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cBox_downLight.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cBox_downLight.ForeColor = System.Drawing.Color.White;
+            this.cBox_downLight.Location = new System.Drawing.Point(214, 3);
+            this.cBox_downLight.MinimumSize = new System.Drawing.Size(1, 1);
+            this.cBox_downLight.Name = "cBox_downLight";
+            this.cBox_downLight.Size = new System.Drawing.Size(160, 59);
+            this.cBox_downLight.TabIndex = 14;
+            this.cBox_downLight.Text = "下光源";
+            this.cBox_downLight.CheckedChanged += new System.EventHandler(this.cBox_downLight_CheckedChanged);
+            // 
+            // cBox_upLight
+            // 
+            this.cBox_upLight.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cBox_upLight.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cBox_upLight.ForeColor = System.Drawing.Color.White;
+            this.cBox_upLight.Location = new System.Drawing.Point(21, 0);
+            this.cBox_upLight.MinimumSize = new System.Drawing.Size(1, 1);
+            this.cBox_upLight.Name = "cBox_upLight";
+            this.cBox_upLight.Size = new System.Drawing.Size(160, 59);
+            this.cBox_upLight.TabIndex = 13;
+            this.cBox_upLight.Text = "上光源";
+            // 
+            // uiCheckBoxGroup5
+            // 
+            this.uiCheckBoxGroup5.BackColor = System.Drawing.Color.Transparent;
+            this.uiCheckBoxGroup5.Controls.Add(this.cBox_workMode);
+            this.uiCheckBoxGroup5.Controls.Add(this.cBox_debugMode);
+            this.uiCheckBoxGroup5.FillColor = System.Drawing.Color.DimGray;
+            this.uiCheckBoxGroup5.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiCheckBoxGroup5.Location = new System.Drawing.Point(737, 155);
+            this.uiCheckBoxGroup5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiCheckBoxGroup5.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiCheckBoxGroup5.Name = "uiCheckBoxGroup5";
+            this.uiCheckBoxGroup5.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
+            this.uiCheckBoxGroup5.RadiusSides = Sunny.UI.UICornerRadiusSides.None;
+            this.uiCheckBoxGroup5.RectSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.None;
+            this.uiCheckBoxGroup5.SelectedIndexes = ((System.Collections.Generic.List<int>)(resources.GetObject("uiCheckBoxGroup5.SelectedIndexes")));
+            this.uiCheckBoxGroup5.Size = new System.Drawing.Size(410, 59);
+            this.uiCheckBoxGroup5.Style = Sunny.UI.UIStyle.Custom;
+            this.uiCheckBoxGroup5.TabIndex = 11;
+            this.uiCheckBoxGroup5.Text = null;
+            this.uiCheckBoxGroup5.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // cBox_workMode
+            // 
+            this.cBox_workMode.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cBox_workMode.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cBox_workMode.ForeColor = System.Drawing.Color.White;
+            this.cBox_workMode.Location = new System.Drawing.Point(21, 0);
+            this.cBox_workMode.MinimumSize = new System.Drawing.Size(1, 1);
+            this.cBox_workMode.Name = "cBox_workMode";
+            this.cBox_workMode.Size = new System.Drawing.Size(160, 59);
+            this.cBox_workMode.TabIndex = 10;
+            this.cBox_workMode.Text = "工作模式";
+            // 
+            // cBox_debugMode
+            // 
+            this.cBox_debugMode.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cBox_debugMode.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cBox_debugMode.ForeColor = System.Drawing.Color.White;
+            this.cBox_debugMode.Location = new System.Drawing.Point(214, 0);
+            this.cBox_debugMode.MinimumSize = new System.Drawing.Size(1, 1);
+            this.cBox_debugMode.Name = "cBox_debugMode";
+            this.cBox_debugMode.Size = new System.Drawing.Size(169, 59);
+            this.cBox_debugMode.TabIndex = 10;
+            this.cBox_debugMode.Text = "调试模式";
+            this.cBox_debugMode.CheckedChanged += new System.EventHandler(this.cBox_debugMode_CheckedChanged);
+            // 
+            // uiCheckBoxGroup4
+            // 
+            this.uiCheckBoxGroup4.BackColor = System.Drawing.Color.Transparent;
+            this.uiCheckBoxGroup4.Controls.Add(this.btn_runOnce);
+            this.uiCheckBoxGroup4.Controls.Add(this.btn_disTemplate);
+            this.uiCheckBoxGroup4.Controls.Add(this.btn_disCentral);
+            this.uiCheckBoxGroup4.FillColor = System.Drawing.Color.DimGray;
+            this.uiCheckBoxGroup4.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiCheckBoxGroup4.Location = new System.Drawing.Point(737, 516);
+            this.uiCheckBoxGroup4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiCheckBoxGroup4.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiCheckBoxGroup4.Name = "uiCheckBoxGroup4";
+            this.uiCheckBoxGroup4.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
+            this.uiCheckBoxGroup4.RadiusSides = Sunny.UI.UICornerRadiusSides.None;
+            this.uiCheckBoxGroup4.RectSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.None;
+            this.uiCheckBoxGroup4.SelectedIndexes = ((System.Collections.Generic.List<int>)(resources.GetObject("uiCheckBoxGroup4.SelectedIndexes")));
+            this.uiCheckBoxGroup4.Size = new System.Drawing.Size(410, 53);
+            this.uiCheckBoxGroup4.Style = Sunny.UI.UIStyle.Custom;
+            this.uiCheckBoxGroup4.TabIndex = 9;
+            this.uiCheckBoxGroup4.Text = null;
+            this.uiCheckBoxGroup4.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // btn_runOnce
             // 
             this.btn_runOnce.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -115,6 +350,34 @@
             this.btn_runOnce.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_runOnce.Click += new System.EventHandler(this.btn_runOnce_Click);
             // 
+            // btn_disTemplate
+            // 
+            this.btn_disTemplate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_disTemplate.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.btn_disTemplate.Location = new System.Drawing.Point(268, 11);
+            this.btn_disTemplate.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btn_disTemplate.Name = "btn_disTemplate";
+            this.btn_disTemplate.Size = new System.Drawing.Size(115, 32);
+            this.btn_disTemplate.Style = Sunny.UI.UIStyle.Custom;
+            this.btn_disTemplate.TabIndex = 1;
+            this.btn_disTemplate.Text = "显示模板";
+            this.btn_disTemplate.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_disTemplate.Click += new System.EventHandler(this.btn_disTemplate_Click);
+            // 
+            // btn_disCentral
+            // 
+            this.btn_disCentral.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_disCentral.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.btn_disCentral.Location = new System.Drawing.Point(137, 11);
+            this.btn_disCentral.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btn_disCentral.Name = "btn_disCentral";
+            this.btn_disCentral.Size = new System.Drawing.Size(115, 32);
+            this.btn_disCentral.Style = Sunny.UI.UIStyle.Custom;
+            this.btn_disCentral.TabIndex = 1;
+            this.btn_disCentral.Text = "显示中心";
+            this.btn_disCentral.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_disCentral.Click += new System.EventHandler(this.btn_disCentral_Click);
+            // 
             // vmRenderControl1
             // 
             this.vmRenderControl1.BackColor = System.Drawing.Color.Black;
@@ -126,18 +389,6 @@
             this.vmRenderControl1.Name = "vmRenderControl1";
             this.vmRenderControl1.Size = new System.Drawing.Size(666, 745);
             this.vmRenderControl1.TabIndex = 8;
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Silver;
-            this.label5.Location = new System.Drawing.Point(297, 15);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(71, 55);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "版本号V1.0";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // uiCheckBoxGroup1
             // 
@@ -199,19 +450,19 @@
             this.uiCheckBoxGroup3.Text = null;
             this.uiCheckBoxGroup3.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btn_disTemplate
+            // pbtn_templateLoad
             // 
-            this.btn_disTemplate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_disTemplate.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.btn_disTemplate.Location = new System.Drawing.Point(268, 11);
-            this.btn_disTemplate.MinimumSize = new System.Drawing.Size(1, 1);
-            this.btn_disTemplate.Name = "btn_disTemplate";
-            this.btn_disTemplate.Size = new System.Drawing.Size(115, 32);
-            this.btn_disTemplate.Style = Sunny.UI.UIStyle.Custom;
-            this.btn_disTemplate.TabIndex = 1;
-            this.btn_disTemplate.Text = "显示模板";
-            this.btn_disTemplate.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_disTemplate.Click += new System.EventHandler(this.btn_disTemplate_Click);
+            this.pbtn_templateLoad.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbtn_templateLoad.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.pbtn_templateLoad.Location = new System.Drawing.Point(137, 11);
+            this.pbtn_templateLoad.MinimumSize = new System.Drawing.Size(1, 1);
+            this.pbtn_templateLoad.Name = "pbtn_templateLoad";
+            this.pbtn_templateLoad.Size = new System.Drawing.Size(115, 32);
+            this.pbtn_templateLoad.Style = Sunny.UI.UIStyle.Custom;
+            this.pbtn_templateLoad.TabIndex = 3;
+            this.pbtn_templateLoad.Text = "模板加载";
+            this.pbtn_templateLoad.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.pbtn_templateLoad.Click += new System.EventHandler(this.btn_set_Click);
             // 
             // btn_set
             // 
@@ -226,20 +477,6 @@
             this.btn_set.Text = "设置";
             this.btn_set.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_set.Click += new System.EventHandler(this.btn_set_Click);
-            // 
-            // btn_disCentral
-            // 
-            this.btn_disCentral.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_disCentral.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.btn_disCentral.Location = new System.Drawing.Point(137, 11);
-            this.btn_disCentral.MinimumSize = new System.Drawing.Size(1, 1);
-            this.btn_disCentral.Name = "btn_disCentral";
-            this.btn_disCentral.Size = new System.Drawing.Size(115, 32);
-            this.btn_disCentral.Style = Sunny.UI.UIStyle.Custom;
-            this.btn_disCentral.TabIndex = 1;
-            this.btn_disCentral.Text = "显示中心";
-            this.btn_disCentral.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_disCentral.Click += new System.EventHandler(this.btn_disCentral_Click);
             // 
             // btn_templateLearn
             // 
@@ -337,6 +574,18 @@
             this.uiLabel1.Text = "冲床检测";
             this.uiLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Silver;
+            this.label5.Location = new System.Drawing.Point(297, 15);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(71, 55);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "版本号V1.0";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
@@ -378,255 +627,6 @@
             this.titleBar.Size = new System.Drawing.Size(1180, 40);
             this.titleBar.TabIndex = 10;
             // 
-            // pbtn_templateLoad
-            // 
-            this.pbtn_templateLoad.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbtn_templateLoad.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.pbtn_templateLoad.Location = new System.Drawing.Point(137, 11);
-            this.pbtn_templateLoad.MinimumSize = new System.Drawing.Size(1, 1);
-            this.pbtn_templateLoad.Name = "pbtn_templateLoad";
-            this.pbtn_templateLoad.Size = new System.Drawing.Size(115, 32);
-            this.pbtn_templateLoad.Style = Sunny.UI.UIStyle.Custom;
-            this.pbtn_templateLoad.TabIndex = 3;
-            this.pbtn_templateLoad.Text = "模板加载";
-            this.pbtn_templateLoad.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.pbtn_templateLoad.Click += new System.EventHandler(this.btn_set_Click);
-            // 
-            // uiCheckBoxGroup4
-            // 
-            this.uiCheckBoxGroup4.BackColor = System.Drawing.Color.Transparent;
-            this.uiCheckBoxGroup4.Controls.Add(this.btn_runOnce);
-            this.uiCheckBoxGroup4.Controls.Add(this.btn_disTemplate);
-            this.uiCheckBoxGroup4.Controls.Add(this.btn_disCentral);
-            this.uiCheckBoxGroup4.FillColor = System.Drawing.Color.DimGray;
-            this.uiCheckBoxGroup4.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiCheckBoxGroup4.Location = new System.Drawing.Point(737, 516);
-            this.uiCheckBoxGroup4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiCheckBoxGroup4.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiCheckBoxGroup4.Name = "uiCheckBoxGroup4";
-            this.uiCheckBoxGroup4.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
-            this.uiCheckBoxGroup4.RadiusSides = Sunny.UI.UICornerRadiusSides.None;
-            this.uiCheckBoxGroup4.RectSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.None;
-            this.uiCheckBoxGroup4.SelectedIndexes = ((System.Collections.Generic.List<int>)(resources.GetObject("uiCheckBoxGroup4.SelectedIndexes")));
-            this.uiCheckBoxGroup4.Size = new System.Drawing.Size(410, 53);
-            this.uiCheckBoxGroup4.Style = Sunny.UI.UIStyle.Custom;
-            this.uiCheckBoxGroup4.TabIndex = 9;
-            this.uiCheckBoxGroup4.Text = null;
-            this.uiCheckBoxGroup4.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // cBox_workMode
-            // 
-            this.cBox_workMode.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cBox_workMode.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.cBox_workMode.ForeColor = System.Drawing.Color.White;
-            this.cBox_workMode.Location = new System.Drawing.Point(21, 0);
-            this.cBox_workMode.MinimumSize = new System.Drawing.Size(1, 1);
-            this.cBox_workMode.Name = "cBox_workMode";
-            this.cBox_workMode.Size = new System.Drawing.Size(160, 59);
-            this.cBox_workMode.TabIndex = 10;
-            this.cBox_workMode.Text = "工作模式";
-            // 
-            // cBox_debugMode
-            // 
-            this.cBox_debugMode.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cBox_debugMode.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.cBox_debugMode.ForeColor = System.Drawing.Color.White;
-            this.cBox_debugMode.Location = new System.Drawing.Point(214, 0);
-            this.cBox_debugMode.MinimumSize = new System.Drawing.Size(1, 1);
-            this.cBox_debugMode.Name = "cBox_debugMode";
-            this.cBox_debugMode.Size = new System.Drawing.Size(169, 59);
-            this.cBox_debugMode.TabIndex = 10;
-            this.cBox_debugMode.Text = "调试模式";
-            this.cBox_debugMode.CheckedChanged += new System.EventHandler(this.cBox_debugMode_CheckedChanged);
-            // 
-            // uiCheckBoxGroup5
-            // 
-            this.uiCheckBoxGroup5.BackColor = System.Drawing.Color.Transparent;
-            this.uiCheckBoxGroup5.Controls.Add(this.cBox_workMode);
-            this.uiCheckBoxGroup5.Controls.Add(this.cBox_debugMode);
-            this.uiCheckBoxGroup5.FillColor = System.Drawing.Color.DimGray;
-            this.uiCheckBoxGroup5.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiCheckBoxGroup5.Location = new System.Drawing.Point(737, 155);
-            this.uiCheckBoxGroup5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiCheckBoxGroup5.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiCheckBoxGroup5.Name = "uiCheckBoxGroup5";
-            this.uiCheckBoxGroup5.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
-            this.uiCheckBoxGroup5.RadiusSides = Sunny.UI.UICornerRadiusSides.None;
-            this.uiCheckBoxGroup5.RectSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.None;
-            this.uiCheckBoxGroup5.SelectedIndexes = ((System.Collections.Generic.List<int>)(resources.GetObject("uiCheckBoxGroup5.SelectedIndexes")));
-            this.uiCheckBoxGroup5.Size = new System.Drawing.Size(410, 59);
-            this.uiCheckBoxGroup5.Style = Sunny.UI.UIStyle.Custom;
-            this.uiCheckBoxGroup5.TabIndex = 11;
-            this.uiCheckBoxGroup5.Text = null;
-            this.uiCheckBoxGroup5.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // uiCheckBoxGroup6
-            // 
-            this.uiCheckBoxGroup6.BackColor = System.Drawing.Color.Transparent;
-            this.uiCheckBoxGroup6.Controls.Add(this.cBox_downLight);
-            this.uiCheckBoxGroup6.Controls.Add(this.cBox_upLight);
-            this.uiCheckBoxGroup6.FillColor = System.Drawing.Color.DimGray;
-            this.uiCheckBoxGroup6.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiCheckBoxGroup6.Location = new System.Drawing.Point(737, 236);
-            this.uiCheckBoxGroup6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiCheckBoxGroup6.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiCheckBoxGroup6.Name = "uiCheckBoxGroup6";
-            this.uiCheckBoxGroup6.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
-            this.uiCheckBoxGroup6.RadiusSides = Sunny.UI.UICornerRadiusSides.None;
-            this.uiCheckBoxGroup6.RectSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.None;
-            this.uiCheckBoxGroup6.SelectedIndexes = ((System.Collections.Generic.List<int>)(resources.GetObject("uiCheckBoxGroup6.SelectedIndexes")));
-            this.uiCheckBoxGroup6.Size = new System.Drawing.Size(410, 62);
-            this.uiCheckBoxGroup6.Style = Sunny.UI.UIStyle.Custom;
-            this.uiCheckBoxGroup6.TabIndex = 12;
-            this.uiCheckBoxGroup6.Text = null;
-            this.uiCheckBoxGroup6.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // cBox_upLight
-            // 
-            this.cBox_upLight.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cBox_upLight.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.cBox_upLight.ForeColor = System.Drawing.Color.White;
-            this.cBox_upLight.Location = new System.Drawing.Point(21, 0);
-            this.cBox_upLight.MinimumSize = new System.Drawing.Size(1, 1);
-            this.cBox_upLight.Name = "cBox_upLight";
-            this.cBox_upLight.Size = new System.Drawing.Size(160, 59);
-            this.cBox_upLight.TabIndex = 13;
-            this.cBox_upLight.Text = "上光源";
-            // 
-            // cBox_downLight
-            // 
-            this.cBox_downLight.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cBox_downLight.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.cBox_downLight.ForeColor = System.Drawing.Color.White;
-            this.cBox_downLight.Location = new System.Drawing.Point(214, 3);
-            this.cBox_downLight.MinimumSize = new System.Drawing.Size(1, 1);
-            this.cBox_downLight.Name = "cBox_downLight";
-            this.cBox_downLight.Size = new System.Drawing.Size(160, 59);
-            this.cBox_downLight.TabIndex = 14;
-            this.cBox_downLight.Text = "下光源";
-            this.cBox_downLight.CheckedChanged += new System.EventHandler(this.cBox_downLight_CheckedChanged);
-            // 
-            // uiCheckBoxGroup7
-            // 
-            this.uiCheckBoxGroup7.BackColor = System.Drawing.Color.Transparent;
-            this.uiCheckBoxGroup7.Controls.Add(this.lb_gainValue);
-            this.uiCheckBoxGroup7.Controls.Add(this.lb_exposureValue);
-            this.uiCheckBoxGroup7.Controls.Add(this.btn_gainIncrease);
-            this.uiCheckBoxGroup7.Controls.Add(this.label4);
-            this.uiCheckBoxGroup7.Controls.Add(this.label2);
-            this.uiCheckBoxGroup7.Controls.Add(this.btn_gainReduce);
-            this.uiCheckBoxGroup7.Controls.Add(this.btn_exposureIncrease);
-            this.uiCheckBoxGroup7.Controls.Add(this.btn_exposureReduce);
-            this.uiCheckBoxGroup7.FillColor = System.Drawing.Color.DimGray;
-            this.uiCheckBoxGroup7.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiCheckBoxGroup7.Location = new System.Drawing.Point(737, 308);
-            this.uiCheckBoxGroup7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiCheckBoxGroup7.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiCheckBoxGroup7.Name = "uiCheckBoxGroup7";
-            this.uiCheckBoxGroup7.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
-            this.uiCheckBoxGroup7.RadiusSides = Sunny.UI.UICornerRadiusSides.None;
-            this.uiCheckBoxGroup7.RectSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.None;
-            this.uiCheckBoxGroup7.SelectedIndexes = ((System.Collections.Generic.List<int>)(resources.GetObject("uiCheckBoxGroup7.SelectedIndexes")));
-            this.uiCheckBoxGroup7.Size = new System.Drawing.Size(410, 129);
-            this.uiCheckBoxGroup7.Style = Sunny.UI.UIStyle.Custom;
-            this.uiCheckBoxGroup7.TabIndex = 21;
-            this.uiCheckBoxGroup7.Text = null;
-            this.uiCheckBoxGroup7.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lb_gainValue
-            // 
-            this.lb_gainValue.Font = new System.Drawing.Font("Microsoft YaHei UI", 22F, System.Drawing.FontStyle.Bold);
-            this.lb_gainValue.ForeColor = System.Drawing.Color.White;
-            this.lb_gainValue.Location = new System.Drawing.Point(178, 70);
-            this.lb_gainValue.Name = "lb_gainValue";
-            this.lb_gainValue.Size = new System.Drawing.Size(104, 40);
-            this.lb_gainValue.Style = Sunny.UI.UIStyle.Custom;
-            this.lb_gainValue.TabIndex = 27;
-            this.lb_gainValue.Text = "10";
-            this.lb_gainValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lb_exposureValue
-            // 
-            this.lb_exposureValue.Font = new System.Drawing.Font("Microsoft YaHei UI", 22F, System.Drawing.FontStyle.Bold);
-            this.lb_exposureValue.ForeColor = System.Drawing.Color.White;
-            this.lb_exposureValue.Location = new System.Drawing.Point(178, 19);
-            this.lb_exposureValue.Name = "lb_exposureValue";
-            this.lb_exposureValue.Size = new System.Drawing.Size(119, 40);
-            this.lb_exposureValue.Style = Sunny.UI.UIStyle.Custom;
-            this.lb_exposureValue.TabIndex = 28;
-            this.lb_exposureValue.Text = "10000";
-            this.lb_exposureValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btn_gainIncrease
-            // 
-            this.btn_gainIncrease.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_gainIncrease.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_gainIncrease.Location = new System.Drawing.Point(303, 70);
-            this.btn_gainIncrease.MinimumSize = new System.Drawing.Size(1, 1);
-            this.btn_gainIncrease.Name = "btn_gainIncrease";
-            this.btn_gainIncrease.Size = new System.Drawing.Size(104, 40);
-            this.btn_gainIncrease.TabIndex = 23;
-            this.btn_gainIncrease.Text = "+";
-            this.btn_gainIncrease.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            // 
-            // btn_gainReduce
-            // 
-            this.btn_gainReduce.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_gainReduce.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_gainReduce.Location = new System.Drawing.Point(104, 70);
-            this.btn_gainReduce.MinimumSize = new System.Drawing.Size(1, 1);
-            this.btn_gainReduce.Name = "btn_gainReduce";
-            this.btn_gainReduce.Size = new System.Drawing.Size(68, 40);
-            this.btn_gainReduce.TabIndex = 21;
-            this.btn_gainReduce.Text = "-";
-            this.btn_gainReduce.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            // 
-            // btn_exposureIncrease
-            // 
-            this.btn_exposureIncrease.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_exposureIncrease.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_exposureIncrease.Location = new System.Drawing.Point(303, 19);
-            this.btn_exposureIncrease.MinimumSize = new System.Drawing.Size(1, 1);
-            this.btn_exposureIncrease.Name = "btn_exposureIncrease";
-            this.btn_exposureIncrease.Size = new System.Drawing.Size(104, 40);
-            this.btn_exposureIncrease.TabIndex = 24;
-            this.btn_exposureIncrease.Text = "+";
-            this.btn_exposureIncrease.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            // 
-            // btn_exposureReduce
-            // 
-            this.btn_exposureReduce.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_exposureReduce.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_exposureReduce.Location = new System.Drawing.Point(104, 19);
-            this.btn_exposureReduce.MinimumSize = new System.Drawing.Size(1, 1);
-            this.btn_exposureReduce.Name = "btn_exposureReduce";
-            this.btn_exposureReduce.Size = new System.Drawing.Size(68, 40);
-            this.btn_exposureReduce.TabIndex = 22;
-            this.btn_exposureReduce.Text = "-";
-            this.btn_exposureReduce.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(17, 19);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 38);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "曝光设置";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(17, 70);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(82, 38);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "增益设置";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // Frm_PunchPress
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -642,15 +642,15 @@
             this.Load += new System.EventHandler(this.FrmPunchPress_Load);
             this.SizeChanged += new System.EventHandler(this.Frm_PunchPress_SizeChanged);
             this.panelContainer.ResumeLayout(false);
+            this.uiCheckBoxGroup7.ResumeLayout(false);
+            this.uiCheckBoxGroup6.ResumeLayout(false);
+            this.uiCheckBoxGroup5.ResumeLayout(false);
+            this.uiCheckBoxGroup4.ResumeLayout(false);
             this.uiCheckBoxGroup1.ResumeLayout(false);
             this.uiCheckBoxGroup3.ResumeLayout(false);
             this.uiCheckBoxGroup2.ResumeLayout(false);
             this.titleBar.ResumeLayout(false);
             this.titleBar.PerformLayout();
-            this.uiCheckBoxGroup4.ResumeLayout(false);
-            this.uiCheckBoxGroup5.ResumeLayout(false);
-            this.uiCheckBoxGroup6.ResumeLayout(false);
-            this.uiCheckBoxGroup7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

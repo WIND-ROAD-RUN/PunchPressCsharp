@@ -50,7 +50,19 @@ namespace PunchPressCsharp.UI
         {
             IniModbus();
             IniVMSol();
+            LoadConfig();
+        }
+
+        private void LoadConfig()
+        {
             GlobalData.Instance.configs.LoadConfigs();
+            var cfg = GlobalData.Instance.configs.frmPunchPressCfg;
+            lb_exposureValue.Text= cfg.exposureTime.ToString();
+            lb_gainValue.Text= cfg.gain.ToString();
+            cBox_debugMode.Checked= cfg.isDebugMode;
+            cBox_upLight.Checked= cfg.isUpLightOpen;
+            cBox_downLight.Checked= cfg.isDownLightOpen;
+            cBox_workMode.Checked=cfg.isWorkMode;
         }
 
         private void DesExtraComponent()
