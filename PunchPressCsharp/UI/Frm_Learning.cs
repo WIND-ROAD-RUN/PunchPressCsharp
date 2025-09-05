@@ -29,9 +29,19 @@ namespace PunchPressCsharp.UI
             // 初始化视觉模块
             IMVSFastFeatureMatchModuTool fastFeatureMatch = (IMVSFastFeatureMatchModuTool)VmSolution.Instance["流程1.快速匹配1"];
             var imageSource = (ImageSourceModuleTool)VmSolution.Instance["流程1.图像源1"];
-            vmRenderControl1.ModuleSource = fastFeatureMatch;
-            vmParamsConfigControl1.ModuleSource = fastFeatureMatch;
-            vmParamsConfigControl1.Visible = false;
+          
+
+            vmParamsConfigWithRenderControl1.ModuleSource = fastFeatureMatch;
+
+           
+
+
+
+
+
+
+
+
         }
 
         private void Frm_Learning_FormClosing(object sender, FormClosingEventArgs e)
@@ -45,16 +55,7 @@ namespace PunchPressCsharp.UI
         #region UI事件触发
         private void btn_learning_Click(object sender, EventArgs e)
         {
-            VmProcedure vmProcess1 = (VmProcedure)VmSolution.Instance["流程1"];
-            try
-            {
-                vmProcess1.ContinuousRunEnable = false;
-                vmParamsConfigControl1.Visible = true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(@"操作失败: {ex.Message}", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+           
         }
 
         private Point _mouseOffset;

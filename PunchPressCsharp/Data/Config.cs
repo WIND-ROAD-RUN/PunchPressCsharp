@@ -57,12 +57,12 @@ namespace PunchPressCsharp.Data
 
         internal class Configs
         {
-            public FrmSetCfg frmSetCfg = new FrmSetCfg();
+            //public FrmSetCfg frmSetCfg = new FrmSetCfg();
             public FrmPunchPressCfg frmPunchPressCfg = new FrmPunchPressCfg();
 
             public void SaveConfigs()
             {
-                frmSetCfg.SaveToFile(GlobalPath.FrmSetCfgPath);
+                //frmSetCfg.SaveToFile(GlobalPath.FrmSetCfgPath);
                 frmPunchPressCfg.SaveToFile(GlobalPath.FrmPunchPressCfgPath);
             }
 
@@ -70,11 +70,11 @@ namespace PunchPressCsharp.Data
             {
                 if (File.Exists(GlobalPath.FrmSetCfgPath))
                 {
-                    frmSetCfg = FrmSetCfg.LoadFromFile(GlobalPath.FrmSetCfgPath);
+                    //frmSetCfg = FrmSetCfg.LoadFromFile(GlobalPath.FrmSetCfgPath);
                 }
                 else
                 {
-                    frmSetCfg.SaveToFile(GlobalPath.FrmSetCfgPath);
+                    //frmSetCfg.SaveToFile(GlobalPath.FrmSetCfgPath);
                 }
 
                 if (File.Exists(GlobalPath.FrmPunchPressCfgPath))

@@ -63,6 +63,8 @@ namespace PunchPressCsharp.UI
             cBox_upLight.Checked= cfg.isUpLightOpen;
             cBox_downLight.Checked= cfg.isDownLightOpen;
             cBox_workMode.Checked=cfg.isWorkMode;
+
+            UpdateCameraSet();
         }
 
         private void DesExtraComponent()
@@ -154,8 +156,8 @@ namespace PunchPressCsharp.UI
                     lb_cameraStatus.ForeColor = Color.Green;
 
                     var cameraParam = cameraModule.ModuParams;
-                    cameraParam.ExposureTime = GlobalData.Instance.configs.frmSetCfg.exposureTime;
-                    cameraParam.Gain = GlobalData.Instance.configs.frmSetCfg.gain;
+                    cameraParam.ExposureTime = GlobalData.Instance.configs.frmPunchPressCfg.exposureTime;
+                    cameraParam.Gain = GlobalData.Instance.configs.frmPunchPressCfg.gain;
                     GlobalData.Instance.cameraIsConnect = true;
                 }
             }
@@ -181,57 +183,13 @@ namespace PunchPressCsharp.UI
             // var angles= fastFeatureMatch.ModuResult.MatchRect;
             var points = CalibTransform.ModuResult.TransPoint;
             var angles = CalibTransform.ModuResult.WorldPointA;
-            bool isPostive = GlobalData.Instance.modbusTool.readbool(330);
+           // bool isPostive = GlobalData.Instance.modbusTool.readbool(330);
 
 
 
-            if (points.Count > 0)
+            if (points.Count == 1)
             {
-                if (isPostive == false)
-                {
-                    //冒泡排序按X从小到大
-                    for (int i = 0; i < points.Count - 1; i++)
-                    {
-                        for (int j = 0; j < points.Count - 1 - i; j++)
-                        {
-                            if (points[j].X > points[j + 1].X)
-                            {
-                                var temp = points[j];
-                                points[j] = points[j + 1];
-                                points[j + 1] = temp;
-
-                                var temp1 = angles[j];
-                                angles[j] = angles[j + 1];
-                                angles[j + 1] = temp1;
-
-
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    //冒泡排序按X从大到小
-                    for (int i = 0; i < points.Count - 1; i++)
-                    {
-                        for (int j = 0; j < points.Count - 1 - i; j++)
-                        {
-                            if (points[j].X < points[j + 1].X)
-                            {
-                                var temp = points[j];
-                                points[j] = points[j + 1];
-                                points[j + 1] = temp;
-
-                                var temp1 = angles[j];
-                                angles[j] = angles[j + 1];
-                                angles[j + 1] = temp1;
-
-
-                            }
-                        }
-                    }
-
-                }
+               
 
                 for (int i = 0; i < points.Count; i++)
                 {
@@ -256,10 +214,10 @@ namespace PunchPressCsharp.UI
                         }));
                     }
 
-                    int sx = 6100 + i * 10;
-                    int sy = 6102 + i * 10;
-                    int sa = 6104 + i * 10;
-                    int sismessage = 6106 + i * 10;
+                    int sx = 6100 ;
+                    int sy = 6102;
+                    int sa = 6104;
+                    int sismessage = 6106 ;
 
 
                     //发送数据到modbus
@@ -341,6 +299,14 @@ namespace PunchPressCsharp.UI
                 lb_cameraStatus.Text = @"正在重连";
                 lb_cameraStatus.ForeColor = Color.Orange;
             }
+        }
+
+        private void UpdateCameraSet()
+        {
+
+            var cameraParam = GlobalData.Instance.cameraModuleTool.ModuParams;
+            cameraParam.ExposureTime = GlobalData.Instance.configs.frmPunchPressCfg.exposureTime;
+            cameraParam.Gain = GlobalData.Instance.configs.frmPunchPressCfg.gain;
         }
 
         #endregion
@@ -431,30 +397,127 @@ namespace PunchPressCsharp.UI
             }
         }
 
-        private void lb_plcStatus_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cBox_debugMode_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cBox_downLight_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void Frm_PunchPress_SizeChanged(object sender, EventArgs e)
         {
             FormSizeChange formalizable = new FormSizeChange();
             formalizable.MakeControlsResponsive(this);
+        }
+
+        private void btn_exposureReduce_Click(object sender, EventArgs e)
+        {
+            if (!GlobalData.Instance.configs.frmPunchPressCfg.isDebugMode || !GlobalData.Instance.cameraIsConnect)
+            {
+                return;
+            }
+
+            var currentExposureValue = GlobalData.Instance.configs.frmPunchPressCfg.exposureTime;
+            if (currentExposureValue <= UtilityValue.ExposureMinValue)
+            {
+                return;
+            }
+            currentExposureValue -= UtilityValue.ExposureSetStepSize;
+            GlobalData.Instance.configs.frmPunchPressCfg.exposureTime = currentExposureValue;
+            lb_exposureValue.Text = currentExposureValue.ToString();
+
+            UpdateCameraSet();
+        }
+
+        private void btn_exposureIncrease_Click(object sender, EventArgs e)
+        {
+            if (!GlobalData.Instance.configs.frmPunchPressCfg.isDebugMode || !GlobalData.Instance.cameraIsConnect)
+            {
+                return;
+            }
+
+            var currentExposureValue = GlobalData.Instance.configs.frmPunchPressCfg.exposureTime;
+            if (currentExposureValue >= UtilityValue.ExposureMaxValue)
+            {
+                return;
+            }
+            currentExposureValue += UtilityValue.ExposureSetStepSize;
+            GlobalData.Instance.configs.frmPunchPressCfg.exposureTime = currentExposureValue;
+            lb_exposureValue.Text = currentExposureValue.ToString();
+
+            UpdateCameraSet();
+        }
+
+        private void btn_gainReduce_Click(object sender, EventArgs e)
+        {
+            if (!GlobalData.Instance.configs.frmPunchPressCfg.isDebugMode || !GlobalData.Instance.cameraIsConnect)
+            {
+                return;
+            }
+
+            var currentGainValue = GlobalData.Instance.configs.frmPunchPressCfg.gain;
+            if (currentGainValue <= UtilityValue.GainMinValue)
+            {
+                return;
+            }
+            currentGainValue -= UtilityValue.GainSetStepSize;
+            GlobalData.Instance.configs.frmPunchPressCfg.gain = currentGainValue;
+            lb_gainValue.Text = currentGainValue.ToString();
+
+            UpdateCameraSet();
+        }
+
+        private void btn_gainIncrease_Click(object sender, EventArgs e)
+        {
+            if (!GlobalData.Instance.configs.frmPunchPressCfg.isDebugMode || !GlobalData.Instance.cameraIsConnect)
+            {
+                return;
+            }
+
+            var currentGainValue = GlobalData.Instance.configs.frmPunchPressCfg.gain;
+            if (currentGainValue >= UtilityValue.GainMaxValue)
+            {
+                return;
+            }
+            currentGainValue += UtilityValue.GainSetStepSize;
+            GlobalData.Instance.configs.frmPunchPressCfg.gain = currentGainValue;
+            lb_gainValue.Text = currentGainValue.ToString();
+
+            UpdateCameraSet();
+        }
+
+        private void cBox_debugMode_Click(object sender, EventArgs e)
+        {
+            GlobalData.Instance.configs.frmPunchPressCfg.isDebugMode = true;
+            GlobalData.Instance.configs.frmPunchPressCfg.isWorkMode = false;
+            cBox_debugMode.Checked = true;
+            cBox_workMode.Checked=false;
+
+
+            //禁用模块加速显示
+            
+            IMVSFastFeatureMatchModuTool fastFeatureMatch = (IMVSFastFeatureMatchModuTool)VmSolution.Instance["流程1.快速匹配1"];
+            IMVSCalibTransformModuTool CalibTransform = (IMVSCalibTransformModuTool)VmSolution.Instance["流程1.标定转换1"];
+
+            var imageSource = (ImageSourceModuleCs.ImageSourceModuleTool)VmSolution.Instance["流程1.图像源1"];
+            vmRenderControl1.ModuleSource = imageSource;
+
+            fastFeatureMatch.IsForbidden = true;
+            CalibTransform.IsForbidden = true;
+            GlobalData.Instance.vmMainProcedure.ContinuousRunEnable = true;
+        }
+
+        private void cBox_workMode_Click(object sender, EventArgs e)
+        {
+            GlobalData.Instance.configs.frmPunchPressCfg.isDebugMode = false;
+            GlobalData.Instance.configs.frmPunchPressCfg.isWorkMode = true;
+            cBox_debugMode.Checked = false;
+            cBox_workMode.Checked = true;
+
+            //禁用模块加速显示
+
+            IMVSFastFeatureMatchModuTool fastFeatureMatch = (IMVSFastFeatureMatchModuTool)VmSolution.Instance["流程1.快速匹配1"];
+            IMVSCalibTransformModuTool CalibTransform = (IMVSCalibTransformModuTool)VmSolution.Instance["流程1.标定转换1"];
+
+            vmRenderControl1.ModuleSource = fastFeatureMatch;
+            GlobalData.Instance.vmMainProcedure.ContinuousRunEnable = false;
+
+            fastFeatureMatch.IsForbidden = false;
+            CalibTransform.IsForbidden = false;
+
         }
     }
 }

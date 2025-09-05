@@ -163,6 +163,7 @@
             this.btn_gainIncrease.TabIndex = 23;
             this.btn_gainIncrease.Text = "+";
             this.btn_gainIncrease.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_gainIncrease.Click += new System.EventHandler(this.btn_gainIncrease_Click);
             // 
             // label4
             // 
@@ -197,6 +198,7 @@
             this.btn_gainReduce.TabIndex = 21;
             this.btn_gainReduce.Text = "-";
             this.btn_gainReduce.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_gainReduce.Click += new System.EventHandler(this.btn_gainReduce_Click);
             // 
             // btn_exposureIncrease
             // 
@@ -209,6 +211,7 @@
             this.btn_exposureIncrease.TabIndex = 24;
             this.btn_exposureIncrease.Text = "+";
             this.btn_exposureIncrease.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_exposureIncrease.Click += new System.EventHandler(this.btn_exposureIncrease_Click);
             // 
             // btn_exposureReduce
             // 
@@ -221,6 +224,7 @@
             this.btn_exposureReduce.TabIndex = 22;
             this.btn_exposureReduce.Text = "-";
             this.btn_exposureReduce.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_exposureReduce.Click += new System.EventHandler(this.btn_exposureReduce_Click);
             // 
             // uiCheckBoxGroup6
             // 
@@ -254,7 +258,6 @@
             this.cBox_downLight.Size = new System.Drawing.Size(160, 59);
             this.cBox_downLight.TabIndex = 14;
             this.cBox_downLight.Text = "下光源";
-            this.cBox_downLight.CheckedChanged += new System.EventHandler(this.cBox_downLight_CheckedChanged);
             // 
             // cBox_upLight
             // 
@@ -300,6 +303,7 @@
             this.cBox_workMode.Size = new System.Drawing.Size(160, 59);
             this.cBox_workMode.TabIndex = 10;
             this.cBox_workMode.Text = "工作模式";
+            this.cBox_workMode.Click += new System.EventHandler(this.cBox_workMode_Click);
             // 
             // cBox_debugMode
             // 
@@ -312,7 +316,7 @@
             this.cBox_debugMode.Size = new System.Drawing.Size(169, 59);
             this.cBox_debugMode.TabIndex = 10;
             this.cBox_debugMode.Text = "调试模式";
-            this.cBox_debugMode.CheckedChanged += new System.EventHandler(this.cBox_debugMode_CheckedChanged);
+            this.cBox_debugMode.Click += new System.EventHandler(this.cBox_debugMode_Click);
             // 
             // uiCheckBoxGroup4
             // 
@@ -527,7 +531,6 @@
             this.lb_plcStatus.TabIndex = 3;
             this.lb_plcStatus.Text = "正常";
             this.lb_plcStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lb_plcStatus.Click += new System.EventHandler(this.lb_plcStatus_Click);
             // 
             // label3
             // 
@@ -584,7 +587,6 @@
             this.label5.TabIndex = 6;
             this.label5.Text = "版本号V1.0";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // lblTitle
             // 
