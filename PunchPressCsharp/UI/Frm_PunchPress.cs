@@ -373,12 +373,6 @@ namespace PunchPressCsharp.UI
             this.Close();
         }
 
-        private void btn_brightnessChange_Click(object sender, EventArgs e)
-        {
-            Frm_CameraSet frmSetCamera = new Frm_CameraSet();
-            frmSetCamera.ShowDialog();
-        }
-
         private void btn_disTemplate_Click(object sender, EventArgs e)
         {
             VmProcedure vmProcess1 = (VmProcedure)VmSolution.Instance["流程1"];
@@ -423,6 +417,32 @@ namespace PunchPressCsharp.UI
             {
                 procedure.Run();
             }
+        }
+
+        private void lb_plcStatus_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cBox_debugMode_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cBox_downLight_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Frm_PunchPress_SizeChanged(object sender, EventArgs e)
+        {
+            FormSizeChange formalizable = new FormSizeChange();
+            formalizable.MakeControlsResponsive(this);
         }
     }
 }
