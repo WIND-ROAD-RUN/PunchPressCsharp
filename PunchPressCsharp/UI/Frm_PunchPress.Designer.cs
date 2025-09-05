@@ -96,9 +96,10 @@
             this.panelContainer.Controls.Add(this.uiCheckBoxGroup3);
             this.panelContainer.Controls.Add(this.uiCheckBoxGroup2);
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContainer.Location = new System.Drawing.Point(0, 40);
+            this.panelContainer.Location = new System.Drawing.Point(0, 50);
+            this.panelContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(1180, 780);
+            this.panelContainer.Size = new System.Drawing.Size(1573, 975);
             this.panelContainer.TabIndex = 11;
             // 
             // uiCheckBoxGroup7
@@ -114,15 +115,15 @@
             this.uiCheckBoxGroup7.Controls.Add(this.btn_exposureReduce);
             this.uiCheckBoxGroup7.FillColor = System.Drawing.Color.DimGray;
             this.uiCheckBoxGroup7.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiCheckBoxGroup7.Location = new System.Drawing.Point(737, 308);
-            this.uiCheckBoxGroup7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiCheckBoxGroup7.Location = new System.Drawing.Point(983, 385);
+            this.uiCheckBoxGroup7.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.uiCheckBoxGroup7.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiCheckBoxGroup7.Name = "uiCheckBoxGroup7";
-            this.uiCheckBoxGroup7.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
+            this.uiCheckBoxGroup7.Padding = new System.Windows.Forms.Padding(0, 40, 0, 0);
             this.uiCheckBoxGroup7.RadiusSides = Sunny.UI.UICornerRadiusSides.None;
             this.uiCheckBoxGroup7.RectSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.None;
             this.uiCheckBoxGroup7.SelectedIndexes = ((System.Collections.Generic.List<int>)(resources.GetObject("uiCheckBoxGroup7.SelectedIndexes")));
-            this.uiCheckBoxGroup7.Size = new System.Drawing.Size(410, 129);
+            this.uiCheckBoxGroup7.Size = new System.Drawing.Size(547, 161);
             this.uiCheckBoxGroup7.Style = Sunny.UI.UIStyle.Custom;
             this.uiCheckBoxGroup7.TabIndex = 21;
             this.uiCheckBoxGroup7.Text = null;
@@ -233,15 +234,15 @@
             this.uiCheckBoxGroup6.Controls.Add(this.cBox_upLight);
             this.uiCheckBoxGroup6.FillColor = System.Drawing.Color.DimGray;
             this.uiCheckBoxGroup6.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiCheckBoxGroup6.Location = new System.Drawing.Point(737, 236);
-            this.uiCheckBoxGroup6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiCheckBoxGroup6.Location = new System.Drawing.Point(983, 295);
+            this.uiCheckBoxGroup6.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.uiCheckBoxGroup6.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiCheckBoxGroup6.Name = "uiCheckBoxGroup6";
-            this.uiCheckBoxGroup6.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
+            this.uiCheckBoxGroup6.Padding = new System.Windows.Forms.Padding(0, 40, 0, 0);
             this.uiCheckBoxGroup6.RadiusSides = Sunny.UI.UICornerRadiusSides.None;
             this.uiCheckBoxGroup6.RectSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.None;
             this.uiCheckBoxGroup6.SelectedIndexes = ((System.Collections.Generic.List<int>)(resources.GetObject("uiCheckBoxGroup6.SelectedIndexes")));
-            this.uiCheckBoxGroup6.Size = new System.Drawing.Size(410, 62);
+            this.uiCheckBoxGroup6.Size = new System.Drawing.Size(547, 78);
             this.uiCheckBoxGroup6.Style = Sunny.UI.UIStyle.Custom;
             this.uiCheckBoxGroup6.TabIndex = 12;
             this.uiCheckBoxGroup6.Text = null;
@@ -270,6 +271,7 @@
             this.cBox_upLight.Size = new System.Drawing.Size(160, 59);
             this.cBox_upLight.TabIndex = 13;
             this.cBox_upLight.Text = "上光源";
+            this.cBox_upLight.CheckedChanged += new System.EventHandler(this.cBox_upLight_CheckedChanged);
             // 
             // uiCheckBoxGroup5
             // 
@@ -278,15 +280,15 @@
             this.uiCheckBoxGroup5.Controls.Add(this.cBox_debugMode);
             this.uiCheckBoxGroup5.FillColor = System.Drawing.Color.DimGray;
             this.uiCheckBoxGroup5.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiCheckBoxGroup5.Location = new System.Drawing.Point(737, 155);
-            this.uiCheckBoxGroup5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiCheckBoxGroup5.Location = new System.Drawing.Point(983, 194);
+            this.uiCheckBoxGroup5.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.uiCheckBoxGroup5.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiCheckBoxGroup5.Name = "uiCheckBoxGroup5";
-            this.uiCheckBoxGroup5.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
+            this.uiCheckBoxGroup5.Padding = new System.Windows.Forms.Padding(0, 40, 0, 0);
             this.uiCheckBoxGroup5.RadiusSides = Sunny.UI.UICornerRadiusSides.None;
             this.uiCheckBoxGroup5.RectSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.None;
             this.uiCheckBoxGroup5.SelectedIndexes = ((System.Collections.Generic.List<int>)(resources.GetObject("uiCheckBoxGroup5.SelectedIndexes")));
-            this.uiCheckBoxGroup5.Size = new System.Drawing.Size(410, 59);
+            this.uiCheckBoxGroup5.Size = new System.Drawing.Size(547, 74);
             this.uiCheckBoxGroup5.Style = Sunny.UI.UIStyle.Custom;
             this.uiCheckBoxGroup5.TabIndex = 11;
             this.uiCheckBoxGroup5.Text = null;
@@ -326,15 +328,15 @@
             this.uiCheckBoxGroup4.Controls.Add(this.btn_disCentral);
             this.uiCheckBoxGroup4.FillColor = System.Drawing.Color.DimGray;
             this.uiCheckBoxGroup4.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiCheckBoxGroup4.Location = new System.Drawing.Point(737, 516);
-            this.uiCheckBoxGroup4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiCheckBoxGroup4.Location = new System.Drawing.Point(983, 645);
+            this.uiCheckBoxGroup4.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.uiCheckBoxGroup4.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiCheckBoxGroup4.Name = "uiCheckBoxGroup4";
-            this.uiCheckBoxGroup4.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
+            this.uiCheckBoxGroup4.Padding = new System.Windows.Forms.Padding(0, 40, 0, 0);
             this.uiCheckBoxGroup4.RadiusSides = Sunny.UI.UICornerRadiusSides.None;
             this.uiCheckBoxGroup4.RectSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.None;
             this.uiCheckBoxGroup4.SelectedIndexes = ((System.Collections.Generic.List<int>)(resources.GetObject("uiCheckBoxGroup4.SelectedIndexes")));
-            this.uiCheckBoxGroup4.Size = new System.Drawing.Size(410, 53);
+            this.uiCheckBoxGroup4.Size = new System.Drawing.Size(547, 66);
             this.uiCheckBoxGroup4.Style = Sunny.UI.UIStyle.Custom;
             this.uiCheckBoxGroup4.TabIndex = 9;
             this.uiCheckBoxGroup4.Text = null;
@@ -387,11 +389,11 @@
             this.vmRenderControl1.BackColor = System.Drawing.Color.Black;
             this.vmRenderControl1.CoordinateInfoVisible = true;
             this.vmRenderControl1.ImageSource = null;
-            this.vmRenderControl1.Location = new System.Drawing.Point(16, 12);
-            this.vmRenderControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.vmRenderControl1.Location = new System.Drawing.Point(21, 15);
+            this.vmRenderControl1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.vmRenderControl1.ModuleSource = null;
             this.vmRenderControl1.Name = "vmRenderControl1";
-            this.vmRenderControl1.Size = new System.Drawing.Size(666, 745);
+            this.vmRenderControl1.Size = new System.Drawing.Size(888, 931);
             this.vmRenderControl1.TabIndex = 8;
             // 
             // uiCheckBoxGroup1
@@ -400,15 +402,15 @@
             this.uiCheckBoxGroup1.Controls.Add(this.uiRichTextBox1);
             this.uiCheckBoxGroup1.FillColor = System.Drawing.Color.DimGray;
             this.uiCheckBoxGroup1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiCheckBoxGroup1.Location = new System.Drawing.Point(737, 579);
-            this.uiCheckBoxGroup1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiCheckBoxGroup1.Location = new System.Drawing.Point(983, 724);
+            this.uiCheckBoxGroup1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.uiCheckBoxGroup1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiCheckBoxGroup1.Name = "uiCheckBoxGroup1";
-            this.uiCheckBoxGroup1.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
+            this.uiCheckBoxGroup1.Padding = new System.Windows.Forms.Padding(0, 40, 0, 0);
             this.uiCheckBoxGroup1.RadiusSides = Sunny.UI.UICornerRadiusSides.None;
             this.uiCheckBoxGroup1.RectSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.None;
             this.uiCheckBoxGroup1.SelectedIndexes = ((System.Collections.Generic.List<int>)(resources.GetObject("uiCheckBoxGroup1.SelectedIndexes")));
-            this.uiCheckBoxGroup1.Size = new System.Drawing.Size(410, 178);
+            this.uiCheckBoxGroup1.Size = new System.Drawing.Size(547, 222);
             this.uiCheckBoxGroup1.Style = Sunny.UI.UIStyle.Custom;
             this.uiCheckBoxGroup1.TabIndex = 4;
             this.uiCheckBoxGroup1.Text = "信息日志";
@@ -440,15 +442,15 @@
             this.uiCheckBoxGroup3.Controls.Add(this.btn_templateLearn);
             this.uiCheckBoxGroup3.FillColor = System.Drawing.Color.DimGray;
             this.uiCheckBoxGroup3.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiCheckBoxGroup3.Location = new System.Drawing.Point(737, 453);
-            this.uiCheckBoxGroup3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiCheckBoxGroup3.Location = new System.Drawing.Point(983, 566);
+            this.uiCheckBoxGroup3.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.uiCheckBoxGroup3.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiCheckBoxGroup3.Name = "uiCheckBoxGroup3";
-            this.uiCheckBoxGroup3.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
+            this.uiCheckBoxGroup3.Padding = new System.Windows.Forms.Padding(0, 40, 0, 0);
             this.uiCheckBoxGroup3.RadiusSides = Sunny.UI.UICornerRadiusSides.None;
             this.uiCheckBoxGroup3.RectSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.None;
             this.uiCheckBoxGroup3.SelectedIndexes = ((System.Collections.Generic.List<int>)(resources.GetObject("uiCheckBoxGroup3.SelectedIndexes")));
-            this.uiCheckBoxGroup3.Size = new System.Drawing.Size(410, 53);
+            this.uiCheckBoxGroup3.Size = new System.Drawing.Size(547, 66);
             this.uiCheckBoxGroup3.Style = Sunny.UI.UIStyle.Custom;
             this.uiCheckBoxGroup3.TabIndex = 7;
             this.uiCheckBoxGroup3.Text = null;
@@ -507,15 +509,15 @@
             this.uiCheckBoxGroup2.Controls.Add(this.label5);
             this.uiCheckBoxGroup2.FillColor = System.Drawing.Color.DimGray;
             this.uiCheckBoxGroup2.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiCheckBoxGroup2.Location = new System.Drawing.Point(737, 23);
-            this.uiCheckBoxGroup2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiCheckBoxGroup2.Location = new System.Drawing.Point(983, 29);
+            this.uiCheckBoxGroup2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.uiCheckBoxGroup2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiCheckBoxGroup2.Name = "uiCheckBoxGroup2";
-            this.uiCheckBoxGroup2.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
+            this.uiCheckBoxGroup2.Padding = new System.Windows.Forms.Padding(0, 40, 0, 0);
             this.uiCheckBoxGroup2.RadiusSides = Sunny.UI.UICornerRadiusSides.None;
             this.uiCheckBoxGroup2.RectSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.None;
             this.uiCheckBoxGroup2.SelectedIndexes = ((System.Collections.Generic.List<int>)(resources.GetObject("uiCheckBoxGroup2.SelectedIndexes")));
-            this.uiCheckBoxGroup2.Size = new System.Drawing.Size(410, 105);
+            this.uiCheckBoxGroup2.Size = new System.Drawing.Size(547, 131);
             this.uiCheckBoxGroup2.Style = Sunny.UI.UIStyle.Custom;
             this.uiCheckBoxGroup2.TabIndex = 5;
             this.uiCheckBoxGroup2.Text = null;
@@ -593,9 +595,10 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(12, 9);
+            this.lblTitle.Location = new System.Drawing.Point(16, 11);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(106, 21);
+            this.lblTitle.Size = new System.Drawing.Size(132, 27);
             this.lblTitle.TabIndex = 1;
             this.lblTitle.Text = "冲床检测系统";
             // 
@@ -606,11 +609,12 @@
             this.btnClose.FillHoverColor = System.Drawing.Color.Red;
             this.btnClose.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnClose.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.btnClose.Location = new System.Drawing.Point(1140, 0);
+            this.btnClose.Location = new System.Drawing.Point(1520, 0);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnClose.MinimumSize = new System.Drawing.Size(1, 1);
             this.btnClose.Name = "btnClose";
             this.btnClose.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.btnClose.Size = new System.Drawing.Size(40, 40);
+            this.btnClose.Size = new System.Drawing.Size(53, 50);
             this.btnClose.Style = Sunny.UI.UIStyle.Custom;
             this.btnClose.TabIndex = 0;
             this.btnClose.Text = "X";
@@ -626,18 +630,19 @@
             this.titleBar.Location = new System.Drawing.Point(0, 0);
             this.titleBar.Margin = new System.Windows.Forms.Padding(0);
             this.titleBar.Name = "titleBar";
-            this.titleBar.Size = new System.Drawing.Size(1180, 40);
+            this.titleBar.Size = new System.Drawing.Size(1573, 50);
             this.titleBar.TabIndex = 10;
             // 
             // Frm_PunchPress
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1180, 820);
+            this.ClientSize = new System.Drawing.Size(1573, 1025);
             this.Controls.Add(this.panelContainer);
             this.Controls.Add(this.titleBar);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Frm_PunchPress";
             this.Text = "冲压设备检测系统";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmPunchPress_FormClosing);

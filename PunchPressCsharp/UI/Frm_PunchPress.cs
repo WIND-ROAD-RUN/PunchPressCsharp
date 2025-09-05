@@ -1,10 +1,12 @@
-﻿using GlobalCameraModuleCs;
+﻿using CameraIOModuleCs;
+using GlobalCameraModuleCs;
 using IMVSCalibTransformModuCs;
 using IMVSFastFeatureMatchModuCs;
 using PunchPressCsharp.Data;
 using PunchPressCsharp.Func;
 using PunchPressCsharp.HardwareCom;
 using PunchPressCsharp.Utility;
+using Sunny.UI.Win32;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -51,6 +53,10 @@ namespace PunchPressCsharp.UI
             IniModbus();
             IniVMSol();
             LoadConfig();
+            GlobalData.Instance.configs.frmPunchPressCfg.isDebugMode = false;
+            GlobalData.Instance.configs.frmPunchPressCfg.isWorkMode = true;
+            cBox_debugMode.Checked = false;
+            cBox_workMode.Checked = true;
         }
 
         private void LoadConfig()
@@ -94,7 +100,7 @@ namespace PunchPressCsharp.UI
 
         private void IniVMSol()
         {
-            string solPath = GlobalPath.VMSolPath;
+            string solPath = "C:\\Users\\rw\\Desktop\\标定\\shibie.sol";
             if (!System.IO.File.Exists(solPath))
             {
                 MessageBox.Show("流程文件不存在，请检查路径是否正确。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -200,7 +206,7 @@ namespace PunchPressCsharp.UI
 
                     float angle = -angles[i];
 
-                    float sendx = x * 100;
+                    float sendx = -x * 100;
                     float sendy = -y * 100;
                     float sendangle = -(angle) * 100;
 
@@ -214,10 +220,10 @@ namespace PunchPressCsharp.UI
                         }));
                     }
 
-                    int sx = 6100 ;
-                    int sy = 6102;
-                    int sa = 6104;
-                    int sismessage = 6106 ;
+                    int sx = 1010 ;
+                    int sy = 1012;
+                    int sa = 1014;
+                    int sismessage = 1004 ;
 
 
                     //发送数据到modbus
@@ -228,14 +234,13 @@ namespace PunchPressCsharp.UI
                 }
 
 
-                GlobalData.Instance.modbusTool.WriteMultipleRegisters(6004, new int[] { 1 });
+                GlobalData.Instance.modbusTool.WriteMultipleRegisters(1004, new int[] { 1 });
 
 
             }
             else
             {
-                GlobalData.Instance.modbusTool.WriteMultipleRegisters(6004, new int[] { 2 });
-
+                GlobalData.Instance.modbusTool.WriteMultipleRegisters(1004, new int[] { 2 });
             }
 
         }
@@ -390,6 +395,10 @@ namespace PunchPressCsharp.UI
 
         private void btn_runOnce_Click(object sender, EventArgs e)
         {
+            var cameraParam = GlobalData.Instance.cameraModuleTool.ModuParams;
+
+            cameraParam.TriggerSource = 7; // 设置触发源为硬触发
+
             var procedure = GlobalData.Instance.vmMainProcedure;
             if (!procedure.IsRunning)
             {
@@ -517,7 +526,13 @@ namespace PunchPressCsharp.UI
 
             fastFeatureMatch.IsForbidden = false;
             CalibTransform.IsForbidden = false;
+            var cameraParam = GlobalData.Instance.cameraModuleTool.ModuParams;
+            cameraParam.TriggerSource=0; // 设置触发源为硬触发
+        }
 
+        private void cBox_upLight_CheckedChanged(object sender, EventArgs e)
+        {
+            GlobalData.Instance.modbusTool.writeBool(860,true);
         }
     }
 }

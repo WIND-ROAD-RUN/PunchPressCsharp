@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Sunny.UI;
 
 namespace PunchPressCsharp.HardwareCom
 {
@@ -77,6 +78,13 @@ namespace PunchPressCsharp.HardwareCom
             bool aa = state[0];
             return aa;
         }
+
+        public void writeBool(int adress,bool states)
+        {
+
+           modbusClient.WriteSingleCoil(adress,states);
+        }
+
         public bool WriteMultipleRegisters(int startingAddress, int[] values)
         {
             if (!modbusClient.Connected)
