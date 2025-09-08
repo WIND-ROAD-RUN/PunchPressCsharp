@@ -2,6 +2,7 @@
 using GlobalCameraModuleCs;
 using IMVSCalibTransformModuCs;
 using IMVSFastFeatureMatchModuCs;
+using Newtonsoft.Json.Linq;
 using PunchPressCsharp.Data;
 using PunchPressCsharp.Func;
 using PunchPressCsharp.HardwareCom;
@@ -69,6 +70,9 @@ namespace PunchPressCsharp.UI
             cBox_upLight.Checked= cfg.isUpLightOpen;
             cBox_downLight.Checked= cfg.isDownLightOpen;
             cBox_workMode.Checked=cfg.isWorkMode;
+            lb_centralX.Text=cfg.centralX.ToString();
+            lb_centralY.Text = cfg.centralY.ToString();
+            lb_angle.Text= cfg.angle.ToString();
 
             UpdateCameraSet();
         }
@@ -100,15 +104,15 @@ namespace PunchPressCsharp.UI
 
         private void IniVMSol()
         {
-            string solPath = "C:\\Users\\zzw\\Desktop\\标定\\shibie.sol";
-            if (!System.IO.File.Exists(solPath))
+            var path = GlobalPath.VMSolPath;
+            if (!System.IO.File.Exists(path))
             {
                 MessageBox.Show("流程文件不存在，请检查路径是否正确。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
                 return;
             }
 
-            var version = VmSolution.Instance.GetSolutionVersion(solPath, "");
+            var version = VmSolution.Instance.GetSolutionVersion(path, "");
             if (UtilityValue.VMVersion != version)
             {
                 MessageBox.Show(@"方案版本不正确应为" + UtilityValue.VMVersion, @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -118,7 +122,7 @@ namespace PunchPressCsharp.UI
 
             try
             {
-                VmSolution.Load(solPath);
+                VmSolution.Load(path);
             }
             catch (Exception)
             {
@@ -547,6 +551,55 @@ namespace PunchPressCsharp.UI
         private void cBox_upLight_CheckedChanged(object sender, EventArgs e)
         {
             GlobalData.Instance.modbusTool.writeBool(860,true);
+        }
+
+        private void btn_xIncease_Click(object sender, EventArgs e)
+        {
+           
+            var currentX = GlobalData.Instance.configs.frmPunchPressCfg.centralX;
+            currentX += 100;
+            GlobalData.Instance.configs.frmPunchPressCfg.centralX = currentX;
+            lb_centralX.Text = currentX.ToString();
+        }
+
+        private void btn_xDecrease_Click(object sender, EventArgs e)
+        {
+            var currentX = GlobalData.Instance.configs.frmPunchPressCfg.centralX;
+            currentX -= 100;
+            GlobalData.Instance.configs.frmPunchPressCfg.centralX = currentX;
+            lb_centralX.Text = currentX.ToString();
+        }
+
+        private void btn_yDecrease_Click(object sender, EventArgs e)
+        {
+            var currentY = GlobalData.Instance.configs.frmPunchPressCfg.centralY;
+            currentY -= 100;
+            GlobalData.Instance.configs.frmPunchPressCfg.centralY = currentY;
+            lb_centralY.Text = currentY.ToString();
+        }
+
+        private void btn_yIncease_Click(object sender, EventArgs e)
+        {
+            var currentY = GlobalData.Instance.configs.frmPunchPressCfg.centralY;
+            currentY += 100;
+            GlobalData.Instance.configs.frmPunchPressCfg.centralY = currentY;
+            lb_centralY.Text = currentY.ToString();
+        }
+
+        private void btn_angleDecrease_Click(object sender, EventArgs e)
+        {
+            var currentAngle = GlobalData.Instance.configs.frmPunchPressCfg.angle;
+            currentAngle -= 10;
+            GlobalData.Instance.configs.frmPunchPressCfg.angle = currentAngle;
+            lb_angle.Text = currentAngle.ToString();
+        }
+
+        private void btn_angleIncease_Click(object sender, EventArgs e)
+        {
+            var currentAngle = GlobalData.Instance.configs.frmPunchPressCfg.angle;
+            currentAngle += 10;
+            GlobalData.Instance.configs.frmPunchPressCfg.angle = currentAngle;
+            lb_angle.Text = currentAngle.ToString();
         }
     }
 }
