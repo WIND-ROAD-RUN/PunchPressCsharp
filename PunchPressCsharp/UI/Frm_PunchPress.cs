@@ -100,7 +100,7 @@ namespace PunchPressCsharp.UI
 
         private void IniVMSol()
         {
-            string solPath = "C:\\Users\\rw\\Desktop\\标定\\shibie.sol";
+            string solPath = "C:\\Users\\zzw\\Desktop\\标定\\shibie.sol";
             if (!System.IO.File.Exists(solPath))
             {
                 MessageBox.Show("流程文件不存在，请检查路径是否正确。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -308,11 +308,20 @@ namespace PunchPressCsharp.UI
 
         private void UpdateCameraSet()
         {
+            try
+            {
+                var cameraParam = GlobalData.Instance.cameraModuleTool.ModuParams;
+                cameraParam.ExposureTime = GlobalData.Instance.configs.frmPunchPressCfg.exposureTime;
+                cameraParam.Gain = GlobalData.Instance.configs.frmPunchPressCfg.gain;
 
-            var cameraParam = GlobalData.Instance.cameraModuleTool.ModuParams;
-            cameraParam.ExposureTime = GlobalData.Instance.configs.frmPunchPressCfg.exposureTime;
-            cameraParam.Gain = GlobalData.Instance.configs.frmPunchPressCfg.gain;
-        }
+            }
+            catch (Exception)
+            {
+
+              
+            }
+
+             }
 
         #endregion
 
@@ -486,6 +495,8 @@ namespace PunchPressCsharp.UI
             lb_gainValue.Text = currentGainValue.ToString();
 
             UpdateCameraSet();
+            //切换界面给
+            uiTabControl1.SelectedIndex = 1;
         }
 
         private void cBox_debugMode_Click(object sender, EventArgs e)
@@ -507,6 +518,9 @@ namespace PunchPressCsharp.UI
             fastFeatureMatch.IsForbidden = true;
             CalibTransform.IsForbidden = true;
             GlobalData.Instance.vmMainProcedure.ContinuousRunEnable = true;
+
+            uiTabControl1.SelectedIndex = 0;
+
         }
 
         private void cBox_workMode_Click(object sender, EventArgs e)
