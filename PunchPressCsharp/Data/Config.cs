@@ -95,6 +95,30 @@ namespace PunchPressCsharp.Data
 
         #endregion
 
+        #region 模型配置
+
+        internal struct ModelConfig
+        {
+             public string trainDate;
+             public int exposureTime;
+             public int gain;
+
+             public void SaveToFile(string filePath)
+             {
+                 var json = JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+                 File.WriteAllText(filePath, json);
+             }
+
+             public static ModelConfig LoadFromFile(string filePath)
+             {
+                 var json = File.ReadAllText(filePath);
+                 return JsonConvert.DeserializeObject<ModelConfig>(json);
+             }
+        }
+
+
+        #endregion
+
 
         internal class Configs
         {

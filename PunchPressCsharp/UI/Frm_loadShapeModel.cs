@@ -14,6 +14,7 @@ namespace PunchPressCsharp.UI
 {
     public partial class Frm_loadShapeModel : Form
     {
+        #region 模型生命周期管理
         public Frm_loadShapeModel()
         {
             InitializeComponent();
@@ -21,6 +22,7 @@ namespace PunchPressCsharp.UI
 
         private void Frm_loadShapeModel_Load(object sender, EventArgs e)
         {
+            build_ui();
             //IMVSFastFeatureMatchModuTool fastFeatureMatch = (IMVSFastFeatureMatchModuTool)VmSolution.Instance["流程1.快速匹配1"];
             //    //  准备模板文件路径
             //    // 可以导入多个模板文件，这里只导入一个
@@ -28,7 +30,10 @@ namespace PunchPressCsharp.UI
 
             //// 导入模板文件（注意：这会替换模块当前所有模型文件）
             //fastFeatureMatch.ImportModelData(templatePaths);
+        }
 
+        private void build_ui()
+        {
             list_modelList.Items.Add("模型1");
             list_modelList.Items.Add("模型2");
             list_modelList.Items.Add("模型3");
@@ -36,28 +41,26 @@ namespace PunchPressCsharp.UI
             list_modelList.Items.Add("模型5");
             list_modelList.Items.Add("模型6");
             list_modelList.Items.Add("模型7");
-           // // 设置行和列数
-           // table_modelInfo.RowCount = 3;
-           // table_modelInfo.ColumnCount = 2;
+    
 
-           // // 添加控件到指定单元格
-           // Label lbl1 = new Label { Text = "模型名称" };
-           // Label lbl2 = new Label { Text = "模型1" };
-           // table_modelInfo.Controls.Add(lbl1, 0, 0); // 第1行第1列
-           // table_modelInfo.Controls.Add(lbl2, 1, 0); // 第1行第2列
+            table_modelInfo.RowCount = 3;
+            table_modelInfo.ColumnCount = 1;
+            Label lbl1 = new Label { Text = @"训练日期" };
+            Label lbl2 = new Label { Text = @"曝光" };
+            Label lbl3 = new Label { Text = @"增益" };
+            table_modelInfo.Controls.Add(lbl1, 0, 0);
+            table_modelInfo.Controls.Add(lbl2, 0, 1);
+            table_modelInfo.Controls.Add(lbl3, 0, 3);
 
-           // // 设置行高和列宽
-           // table_modelInfo.RowStyles[0].Height = 30;
-           // table_modelInfo.ColumnStyles[0].Width = 100;
-
-           // // 清空所有内容
-           //// table_modelInfo.Controls.Clear();
             if (list_modelList.Items.Count > 0)
             {
                 list_modelList.SelectedIndex = 0;
             }
-
         }
+
+
+        #endregion
+
 
         private void btn_exit_Click(object sender, EventArgs e)
         {

@@ -39,11 +39,11 @@
             this.uiGroupBox3 = new Sunny.UI.UIGroupBox();
             this.table_modelInfo = new Sunny.UI.UITableLayoutPanel();
             this.uiGroupBox4 = new Sunny.UI.UIGroupBox();
+            this.btn_delete = new Sunny.UI.UIButton();
             this.btn_loadModel = new Sunny.UI.UIButton();
             this.btn_nextModel = new Sunny.UI.UIButton();
             this.btn_preModel = new Sunny.UI.UIButton();
             this.btn_exit = new Sunny.UI.UIButton();
-            this.btn_delete = new Sunny.UI.UIButton();
             this.uiGroupBox1.SuspendLayout();
             this.uiGroupBox2.SuspendLayout();
             this.uiGroupBox3.SuspendLayout();
@@ -148,9 +148,10 @@
             this.table_modelInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.table_modelInfo.Location = new System.Drawing.Point(19, 35);
             this.table_modelInfo.Name = "table_modelInfo";
-            this.table_modelInfo.RowCount = 2;
+            this.table_modelInfo.RowCount = 3;
             this.table_modelInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.table_modelInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.table_modelInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.table_modelInfo.Size = new System.Drawing.Size(251, 156);
             this.table_modelInfo.TabIndex = 0;
             this.table_modelInfo.TagString = null;
@@ -172,6 +173,19 @@
             this.uiGroupBox4.TabIndex = 17;
             this.uiGroupBox4.Text = null;
             this.uiGroupBox4.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btn_delete
+            // 
+            this.btn_delete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_delete.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_delete.Location = new System.Drawing.Point(462, 73);
+            this.btn_delete.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Size = new System.Drawing.Size(147, 69);
+            this.btn_delete.TabIndex = 1;
+            this.btn_delete.Text = "删除";
+            this.btn_delete.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // btn_loadModel
             // 
@@ -223,19 +237,6 @@
             this.btn_exit.Text = "退出";
             this.btn_exit.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
-            // 
-            // btn_delete
-            // 
-            this.btn_delete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_delete.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_delete.Location = new System.Drawing.Point(462, 73);
-            this.btn_delete.MinimumSize = new System.Drawing.Size(1, 1);
-            this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(147, 69);
-            this.btn_delete.TabIndex = 1;
-            this.btn_delete.Text = "删除";
-            this.btn_delete.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // Frm_loadShapeModel
             // 
