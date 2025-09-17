@@ -4,7 +4,7 @@
     {
         #region 成员
 
-        public static string VMSolPath = @"C:\Users\zzw\Desktop\标定\shibie.sol";
+        public static string VMSolPath = @"D:\zfkjData\PunchPress\shibie.sol";
 
         #endregion 成员
 
