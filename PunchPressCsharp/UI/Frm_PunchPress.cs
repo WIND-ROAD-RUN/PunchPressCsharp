@@ -518,53 +518,69 @@ namespace PunchPressCsharp.UI
 
         private void cBox_debugMode_Click(object sender, EventArgs e)
         {
-            GlobalData.Instance.configs.frmPunchPressCfg.isDebugMode = true;
-            GlobalData.Instance.configs.frmPunchPressCfg.isWorkMode = false;
-            cBox_debugMode.Checked = true;
-            cBox_workMode.Checked=false;
+            if (cBox_debugMode.Checked)
+            {
+                GlobalData.Instance.configs.frmPunchPressCfg.isDebugMode = true;
+                GlobalData.Instance.configs.frmPunchPressCfg.isWorkMode = false;
+                cBox_debugMode.Checked = true;
+                cBox_workMode.Checked = false;
 
 
-            //禁用模块加速显示
+                //禁用模块加速显示
 
-            IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
-            IMVSCalibTransformModuTool CalibTransform = (IMVSCalibTransformModuTool)VmSolution.Instance["流程1.标定转换1"];
-            IMVSGeometricTransformModuTool GeoTransform = (IMVSGeometricTransformModuTool)VmSolution.Instance["流程1.几何变换1"];
-            //var imageSource = (ImageSourceModuleCs.ImageSourceModuleTool)VmSolution.Instance["流程1.图像源1"];
+                IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
+                IMVSCalibTransformModuTool CalibTransform = (IMVSCalibTransformModuTool)VmSolution.Instance["流程1.标定转换1"];
+                IMVSGeometricTransformModuTool GeoTransform = (IMVSGeometricTransformModuTool)VmSolution.Instance["流程1.几何变换1"];
+                //var imageSource = (ImageSourceModuleCs.ImageSourceModuleTool)VmSolution.Instance["流程1.图像源1"];
 
 
 
-            vmRenderControl1.ModuleSource = FeatureMatch;
+                vmRenderControl1.ModuleSource = FeatureMatch;
 
-            FeatureMatch.IsForbidden = true;
-            CalibTransform.IsForbidden = true;
-            GlobalData.Instance.vmMainProcedure.ContinuousRunEnable = true;
+                FeatureMatch.IsForbidden = true;
+                CalibTransform.IsForbidden = true;
+                GlobalData.Instance.vmMainProcedure.ContinuousRunEnable = true;
 
-            uiTabControl1.SelectedIndex = 1;
+                uiTabControl1.SelectedIndex = 1;
+            }
+            else
+            {
+                cBox_debugMode.Checked = true;
+            }
 
         }
 
         private void cBox_workMode_Click(object sender, EventArgs e)
         {
-            GlobalData.Instance.configs.frmPunchPressCfg.isDebugMode = false;
-            GlobalData.Instance.configs.frmPunchPressCfg.isWorkMode = true;
-            cBox_debugMode.Checked = false;
-            cBox_workMode.Checked = true;
+            if (cBox_workMode.Checked)
+            {
+                GlobalData.Instance.configs.frmPunchPressCfg.isDebugMode = false;
+                GlobalData.Instance.configs.frmPunchPressCfg.isWorkMode = true;
+                cBox_debugMode.Checked = false;
+                cBox_workMode.Checked = true;
 
-            //禁用模块加速显示
-            IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
+                //禁用模块加速显示
+                IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
 
-            IMVSCalibTransformModuTool CalibTransform = (IMVSCalibTransformModuTool)VmSolution.Instance["流程1.标定转换1"];
+                IMVSCalibTransformModuTool CalibTransform = (IMVSCalibTransformModuTool)VmSolution.Instance["流程1.标定转换1"];
 
-            vmRenderControl1.ModuleSource = FeatureMatch;
-            GlobalData.Instance.vmMainProcedure.ContinuousRunEnable = false;
+                vmRenderControl1.ModuleSource = FeatureMatch;
+                GlobalData.Instance.vmMainProcedure.ContinuousRunEnable = false;
 
-            FeatureMatch.IsForbidden = false;
-            CalibTransform.IsForbidden = false;
-            var cameraParam = GlobalData.Instance.cameraModuleTool.ModuParams;
-            cameraParam.TriggerSource=0; // 设置触发源为硬触发
+                FeatureMatch.IsForbidden = false;
+                CalibTransform.IsForbidden = false;
+                var cameraParam = GlobalData.Instance.cameraModuleTool.ModuParams;
+                cameraParam.TriggerSource = 0; // 设置触发源为硬触发
 
 
-            uiTabControl1.SelectedIndex = 0;
+                uiTabControl1.SelectedIndex = 0;
+            }
+            else
+            {
+                cBox_workMode.Checked = true;
+            }
+
+            
         }
 
         private void cBox_upLight_CheckedChanged(object sender, EventArgs e)
