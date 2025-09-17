@@ -440,14 +440,11 @@ namespace PunchPressCsharp.UI
 
         private void btn_exposureReduce_Click(object sender, EventArgs e)
         {
-            //if (!GlobalData.Instance.configs.frmPunchPressCfg.isDebugMode || !GlobalData.Instance.cameraIsConnect)
-            //{
-            //    return;
-            //}
-
+            var min = GlobalData.Instance.configs.frmConfigurationCfg.exposureTimeMin;
             var currentExposureValue = GlobalData.Instance.configs.frmPunchPressCfg.exposureTime;
-            if (currentExposureValue <= UtilityValue.ExposureMinValue)
+            if (currentExposureValue <= min)
             {
+                MessageBox.Show($@"已超过最小值！最小值为：{min}", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             currentExposureValue -= UtilityValue.ExposureSetStepSize;
@@ -459,37 +456,32 @@ namespace PunchPressCsharp.UI
 
         private void btn_exposureIncrease_Click(object sender, EventArgs e)
         {
-            //if (!GlobalData.Instance.configs.frmPunchPressCfg.isDebugMode || !GlobalData.Instance.cameraIsConnect)
-            //{
-            //    return;
-            //}
 
+            var max = GlobalData.Instance.configs.frmConfigurationCfg.exposureTimeMax;
             var currentExposureValue = GlobalData.Instance.configs.frmPunchPressCfg.exposureTime;
-            if (currentExposureValue >= UtilityValue.ExposureMaxValue)
+            if (currentExposureValue >= max)
             {
+                MessageBox.Show($@"已超过最大值！最大值为：{max}", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             currentExposureValue += UtilityValue.ExposureSetStepSize;
             GlobalData.Instance.configs.frmPunchPressCfg.exposureTime = currentExposureValue;
-            lb_exposureValue.Text = currentExposureValue.ToString();
+            lb_exposureValue.Text= currentExposureValue.ToString();
 
             UpdateCameraSet();
         }
 
         private void btn_gainReduce_Click(object sender, EventArgs e)
         {
-            //if (!GlobalData.Instance.configs.frmPunchPressCfg.isDebugMode || !GlobalData.Instance.cameraIsConnect)
-            //{
-            //    return;
-            //}
-
+            var min = GlobalData.Instance.configs.frmConfigurationCfg.gainMin;
             var currentGainValue = GlobalData.Instance.configs.frmPunchPressCfg.gain;
-            if (currentGainValue <= UtilityValue.GainMinValue)
+            if (currentGainValue <= min)
             {
+                MessageBox.Show($@"已超过最小值！最小值为：{min}", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             currentGainValue -= UtilityValue.GainSetStepSize;
-            GlobalData.Instance.configs.frmPunchPressCfg.gain = currentGainValue;
+            GlobalData.Instance.configs.frmPunchPressCfg.gain= currentGainValue;
             lb_gainValue.Text = currentGainValue.ToString();
 
             UpdateCameraSet();
@@ -497,23 +489,18 @@ namespace PunchPressCsharp.UI
 
         private void btn_gainIncrease_Click(object sender, EventArgs e)
         {
-            //if (!GlobalData.Instance.configs.frmPunchPressCfg.isDebugMode || !GlobalData.Instance.cameraIsConnect)
-            //{
-            //    return;
-            //}
-
+            var max = GlobalData.Instance.configs.frmConfigurationCfg.gainMax;
             var currentGainValue = GlobalData.Instance.configs.frmPunchPressCfg.gain;
-            if (currentGainValue >= UtilityValue.GainMaxValue)
+            if (currentGainValue >= max)
             {
+                MessageBox.Show($@"已超过最大值！最大值为：{max}", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             currentGainValue += UtilityValue.GainSetStepSize;
             GlobalData.Instance.configs.frmPunchPressCfg.gain = currentGainValue;
-            lb_gainValue.Text = currentGainValue.ToString();
+            lb_gainValue.Text= currentGainValue.ToString();
 
             UpdateCameraSet();
-            //切换界面给
-            uiTabControl1.SelectedIndex = 1;
         }
 
         private void cBox_debugMode_Click(object sender, EventArgs e)
@@ -590,82 +577,128 @@ namespace PunchPressCsharp.UI
 
         private void btn_xIncease_Click(object sender, EventArgs e)
         {
-           
+            var max = GlobalData.Instance.configs.frmConfigurationCfg.centralXCorrectionMax;
             var currentX = GlobalData.Instance.configs.frmPunchPressCfg.centralX;
+
+            if (currentX + 1 >= max)
+            {
+                MessageBox.Show($@"已超过最大值！最大值为：{max}", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             currentX += 1;
             GlobalData.Instance.configs.frmPunchPressCfg.centralX = currentX;
-            lb_centralX.Text = currentX.ToString();
+            lb_centralX.Text = currentX.ToString("F1");
         }
 
         private void btn_xDecrease_Click(object sender, EventArgs e)
         {
+            var min = GlobalData.Instance.configs.frmConfigurationCfg.centralXCorrectionMin;
             var currentX = GlobalData.Instance.configs.frmPunchPressCfg.centralX;
+            if (currentX - 1 <= min)
+            {
+                MessageBox.Show($@"已超过最小值！最小值为：{min}", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             currentX -= 1;
             GlobalData.Instance.configs.frmPunchPressCfg.centralX = currentX;
-            lb_centralX.Text = currentX.ToString();
+            lb_centralX.Text = currentX.ToString("F1");
         }
 
         private void btn_yDecrease_Click(object sender, EventArgs e)
         {
+            var min = GlobalData.Instance.configs.frmConfigurationCfg.centralYCorrectionMin;
             var currentY = GlobalData.Instance.configs.frmPunchPressCfg.centralY;
+            if (currentY - 1 <= min)
+            {
+                MessageBox.Show($@"已超过最小值！最小值为：{min}", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             currentY -= 1;
             GlobalData.Instance.configs.frmPunchPressCfg.centralY = currentY;
-            lb_centralY.Text = currentY.ToString();
+            lb_centralY.Text = currentY.ToString("F1");
         }
 
         private void btn_yIncease_Click(object sender, EventArgs e)
         {
+            var max = GlobalData.Instance.configs.frmConfigurationCfg.centralYCorrectionMax;
             var currentY = GlobalData.Instance.configs.frmPunchPressCfg.centralY;
+            if (currentY + 1 >= max)
+            {
+                MessageBox.Show($@"已超过最大值！最大值为：{max}", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             currentY += 1;
             GlobalData.Instance.configs.frmPunchPressCfg.centralY = currentY;
-            lb_centralY.Text = currentY.ToString();
+            lb_centralY.Text = currentY.ToString("F1");
         }
 
         private void btn_angleDecrease_Click(object sender, EventArgs e)
         {
-            double currentAngle = GlobalData.Instance.configs.frmPunchPressCfg.angle;
-            currentAngle -= 0.1;
+            var min = GlobalData.Instance.configs.frmConfigurationCfg.angleCorrectionMin;
+            var currentAngle = GlobalData.Instance.configs.frmPunchPressCfg.angle;
+            if (currentAngle - 0.1 <= min)
+            {
+                MessageBox.Show($@"已超过最小值！最小值为：{min}", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            currentAngle -= 0.1f;
             GlobalData.Instance.configs.frmPunchPressCfg.angle = (float)currentAngle;
             lb_angle.Text = currentAngle.ToString("F1");
         }
 
         private void btn_angleIncease_Click(object sender, EventArgs e)
         {
-            double currentAngle = GlobalData.Instance.configs.frmPunchPressCfg.angle;
-            currentAngle += 0.1;
+            var max = GlobalData.Instance.configs.frmConfigurationCfg.angleCorrectionMax;
+            var currentAngle = GlobalData.Instance.configs.frmPunchPressCfg.angle;
+            if (currentAngle + 0.1 >= max)
+            {
+                MessageBox.Show($@"已超过最大值！最大值为：{max}", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            currentAngle += 0.1f;
             GlobalData.Instance.configs.frmPunchPressCfg.angle = (float)currentAngle;
             lb_angle.Text = currentAngle.ToString("F1");
         }
 
         private void lb_centralX_Click(object sender, EventArgs e)
         {
-            Frm_InputPage frm_InputPage = new Frm_InputPage((Control)sender,0,1000);
-            frm_InputPage.ShowDialog();
+            var cfg = GlobalData.Instance.configs.frmConfigurationCfg;
+            Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, cfg.centralXCorrectionMin, cfg.centralXCorrectionMax);
+            numKeyBoard.ShowDialog();
+            GlobalData.Instance.configs.frmPunchPressCfg.centralX= float.Parse(lb_centralX.Text);
         }
 
         private void lb_exposureValue_Click(object sender, EventArgs e)
         {
-            Frm_InputPage frm_InputPage = new Frm_InputPage();
-            frm_InputPage.ShowDialog();
+            var cfg = GlobalData.Instance.configs.frmConfigurationCfg;
+            Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, cfg.exposureTimeMin, cfg.exposureTimeMax);
+            numKeyBoard.ShowDialog();
+            GlobalData.Instance.configs.frmPunchPressCfg.exposureTime = int.Parse(lb_exposureValue.Text);
+
         }
 
         private void lb_gainValue_Click(object sender, EventArgs e)
         {
-            Frm_InputPage frm_InputPage = new Frm_InputPage();
-            frm_InputPage.ShowDialog();
+            var cfg = GlobalData.Instance.configs.frmConfigurationCfg;
+            Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, cfg.gainMin, cfg.gainMax);
+            numKeyBoard.ShowDialog();
+            GlobalData.Instance.configs.frmPunchPressCfg.gain = int.Parse(lb_gainValue.Text);
         }
 
         private void lb_centralY_Click(object sender, EventArgs e)
         {
-            Frm_InputPage frm_InputPage = new Frm_InputPage();
-            frm_InputPage.ShowDialog();
+            var cfg = GlobalData.Instance.configs.frmConfigurationCfg;
+            Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, cfg.centralYCorrectionMin, cfg.centralYCorrectionMax);
+            numKeyBoard.ShowDialog();
+            GlobalData.Instance.configs.frmPunchPressCfg.centralY = float.Parse(lb_centralY.Text);
         }
 
         private void lb_angle_Click(object sender, EventArgs e)
         {
-           
-            Frm_InputPage frm_InputPage = new Frm_InputPage();
-            frm_InputPage.ShowDialog();
+            var cfg = GlobalData.Instance.configs.frmConfigurationCfg;
+            Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, cfg.angleCorrectionMin, cfg.angleCorrectionMax);
+            numKeyBoard.ShowDialog();
+            GlobalData.Instance.configs.frmPunchPressCfg.angle = float.Parse(lb_angle.Text);
         }
 
         #endregion

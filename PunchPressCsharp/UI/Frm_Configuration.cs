@@ -98,6 +98,7 @@ namespace PunchPressCsharp.UI
                 cfg.gainMax = int.Parse(txt_gainMax.Text);
 
                 cfg.SaveToFile(GlobalPath.FrmConfigurationCfgPath);
+                _valueIsChange = false;
                 return true;
             }
             catch (Exception ex)
