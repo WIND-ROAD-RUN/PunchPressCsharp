@@ -32,14 +32,23 @@ namespace PunchPressCsharp.UI
             var cfg = GlobalData.Instance.configs.frmConfigurationCfg;
             txt_exposureMax.Text = cfg.exposureTimeMax.ToString();
             txt_exposureMin.Text = cfg.exposureTimeMin.ToString();
+            txt_exposureStep.Text = cfg.exposureTimeStep.ToString();
+
             txt_gainMax.Text = cfg.gainMax.ToString();
             txt_gainMin.Text = cfg.gainMin.ToString();
-            txt_centralXCorrectionMax.Text = cfg.centralXCorrectionMax.ToString();
-            txt_centralXCorrectionMin.Text = cfg.centralXCorrectionMin.ToString();
-            txt_centralYCorrectionMax.Text = cfg.centralYCorrectionMax.ToString();
-            txt_centralYCorrectionMin.Text = cfg.centralYCorrectionMin.ToString();
-            txt_angleCorrectionMax.Text = cfg.angleCorrectionMax.ToString();
-            txt_angleCorrectionMin.Text = cfg.angleCorrectionMin.ToString();
+            txt_gainStep.Text = cfg.gainStep.ToString();
+
+            txt_centralXCorrectionMax.Text = cfg.centralXCorrectionMax.ToString("F1");
+            txt_centralXCorrectionMin.Text = cfg.centralXCorrectionMin.ToString("F1");
+            txt_centralXStep.Text = cfg.centralXCorrectionStep.ToString("F1");
+
+            txt_centralYCorrectionMax.Text = cfg.centralYCorrectionMax.ToString("F1");
+            txt_centralYCorrectionMin.Text = cfg.centralYCorrectionMin.ToString("F1");
+            txt_centralYStep.Text = cfg.centralYCorrectionStep.ToString("F1");
+
+            txt_angleCorrectionMax.Text = cfg.angleCorrectionMax.ToString("F1");
+            txt_angleCorrectionMin.Text = cfg.angleCorrectionMin.ToString("F1");
+            txt_angleCorrectionStep.Text = cfg.angleCorrectionStep.ToString("F1");
 
         }
 
@@ -88,14 +97,23 @@ namespace PunchPressCsharp.UI
 
                 cfg.centralXCorrectionMin = float.Parse(txt_centralXCorrectionMin.Text);
                 cfg.centralXCorrectionMax = float.Parse(txt_centralXCorrectionMax.Text);
+                cfg.centralXCorrectionStep = float.Parse(txt_centralXStep.Text);
+
                 cfg.centralYCorrectionMin = float.Parse(txt_centralYCorrectionMin.Text);
                 cfg.centralYCorrectionMax = float.Parse(txt_centralYCorrectionMax.Text);
+                cfg.centralYCorrectionStep = float.Parse(txt_centralYStep.Text);
+
                 cfg.angleCorrectionMin = float.Parse(txt_angleCorrectionMin.Text);
                 cfg.angleCorrectionMax = float.Parse(txt_angleCorrectionMax.Text);
+                cfg.angleCorrectionStep= float.Parse(txt_angleCorrectionStep.Text);
+
                 cfg.exposureTimeMin = int.Parse(txt_exposureMin.Text);
                 cfg.exposureTimeMax = int.Parse(txt_exposureMax.Text);
+                cfg.exposureTimeStep = int.Parse(txt_exposureStep.Text);
+
                 cfg.gainMin = int.Parse(txt_gainMin.Text);
                 cfg.gainMax = int.Parse(txt_gainMax.Text);
+                cfg.gainStep = int.Parse(txt_gainStep.Text);
 
                 cfg.SaveToFile(GlobalPath.FrmConfigurationCfgPath);
                 _valueIsChange = false;
@@ -216,8 +234,42 @@ namespace PunchPressCsharp.UI
 
         }
 
+
         #endregion
 
+        private void txt_centralXStep_Click(object sender, EventArgs e)
+        {
+            Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, 0.1F, 1000);
+            numKeyBoard.ShowDialog();
+            _valueIsChange = true;
+        }
 
+        private void txt_centralYStep_Click(object sender, EventArgs e)
+        {
+            Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, 0.1F, 1000);
+            numKeyBoard.ShowDialog();
+            _valueIsChange = true;
+        }
+
+        private void txt_angleCorrectionStep_Click(object sender, EventArgs e)
+        {
+            Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, 0.1F, 360);
+            numKeyBoard.ShowDialog();
+            _valueIsChange = true;
+        }
+
+        private void txt_exposureStep_Click(object sender, EventArgs e)
+        {
+            Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, 1, 1000);
+            numKeyBoard.ShowDialog();
+            _valueIsChange = true;
+        }
+
+        private void txt_gainStep_Click(object sender, EventArgs e)
+        {
+            Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, 1, 100);
+            numKeyBoard.ShowDialog();
+            _valueIsChange = true;
+        }
     }
 }

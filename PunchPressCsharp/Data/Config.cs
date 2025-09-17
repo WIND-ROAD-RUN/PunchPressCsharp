@@ -61,15 +61,24 @@ namespace PunchPressCsharp.Data
         {
             public int exposureTimeMin = 0;
             public int exposureTimeMax = 1000;
+            public int exposureTimeStep = 100;
+
             public int gainMin = 0;
             public int gainMax = 20;
+            public int gainStep = 1;
 
             public float centralXCorrectionMin = 0;
             public float centralXCorrectionMax = 200;
+            public float centralXCorrectionStep = 10;
+
             public float centralYCorrectionMin = 0;
             public float centralYCorrectionMax = 200;
+            public float centralYCorrectionStep = 10;
+
+
             public float angleCorrectionMin = -360;
             public float angleCorrectionMax = 360;
+            public float angleCorrectionStep = 10;
 
             public void SaveToFile(string filePath)
             {
