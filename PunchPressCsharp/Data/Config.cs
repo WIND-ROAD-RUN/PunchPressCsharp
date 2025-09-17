@@ -19,6 +19,13 @@ namespace PunchPressCsharp.Data
             public bool isDownLightOpen;
         }
 
+        internal struct Correction
+        {
+            public float centralX;
+            public float centralY;
+            public float angle;
+        }
+
         internal class FrmSetCfg
         {
             public int exposureTime = 50000;
@@ -41,6 +48,7 @@ namespace PunchPressCsharp.Data
         internal class FrmPunchPressCfg
         {
             public LightCfg lightCfg = new LightCfg();
+            public Correction correction = new Correction();
             public int exposureTime = 50000;
             public int gain = 5;
             public float centralX = 100;
