@@ -198,8 +198,8 @@ namespace PunchPressCsharp.UI
                     table_modelInfo.Controls.Add(lbl3, 0, 2);
                     // 添加新的数据标签
                     Label val1 = new Label { Text = modelConfig.trainDate };
-                    Label val2 = new Label { Text = modelConfig.exposureTime.ToString() };
-                    Label val3 = new Label { Text = modelConfig.gain.ToString() };
+                    Label val2 = new Label { Text = modelConfig.cameraCfg.exposureTime.ToString() };
+                    Label val3 = new Label { Text = modelConfig.cameraCfg.gain.ToString() };
                     table_modelInfo.Controls.Add(val1, 1, 0);
                     table_modelInfo.Controls.Add(val2, 1, 1);
                     table_modelInfo.Controls.Add(val3, 1, 2);
