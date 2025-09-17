@@ -31,6 +31,27 @@ namespace PunchPressCsharp.UI
 
             list_modelList.Items.Add("模型1");
             list_modelList.Items.Add("模型2");
+            list_modelList.Items.Add("模型3");
+            list_modelList.Items.Add("模型4");
+            list_modelList.Items.Add("模型5");
+            list_modelList.Items.Add("模型6");
+            list_modelList.Items.Add("模型7");
+           // // 设置行和列数
+           // table_modelInfo.RowCount = 3;
+           // table_modelInfo.ColumnCount = 2;
+
+           // // 添加控件到指定单元格
+           // Label lbl1 = new Label { Text = "模型名称" };
+           // Label lbl2 = new Label { Text = "模型1" };
+           // table_modelInfo.Controls.Add(lbl1, 0, 0); // 第1行第1列
+           // table_modelInfo.Controls.Add(lbl2, 1, 0); // 第1行第2列
+
+           // // 设置行高和列宽
+           // table_modelInfo.RowStyles[0].Height = 30;
+           // table_modelInfo.ColumnStyles[0].Width = 100;
+
+           // // 清空所有内容
+           //// table_modelInfo.Controls.Clear();
             if (list_modelList.Items.Count > 0)
             {
                 list_modelList.SelectedIndex = 0;
@@ -68,6 +89,23 @@ namespace PunchPressCsharp.UI
             else
             {
                 list_modelList.SelectedIndex = idx + 1;
+            }
+        }
+
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+            int idx = list_modelList.SelectedIndex;
+            if (idx >= 0 && list_modelList.Items.Count > 0)
+            {
+                list_modelList.Items.RemoveAt(idx);
+
+                if (list_modelList.Items.Count > 0)
+                {
+                    if (idx >= list_modelList.Items.Count)
+                        list_modelList.SelectedIndex = list_modelList.Items.Count - 1;
+                    else
+                        list_modelList.SelectedIndex = idx;
+                }
             }
         }
     }
