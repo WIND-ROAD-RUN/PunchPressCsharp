@@ -14,6 +14,7 @@
         private static readonly string _ConfigRootPath = _ProjectHome + @"\Config";
         public static string FrmSetCfgPath = _ConfigRootPath + @"\Frm_setCfg.json";
         public static string FrmPunchPressCfgPath = _ConfigRootPath + @"\Frm_PunchPressCfg.json";
+        public static string FrmConfigurationCfgPath = _ConfigRootPath + @"\Frm_ConfigurationCfg.json";
 
         #endregion 配置
     }

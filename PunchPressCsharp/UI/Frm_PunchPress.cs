@@ -409,7 +409,7 @@ namespace PunchPressCsharp.UI
                 return;
             }
 
-            Frm_set frmSet = new Frm_set();
+            Frm_Configuration frmSet = new Frm_Configuration();
             frmSet.ShowDialog();
 
             var cameraModule= GlobalData.Instance.cameraModuleTool;

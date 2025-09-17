@@ -56,6 +56,34 @@ namespace PunchPressCsharp.Data
             }
         }
 
+
+        internal class FrmConfigurationCfg
+        {
+            public int exposureTimeMin = 0;
+            public int exposureTimeMax = 1000;
+            public int gainMin = 0;
+            public int gainMax = 20;
+
+            public float centralXCorrectionMin = 0;
+            public float centralXCorrectionMax = 200;
+            public float centralYCorrectionMin = 0;
+            public float centralYCorrectionMax = 200;
+            public float angleCorrectionMin = -360;
+            public float angleCorrectionMax = 360;
+
+            public void SaveToFile(string filePath)
+            {
+                var json = JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(filePath, json);
+            }
+
+            public static FrmConfigurationCfg LoadFromFile(string filePath)
+            {
+                var json = File.ReadAllText(filePath);
+                return JsonConvert.DeserializeObject<FrmConfigurationCfg>(json);
+            }
+        }
+
         #endregion
 
 
@@ -63,11 +91,13 @@ namespace PunchPressCsharp.Data
         {
             //public FrmSetCfg frmSetCfg = new FrmSetCfg();
             public FrmPunchPressCfg frmPunchPressCfg = new FrmPunchPressCfg();
+            public FrmConfigurationCfg frmConfigurationCfg = new FrmConfigurationCfg();
 
             public void SaveConfigs()
             {
                 //frmSetCfg.SaveToFile(GlobalPath.FrmSetCfgPath);
                 frmPunchPressCfg.SaveToFile(GlobalPath.FrmPunchPressCfgPath);
+                frmConfigurationCfg.SaveToFile(GlobalPath.FrmConfigurationCfgPath);
             }
 
             public void LoadConfigs()
@@ -88,6 +118,15 @@ namespace PunchPressCsharp.Data
                 else
                 {
                     frmPunchPressCfg.SaveToFile(GlobalPath.FrmPunchPressCfgPath);
+                }
+
+                if (File.Exists(GlobalPath.FrmConfigurationCfgPath))
+                {
+                    frmConfigurationCfg = FrmConfigurationCfg.LoadFromFile(GlobalPath.FrmConfigurationCfgPath);
+                }
+                else
+                {
+                    frmConfigurationCfg.SaveToFile(GlobalPath.FrmConfigurationCfgPath);
                 }
             }
         }
