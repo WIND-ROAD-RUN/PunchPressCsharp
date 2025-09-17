@@ -442,31 +442,42 @@ namespace PunchPressCsharp.UI
         {
             var min = GlobalData.Instance.configs.frmConfigurationCfg.exposureTimeMin;
             var currentExposureValue = GlobalData.Instance.configs.frmPunchPressCfg.exposureTime;
-            if (currentExposureValue <= min)
+
+            if (Math.Abs(currentExposureValue - min) < 0.001f)
             {
                 MessageBox.Show($@"已超过最小值！最小值为：{min}", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            currentExposureValue -= UtilityValue.ExposureSetStepSize;
-            GlobalData.Instance.configs.frmPunchPressCfg.exposureTime = currentExposureValue;
-            lb_exposureValue.Text = currentExposureValue.ToString();
+
+            var newValue = currentExposureValue - GlobalData.Instance.configs.frmConfigurationCfg.exposureTimeStep;
+            if (newValue < min)
+            {
+                newValue = min;
+            }
+            GlobalData.Instance.configs.frmPunchPressCfg.exposureTime = newValue;
+            lb_exposureValue.Text = newValue.ToString();
 
             UpdateCameraSet();
         }
 
         private void btn_exposureIncrease_Click(object sender, EventArgs e)
         {
-
             var max = GlobalData.Instance.configs.frmConfigurationCfg.exposureTimeMax;
             var currentExposureValue = GlobalData.Instance.configs.frmPunchPressCfg.exposureTime;
-            if (currentExposureValue >= max)
+
+            if (Math.Abs(currentExposureValue - max) < 0.001f)
             {
                 MessageBox.Show($@"已超过最大值！最大值为：{max}", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            currentExposureValue += UtilityValue.ExposureSetStepSize;
-            GlobalData.Instance.configs.frmPunchPressCfg.exposureTime = currentExposureValue;
-            lb_exposureValue.Text= currentExposureValue.ToString();
+
+            var newValue = currentExposureValue + GlobalData.Instance.configs.frmConfigurationCfg.exposureTimeStep;
+            if (newValue > max)
+            {
+                newValue = max;
+            }
+            GlobalData.Instance.configs.frmPunchPressCfg.exposureTime = newValue;
+            lb_exposureValue.Text = newValue.ToString();
 
             UpdateCameraSet();
         }
@@ -475,14 +486,20 @@ namespace PunchPressCsharp.UI
         {
             var min = GlobalData.Instance.configs.frmConfigurationCfg.gainMin;
             var currentGainValue = GlobalData.Instance.configs.frmPunchPressCfg.gain;
-            if (currentGainValue <= min)
+
+            if (Math.Abs(currentGainValue - min) < 0.001f)
             {
                 MessageBox.Show($@"已超过最小值！最小值为：{min}", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            currentGainValue -= UtilityValue.GainSetStepSize;
-            GlobalData.Instance.configs.frmPunchPressCfg.gain= currentGainValue;
-            lb_gainValue.Text = currentGainValue.ToString();
+
+            var newValue = currentGainValue - GlobalData.Instance.configs.frmConfigurationCfg.gainStep;
+            if (newValue < min)
+            {
+                newValue = min;
+            }
+            GlobalData.Instance.configs.frmPunchPressCfg.gain = newValue;
+            lb_gainValue.Text = newValue.ToString();
 
             UpdateCameraSet();
         }
@@ -491,14 +508,20 @@ namespace PunchPressCsharp.UI
         {
             var max = GlobalData.Instance.configs.frmConfigurationCfg.gainMax;
             var currentGainValue = GlobalData.Instance.configs.frmPunchPressCfg.gain;
-            if (currentGainValue >= max)
+
+            if (Math.Abs(currentGainValue - max) < 0.001f)
             {
                 MessageBox.Show($@"已超过最大值！最大值为：{max}", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            currentGainValue += UtilityValue.GainSetStepSize;
-            GlobalData.Instance.configs.frmPunchPressCfg.gain = currentGainValue;
-            lb_gainValue.Text= currentGainValue.ToString();
+
+            var newValue = currentGainValue + GlobalData.Instance.configs.frmConfigurationCfg.gainStep;
+            if (newValue > max)
+            {
+                newValue = max;
+            }
+            GlobalData.Instance.configs.frmPunchPressCfg.gain = newValue;
+            lb_gainValue.Text = newValue.ToString();
 
             UpdateCameraSet();
         }
@@ -580,12 +603,18 @@ namespace PunchPressCsharp.UI
             var max = GlobalData.Instance.configs.frmConfigurationCfg.centralXCorrectionMax;
             var currentX = GlobalData.Instance.configs.frmPunchPressCfg.centralX;
 
-            if (currentX + 1 >= max)
+            if (Math.Abs(currentX - max) < 0.001f)
             {
                 MessageBox.Show($@"已超过最大值！最大值为：{max}", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            currentX += 1;
+
+            var newValue = currentX + GlobalData.Instance.configs.frmConfigurationCfg.centralXCorrectionStep;
+            if (newValue > max)
+            {
+                newValue = max;
+            }
+            currentX = newValue;
             GlobalData.Instance.configs.frmPunchPressCfg.centralX = currentX;
             lb_centralX.Text = currentX.ToString("F1");
         }
@@ -594,12 +623,19 @@ namespace PunchPressCsharp.UI
         {
             var min = GlobalData.Instance.configs.frmConfigurationCfg.centralXCorrectionMin;
             var currentX = GlobalData.Instance.configs.frmPunchPressCfg.centralX;
-            if (currentX - 1 <= min)
+
+            if (Math.Abs(currentX - min) < 0.001f)
             {
                 MessageBox.Show($@"已超过最小值！最小值为：{min}", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            currentX -= 1;
+
+            var newValue = currentX - GlobalData.Instance.configs.frmConfigurationCfg.centralXCorrectionStep;
+            if (newValue < min)
+            {
+                newValue = min;
+            }
+            currentX = newValue;
             GlobalData.Instance.configs.frmPunchPressCfg.centralX = currentX;
             lb_centralX.Text = currentX.ToString("F1");
         }
@@ -608,12 +644,19 @@ namespace PunchPressCsharp.UI
         {
             var min = GlobalData.Instance.configs.frmConfigurationCfg.centralYCorrectionMin;
             var currentY = GlobalData.Instance.configs.frmPunchPressCfg.centralY;
-            if (currentY - 1 <= min)
+
+            if (Math.Abs(currentY - min) < 0.001f)
             {
                 MessageBox.Show($@"已超过最小值！最小值为：{min}", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            currentY -= 1;
+
+            var newValue = currentY - GlobalData.Instance.configs.frmConfigurationCfg.centralYCorrectionStep;
+            if (newValue < min)
+            {
+                newValue = min;
+            }
+            currentY = newValue;
             GlobalData.Instance.configs.frmPunchPressCfg.centralY = currentY;
             lb_centralY.Text = currentY.ToString("F1");
         }
@@ -622,12 +665,19 @@ namespace PunchPressCsharp.UI
         {
             var max = GlobalData.Instance.configs.frmConfigurationCfg.centralYCorrectionMax;
             var currentY = GlobalData.Instance.configs.frmPunchPressCfg.centralY;
-            if (currentY + 1 >= max)
+
+            if (Math.Abs(currentY - max) < 0.001f)
             {
                 MessageBox.Show($@"已超过最大值！最大值为：{max}", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            currentY += 1;
+
+            var newValue = currentY + GlobalData.Instance.configs.frmConfigurationCfg.centralYCorrectionStep;
+            if (newValue > max)
+            {
+                newValue = max;
+            }
+            currentY = newValue;
             GlobalData.Instance.configs.frmPunchPressCfg.centralY = currentY;
             lb_centralY.Text = currentY.ToString("F1");
         }
