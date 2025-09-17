@@ -12,6 +12,13 @@ namespace PunchPressCsharp.Data
     {
 
         #region 界面配置
+
+        internal struct LightCfg
+        {
+            public bool isUpLightOpen;
+            public bool isDownLightOpen;
+        }
+
         internal class FrmSetCfg
         {
             public int exposureTime = 50000;
@@ -33,6 +40,7 @@ namespace PunchPressCsharp.Data
 
         internal class FrmPunchPressCfg
         {
+            public LightCfg lightCfg = new LightCfg();
             public int exposureTime = 50000;
             public int gain = 5;
             public float centralX = 100;
