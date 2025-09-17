@@ -114,6 +114,11 @@ namespace PunchPressCsharp.Data
                  var json = File.ReadAllText(filePath);
                  return JsonConvert.DeserializeObject<ModelConfig>(json);
              }
+
+             public override string ToString()
+             {
+                 return trainDate;
+             }
         }
 
 
