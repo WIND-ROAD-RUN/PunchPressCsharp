@@ -36,29 +36,29 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupGain = new Sunny.UI.UICheckBoxGroup();
             this.uiLabel1 = new Sunny.UI.UILabel();
-            this.txt_GainMax = new Sunny.UI.UITextBox();
-            this.txt_GainMin = new Sunny.UI.UITextBox();
+            this.txt_gainMax = new Sunny.UI.UITextBox();
+            this.txt_gainMin = new Sunny.UI.UITextBox();
             this.uiLabel4 = new Sunny.UI.UILabel();
             this.groupExposure = new Sunny.UI.UICheckBoxGroup();
             this.uiLabel2 = new Sunny.UI.UILabel();
-            this.txt_ExplorMax = new Sunny.UI.UITextBox();
-            this.txt_ExplorMin = new Sunny.UI.UITextBox();
+            this.txt_exposureMax = new Sunny.UI.UITextBox();
+            this.txt_exposureMin = new Sunny.UI.UITextBox();
             this.uiLabel3 = new Sunny.UI.UILabel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupAngle = new Sunny.UI.UICheckBoxGroup();
-            this.txt_OffsetAngleMax = new Sunny.UI.UITextBox();
+            this.txt_angleCorrectionMax = new Sunny.UI.UITextBox();
             this.uiLabel9 = new Sunny.UI.UILabel();
-            this.txt_OffsetAngleMin = new Sunny.UI.UITextBox();
+            this.txt_angleCorrectionMin = new Sunny.UI.UITextBox();
             this.uiLabel10 = new Sunny.UI.UILabel();
             this.groupCenterY = new Sunny.UI.UICheckBoxGroup();
-            this.txt_OffsetYMax = new Sunny.UI.UITextBox();
+            this.txt_centralYCorrectionMax = new Sunny.UI.UITextBox();
             this.uiLabel7 = new Sunny.UI.UILabel();
-            this.txt_OffsetYMin = new Sunny.UI.UITextBox();
+            this.txt_centralYCorrectionMin = new Sunny.UI.UITextBox();
             this.uiLabel8 = new Sunny.UI.UILabel();
             this.groupCenterX = new Sunny.UI.UICheckBoxGroup();
-            this.txt_OffsetXMax = new Sunny.UI.UITextBox();
+            this.txt_centralXCorrectionMax = new Sunny.UI.UITextBox();
             this.uiLabel6 = new Sunny.UI.UILabel();
-            this.txt_OffsetXMin = new Sunny.UI.UITextBox();
+            this.txt_centralXCorrectionMin = new Sunny.UI.UITextBox();
             this.uiLabel5 = new Sunny.UI.UILabel();
             this.btnSave = new Sunny.UI.UIButton();
             this.uiTextBox10 = new Sunny.UI.UITextBox();
@@ -145,8 +145,8 @@
             // groupGain
             // 
             this.groupGain.Controls.Add(this.uiLabel1);
-            this.groupGain.Controls.Add(this.txt_GainMax);
-            this.groupGain.Controls.Add(this.txt_GainMin);
+            this.groupGain.Controls.Add(this.txt_gainMax);
+            this.groupGain.Controls.Add(this.txt_gainMin);
             this.groupGain.Controls.Add(this.uiLabel4);
             this.groupGain.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupGain.Location = new System.Drawing.Point(1, 243);
@@ -172,39 +172,41 @@
             this.uiLabel1.Text = "最小值:";
             this.uiLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txt_GainMax
+            // txt_gainMax
             // 
-            this.txt_GainMax.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_GainMax.DoubleValue = 1000D;
-            this.txt_GainMax.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txt_GainMax.IntValue = 1000;
-            this.txt_GainMax.Location = new System.Drawing.Point(293, 93);
-            this.txt_GainMax.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_GainMax.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txt_GainMax.Name = "txt_GainMax";
-            this.txt_GainMax.Padding = new System.Windows.Forms.Padding(5);
-            this.txt_GainMax.ShowText = false;
-            this.txt_GainMax.Size = new System.Drawing.Size(160, 35);
-            this.txt_GainMax.TabIndex = 4;
-            this.txt_GainMax.Text = "1000";
-            this.txt_GainMax.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txt_GainMax.Watermark = "";
+            this.txt_gainMax.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_gainMax.DoubleValue = 1000D;
+            this.txt_gainMax.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txt_gainMax.IntValue = 1000;
+            this.txt_gainMax.Location = new System.Drawing.Point(293, 93);
+            this.txt_gainMax.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_gainMax.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txt_gainMax.Name = "txt_gainMax";
+            this.txt_gainMax.Padding = new System.Windows.Forms.Padding(5);
+            this.txt_gainMax.ShowText = false;
+            this.txt_gainMax.Size = new System.Drawing.Size(160, 35);
+            this.txt_gainMax.TabIndex = 4;
+            this.txt_gainMax.Text = "1000";
+            this.txt_gainMax.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txt_gainMax.Watermark = "";
+            this.txt_gainMax.Click += new System.EventHandler(this.txt_gainMax_Click);
             // 
-            // txt_GainMin
+            // txt_gainMin
             // 
-            this.txt_GainMin.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_GainMin.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txt_GainMin.Location = new System.Drawing.Point(293, 48);
-            this.txt_GainMin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_GainMin.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txt_GainMin.Name = "txt_GainMin";
-            this.txt_GainMin.Padding = new System.Windows.Forms.Padding(5);
-            this.txt_GainMin.ShowText = false;
-            this.txt_GainMin.Size = new System.Drawing.Size(160, 35);
-            this.txt_GainMin.TabIndex = 2;
-            this.txt_GainMin.Text = "0";
-            this.txt_GainMin.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txt_GainMin.Watermark = "";
+            this.txt_gainMin.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_gainMin.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txt_gainMin.Location = new System.Drawing.Point(293, 48);
+            this.txt_gainMin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_gainMin.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txt_gainMin.Name = "txt_gainMin";
+            this.txt_gainMin.Padding = new System.Windows.Forms.Padding(5);
+            this.txt_gainMin.ShowText = false;
+            this.txt_gainMin.Size = new System.Drawing.Size(160, 35);
+            this.txt_gainMin.TabIndex = 2;
+            this.txt_gainMin.Text = "0";
+            this.txt_gainMin.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txt_gainMin.Watermark = "";
+            this.txt_gainMin.Click += new System.EventHandler(this.txt_gainMin_Click);
             // 
             // uiLabel4
             // 
@@ -220,8 +222,8 @@
             // groupExposure
             // 
             this.groupExposure.Controls.Add(this.uiLabel2);
-            this.groupExposure.Controls.Add(this.txt_ExplorMax);
-            this.groupExposure.Controls.Add(this.txt_ExplorMin);
+            this.groupExposure.Controls.Add(this.txt_exposureMax);
+            this.groupExposure.Controls.Add(this.txt_exposureMin);
             this.groupExposure.Controls.Add(this.uiLabel3);
             this.groupExposure.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupExposure.Location = new System.Drawing.Point(-2, 47);
@@ -248,39 +250,41 @@
             this.uiLabel2.Text = "最小值:";
             this.uiLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txt_ExplorMax
+            // txt_exposureMax
             // 
-            this.txt_ExplorMax.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_ExplorMax.DoubleValue = 1000D;
-            this.txt_ExplorMax.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txt_ExplorMax.IntValue = 1000;
-            this.txt_ExplorMax.Location = new System.Drawing.Point(293, 93);
-            this.txt_ExplorMax.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_ExplorMax.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txt_ExplorMax.Name = "txt_ExplorMax";
-            this.txt_ExplorMax.Padding = new System.Windows.Forms.Padding(5);
-            this.txt_ExplorMax.ShowText = false;
-            this.txt_ExplorMax.Size = new System.Drawing.Size(160, 35);
-            this.txt_ExplorMax.TabIndex = 4;
-            this.txt_ExplorMax.Text = "1000";
-            this.txt_ExplorMax.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txt_ExplorMax.Watermark = "";
+            this.txt_exposureMax.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_exposureMax.DoubleValue = 1000D;
+            this.txt_exposureMax.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txt_exposureMax.IntValue = 1000;
+            this.txt_exposureMax.Location = new System.Drawing.Point(293, 93);
+            this.txt_exposureMax.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_exposureMax.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txt_exposureMax.Name = "txt_exposureMax";
+            this.txt_exposureMax.Padding = new System.Windows.Forms.Padding(5);
+            this.txt_exposureMax.ShowText = false;
+            this.txt_exposureMax.Size = new System.Drawing.Size(160, 35);
+            this.txt_exposureMax.TabIndex = 4;
+            this.txt_exposureMax.Text = "1000";
+            this.txt_exposureMax.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txt_exposureMax.Watermark = "";
+            this.txt_exposureMax.Click += new System.EventHandler(this.txt_exposureMax_Click);
             // 
-            // txt_ExplorMin
+            // txt_exposureMin
             // 
-            this.txt_ExplorMin.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_ExplorMin.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txt_ExplorMin.Location = new System.Drawing.Point(293, 48);
-            this.txt_ExplorMin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_ExplorMin.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txt_ExplorMin.Name = "txt_ExplorMin";
-            this.txt_ExplorMin.Padding = new System.Windows.Forms.Padding(5);
-            this.txt_ExplorMin.ShowText = false;
-            this.txt_ExplorMin.Size = new System.Drawing.Size(160, 35);
-            this.txt_ExplorMin.TabIndex = 2;
-            this.txt_ExplorMin.Text = "0";
-            this.txt_ExplorMin.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txt_ExplorMin.Watermark = "";
+            this.txt_exposureMin.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_exposureMin.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txt_exposureMin.Location = new System.Drawing.Point(293, 48);
+            this.txt_exposureMin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_exposureMin.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txt_exposureMin.Name = "txt_exposureMin";
+            this.txt_exposureMin.Padding = new System.Windows.Forms.Padding(5);
+            this.txt_exposureMin.ShowText = false;
+            this.txt_exposureMin.Size = new System.Drawing.Size(160, 35);
+            this.txt_exposureMin.TabIndex = 2;
+            this.txt_exposureMin.Text = "0";
+            this.txt_exposureMin.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txt_exposureMin.Watermark = "";
+            this.txt_exposureMin.Click += new System.EventHandler(this.txt_exposureMin_Click);
             // 
             // uiLabel3
             // 
@@ -308,9 +312,9 @@
             // 
             // groupAngle
             // 
-            this.groupAngle.Controls.Add(this.txt_OffsetAngleMax);
+            this.groupAngle.Controls.Add(this.txt_angleCorrectionMax);
             this.groupAngle.Controls.Add(this.uiLabel9);
-            this.groupAngle.Controls.Add(this.txt_OffsetAngleMin);
+            this.groupAngle.Controls.Add(this.txt_angleCorrectionMin);
             this.groupAngle.Controls.Add(this.uiLabel10);
             this.groupAngle.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupAngle.Location = new System.Drawing.Point(15, 297);
@@ -324,23 +328,24 @@
             this.groupAngle.Text = "角度矫正";
             this.groupAngle.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txt_OffsetAngleMax
+            // txt_angleCorrectionMax
             // 
-            this.txt_OffsetAngleMax.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_OffsetAngleMax.DoubleValue = 360D;
-            this.txt_OffsetAngleMax.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txt_OffsetAngleMax.IntValue = 360;
-            this.txt_OffsetAngleMax.Location = new System.Drawing.Point(302, 80);
-            this.txt_OffsetAngleMax.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_OffsetAngleMax.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txt_OffsetAngleMax.Name = "txt_OffsetAngleMax";
-            this.txt_OffsetAngleMax.Padding = new System.Windows.Forms.Padding(5);
-            this.txt_OffsetAngleMax.ShowText = false;
-            this.txt_OffsetAngleMax.Size = new System.Drawing.Size(160, 30);
-            this.txt_OffsetAngleMax.TabIndex = 4;
-            this.txt_OffsetAngleMax.Text = "360";
-            this.txt_OffsetAngleMax.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txt_OffsetAngleMax.Watermark = "";
+            this.txt_angleCorrectionMax.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_angleCorrectionMax.DoubleValue = 360D;
+            this.txt_angleCorrectionMax.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txt_angleCorrectionMax.IntValue = 360;
+            this.txt_angleCorrectionMax.Location = new System.Drawing.Point(302, 80);
+            this.txt_angleCorrectionMax.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_angleCorrectionMax.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txt_angleCorrectionMax.Name = "txt_angleCorrectionMax";
+            this.txt_angleCorrectionMax.Padding = new System.Windows.Forms.Padding(5);
+            this.txt_angleCorrectionMax.ShowText = false;
+            this.txt_angleCorrectionMax.Size = new System.Drawing.Size(160, 30);
+            this.txt_angleCorrectionMax.TabIndex = 4;
+            this.txt_angleCorrectionMax.Text = "360";
+            this.txt_angleCorrectionMax.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txt_angleCorrectionMax.Watermark = "";
+            this.txt_angleCorrectionMax.Click += new System.EventHandler(this.txt_angleCorrectionMax_Click);
             // 
             // uiLabel9
             // 
@@ -353,23 +358,24 @@
             this.uiLabel9.Text = "最大值:";
             this.uiLabel9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txt_OffsetAngleMin
+            // txt_angleCorrectionMin
             // 
-            this.txt_OffsetAngleMin.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_OffsetAngleMin.DoubleValue = -360D;
-            this.txt_OffsetAngleMin.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txt_OffsetAngleMin.IntValue = -360;
-            this.txt_OffsetAngleMin.Location = new System.Drawing.Point(302, 38);
-            this.txt_OffsetAngleMin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_OffsetAngleMin.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txt_OffsetAngleMin.Name = "txt_OffsetAngleMin";
-            this.txt_OffsetAngleMin.Padding = new System.Windows.Forms.Padding(5);
-            this.txt_OffsetAngleMin.ShowText = false;
-            this.txt_OffsetAngleMin.Size = new System.Drawing.Size(160, 30);
-            this.txt_OffsetAngleMin.TabIndex = 3;
-            this.txt_OffsetAngleMin.Text = "-360";
-            this.txt_OffsetAngleMin.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txt_OffsetAngleMin.Watermark = "";
+            this.txt_angleCorrectionMin.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_angleCorrectionMin.DoubleValue = -360D;
+            this.txt_angleCorrectionMin.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txt_angleCorrectionMin.IntValue = -360;
+            this.txt_angleCorrectionMin.Location = new System.Drawing.Point(302, 38);
+            this.txt_angleCorrectionMin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_angleCorrectionMin.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txt_angleCorrectionMin.Name = "txt_angleCorrectionMin";
+            this.txt_angleCorrectionMin.Padding = new System.Windows.Forms.Padding(5);
+            this.txt_angleCorrectionMin.ShowText = false;
+            this.txt_angleCorrectionMin.Size = new System.Drawing.Size(160, 30);
+            this.txt_angleCorrectionMin.TabIndex = 3;
+            this.txt_angleCorrectionMin.Text = "-360";
+            this.txt_angleCorrectionMin.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txt_angleCorrectionMin.Watermark = "";
+            this.txt_angleCorrectionMin.Click += new System.EventHandler(this.txt_angleCorrectionMin_Click);
             // 
             // uiLabel10
             // 
@@ -384,9 +390,9 @@
             // 
             // groupCenterY
             // 
-            this.groupCenterY.Controls.Add(this.txt_OffsetYMax);
+            this.groupCenterY.Controls.Add(this.txt_centralYCorrectionMax);
             this.groupCenterY.Controls.Add(this.uiLabel7);
-            this.groupCenterY.Controls.Add(this.txt_OffsetYMin);
+            this.groupCenterY.Controls.Add(this.txt_centralYCorrectionMin);
             this.groupCenterY.Controls.Add(this.uiLabel8);
             this.groupCenterY.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupCenterY.Location = new System.Drawing.Point(15, 154);
@@ -400,22 +406,23 @@
             this.groupCenterY.Text = "中心矫正y";
             this.groupCenterY.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txt_OffsetYMax
+            // txt_centralYCorrectionMax
             // 
-            this.txt_OffsetYMax.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_OffsetYMax.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txt_OffsetYMax.Location = new System.Drawing.Point(302, 80);
-            this.txt_OffsetYMax.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_OffsetYMax.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txt_OffsetYMax.Name = "txt_OffsetYMax";
-            this.txt_OffsetYMax.Padding = new System.Windows.Forms.Padding(5);
-            this.txt_OffsetYMax.ShowText = false;
-            this.txt_OffsetYMax.Size = new System.Drawing.Size(160, 30);
-            this.txt_OffsetYMax.TabIndex = 4;
-            this.txt_OffsetYMax.TagString = "200";
-            this.txt_OffsetYMax.Text = "0";
-            this.txt_OffsetYMax.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txt_OffsetYMax.Watermark = "";
+            this.txt_centralYCorrectionMax.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_centralYCorrectionMax.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txt_centralYCorrectionMax.Location = new System.Drawing.Point(302, 80);
+            this.txt_centralYCorrectionMax.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_centralYCorrectionMax.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txt_centralYCorrectionMax.Name = "txt_centralYCorrectionMax";
+            this.txt_centralYCorrectionMax.Padding = new System.Windows.Forms.Padding(5);
+            this.txt_centralYCorrectionMax.ShowText = false;
+            this.txt_centralYCorrectionMax.Size = new System.Drawing.Size(160, 30);
+            this.txt_centralYCorrectionMax.TabIndex = 4;
+            this.txt_centralYCorrectionMax.TagString = "200";
+            this.txt_centralYCorrectionMax.Text = "0";
+            this.txt_centralYCorrectionMax.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txt_centralYCorrectionMax.Watermark = "";
+            this.txt_centralYCorrectionMax.Click += new System.EventHandler(this.txt_centralYCorrectionMax_Click);
             // 
             // uiLabel7
             // 
@@ -428,21 +435,22 @@
             this.uiLabel7.Text = "最大值:";
             this.uiLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txt_OffsetYMin
+            // txt_centralYCorrectionMin
             // 
-            this.txt_OffsetYMin.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_OffsetYMin.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txt_OffsetYMin.Location = new System.Drawing.Point(302, 38);
-            this.txt_OffsetYMin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_OffsetYMin.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txt_OffsetYMin.Name = "txt_OffsetYMin";
-            this.txt_OffsetYMin.Padding = new System.Windows.Forms.Padding(5);
-            this.txt_OffsetYMin.ShowText = false;
-            this.txt_OffsetYMin.Size = new System.Drawing.Size(160, 30);
-            this.txt_OffsetYMin.TabIndex = 3;
-            this.txt_OffsetYMin.Text = "0";
-            this.txt_OffsetYMin.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txt_OffsetYMin.Watermark = "";
+            this.txt_centralYCorrectionMin.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_centralYCorrectionMin.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txt_centralYCorrectionMin.Location = new System.Drawing.Point(302, 38);
+            this.txt_centralYCorrectionMin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_centralYCorrectionMin.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txt_centralYCorrectionMin.Name = "txt_centralYCorrectionMin";
+            this.txt_centralYCorrectionMin.Padding = new System.Windows.Forms.Padding(5);
+            this.txt_centralYCorrectionMin.ShowText = false;
+            this.txt_centralYCorrectionMin.Size = new System.Drawing.Size(160, 30);
+            this.txt_centralYCorrectionMin.TabIndex = 3;
+            this.txt_centralYCorrectionMin.Text = "0";
+            this.txt_centralYCorrectionMin.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txt_centralYCorrectionMin.Watermark = "";
+            this.txt_centralYCorrectionMin.Click += new System.EventHandler(this.txt_centralYCorrectionMin_Click);
             // 
             // uiLabel8
             // 
@@ -457,9 +465,9 @@
             // 
             // groupCenterX
             // 
-            this.groupCenterX.Controls.Add(this.txt_OffsetXMax);
+            this.groupCenterX.Controls.Add(this.txt_centralXCorrectionMax);
             this.groupCenterX.Controls.Add(this.uiLabel6);
-            this.groupCenterX.Controls.Add(this.txt_OffsetXMin);
+            this.groupCenterX.Controls.Add(this.txt_centralXCorrectionMin);
             this.groupCenterX.Controls.Add(this.uiLabel5);
             this.groupCenterX.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupCenterX.Location = new System.Drawing.Point(15, 14);
@@ -473,23 +481,24 @@
             this.groupCenterX.Text = "中心矫正x";
             this.groupCenterX.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txt_OffsetXMax
+            // txt_centralXCorrectionMax
             // 
-            this.txt_OffsetXMax.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_OffsetXMax.DoubleValue = 200D;
-            this.txt_OffsetXMax.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txt_OffsetXMax.IntValue = 200;
-            this.txt_OffsetXMax.Location = new System.Drawing.Point(302, 80);
-            this.txt_OffsetXMax.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_OffsetXMax.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txt_OffsetXMax.Name = "txt_OffsetXMax";
-            this.txt_OffsetXMax.Padding = new System.Windows.Forms.Padding(5);
-            this.txt_OffsetXMax.ShowText = false;
-            this.txt_OffsetXMax.Size = new System.Drawing.Size(160, 30);
-            this.txt_OffsetXMax.TabIndex = 4;
-            this.txt_OffsetXMax.Text = "200";
-            this.txt_OffsetXMax.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txt_OffsetXMax.Watermark = "";
+            this.txt_centralXCorrectionMax.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_centralXCorrectionMax.DoubleValue = 200D;
+            this.txt_centralXCorrectionMax.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txt_centralXCorrectionMax.IntValue = 200;
+            this.txt_centralXCorrectionMax.Location = new System.Drawing.Point(302, 80);
+            this.txt_centralXCorrectionMax.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_centralXCorrectionMax.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txt_centralXCorrectionMax.Name = "txt_centralXCorrectionMax";
+            this.txt_centralXCorrectionMax.Padding = new System.Windows.Forms.Padding(5);
+            this.txt_centralXCorrectionMax.ShowText = false;
+            this.txt_centralXCorrectionMax.Size = new System.Drawing.Size(160, 30);
+            this.txt_centralXCorrectionMax.TabIndex = 4;
+            this.txt_centralXCorrectionMax.Text = "200";
+            this.txt_centralXCorrectionMax.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txt_centralXCorrectionMax.Watermark = "";
+            this.txt_centralXCorrectionMax.Click += new System.EventHandler(this.txt_centralXCorrectionMax_Click);
             // 
             // uiLabel6
             // 
@@ -502,21 +511,22 @@
             this.uiLabel6.Text = "最大值:";
             this.uiLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txt_OffsetXMin
+            // txt_centralXCorrectionMin
             // 
-            this.txt_OffsetXMin.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_OffsetXMin.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txt_OffsetXMin.Location = new System.Drawing.Point(302, 38);
-            this.txt_OffsetXMin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_OffsetXMin.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txt_OffsetXMin.Name = "txt_OffsetXMin";
-            this.txt_OffsetXMin.Padding = new System.Windows.Forms.Padding(5);
-            this.txt_OffsetXMin.ShowText = false;
-            this.txt_OffsetXMin.Size = new System.Drawing.Size(160, 30);
-            this.txt_OffsetXMin.TabIndex = 3;
-            this.txt_OffsetXMin.Text = "0";
-            this.txt_OffsetXMin.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txt_OffsetXMin.Watermark = "";
+            this.txt_centralXCorrectionMin.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_centralXCorrectionMin.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txt_centralXCorrectionMin.Location = new System.Drawing.Point(302, 38);
+            this.txt_centralXCorrectionMin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_centralXCorrectionMin.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txt_centralXCorrectionMin.Name = "txt_centralXCorrectionMin";
+            this.txt_centralXCorrectionMin.Padding = new System.Windows.Forms.Padding(5);
+            this.txt_centralXCorrectionMin.ShowText = false;
+            this.txt_centralXCorrectionMin.Size = new System.Drawing.Size(160, 30);
+            this.txt_centralXCorrectionMin.TabIndex = 3;
+            this.txt_centralXCorrectionMin.Text = "0";
+            this.txt_centralXCorrectionMin.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txt_centralXCorrectionMin.Watermark = "";
+            this.txt_centralXCorrectionMin.Click += new System.EventHandler(this.txt_centralXCorrectionMin_Click);
             // 
             // uiLabel5
             // 
@@ -665,6 +675,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_Configuration";
             this.Text = "Frm_Configuration";
+            this.Load += new System.EventHandler(this.Frm_Configuration_Load);
             this.titleBar.ResumeLayout(false);
             this.titleBar.PerformLayout();
             this.uiTabControl1.ResumeLayout(false);
@@ -688,29 +699,29 @@
         private System.Windows.Forms.TabPage tabPage2;
         private Sunny.UI.UICheckBoxGroup groupExposure;
         private Sunny.UI.UILabel uiLabel2;
-        private Sunny.UI.UITextBox txt_ExplorMax;
-        private Sunny.UI.UITextBox txt_ExplorMin;
+        private Sunny.UI.UITextBox txt_exposureMax;
+        private Sunny.UI.UITextBox txt_exposureMin;
         private Sunny.UI.UILabel uiLabel3;
         private Sunny.UI.UIButton btnSave;
         private Sunny.UI.UICheckBoxGroup groupGain;
         private Sunny.UI.UILabel uiLabel1;
-        private Sunny.UI.UITextBox txt_GainMax;
-        private Sunny.UI.UITextBox txt_GainMin;
+        private Sunny.UI.UITextBox txt_gainMax;
+        private Sunny.UI.UITextBox txt_gainMin;
         private Sunny.UI.UILabel uiLabel4;
         private Sunny.UI.UICheckBoxGroup groupAngle;
-        private Sunny.UI.UITextBox txt_OffsetAngleMax;
+        private Sunny.UI.UITextBox txt_angleCorrectionMax;
         private Sunny.UI.UILabel uiLabel9;
-        private Sunny.UI.UITextBox txt_OffsetAngleMin;
+        private Sunny.UI.UITextBox txt_angleCorrectionMin;
         private Sunny.UI.UILabel uiLabel10;
         private Sunny.UI.UICheckBoxGroup groupCenterY;
-        private Sunny.UI.UITextBox txt_OffsetYMax;
+        private Sunny.UI.UITextBox txt_centralYCorrectionMax;
         private Sunny.UI.UILabel uiLabel7;
-        private Sunny.UI.UITextBox txt_OffsetYMin;
+        private Sunny.UI.UITextBox txt_centralYCorrectionMin;
         private Sunny.UI.UILabel uiLabel8;
         private Sunny.UI.UICheckBoxGroup groupCenterX;
-        private Sunny.UI.UITextBox txt_OffsetXMax;
+        private Sunny.UI.UITextBox txt_centralXCorrectionMax;
         private Sunny.UI.UILabel uiLabel6;
-        private Sunny.UI.UITextBox txt_OffsetXMin;
+        private Sunny.UI.UITextBox txt_centralXCorrectionMin;
         private Sunny.UI.UILabel uiLabel5;
         private Sunny.UI.UITextBox uiTextBox10;
         private Sunny.UI.UITextBox uiTextBox9;
