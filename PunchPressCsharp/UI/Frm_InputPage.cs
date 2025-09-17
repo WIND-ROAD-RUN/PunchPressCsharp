@@ -12,6 +12,9 @@ namespace PunchPressCsharp.UI
 {
     public partial class Frm_InputPage : Form
     {
+        private Control _externalControl;
+        private float min = 0;
+        private float max = 1000000;
 
         // 存储当前输入值
         public string InputValue { get; private set; } = "0";
@@ -21,7 +24,15 @@ namespace PunchPressCsharp.UI
             InitializeComponent();
         }
 
-      
+        // 构造函数，传入任意控件
+        public Frm_InputPage(Control externalControl,float min,float max)
+        {
+            InitializeComponent();
+            _externalControl = externalControl;
+            this.min = min;
+            this.max = max;
+        }
+
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -77,6 +88,14 @@ namespace PunchPressCsharp.UI
                 return;
             }
 
+            if (value<min||value>max)
+            {
+
+                ShowErrorAlert("小于设定数值"+ min.ToString()+"---"+max.ToString());
+                return;
+            }
+
+            _externalControl.Text = InputValue;
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
@@ -142,7 +161,7 @@ namespace PunchPressCsharp.UI
         {
             if (InputValue == "0" && btn1.Text != ".")
                 InputValue = "";
-            InputValue += btn6.Text;
+            InputValue += btn1.Text;
             uiTextBox1.Text = InputValue;
         }
 

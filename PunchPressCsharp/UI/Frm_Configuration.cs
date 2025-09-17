@@ -27,12 +27,20 @@ namespace PunchPressCsharp.UI
 
         }
 
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void uiButton2_Click(object sender, EventArgs e)
+      
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_exit_Click(object sender, EventArgs e)
         {
             this.Close();
         }

@@ -122,8 +122,8 @@
             // 
             // uiTabControl1
             // 
-            this.uiTabControl1.Controls.Add(this.tabPage1);
             this.uiTabControl1.Controls.Add(this.tabPage2);
+            this.uiTabControl1.Controls.Add(this.tabPage1);
             this.uiTabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.uiTabControl1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiTabControl1.ItemSize = new System.Drawing.Size(150, 40);
@@ -131,7 +131,7 @@
             this.uiTabControl1.MainPage = "";
             this.uiTabControl1.Name = "uiTabControl1";
             this.uiTabControl1.SelectedIndex = 0;
-            this.uiTabControl1.Size = new System.Drawing.Size(465, 267);
+            this.uiTabControl1.Size = new System.Drawing.Size(440, 267);
             this.uiTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.uiTabControl1.TabIndex = 22;
             this.uiTabControl1.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -142,7 +142,7 @@
             this.tabPage1.Controls.Add(this.uiCheckBoxGroup6);
             this.tabPage1.Location = new System.Drawing.Point(0, 40);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(465, 227);
+            this.tabPage1.Size = new System.Drawing.Size(440, 227);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "光源亮度设置";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -325,7 +325,7 @@
             this.tabPage2.Controls.Add(this.uiCheckBoxGroup8);
             this.tabPage2.Location = new System.Drawing.Point(0, 40);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(465, 227);
+            this.tabPage2.Size = new System.Drawing.Size(440, 227);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "偏移量设置";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -706,7 +706,6 @@
             this.pbtn_templateLoad.TabIndex = 3;
             this.pbtn_templateLoad.Text = "模板加载";
             this.pbtn_templateLoad.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.pbtn_templateLoad.Click += new System.EventHandler(this.btn_set_Click);
             // 
             // btn_set
             // 

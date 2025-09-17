@@ -1,6 +1,7 @@
 ﻿using CameraIOModuleCs;
 using GlobalCameraModuleCs;
 using IMVSCalibTransformModuCs;
+using IMVSGeometricTransformModuCs;
 using IMVSHPFeatureMatchModuCs;
 using Newtonsoft.Json.Linq;
 using PunchPressCsharp.Data;
@@ -374,8 +375,6 @@ namespace PunchPressCsharp.UI
         }
 
 
-        #endregion
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             GlobalData.Instance.configs.SaveConfigs();
@@ -441,10 +440,10 @@ namespace PunchPressCsharp.UI
 
         private void btn_exposureReduce_Click(object sender, EventArgs e)
         {
-            if (!GlobalData.Instance.configs.frmPunchPressCfg.isDebugMode || !GlobalData.Instance.cameraIsConnect)
-            {
-                return;
-            }
+            //if (!GlobalData.Instance.configs.frmPunchPressCfg.isDebugMode || !GlobalData.Instance.cameraIsConnect)
+            //{
+            //    return;
+            //}
 
             var currentExposureValue = GlobalData.Instance.configs.frmPunchPressCfg.exposureTime;
             if (currentExposureValue <= UtilityValue.ExposureMinValue)
@@ -460,10 +459,10 @@ namespace PunchPressCsharp.UI
 
         private void btn_exposureIncrease_Click(object sender, EventArgs e)
         {
-            if (!GlobalData.Instance.configs.frmPunchPressCfg.isDebugMode || !GlobalData.Instance.cameraIsConnect)
-            {
-                return;
-            }
+            //if (!GlobalData.Instance.configs.frmPunchPressCfg.isDebugMode || !GlobalData.Instance.cameraIsConnect)
+            //{
+            //    return;
+            //}
 
             var currentExposureValue = GlobalData.Instance.configs.frmPunchPressCfg.exposureTime;
             if (currentExposureValue >= UtilityValue.ExposureMaxValue)
@@ -479,10 +478,10 @@ namespace PunchPressCsharp.UI
 
         private void btn_gainReduce_Click(object sender, EventArgs e)
         {
-            if (!GlobalData.Instance.configs.frmPunchPressCfg.isDebugMode || !GlobalData.Instance.cameraIsConnect)
-            {
-                return;
-            }
+            //if (!GlobalData.Instance.configs.frmPunchPressCfg.isDebugMode || !GlobalData.Instance.cameraIsConnect)
+            //{
+            //    return;
+            //}
 
             var currentGainValue = GlobalData.Instance.configs.frmPunchPressCfg.gain;
             if (currentGainValue <= UtilityValue.GainMinValue)
@@ -498,10 +497,10 @@ namespace PunchPressCsharp.UI
 
         private void btn_gainIncrease_Click(object sender, EventArgs e)
         {
-            if (!GlobalData.Instance.configs.frmPunchPressCfg.isDebugMode || !GlobalData.Instance.cameraIsConnect)
-            {
-                return;
-            }
+            //if (!GlobalData.Instance.configs.frmPunchPressCfg.isDebugMode || !GlobalData.Instance.cameraIsConnect)
+            //{
+            //    return;
+            //}
 
             var currentGainValue = GlobalData.Instance.configs.frmPunchPressCfg.gain;
             if (currentGainValue >= UtilityValue.GainMaxValue)
@@ -529,15 +528,18 @@ namespace PunchPressCsharp.UI
 
             IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
             IMVSCalibTransformModuTool CalibTransform = (IMVSCalibTransformModuTool)VmSolution.Instance["流程1.标定转换1"];
+            IMVSGeometricTransformModuTool GeoTransform = (IMVSGeometricTransformModuTool)VmSolution.Instance["流程1.几何变换1"];
+            //var imageSource = (ImageSourceModuleCs.ImageSourceModuleTool)VmSolution.Instance["流程1.图像源1"];
 
-            var imageSource = (ImageSourceModuleCs.ImageSourceModuleTool)VmSolution.Instance["流程1.图像源1"];
-            vmRenderControl1.ModuleSource = imageSource;
+
+
+            vmRenderControl1.ModuleSource = FeatureMatch;
 
             FeatureMatch.IsForbidden = true;
             CalibTransform.IsForbidden = true;
             GlobalData.Instance.vmMainProcedure.ContinuousRunEnable = true;
 
-            uiTabControl1.SelectedIndex = 0;
+            uiTabControl1.SelectedIndex = 1;
 
         }
 
@@ -560,6 +562,9 @@ namespace PunchPressCsharp.UI
             CalibTransform.IsForbidden = false;
             var cameraParam = GlobalData.Instance.cameraModuleTool.ModuParams;
             cameraParam.TriggerSource=0; // 设置触发源为硬触发
+
+
+            uiTabControl1.SelectedIndex = 0;
         }
 
         private void cBox_upLight_CheckedChanged(object sender, EventArgs e)
@@ -618,7 +623,7 @@ namespace PunchPressCsharp.UI
 
         private void lb_centralX_Click(object sender, EventArgs e)
         {
-            Frm_InputPage frm_InputPage = new Frm_InputPage();
+            Frm_InputPage frm_InputPage = new Frm_InputPage((Control)sender,0,1000);
             frm_InputPage.ShowDialog();
         }
 
@@ -646,5 +651,7 @@ namespace PunchPressCsharp.UI
             Frm_InputPage frm_InputPage = new Frm_InputPage();
             frm_InputPage.ShowDialog();
         }
+
+        #endregion
     }
 }
