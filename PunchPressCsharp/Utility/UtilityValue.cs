@@ -12,7 +12,7 @@ namespace PunchPressCsharp.Utility
         public static int ModbusToolPort = 502;
         public static string VMVersion = "V4.4.0";
 
-        public static int ExposureMinValue = 50000;
+        public static int ExposureMinValue = 1000;
         public static int ExposureSetStepSize = 1000;
         public static int ExposureMaxValue = 800000;
 

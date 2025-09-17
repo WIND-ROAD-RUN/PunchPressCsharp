@@ -35,9 +35,10 @@ namespace PunchPressCsharp.Data
         {
             public int exposureTime = 50000;
             public int gain = 5;
-            public int centralX = 100;
-            public int centralY = 100;
-            public int angle = 0;
+            public float centralX = 100;
+            public float centralY = 100;
+            public float angle = 0;
+            public float PixToWorld = 0.1F;
             public bool isWorkMode = true;
             public bool isDebugMode = false;
             public bool isUpLightOpen = false;

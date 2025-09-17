@@ -1,7 +1,7 @@
 ﻿using CameraIOModuleCs;
 using GlobalCameraModuleCs;
 using IMVSCalibTransformModuCs;
-using IMVSFastFeatureMatchModuCs;
+using IMVSHPFeatureMatchModuCs;
 using Newtonsoft.Json.Linq;
 using PunchPressCsharp.Data;
 using PunchPressCsharp.Func;
@@ -72,7 +72,14 @@ namespace PunchPressCsharp.UI
             cBox_workMode.Checked=cfg.isWorkMode;
             lb_centralX.Text=cfg.centralX.ToString();
             lb_centralY.Text = cfg.centralY.ToString();
-            lb_angle.Text= cfg.angle.ToString();
+
+            
+            double currentAngle = GlobalData.Instance.configs.frmPunchPressCfg.angle;
+            GlobalData.Instance.configs.frmPunchPressCfg.angle = (float)currentAngle;
+            lb_angle.Text = currentAngle.ToString("F1");
+
+
+            //lb_angle.Text= cfg.angle.ToString();
 
             UpdateCameraSet();
         }
@@ -134,8 +141,8 @@ namespace PunchPressCsharp.UI
             VmProcedure vmProcess1 = (VmProcedure)VmSolution.Instance["流程1"];
             GlobalData.Instance.vmMainProcedure = vmProcess1;
 
-            IMVSFastFeatureMatchModuTool fastFeatureMatch = (IMVSFastFeatureMatchModuTool)VmSolution.Instance["流程1.快速匹配1"];
-            vmRenderControl1.ModuleSource = fastFeatureMatch;
+            IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
+            vmRenderControl1.ModuleSource = FeatureMatch;
 
             vmProcess1.OnWorkEndStatusCallBack += VMProcedure1OnWorkEndStatusCallBack;
             VmSolution.OnCameraConnectStatusCallBackEvent += Handle_CameraConnectStatus;
@@ -187,14 +194,13 @@ namespace PunchPressCsharp.UI
 
         private void VMProcedure1OnWorkEndStatusCallBack(object sender, EventArgs e)
         {
-            // IMVSCalibTransformModuTool CalibTransform = (IMVSCalibTransformModuTool)VmSolution.Instance["流程1.标定转换1"];
             IMVSCalibTransformModuTool CalibTransform = (IMVSCalibTransformModuTool)VmSolution.Instance["流程1.标定转换1"];
-            IMVSFastFeatureMatchModuTool fastFeatureMatch = (IMVSFastFeatureMatchModuTool)VmSolution.Instance["流程1.快速匹配1"];
+            IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
             // var angles= fastFeatureMatch.ModuResult.MatchRect;
             var points = CalibTransform.ModuResult.TransPoint;
             var angles = CalibTransform.ModuResult.WorldPointA;
-           // bool isPostive = GlobalData.Instance.modbusTool.readbool(330);
-
+            // bool isPostive = GlobalData.Instance.modbusTool.readbool(330);
+            
 
 
             if (points.Count == 1)
@@ -203,16 +209,31 @@ namespace PunchPressCsharp.UI
 
                 for (int i = 0; i < points.Count; i++)
                 {
+                    // 原始点
+                    float x = -points[i].X;
+                    float y = -points[i].Y;
+                    float angle = angles[i];
 
-                    float x = points[i].X;
+                    // 偏移参数
+                    float offsetx = GlobalData.Instance.configs.frmPunchPressCfg.centralX;
+                    float offsety = GlobalData.Instance.configs.frmPunchPressCfg.centralY;
+                    float offsetAngle = GlobalData.Instance.configs.frmPunchPressCfg.angle;
 
-                    float y = points[i].Y;
+                    // 角度转弧度
+                    float rad = (angle) * (float)Math.PI / 180f;
 
-                    float angle = -angles[i];
 
-                    float sendx = -x * 100;
-                    float sendy = -y * 100;
-                    float sendangle = -(angle) * 100;
+
+
+                    // 坐标变换：以原始点为原心，角度偏移建立新坐标系
+                    float tx = x + offsetx * (float)Math.Cos(rad) - offsety * (float)Math.Sin(rad);
+                    float ty = y + offsetx * (float)Math.Sin(rad) + offsety * (float)Math.Cos(rad);
+                    float tangle = angle + offsetAngle;
+
+                    // 发送数据
+                    float sendx = tx*100;
+                    float sendy = ty*100;
+                    float sendangle = tangle * 100;
 
 
                     // 在UI中显示结果
@@ -334,29 +355,22 @@ namespace PunchPressCsharp.UI
 
         private void btn_templateLearn_Click(object sender, EventArgs e)
         {
-            try
-            {
-                GlobalCameraModuleTool cameraModule1 = (GlobalCameraModuleTool)VmSolution.Instance["全局相机1"];
-                GlobalCameraModuleTool cameraModule2 = (GlobalCameraModuleTool)VmSolution.Instance["全局相机1"];
+           
+                //GlobalCameraModuleTool cameraModule1 = (GlobalCameraModuleTool)VmSolution.Instance["全局相机1"];
+                //GlobalCameraModuleTool cameraModule2 = (GlobalCameraModuleTool)VmSolution.Instance["全局相机1"];
 
 
-                cameraModule1.ModuParams.TriggerSource = 7; // 设置触发源为软件触发
-                cameraModule2.ModuParams.TriggerSource = 7; // 设置触发源为软件触发
+                //cameraModule1.ModuParams.TriggerSource = 7; // 设置触发源为软件触发
+                //cameraModule2.ModuParams.TriggerSource = 7; // 设置触发源为软件触发
 
 
                 Frm_Learning frm_Learning = new Frm_Learning();
                 frm_Learning.ShowDialog();
 
-                cameraModule1.ModuParams.TriggerSource = 0; // 设置触发源为硬触发
-                cameraModule2.ModuParams.TriggerSource = 0; // 设置触发源为硬触发
+                //cameraModule1.ModuParams.TriggerSource = 0; // 设置触发源为硬触发
+                //cameraModule2.ModuParams.TriggerSource = 0; // 设置触发源为硬触发
 
-            }
-            catch (Exception)
-            {
-
-                MessageBox.Show(@"相机未连接", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+          
         }
 
 
@@ -373,8 +387,8 @@ namespace PunchPressCsharp.UI
         {
             VmProcedure vmProcess1 = (VmProcedure)VmSolution.Instance["流程1"];
             //设置图像
-            IMVSFastFeatureMatchModuTool fastFeatureMatch = (IMVSFastFeatureMatchModuTool)VmSolution.Instance["流程1.快速匹配1"];
-            vmRenderControl1.ModuleSource = fastFeatureMatch;
+            IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
+            vmRenderControl1.ModuleSource = FeatureMatch;
 
 
         }
@@ -512,14 +526,14 @@ namespace PunchPressCsharp.UI
 
 
             //禁用模块加速显示
-            
-            IMVSFastFeatureMatchModuTool fastFeatureMatch = (IMVSFastFeatureMatchModuTool)VmSolution.Instance["流程1.快速匹配1"];
+
+            IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
             IMVSCalibTransformModuTool CalibTransform = (IMVSCalibTransformModuTool)VmSolution.Instance["流程1.标定转换1"];
 
             var imageSource = (ImageSourceModuleCs.ImageSourceModuleTool)VmSolution.Instance["流程1.图像源1"];
             vmRenderControl1.ModuleSource = imageSource;
 
-            fastFeatureMatch.IsForbidden = true;
+            FeatureMatch.IsForbidden = true;
             CalibTransform.IsForbidden = true;
             GlobalData.Instance.vmMainProcedure.ContinuousRunEnable = true;
 
@@ -535,14 +549,14 @@ namespace PunchPressCsharp.UI
             cBox_workMode.Checked = true;
 
             //禁用模块加速显示
+            IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
 
-            IMVSFastFeatureMatchModuTool fastFeatureMatch = (IMVSFastFeatureMatchModuTool)VmSolution.Instance["流程1.快速匹配1"];
             IMVSCalibTransformModuTool CalibTransform = (IMVSCalibTransformModuTool)VmSolution.Instance["流程1.标定转换1"];
 
-            vmRenderControl1.ModuleSource = fastFeatureMatch;
+            vmRenderControl1.ModuleSource = FeatureMatch;
             GlobalData.Instance.vmMainProcedure.ContinuousRunEnable = false;
 
-            fastFeatureMatch.IsForbidden = false;
+            FeatureMatch.IsForbidden = false;
             CalibTransform.IsForbidden = false;
             var cameraParam = GlobalData.Instance.cameraModuleTool.ModuParams;
             cameraParam.TriggerSource=0; // 设置触发源为硬触发
@@ -557,7 +571,7 @@ namespace PunchPressCsharp.UI
         {
            
             var currentX = GlobalData.Instance.configs.frmPunchPressCfg.centralX;
-            currentX += 100;
+            currentX += 1;
             GlobalData.Instance.configs.frmPunchPressCfg.centralX = currentX;
             lb_centralX.Text = currentX.ToString();
         }
@@ -565,7 +579,7 @@ namespace PunchPressCsharp.UI
         private void btn_xDecrease_Click(object sender, EventArgs e)
         {
             var currentX = GlobalData.Instance.configs.frmPunchPressCfg.centralX;
-            currentX -= 100;
+            currentX -= 1;
             GlobalData.Instance.configs.frmPunchPressCfg.centralX = currentX;
             lb_centralX.Text = currentX.ToString();
         }
@@ -573,7 +587,7 @@ namespace PunchPressCsharp.UI
         private void btn_yDecrease_Click(object sender, EventArgs e)
         {
             var currentY = GlobalData.Instance.configs.frmPunchPressCfg.centralY;
-            currentY -= 100;
+            currentY -= 1;
             GlobalData.Instance.configs.frmPunchPressCfg.centralY = currentY;
             lb_centralY.Text = currentY.ToString();
         }
@@ -581,25 +595,56 @@ namespace PunchPressCsharp.UI
         private void btn_yIncease_Click(object sender, EventArgs e)
         {
             var currentY = GlobalData.Instance.configs.frmPunchPressCfg.centralY;
-            currentY += 100;
+            currentY += 1;
             GlobalData.Instance.configs.frmPunchPressCfg.centralY = currentY;
             lb_centralY.Text = currentY.ToString();
         }
 
         private void btn_angleDecrease_Click(object sender, EventArgs e)
         {
-            var currentAngle = GlobalData.Instance.configs.frmPunchPressCfg.angle;
-            currentAngle -= 10;
-            GlobalData.Instance.configs.frmPunchPressCfg.angle = currentAngle;
-            lb_angle.Text = currentAngle.ToString();
+            double currentAngle = GlobalData.Instance.configs.frmPunchPressCfg.angle;
+            currentAngle -= 0.1;
+            GlobalData.Instance.configs.frmPunchPressCfg.angle = (float)currentAngle;
+            lb_angle.Text = currentAngle.ToString("F1");
         }
 
         private void btn_angleIncease_Click(object sender, EventArgs e)
         {
-            var currentAngle = GlobalData.Instance.configs.frmPunchPressCfg.angle;
-            currentAngle += 10;
-            GlobalData.Instance.configs.frmPunchPressCfg.angle = currentAngle;
-            lb_angle.Text = currentAngle.ToString();
+            double currentAngle = GlobalData.Instance.configs.frmPunchPressCfg.angle;
+            currentAngle += 0.1;
+            GlobalData.Instance.configs.frmPunchPressCfg.angle = (float)currentAngle;
+            lb_angle.Text = currentAngle.ToString("F1");
+        }
+
+        private void lb_centralX_Click(object sender, EventArgs e)
+        {
+            Frm_InputPage frm_InputPage = new Frm_InputPage();
+            frm_InputPage.ShowDialog();
+        }
+
+        private void lb_exposureValue_Click(object sender, EventArgs e)
+        {
+            Frm_InputPage frm_InputPage = new Frm_InputPage();
+            frm_InputPage.ShowDialog();
+        }
+
+        private void lb_gainValue_Click(object sender, EventArgs e)
+        {
+            Frm_InputPage frm_InputPage = new Frm_InputPage();
+            frm_InputPage.ShowDialog();
+        }
+
+        private void lb_centralY_Click(object sender, EventArgs e)
+        {
+            Frm_InputPage frm_InputPage = new Frm_InputPage();
+            frm_InputPage.ShowDialog();
+        }
+
+        private void lb_angle_Click(object sender, EventArgs e)
+        {
+           
+            Frm_InputPage frm_InputPage = new Frm_InputPage();
+            frm_InputPage.ShowDialog();
         }
     }
 }

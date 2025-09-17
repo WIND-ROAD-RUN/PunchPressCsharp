@@ -185,6 +185,7 @@
             this.lb_gainValue.TabIndex = 27;
             this.lb_gainValue.Text = "10";
             this.lb_gainValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_gainValue.Click += new System.EventHandler(this.lb_gainValue_Click);
             // 
             // lb_exposureValue
             // 
@@ -197,6 +198,7 @@
             this.lb_exposureValue.TabIndex = 28;
             this.lb_exposureValue.Text = "10000";
             this.lb_exposureValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_exposureValue.Click += new System.EventHandler(this.lb_exposureValue_Click);
             // 
             // btn_gainIncrease
             // 
@@ -370,6 +372,7 @@
             this.lb_angle.TabIndex = 32;
             this.lb_angle.Text = "10";
             this.lb_angle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_angle.Click += new System.EventHandler(this.lb_angle_Click);
             // 
             // btn_angleIncease
             // 
@@ -408,7 +411,7 @@
             this.btn_angleDecrease.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_angleDecrease.Click += new System.EventHandler(this.btn_angleDecrease_Click);
             // 
-            // lb_y
+            // lb_centralY
             // 
             this.lb_centralY.Font = new System.Drawing.Font("Microsoft YaHei UI", 22F, System.Drawing.FontStyle.Bold);
             this.lb_centralY.ForeColor = System.Drawing.Color.White;
@@ -419,8 +422,9 @@
             this.lb_centralY.TabIndex = 27;
             this.lb_centralY.Text = "10";
             this.lb_centralY.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_centralY.Click += new System.EventHandler(this.lb_centralY_Click);
             // 
-            // lb_x
+            // lb_centralX
             // 
             this.lb_centralX.Font = new System.Drawing.Font("Microsoft YaHei UI", 22F, System.Drawing.FontStyle.Bold);
             this.lb_centralX.ForeColor = System.Drawing.Color.White;
@@ -431,6 +435,7 @@
             this.lb_centralX.TabIndex = 28;
             this.lb_centralX.Text = "10000";
             this.lb_centralX.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_centralX.Click += new System.EventHandler(this.lb_centralX_Click);
             // 
             // btn_yIncease
             // 
@@ -623,7 +628,7 @@
             this.vmRenderControl1.CoordinateInfoVisible = true;
             this.vmRenderControl1.ImageSource = null;
             this.vmRenderControl1.Location = new System.Drawing.Point(16, 12);
-            this.vmRenderControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.vmRenderControl1.Margin = new System.Windows.Forms.Padding(4);
             this.vmRenderControl1.ModuleSource = null;
             this.vmRenderControl1.Name = "vmRenderControl1";
             this.vmRenderControl1.Size = new System.Drawing.Size(666, 865);

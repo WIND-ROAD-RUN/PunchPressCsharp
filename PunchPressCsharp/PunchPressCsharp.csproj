@@ -641,6 +641,18 @@
     <Compile Include="Data\GlobalData.cs" />
     <Compile Include="Data\GlobalPath.cs" />
     <Compile Include="Func\FormSizeChange.cs" />
+    <Compile Include="UI\Frm_Configuration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Frm_Configuration.Designer.cs">
+      <DependentUpon>Frm_Configuration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Frm_InputPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Frm_InputPage.Designer.cs">
+      <DependentUpon>Frm_InputPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Frm_Loading.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -654,6 +666,12 @@
       <DependentUpon>Frm_Learning.cs</DependentUpon>
     </Compile>
     <Compile Include="HardwareCom\ModbusTool.cs" />
+    <Compile Include="UI\Frm_loadShapeModel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Frm_loadShapeModel.Designer.cs">
+      <DependentUpon>Frm_loadShapeModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Frm_PunchPress.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -670,11 +688,20 @@
     </Compile>
     <Compile Include="Utility\Utility.cs" />
     <Compile Include="Utility\UtilityValue.cs" />
+    <EmbeddedResource Include="UI\Frm_Configuration.resx">
+      <DependentUpon>Frm_Configuration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Frm_InputPage.resx">
+      <DependentUpon>Frm_InputPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Frm_Loading.resx">
       <DependentUpon>Frm_Loading.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Frm_Learning.resx">
       <DependentUpon>Frm_Learning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Frm_loadShapeModel.resx">
+      <DependentUpon>Frm_loadShapeModel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Frm_PunchPress.resx">
       <DependentUpon>Frm_PunchPress.cs</DependentUpon>
@@ -708,5 +735,3 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
-
-
