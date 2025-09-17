@@ -28,12 +28,47 @@ namespace PunchPressCsharp.UI
 
             //// 导入模板文件（注意：这会替换模块当前所有模型文件）
             //fastFeatureMatch.ImportModelData(templatePaths);
-            
+
+            list_modelList.Items.Add("模型1");
+            list_modelList.Items.Add("模型2");
+            if (list_modelList.Items.Count > 0)
+            {
+                list_modelList.SelectedIndex = 0;
+            }
+
         }
 
         private void btn_exit_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btn_preModel_Click(object sender, EventArgs e)
+        {
+            int idx = list_modelList.SelectedIndex;
+            if (list_modelList.Items.Count == 0) return;
+            if (idx <= 0)
+            {
+                list_modelList.SelectedIndex = list_modelList.Items.Count - 1;
+            }
+            else
+            {
+                list_modelList.SelectedIndex = idx - 1;
+            }
+        }
+
+        private void btn_nextModel_Click(object sender, EventArgs e)
+        {
+            int idx = list_modelList.SelectedIndex;
+            if (list_modelList.Items.Count == 0) return;
+            if (idx >= list_modelList.Items.Count - 1 || idx < 0)
+            {
+                list_modelList.SelectedIndex = 0;
+            }
+            else
+            {
+                list_modelList.SelectedIndex = idx + 1;
+            }
         }
     }
 }

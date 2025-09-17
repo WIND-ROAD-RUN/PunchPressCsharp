@@ -39,10 +39,10 @@
             this.uiGroupBox3 = new Sunny.UI.UIGroupBox();
             this.table_modelInfo = new Sunny.UI.UITableLayoutPanel();
             this.uiGroupBox4 = new Sunny.UI.UIGroupBox();
-            this.btn_exit = new Sunny.UI.UIButton();
-            this.btn_preModel = new Sunny.UI.UIButton();
-            this.btn_nextModel = new Sunny.UI.UIButton();
             this.btn_loadModel = new Sunny.UI.UIButton();
+            this.btn_nextModel = new Sunny.UI.UIButton();
+            this.btn_preModel = new Sunny.UI.UIButton();
+            this.btn_exit = new Sunny.UI.UIButton();
             this.uiGroupBox1.SuspendLayout();
             this.uiGroupBox2.SuspendLayout();
             this.uiGroupBox3.SuspendLayout();
@@ -168,7 +168,46 @@
             this.uiGroupBox4.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
             this.uiGroupBox4.Size = new System.Drawing.Size(806, 203);
             this.uiGroupBox4.TabIndex = 17;
+            this.uiGroupBox4.Text = null;
             this.uiGroupBox4.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btn_loadModel
+            // 
+            this.btn_loadModel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_loadModel.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_loadModel.Location = new System.Drawing.Point(621, 73);
+            this.btn_loadModel.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btn_loadModel.Name = "btn_loadModel";
+            this.btn_loadModel.Size = new System.Drawing.Size(147, 69);
+            this.btn_loadModel.TabIndex = 0;
+            this.btn_loadModel.Text = "加载";
+            this.btn_loadModel.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            // 
+            // btn_nextModel
+            // 
+            this.btn_nextModel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_nextModel.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_nextModel.Location = new System.Drawing.Point(404, 73);
+            this.btn_nextModel.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btn_nextModel.Name = "btn_nextModel";
+            this.btn_nextModel.Size = new System.Drawing.Size(147, 69);
+            this.btn_nextModel.TabIndex = 0;
+            this.btn_nextModel.Text = "下一个";
+            this.btn_nextModel.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_nextModel.Click += new System.EventHandler(this.btn_nextModel_Click);
+            // 
+            // btn_preModel
+            // 
+            this.btn_preModel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_preModel.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_preModel.Location = new System.Drawing.Point(220, 73);
+            this.btn_preModel.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btn_preModel.Name = "btn_preModel";
+            this.btn_preModel.Size = new System.Drawing.Size(147, 69);
+            this.btn_preModel.TabIndex = 0;
+            this.btn_preModel.Text = "上一个";
+            this.btn_preModel.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_preModel.Click += new System.EventHandler(this.btn_preModel_Click);
             // 
             // btn_exit
             // 
@@ -182,42 +221,6 @@
             this.btn_exit.Text = "退出";
             this.btn_exit.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
-            // 
-            // btn_preModel
-            // 
-            this.btn_preModel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_preModel.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_preModel.Location = new System.Drawing.Point(220, 73);
-            this.btn_preModel.MinimumSize = new System.Drawing.Size(1, 1);
-            this.btn_preModel.Name = "btn_preModel";
-            this.btn_preModel.Size = new System.Drawing.Size(147, 69);
-            this.btn_preModel.TabIndex = 0;
-            this.btn_preModel.Text = "上一个";
-            this.btn_preModel.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            // 
-            // btn_nextModel
-            // 
-            this.btn_nextModel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_nextModel.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_nextModel.Location = new System.Drawing.Point(404, 73);
-            this.btn_nextModel.MinimumSize = new System.Drawing.Size(1, 1);
-            this.btn_nextModel.Name = "btn_nextModel";
-            this.btn_nextModel.Size = new System.Drawing.Size(147, 69);
-            this.btn_nextModel.TabIndex = 0;
-            this.btn_nextModel.Text = "下一个";
-            this.btn_nextModel.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            // 
-            // btn_loadModel
-            // 
-            this.btn_loadModel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_loadModel.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_loadModel.Location = new System.Drawing.Point(621, 73);
-            this.btn_loadModel.MinimumSize = new System.Drawing.Size(1, 1);
-            this.btn_loadModel.Name = "btn_loadModel";
-            this.btn_loadModel.Size = new System.Drawing.Size(147, 69);
-            this.btn_loadModel.TabIndex = 0;
-            this.btn_loadModel.Text = "加载";
-            this.btn_loadModel.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             // 
             // Frm_loadShapeModel
             // 
