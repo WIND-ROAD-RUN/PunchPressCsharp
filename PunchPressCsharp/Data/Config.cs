@@ -13,17 +13,23 @@ namespace PunchPressCsharp.Data
 
         #region 界面配置
 
-        internal struct LightCfg
+        internal class LightCfg
         {
-            public bool isUpLightOpen;
-            public bool isDownLightOpen;
+            public bool isUpLightOpen = false;
+            public bool isDownLightOpen = false;
         }
 
-        internal struct Correction
+        internal class CorrectionCfg
         {
-            public float centralX;
-            public float centralY;
-            public float angle;
+            public float centralX = 100;
+            public float centralY = 100;
+            public float angle = 0;
+        }
+
+        internal class CameraCfg
+        {
+            public int exposureTime = 50000;
+            public int gain = 5;
         }
 
         internal class FrmSetCfg
@@ -48,17 +54,11 @@ namespace PunchPressCsharp.Data
         internal class FrmPunchPressCfg
         {
             public LightCfg lightCfg = new LightCfg();
-            public Correction correction = new Correction();
-            public int exposureTime = 50000;
-            public int gain = 5;
-            public float centralX = 100;
-            public float centralY = 100;
-            public float angle = 0;
+            public CorrectionCfg correction = new CorrectionCfg();
+            public CameraCfg cameraCfg = new CameraCfg();
             public float PixToWorld = 0.1F;
             public bool isWorkMode = true;
             public bool isDebugMode = false;
-            public bool isUpLightOpen = false;
-            public bool isDownLightOpen = false;
             public void SaveToFile(string filePath)
             {
                 var json = JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);

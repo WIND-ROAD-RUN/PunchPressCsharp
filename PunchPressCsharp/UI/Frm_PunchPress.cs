@@ -65,18 +65,18 @@ namespace PunchPressCsharp.UI
         {
             GlobalData.Instance.configs.LoadConfigs();
             var cfg = GlobalData.Instance.configs.frmPunchPressCfg;
-            lb_exposureValue.Text= cfg.exposureTime.ToString();
-            lb_gainValue.Text= cfg.gain.ToString();
+            lb_exposureValue.Text= cfg.cameraCfg.exposureTime.ToString();
+            lb_gainValue.Text= cfg.cameraCfg.gain.ToString();
             cBox_debugMode.Checked= cfg.isDebugMode;
-            cBox_upLight.Checked= cfg.isUpLightOpen;
-            cBox_downLight.Checked= cfg.isDownLightOpen;
+            cBox_upLight.Checked= cfg.lightCfg.isUpLightOpen;
+            cBox_downLight.Checked= cfg.lightCfg.isDownLightOpen;
             cBox_workMode.Checked=cfg.isWorkMode;
-            lb_centralX.Text=cfg.centralX.ToString();
-            lb_centralY.Text = cfg.centralY.ToString();
+            lb_centralX.Text=cfg.correction.centralX.ToString();
+            lb_centralY.Text = cfg.correction.centralY.ToString();
 
             
-            double currentAngle = GlobalData.Instance.configs.frmPunchPressCfg.angle;
-            GlobalData.Instance.configs.frmPunchPressCfg.angle = (float)currentAngle;
+            double currentAngle = GlobalData.Instance.configs.frmPunchPressCfg.correction.angle;
+            GlobalData.Instance.configs.frmPunchPressCfg.correction.angle = (float)currentAngle;
             lb_angle.Text = currentAngle.ToString("F1");
 
 
@@ -174,8 +174,8 @@ namespace PunchPressCsharp.UI
                     lb_cameraStatus.ForeColor = Color.Green;
 
                     var cameraParam = cameraModule.ModuParams;
-                    cameraParam.ExposureTime = GlobalData.Instance.configs.frmPunchPressCfg.exposureTime;
-                    cameraParam.Gain = GlobalData.Instance.configs.frmPunchPressCfg.gain;
+                    cameraParam.ExposureTime = GlobalData.Instance.configs.frmPunchPressCfg.cameraCfg.exposureTime;
+                    cameraParam.Gain = GlobalData.Instance.configs.frmPunchPressCfg.cameraCfg.gain;
                     GlobalData.Instance.cameraIsConnect = true;
                 }
             }
@@ -216,9 +216,9 @@ namespace PunchPressCsharp.UI
                     float angle = angles[i];
 
                     // 偏移参数
-                    float offsetx = GlobalData.Instance.configs.frmPunchPressCfg.centralX;
-                    float offsety = GlobalData.Instance.configs.frmPunchPressCfg.centralY;
-                    float offsetAngle = GlobalData.Instance.configs.frmPunchPressCfg.angle;
+                    float offsetx = GlobalData.Instance.configs.frmPunchPressCfg.correction.centralX;
+                    float offsety = GlobalData.Instance.configs.frmPunchPressCfg.correction.centralY;
+                    float offsetAngle = GlobalData.Instance.configs.frmPunchPressCfg.correction.angle;
 
                     // 角度转弧度
                     float rad = (angle) * (float)Math.PI / 180f;
@@ -337,8 +337,8 @@ namespace PunchPressCsharp.UI
             try
             {
                 var cameraParam = GlobalData.Instance.cameraModuleTool.ModuParams;
-                cameraParam.ExposureTime = GlobalData.Instance.configs.frmPunchPressCfg.exposureTime;
-                cameraParam.Gain = GlobalData.Instance.configs.frmPunchPressCfg.gain;
+                cameraParam.ExposureTime = GlobalData.Instance.configs.frmPunchPressCfg.cameraCfg.exposureTime;
+                cameraParam.Gain = GlobalData.Instance.configs.frmPunchPressCfg.cameraCfg.gain;
 
             }
             catch (Exception)
@@ -441,7 +441,7 @@ namespace PunchPressCsharp.UI
         private void btn_exposureReduce_Click(object sender, EventArgs e)
         {
             var min = GlobalData.Instance.configs.frmConfigurationCfg.exposureTimeMin;
-            var currentExposureValue = GlobalData.Instance.configs.frmPunchPressCfg.exposureTime;
+            var currentExposureValue = GlobalData.Instance.configs.frmPunchPressCfg.cameraCfg.exposureTime;
 
             if (Math.Abs(currentExposureValue - min) < 0.001f)
             {
@@ -454,7 +454,7 @@ namespace PunchPressCsharp.UI
             {
                 newValue = min;
             }
-            GlobalData.Instance.configs.frmPunchPressCfg.exposureTime = newValue;
+            GlobalData.Instance.configs.frmPunchPressCfg.cameraCfg.exposureTime = newValue;
             lb_exposureValue.Text = newValue.ToString();
 
             UpdateCameraSet();
@@ -463,7 +463,7 @@ namespace PunchPressCsharp.UI
         private void btn_exposureIncrease_Click(object sender, EventArgs e)
         {
             var max = GlobalData.Instance.configs.frmConfigurationCfg.exposureTimeMax;
-            var currentExposureValue = GlobalData.Instance.configs.frmPunchPressCfg.exposureTime;
+            var currentExposureValue = GlobalData.Instance.configs.frmPunchPressCfg.cameraCfg.exposureTime;
 
             if (Math.Abs(currentExposureValue - max) < 0.001f)
             {
@@ -476,7 +476,7 @@ namespace PunchPressCsharp.UI
             {
                 newValue = max;
             }
-            GlobalData.Instance.configs.frmPunchPressCfg.exposureTime = newValue;
+            GlobalData.Instance.configs.frmPunchPressCfg.cameraCfg.exposureTime = newValue;
             lb_exposureValue.Text = newValue.ToString();
 
             UpdateCameraSet();
@@ -485,7 +485,7 @@ namespace PunchPressCsharp.UI
         private void btn_gainReduce_Click(object sender, EventArgs e)
         {
             var min = GlobalData.Instance.configs.frmConfigurationCfg.gainMin;
-            var currentGainValue = GlobalData.Instance.configs.frmPunchPressCfg.gain;
+            var currentGainValue = GlobalData.Instance.configs.frmPunchPressCfg.cameraCfg.gain;
 
             if (Math.Abs(currentGainValue - min) < 0.001f)
             {
@@ -498,7 +498,7 @@ namespace PunchPressCsharp.UI
             {
                 newValue = min;
             }
-            GlobalData.Instance.configs.frmPunchPressCfg.gain = newValue;
+            GlobalData.Instance.configs.frmPunchPressCfg.cameraCfg.gain = newValue;
             lb_gainValue.Text = newValue.ToString();
 
             UpdateCameraSet();
@@ -507,7 +507,7 @@ namespace PunchPressCsharp.UI
         private void btn_gainIncrease_Click(object sender, EventArgs e)
         {
             var max = GlobalData.Instance.configs.frmConfigurationCfg.gainMax;
-            var currentGainValue = GlobalData.Instance.configs.frmPunchPressCfg.gain;
+            var currentGainValue = GlobalData.Instance.configs.frmPunchPressCfg.cameraCfg.gain;
 
             if (Math.Abs(currentGainValue - max) < 0.001f)
             {
@@ -520,7 +520,7 @@ namespace PunchPressCsharp.UI
             {
                 newValue = max;
             }
-            GlobalData.Instance.configs.frmPunchPressCfg.gain = newValue;
+            GlobalData.Instance.configs.frmPunchPressCfg.cameraCfg.gain = newValue;
             lb_gainValue.Text = newValue.ToString();
 
             UpdateCameraSet();
@@ -601,7 +601,7 @@ namespace PunchPressCsharp.UI
         private void btn_xIncease_Click(object sender, EventArgs e)
         {
             var max = GlobalData.Instance.configs.frmConfigurationCfg.centralXCorrectionMax;
-            var currentX = GlobalData.Instance.configs.frmPunchPressCfg.centralX;
+            var currentX = GlobalData.Instance.configs.frmPunchPressCfg.correction.centralX;
 
             if (Math.Abs(currentX - max) < 0.001f)
             {
@@ -615,14 +615,14 @@ namespace PunchPressCsharp.UI
                 newValue = max;
             }
             currentX = newValue;
-            GlobalData.Instance.configs.frmPunchPressCfg.centralX = currentX;
+            GlobalData.Instance.configs.frmPunchPressCfg.correction.centralX = currentX;
             lb_centralX.Text = currentX.ToString("F1");
         }
 
         private void btn_xDecrease_Click(object sender, EventArgs e)
         {
             var min = GlobalData.Instance.configs.frmConfigurationCfg.centralXCorrectionMin;
-            var currentX = GlobalData.Instance.configs.frmPunchPressCfg.centralX;
+            var currentX = GlobalData.Instance.configs.frmPunchPressCfg.correction.centralX;
 
             if (Math.Abs(currentX - min) < 0.001f)
             {
@@ -636,14 +636,14 @@ namespace PunchPressCsharp.UI
                 newValue = min;
             }
             currentX = newValue;
-            GlobalData.Instance.configs.frmPunchPressCfg.centralX = currentX;
+            GlobalData.Instance.configs.frmPunchPressCfg.correction.centralX = currentX;
             lb_centralX.Text = currentX.ToString("F1");
         }
 
         private void btn_yDecrease_Click(object sender, EventArgs e)
         {
             var min = GlobalData.Instance.configs.frmConfigurationCfg.centralYCorrectionMin;
-            var currentY = GlobalData.Instance.configs.frmPunchPressCfg.centralY;
+            var currentY = GlobalData.Instance.configs.frmPunchPressCfg.correction.centralY;
 
             if (Math.Abs(currentY - min) < 0.001f)
             {
@@ -657,14 +657,14 @@ namespace PunchPressCsharp.UI
                 newValue = min;
             }
             currentY = newValue;
-            GlobalData.Instance.configs.frmPunchPressCfg.centralY = currentY;
+            GlobalData.Instance.configs.frmPunchPressCfg.correction.centralY = currentY;
             lb_centralY.Text = currentY.ToString("F1");
         }
 
         private void btn_yIncease_Click(object sender, EventArgs e)
         {
             var max = GlobalData.Instance.configs.frmConfigurationCfg.centralYCorrectionMax;
-            var currentY = GlobalData.Instance.configs.frmPunchPressCfg.centralY;
+            var currentY = GlobalData.Instance.configs.frmPunchPressCfg.correction.centralY;
 
             if (Math.Abs(currentY - max) < 0.001f)
             {
@@ -678,35 +678,35 @@ namespace PunchPressCsharp.UI
                 newValue = max;
             }
             currentY = newValue;
-            GlobalData.Instance.configs.frmPunchPressCfg.centralY = currentY;
+            GlobalData.Instance.configs.frmPunchPressCfg.correction.centralY = currentY;
             lb_centralY.Text = currentY.ToString("F1");
         }
 
         private void btn_angleDecrease_Click(object sender, EventArgs e)
         {
             var min = GlobalData.Instance.configs.frmConfigurationCfg.angleCorrectionMin;
-            var currentAngle = GlobalData.Instance.configs.frmPunchPressCfg.angle;
+            var currentAngle = GlobalData.Instance.configs.frmPunchPressCfg.correction.angle;
             if (currentAngle - 0.1 <= min)
             {
                 MessageBox.Show($@"已超过最小值！最小值为：{min}", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             currentAngle -= 0.1f;
-            GlobalData.Instance.configs.frmPunchPressCfg.angle = (float)currentAngle;
+            GlobalData.Instance.configs.frmPunchPressCfg.correction.angle = (float)currentAngle;
             lb_angle.Text = currentAngle.ToString("F1");
         }
 
         private void btn_angleIncease_Click(object sender, EventArgs e)
         {
             var max = GlobalData.Instance.configs.frmConfigurationCfg.angleCorrectionMax;
-            var currentAngle = GlobalData.Instance.configs.frmPunchPressCfg.angle;
+            var currentAngle = GlobalData.Instance.configs.frmPunchPressCfg.correction.angle;
             if (currentAngle + 0.1 >= max)
             {
                 MessageBox.Show($@"已超过最大值！最大值为：{max}", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             currentAngle += 0.1f;
-            GlobalData.Instance.configs.frmPunchPressCfg.angle = (float)currentAngle;
+            GlobalData.Instance.configs.frmPunchPressCfg.correction.angle = (float)currentAngle;
             lb_angle.Text = currentAngle.ToString("F1");
         }
 
@@ -715,7 +715,7 @@ namespace PunchPressCsharp.UI
             var cfg = GlobalData.Instance.configs.frmConfigurationCfg;
             Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, cfg.centralXCorrectionMin, cfg.centralXCorrectionMax);
             numKeyBoard.ShowDialog();
-            GlobalData.Instance.configs.frmPunchPressCfg.centralX= float.Parse(lb_centralX.Text);
+            GlobalData.Instance.configs.frmPunchPressCfg.correction.centralX= float.Parse(lb_centralX.Text);
         }
 
         private void lb_exposureValue_Click(object sender, EventArgs e)
@@ -723,7 +723,7 @@ namespace PunchPressCsharp.UI
             var cfg = GlobalData.Instance.configs.frmConfigurationCfg;
             Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, cfg.exposureTimeMin, cfg.exposureTimeMax);
             numKeyBoard.ShowDialog();
-            GlobalData.Instance.configs.frmPunchPressCfg.exposureTime = int.Parse(lb_exposureValue.Text);
+            GlobalData.Instance.configs.frmPunchPressCfg.cameraCfg.exposureTime = int.Parse(lb_exposureValue.Text);
 
         }
 
@@ -732,7 +732,7 @@ namespace PunchPressCsharp.UI
             var cfg = GlobalData.Instance.configs.frmConfigurationCfg;
             Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, cfg.gainMin, cfg.gainMax);
             numKeyBoard.ShowDialog();
-            GlobalData.Instance.configs.frmPunchPressCfg.gain = int.Parse(lb_gainValue.Text);
+            GlobalData.Instance.configs.frmPunchPressCfg.cameraCfg.gain = int.Parse(lb_gainValue.Text);
         }
 
         private void lb_centralY_Click(object sender, EventArgs e)
@@ -740,7 +740,7 @@ namespace PunchPressCsharp.UI
             var cfg = GlobalData.Instance.configs.frmConfigurationCfg;
             Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, cfg.centralYCorrectionMin, cfg.centralYCorrectionMax);
             numKeyBoard.ShowDialog();
-            GlobalData.Instance.configs.frmPunchPressCfg.centralY = float.Parse(lb_centralY.Text);
+            GlobalData.Instance.configs.frmPunchPressCfg.correction.centralY = float.Parse(lb_centralY.Text);
         }
 
         private void lb_angle_Click(object sender, EventArgs e)
@@ -748,7 +748,7 @@ namespace PunchPressCsharp.UI
             var cfg = GlobalData.Instance.configs.frmConfigurationCfg;
             Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, cfg.angleCorrectionMin, cfg.angleCorrectionMax);
             numKeyBoard.ShowDialog();
-            GlobalData.Instance.configs.frmPunchPressCfg.angle = float.Parse(lb_angle.Text);
+            GlobalData.Instance.configs.frmPunchPressCfg.correction.angle = float.Parse(lb_angle.Text);
         }
 
         private void pbtn_templateLoad_Click(object sender, EventArgs e)
