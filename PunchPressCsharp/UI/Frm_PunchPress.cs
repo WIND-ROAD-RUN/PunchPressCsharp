@@ -751,6 +751,14 @@ namespace PunchPressCsharp.UI
             GlobalData.Instance.configs.frmPunchPressCfg.angle = float.Parse(lb_angle.Text);
         }
 
+        private void pbtn_templateLoad_Click(object sender, EventArgs e)
+        {
+            Frm_loadShapeModel frmLoadShapeModel = new Frm_loadShapeModel();
+            frmLoadShapeModel.ShowDialog();
+        }
+
         #endregion
+
+
     }
 }
