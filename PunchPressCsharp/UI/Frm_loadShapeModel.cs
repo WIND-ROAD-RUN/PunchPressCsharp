@@ -36,7 +36,7 @@ namespace PunchPressCsharp.UI
 
         private void build_ui()
         {
-            table_modelInfo.RowCount = 3;
+            table_modelInfo.RowCount = 8;
             table_modelInfo.ColumnCount = 2;
             ReadModelHomeDirectory();
             if (list_modelList.Items.Count > 0)
@@ -45,12 +45,7 @@ namespace PunchPressCsharp.UI
             }
             else
             {
-                Label lbl1 = new Label { Text = @"训练日期" };
-                Label lbl2 = new Label { Text = @"曝光" };
-                Label lbl3 = new Label { Text = @"增益" };
-                table_modelInfo.Controls.Add(lbl1, 0, 0);
-                table_modelInfo.Controls.Add(lbl2, 0, 1);
-                table_modelInfo.Controls.Add(lbl3, 0, 3);
+                SetTableViewTitle();
             }
 
             
@@ -119,12 +114,14 @@ namespace PunchPressCsharp.UI
                     }
                 }
             }
+
         }
 
         public Dictionary<string, string> listNameWithPath = new Dictionary<string, string>();
 
         #endregion
 
+        #region UI事件触发
 
         private void btn_exit_Click(object sender, EventArgs e)
         {
@@ -164,14 +161,22 @@ namespace PunchPressCsharp.UI
             int idx = list_modelList.SelectedIndex;
             if (idx >= 0 && list_modelList.Items.Count > 0)
             {
-                list_modelList.Items.RemoveAt(idx);
-
-                if (list_modelList.Items.Count > 0)
+                var result = MessageBox.Show(@"确定要删除选中的模型吗？", @"删除确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
                 {
-                    if (idx >= list_modelList.Items.Count)
-                        list_modelList.SelectedIndex = list_modelList.Items.Count - 1;
-                    else
-                        list_modelList.SelectedIndex = idx;
+                    list_modelList.Items.RemoveAt(idx);
+
+                    if (list_modelList.Items.Count > 0)
+                    {
+                        if (idx >= list_modelList.Items.Count)
+                        {
+                            list_modelList.SelectedIndex = list_modelList.Items.Count - 1;
+                        }
+                        else
+                        {
+                            list_modelList.SelectedIndex = idx;
+                        }
+                    }
                 }
             }
         }
@@ -184,25 +189,47 @@ namespace PunchPressCsharp.UI
 
                 if (listNameWithPath.TryGetValue(selectedName, out string configPath))
                 {
-                    //TODO:需要添加保护措施，防止文件不存在或格式错误
                     var modelConfig = ModelConfig.LoadFromFile(configPath + @"\" + GlobalPath.ModelConfigName);
-             
-                    // 清除旧的标签
+
                     table_modelInfo.Controls.Clear();
-                    // 重新添加标题标签
-                    Label lbl1 = new Label { Text = @"训练日期" };
-                    Label lbl2 = new Label { Text = @"曝光" };
-                    Label lbl3 = new Label { Text = @"增益" };
-                    table_modelInfo.Controls.Add(lbl1, 0, 0);
-                    table_modelInfo.Controls.Add(lbl2, 0, 1);
-                    table_modelInfo.Controls.Add(lbl3, 0, 2);
-                    // 添加新的数据标签
+                    SetTableViewTitle();
+
                     Label val1 = new Label { Text = modelConfig.trainDate };
                     Label val2 = new Label { Text = modelConfig.cameraCfg.exposureTime.ToString() };
                     Label val3 = new Label { Text = modelConfig.cameraCfg.gain.ToString() };
+                    if (modelConfig.lightCfg.isUpLightOpen)
+                    {
+                        Label val4 = new Label { Text = @"开启" };
+                        table_modelInfo.Controls.Add(val4, 1, 3);
+                    }
+                    else
+                    {
+                        Label val4 = new Label { Text = @"关闭" };
+                        table_modelInfo.Controls.Add(val4, 1, 3);
+                    }
+
+                    if (modelConfig.lightCfg.isDownLightOpen)
+                    {
+                        Label val5 = new Label { Text = @"开启" };
+                        table_modelInfo.Controls.Add(val5, 1, 4);
+                    }
+                    else
+                    {
+                        Label val5 = new Label { Text = @"关闭" };
+                        table_modelInfo.Controls.Add(val5, 1, 4);
+                    }
+
+
+
+                    Label val6 = new Label { Text = modelConfig.correction.centralX.ToString("F1") };
+                    Label val7 = new Label { Text = modelConfig.correction.centralY.ToString("F1") };
+                    Label val8 = new Label { Text = modelConfig.correction.angle.ToString("F1") };
                     table_modelInfo.Controls.Add(val1, 1, 0);
                     table_modelInfo.Controls.Add(val2, 1, 1);
                     table_modelInfo.Controls.Add(val3, 1, 2);
+                    table_modelInfo.Controls.Add(val6, 1, 5);
+                    table_modelInfo.Controls.Add(val7, 1, 6);
+                    table_modelInfo.Controls.Add(val8, 1, 7);
 
                     string proImgPath = configPath + @"\" + GlobalPath.ProImgName;
                     string srcImgPath = configPath + @"\" + GlobalPath.SourceImgName;
@@ -214,7 +241,7 @@ namespace PunchPressCsharp.UI
                     }
                     else
                     {
-                        pictureBox_proImg.Image = null; 
+                        pictureBox_proImg.Image = null;
                     }
 
                     if (System.IO.File.Exists(srcImgPath))
@@ -224,11 +251,45 @@ namespace PunchPressCsharp.UI
                     }
                     else
                     {
-                        pictureBox_srcImg.Image = null; 
+                        pictureBox_srcImg.Image = null;
                     }
 
                 }
             }
+            else
+            {
+                table_modelInfo.Controls.Clear();
+                SetTableViewTitle();
+            }
+
         }
+
+        #endregion
+
+        #region 提炼函数
+
+        private void SetTableViewTitle()
+        {
+            Label lbl1 = new Label { Text = @"训练日期" };
+            Label lbl2 = new Label { Text = @"曝光" };
+            Label lbl3 = new Label { Text = @"增益" };
+            Label lbl4 = new Label { Text = @"上光源" };
+            Label lbl5 = new Label { Text = @"下光源" };
+            Label lbl6 = new Label { Text = @"中心坐标x偏移量" };
+            Label lbl7 = new Label { Text = @"中心坐标y偏移量" };
+            Label lbl8 = new Label { Text = @"角度偏移量" };
+            table_modelInfo.Controls.Add(lbl1, 0, 0);
+            table_modelInfo.Controls.Add(lbl2, 0, 1);
+            table_modelInfo.Controls.Add(lbl3, 0, 2);
+            table_modelInfo.Controls.Add(lbl4, 0, 3);
+            table_modelInfo.Controls.Add(lbl5, 0, 4);
+            table_modelInfo.Controls.Add(lbl6, 0, 5);
+            table_modelInfo.Controls.Add(lbl7, 0, 6);
+            table_modelInfo.Controls.Add(lbl8, 0, 7);
+        }
+
+        #endregion
+
+
     }
 }

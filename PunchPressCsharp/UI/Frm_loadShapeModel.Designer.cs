@@ -34,22 +34,22 @@
             this.list_modelList = new Sunny.UI.UIListBox();
             this.uiGroupBox1 = new Sunny.UI.UIGroupBox();
             this.uiGroupBox2 = new Sunny.UI.UIGroupBox();
+            this.pictureBox_proImg = new System.Windows.Forms.PictureBox();
+            this.pictureBox_srcImg = new System.Windows.Forms.PictureBox();
             this.uiGroupBox3 = new Sunny.UI.UIGroupBox();
-            this.table_modelInfo = new Sunny.UI.UITableLayoutPanel();
             this.uiGroupBox4 = new Sunny.UI.UIGroupBox();
             this.btn_delete = new Sunny.UI.UIButton();
             this.btn_loadModel = new Sunny.UI.UIButton();
             this.btn_nextModel = new Sunny.UI.UIButton();
             this.btn_preModel = new Sunny.UI.UIButton();
             this.btn_exit = new Sunny.UI.UIButton();
-            this.pictureBox_srcImg = new System.Windows.Forms.PictureBox();
-            this.pictureBox_proImg = new System.Windows.Forms.PictureBox();
+            this.table_modelInfo = new Sunny.UI.UITableLayoutPanel();
             this.uiGroupBox1.SuspendLayout();
             this.uiGroupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_proImg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_srcImg)).BeginInit();
             this.uiGroupBox3.SuspendLayout();
             this.uiGroupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_srcImg)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_proImg)).BeginInit();
             this.SuspendLayout();
             // 
             // titleBar
@@ -112,6 +112,22 @@
             this.uiGroupBox2.Text = "模型图片";
             this.uiGroupBox2.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // pictureBox_proImg
+            // 
+            this.pictureBox_proImg.Location = new System.Drawing.Point(412, 37);
+            this.pictureBox_proImg.Name = "pictureBox_proImg";
+            this.pictureBox_proImg.Size = new System.Drawing.Size(341, 488);
+            this.pictureBox_proImg.TabIndex = 1;
+            this.pictureBox_proImg.TabStop = false;
+            // 
+            // pictureBox_srcImg
+            // 
+            this.pictureBox_srcImg.Location = new System.Drawing.Point(29, 37);
+            this.pictureBox_srcImg.Name = "pictureBox_srcImg";
+            this.pictureBox_srcImg.Size = new System.Drawing.Size(341, 488);
+            this.pictureBox_srcImg.TabIndex = 0;
+            this.pictureBox_srcImg.TabStop = false;
+            // 
             // uiGroupBox3
             // 
             this.uiGroupBox3.Controls.Add(this.table_modelInfo);
@@ -125,21 +141,6 @@
             this.uiGroupBox3.TabIndex = 16;
             this.uiGroupBox3.Text = "模型详细信息";
             this.uiGroupBox3.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // table_modelInfo
-            // 
-            this.table_modelInfo.ColumnCount = 2;
-            this.table_modelInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.table_modelInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.table_modelInfo.Location = new System.Drawing.Point(19, 35);
-            this.table_modelInfo.Name = "table_modelInfo";
-            this.table_modelInfo.RowCount = 3;
-            this.table_modelInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.table_modelInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.table_modelInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.table_modelInfo.Size = new System.Drawing.Size(251, 156);
-            this.table_modelInfo.TabIndex = 0;
-            this.table_modelInfo.TagString = null;
             // 
             // uiGroupBox4
             // 
@@ -223,21 +224,25 @@
             this.btn_exit.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
             // 
-            // pictureBox_srcImg
+            // table_modelInfo
             // 
-            this.pictureBox_srcImg.Location = new System.Drawing.Point(29, 37);
-            this.pictureBox_srcImg.Name = "pictureBox_srcImg";
-            this.pictureBox_srcImg.Size = new System.Drawing.Size(341, 488);
-            this.pictureBox_srcImg.TabIndex = 0;
-            this.pictureBox_srcImg.TabStop = false;
-            // 
-            // pictureBox_proImg
-            // 
-            this.pictureBox_proImg.Location = new System.Drawing.Point(412, 37);
-            this.pictureBox_proImg.Name = "pictureBox_proImg";
-            this.pictureBox_proImg.Size = new System.Drawing.Size(341, 488);
-            this.pictureBox_proImg.TabIndex = 1;
-            this.pictureBox_proImg.TabStop = false;
+            this.table_modelInfo.ColumnCount = 2;
+            this.table_modelInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.table_modelInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.table_modelInfo.Location = new System.Drawing.Point(19, 35);
+            this.table_modelInfo.Name = "table_modelInfo";
+            this.table_modelInfo.RowCount = 8;
+            this.table_modelInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.table_modelInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.table_modelInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.table_modelInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.table_modelInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.table_modelInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.table_modelInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.table_modelInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.table_modelInfo.Size = new System.Drawing.Size(251, 151);
+            this.table_modelInfo.TabIndex = 0;
+            this.table_modelInfo.TagString = null;
             // 
             // Frm_loadShapeModel
             // 
@@ -255,10 +260,10 @@
             this.Load += new System.EventHandler(this.Frm_loadShapeModel_Load);
             this.uiGroupBox1.ResumeLayout(false);
             this.uiGroupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_proImg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_srcImg)).EndInit();
             this.uiGroupBox3.ResumeLayout(false);
             this.uiGroupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_srcImg)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_proImg)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -272,7 +277,6 @@
         private Sunny.UI.UIGroupBox uiGroupBox2;
         private Sunny.UI.UIGroupBox uiGroupBox3;
         private Sunny.UI.UIGroupBox uiGroupBox4;
-        private Sunny.UI.UITableLayoutPanel table_modelInfo;
         private Sunny.UI.UIButton btn_loadModel;
         private Sunny.UI.UIButton btn_nextModel;
         private Sunny.UI.UIButton btn_preModel;
@@ -280,5 +284,6 @@
         private Sunny.UI.UIButton btn_delete;
         private System.Windows.Forms.PictureBox pictureBox_proImg;
         private System.Windows.Forms.PictureBox pictureBox_srcImg;
+        private Sunny.UI.UITableLayoutPanel table_modelInfo;
     }
 }
