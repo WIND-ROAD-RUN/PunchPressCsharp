@@ -37,7 +37,7 @@ namespace PunchPressCsharp.UI
             string savePath = @"C:\Users\zzw\Desktop\saved_template.bin";
 
             // 4. 从文件读取模板数据
-            byte[] modelData = File.ReadAllBytes(savePath);
+           // byte[] modelData = File.ReadAllBytes(savePath);
 
             // 5. 导入模板
            // FeatureMatch.ImportModel(modelData);
