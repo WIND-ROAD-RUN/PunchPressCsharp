@@ -164,6 +164,34 @@ namespace PunchPressCsharp.UI
                 var result = MessageBox.Show(@"确定要删除选中的模型吗？", @"删除确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
+                    // 释放图片资源
+                    if (pictureBox_proImg.Image != null)
+                    {
+                        pictureBox_proImg.Image.Dispose();
+                        pictureBox_proImg.Image = null;
+                    }
+                    if (pictureBox_srcImg.Image != null)
+                    {
+                        pictureBox_srcImg.Image.Dispose();
+                        pictureBox_srcImg.Image = null;
+                    }
+
+                    string modelName = list_modelList.Items[idx].ToString();
+                    if (listNameWithPath.TryGetValue(modelName, out string modelPath))
+                    {
+                        try
+                        {
+                            if (System.IO.Directory.Exists(modelPath))
+                            {
+                                System.IO.Directory.Delete(modelPath, true);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($@"删除模型文件夹失败：{ex.Message}", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        listNameWithPath.Remove(modelName);
+                    }
                     list_modelList.Items.RemoveAt(idx);
 
                     if (list_modelList.Items.Count > 0)
@@ -236,8 +264,10 @@ namespace PunchPressCsharp.UI
 
                     if (System.IO.File.Exists(proImgPath))
                     {
-                        Image proImg = Image.FromFile(proImgPath);
-                        pictureBox_proImg.Image = proImg;
+                        using (var fs = new System.IO.FileStream(proImgPath, System.IO.FileMode.Open, System.IO.FileAccess.Read))
+                        {
+                            pictureBox_proImg.Image = Image.FromStream(fs);
+                        }
                     }
                     else
                     {
@@ -246,14 +276,15 @@ namespace PunchPressCsharp.UI
 
                     if (System.IO.File.Exists(srcImgPath))
                     {
-                        Image srcImg = Image.FromFile(srcImgPath);
-                        pictureBox_srcImg.Image = srcImg;
+                        using (var fs = new System.IO.FileStream(srcImgPath, System.IO.FileMode.Open, System.IO.FileAccess.Read))
+                        {
+                            pictureBox_srcImg.Image = Image.FromStream(fs);
+                        }
                     }
                     else
                     {
                         pictureBox_srcImg.Image = null;
                     }
-
                 }
             }
             else
