@@ -37,13 +37,13 @@
             this.pictureBox_proImg = new System.Windows.Forms.PictureBox();
             this.pictureBox_srcImg = new System.Windows.Forms.PictureBox();
             this.uiGroupBox3 = new Sunny.UI.UIGroupBox();
+            this.table_modelInfo = new Sunny.UI.UITableLayoutPanel();
             this.uiGroupBox4 = new Sunny.UI.UIGroupBox();
             this.btn_delete = new Sunny.UI.UIButton();
             this.btn_loadModel = new Sunny.UI.UIButton();
             this.btn_nextModel = new Sunny.UI.UIButton();
             this.btn_preModel = new Sunny.UI.UIButton();
             this.btn_exit = new Sunny.UI.UIButton();
-            this.table_modelInfo = new Sunny.UI.UITableLayoutPanel();
             this.uiGroupBox1.SuspendLayout();
             this.uiGroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_proImg)).BeginInit();
@@ -142,6 +142,26 @@
             this.uiGroupBox3.Text = "模型详细信息";
             this.uiGroupBox3.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // table_modelInfo
+            // 
+            this.table_modelInfo.ColumnCount = 2;
+            this.table_modelInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.table_modelInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.table_modelInfo.Location = new System.Drawing.Point(19, 35);
+            this.table_modelInfo.Name = "table_modelInfo";
+            this.table_modelInfo.RowCount = 8;
+            this.table_modelInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.table_modelInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.table_modelInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.table_modelInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.table_modelInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.table_modelInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.table_modelInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.table_modelInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.table_modelInfo.Size = new System.Drawing.Size(251, 151);
+            this.table_modelInfo.TabIndex = 0;
+            this.table_modelInfo.TagString = null;
+            // 
             // uiGroupBox4
             // 
             this.uiGroupBox4.Controls.Add(this.btn_delete);
@@ -184,6 +204,7 @@
             this.btn_loadModel.TabIndex = 0;
             this.btn_loadModel.Text = "加载";
             this.btn_loadModel.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_loadModel.Click += new System.EventHandler(this.btn_loadModel_Click);
             // 
             // btn_nextModel
             // 
@@ -223,26 +244,6 @@
             this.btn_exit.Text = "退出";
             this.btn_exit.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
-            // 
-            // table_modelInfo
-            // 
-            this.table_modelInfo.ColumnCount = 2;
-            this.table_modelInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.table_modelInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.table_modelInfo.Location = new System.Drawing.Point(19, 35);
-            this.table_modelInfo.Name = "table_modelInfo";
-            this.table_modelInfo.RowCount = 8;
-            this.table_modelInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.table_modelInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.table_modelInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.table_modelInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.table_modelInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.table_modelInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.table_modelInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.table_modelInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.table_modelInfo.Size = new System.Drawing.Size(251, 151);
-            this.table_modelInfo.TabIndex = 0;
-            this.table_modelInfo.TagString = null;
             // 
             // Frm_loadShapeModel
             // 

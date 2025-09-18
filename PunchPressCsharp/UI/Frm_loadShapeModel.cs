@@ -319,6 +319,12 @@ namespace PunchPressCsharp.UI
             table_modelInfo.Controls.Add(lbl8, 0, 7);
         }
 
+        private void btn_loadModel_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(@"加载成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Close();
+        }
+
         #endregion
 
 
