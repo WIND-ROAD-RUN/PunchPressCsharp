@@ -43,11 +43,18 @@ namespace PunchPressCsharp.Func
         private void ResizeControls(Control.ControlCollection controls, Dictionary<Control, (Size, Point, Font)> initialControlStates, float widthRatio, float heightRatio)
         {
             if (controls[0].FindForm().WindowState != FormWindowState.Minimized)
+            {
                 foreach (Control control in controls)
                 {
                     if (initialControlStates.TryGetValue(control, out var initialState))
                     {
                         var (initialSize, initialLocation, initialFont) = initialState;
+
+                        // Label特殊处理
+                        if (control is Label label)
+                        {
+                            label.AutoSize = false;
+                        }
 
                         // 调整控件大小
                         control.Width = (int)(initialSize.Width * widthRatio);
@@ -61,11 +68,22 @@ namespace PunchPressCsharp.Func
                         control.Font = new Font(initialFont.FontFamily, initialFont.Size * widthRatio);
                     }
 
+                    // 针对TabControl递归处理TabPage
+                    if (control is TabControl tabControl)
+                    {
+                        foreach (TabPage tabPage in tabControl.TabPages)
+                        {
+                            ResizeControls(tabPage.Controls, initialControlStates, widthRatio, heightRatio);
+                        }
+                    }
+
+                    // 递归处理其它子控件
                     if (control.Controls.Count > 0)
                     {
                         ResizeControls(control.Controls, initialControlStates, widthRatio, heightRatio);
                     }
                 }
+            }
         }
 
 

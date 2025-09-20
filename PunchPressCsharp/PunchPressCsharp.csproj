@@ -640,6 +640,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\RoundGroupBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\RoundGroupBox.Designer.cs">
+      <DependentUpon>RoundGroupBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Data\Config.cs" />
     <Compile Include="Data\GlobalData.cs" />
     <Compile Include="Data\GlobalPath.cs" />
@@ -730,6 +736,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="UI\Frm_set.resx">
       <DependentUpon>Frm_set.cs</DependentUpon>
@@ -747,6 +754,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Pictures\x.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

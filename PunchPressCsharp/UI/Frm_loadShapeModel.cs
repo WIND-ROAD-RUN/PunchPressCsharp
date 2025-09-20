@@ -50,6 +50,16 @@ namespace PunchPressCsharp.UI
 
         }
 
+        public class ModelListItem
+        {
+            public string Name { get; set; }
+            public string dirName { get; set; }
+            public override string ToString()
+            {
+                return Name; // ListBox 显示名称
+            }
+        }
+
         private void ReadModelHomeDirectory()
         {
             list_modelList.Items.Clear();
@@ -59,7 +69,15 @@ namespace PunchPressCsharp.UI
             var listNameWithPath= GlobalData.Instance.modelManager.listNameWithPath;
 
             foreach (var name in GlobalData.Instance.modelManager.listNameWithPath) {
-                list_modelList.Items.Add(name.Key);
+                ModelConfig modelConfig = ModelConfig.LoadFromFile(name.Value + @"\" + GlobalPath.ModelConfigName);
+
+                ModelListItem modelListItem = new ModelListItem
+                {
+                    Name = modelConfig.modelName,
+                    dirName = name.Key
+                };
+
+                list_modelList.Items.Add(modelListItem);
 
             }
 
@@ -157,7 +175,8 @@ namespace PunchPressCsharp.UI
 
             if (list_modelList.SelectedIndex >= 0)
             {
-                string selectedName = list_modelList.SelectedItem.ToString();
+                var item = list_modelList.SelectedItem as ModelListItem;
+                string selectedName = item.dirName;
 
                 if (listNameWithPath.TryGetValue(selectedName, out string configPath))
                 {
@@ -292,8 +311,12 @@ namespace PunchPressCsharp.UI
             Close();
         }
 
+
         #endregion
 
-
+        private void pic_Close_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

@@ -59,8 +59,9 @@ namespace PunchPressCsharp.UI
             LoadConfig();
             GlobalData.Instance.configs.frmPunchPressCfg.isDebugMode = false;
             GlobalData.Instance.configs.frmPunchPressCfg.isWorkMode = true;
-            cBox_debugMode.Checked = false;
             cBox_workMode.Checked = true;
+            cBox_debugMode.Checked = false;
+           
         }
 
         private void LoadConfig()
@@ -69,10 +70,10 @@ namespace PunchPressCsharp.UI
             var cfg = GlobalData.Instance.configs.frmPunchPressCfg;
             lb_exposureValue.Text= cfg.cameraCfg.exposureTime.ToString();
             lb_gainValue.Text= cfg.cameraCfg.gain.ToString();
-            cBox_debugMode.Checked= cfg.isDebugMode;
+            cBox_workMode.Checked= cfg.isDebugMode;
             cBox_upLight.Checked= cfg.lightCfg.isUpLightOpen;
             cBox_downLight.Checked= cfg.lightCfg.isDownLightOpen;
-            cBox_workMode.Checked=cfg.isWorkMode;
+            cBox_debugMode.Checked=cfg.isWorkMode;
             lb_centralX.Text=cfg.correction.centralX.ToString();
             lb_centralY.Text = cfg.correction.centralY.ToString();
 
@@ -351,6 +352,7 @@ namespace PunchPressCsharp.UI
         {
             try
             {
+             
                 var cameraParam = GlobalData.Instance.cameraModuleTool.ModuParams;
                 cameraParam.ExposureTime = GlobalData.Instance.configs.frmPunchPressCfg.cameraCfg.exposureTime;
                 cameraParam.Gain = GlobalData.Instance.configs.frmPunchPressCfg.cameraCfg.gain;
@@ -427,18 +429,15 @@ namespace PunchPressCsharp.UI
             Frm_Configuration frmSet = new Frm_Configuration();
             frmSet.ShowDialog();
 
-            var cameraModule= GlobalData.Instance.cameraModuleTool;
-            CameraInfoList cameraInfoList = cameraModule.ModuParams.GetCameraInfoList();
-            var cameraParam = cameraModule.ModuParams;
-            cameraParam.ExposureTime = 800000;
-            GlobalData.Instance.vmMainProcedure.Run();
+            
+           
         }
 
         private void btn_runOnce_Click(object sender, EventArgs e)
         {
             var cameraParam = GlobalData.Instance.cameraModuleTool.ModuParams;
 
-            cameraParam.TriggerSource = 7; // 设置触发源为硬触发
+            cameraParam.TriggerSource = 7; // 设置触发源为软触发
 
             var procedure = GlobalData.Instance.vmMainProcedure;
             if (!procedure.IsRunning)
@@ -543,7 +542,7 @@ namespace PunchPressCsharp.UI
 
         private void cBox_debugMode_Click(object sender, EventArgs e)
         {
-            if (cBox_debugMode.Checked)
+            if (cBox_workMode.Checked)
             {
                 GlobalData.Instance.configs.frmPunchPressCfg.isDebugMode = true;
                 GlobalData.Instance.configs.frmPunchPressCfg.isWorkMode = false;
@@ -565,23 +564,28 @@ namespace PunchPressCsharp.UI
                 FeatureMatch.IsForbidden = true;
                 CalibTransform.IsForbidden = true;
                 GlobalData.Instance.vmMainProcedure.ContinuousRunEnable = true;
+                var cameraParam = GlobalData.Instance.cameraModuleTool.ModuParams;
+
+                cameraParam.TriggerSource = 7; // 设置触发源为软触发
 
                 modernTabControl1.SelectedIndex = 1;
+              
             }
             else
             {
-                cBox_debugMode.Checked = true;
+                cBox_workMode.Checked = true;
             }
 
         }
 
         private void cBox_workMode_Click(object sender, EventArgs e)
         {
-            if (cBox_workMode.Checked)
+            if (cBox_debugMode.Checked)
             {
                 GlobalData.Instance.configs.frmPunchPressCfg.isDebugMode = false;
                 GlobalData.Instance.configs.frmPunchPressCfg.isWorkMode = true;
                 cBox_debugMode.Checked = false;
+
                 cBox_workMode.Checked = true;
 
                 //禁用模块加速显示
@@ -599,10 +603,11 @@ namespace PunchPressCsharp.UI
 
 
                 modernTabControl1.SelectedIndex = 0;
+               
             }
             else
             {
-                cBox_workMode.Checked = true;
+                cBox_debugMode.Checked = true;
             }
 
             
@@ -654,6 +659,10 @@ namespace PunchPressCsharp.UI
             currentX = newValue;
             GlobalData.Instance.configs.frmPunchPressCfg.correction.centralX = currentX;
             lb_centralX.Text = currentX.ToString("F1");
+
+
+
+
         }
 
         private void btn_yDecrease_Click(object sender, EventArgs e)
@@ -740,6 +749,7 @@ namespace PunchPressCsharp.UI
             Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, cfg.exposureTimeMin, cfg.exposureTimeMax);
             numKeyBoard.ShowDialog();
             GlobalData.Instance.configs.frmPunchPressCfg.cameraCfg.exposureTime = int.Parse(lb_exposureValue.Text);
+            UpdateCameraSet();
 
         }
 
@@ -749,6 +759,8 @@ namespace PunchPressCsharp.UI
             Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, cfg.gainMin, cfg.gainMax);
             numKeyBoard.ShowDialog();
             GlobalData.Instance.configs.frmPunchPressCfg.cameraCfg.gain = int.Parse(lb_gainValue.Text);
+            UpdateCameraSet();
+
         }
 
         private void lb_centralY_Click(object sender, EventArgs e)
@@ -783,10 +795,7 @@ namespace PunchPressCsharp.UI
 
         }
 
-        private void uiCheckBoxGroup1_ValueChanged(object sender, Sunny.UI.CheckBoxGroupEventArgs e)
-        {
-
-        }
+   
 
         private void cBox_downLight_CheckedChanged(object sender, EventArgs e)
         {

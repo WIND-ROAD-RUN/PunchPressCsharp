@@ -204,7 +204,7 @@ namespace PunchPressCsharp.UI
 
         private void txt_exposureMin_Click(object sender, EventArgs e)
         {
-            Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, 0, 10000);
+            Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, 0, 1000000);
             numKeyBoard.ShowDialog();
             _valueIsChange = true;
 
@@ -212,7 +212,7 @@ namespace PunchPressCsharp.UI
 
         private void txt_exposureMax_Click(object sender, EventArgs e)
         {
-            Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, 0, 10000);
+            Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, 0, 1000000);
             numKeyBoard.ShowDialog();
             _valueIsChange = true;
 

@@ -9,6 +9,7 @@ using AntdUI.Svg;
 using VM.Core;
 using static PunchPressCsharp.Data.Config;
 using PunchPressCsharp.Data;
+using Microsoft.VisualBasic;
 
 namespace PunchPressCsharp.UI
 {
@@ -55,6 +56,10 @@ namespace PunchPressCsharp.UI
             IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
             var imageSource = (ImageSourceModuleTool)VmSolution.Instance["流程1.图像源1"];
 
+
+            vmParamsConfigWithRenderControl1.ModuleSource= FeatureMatch;
+
+
             byte[] modelData = File.ReadAllBytes(GlobalPath.ModelLoadPath);
 
             FeatureMatch.ImportModel(modelData);
@@ -78,31 +83,45 @@ namespace PunchPressCsharp.UI
 
         private void btn_close_Click(object sender, EventArgs e)
         {
+
+            //新建一个保存
             if (isnew == true)
             {
-                //弹窗显示名称允许修改，默认为当前日期，如果为孔=空需要报警保护
                 var config = GlobalData.Instance.configs;
+                var nowTime = DateTime.Now; // 补充定义
 
-                ModelConfig modelConfig = new ModelConfig();
-                modelConfig.cameraCfg = config.frmPunchPressCfg.cameraCfg;
-                modelConfig.correction = config.frmPunchPressCfg.correction;
-                modelConfig.lightCfg = config.frmPunchPressCfg.lightCfg;
-                var nowTime= DateTime.Now;
-                modelConfig.trainDate = nowTime.ToString("yyyy-MM-dd HH:mm:ss");
-                var saveDir = GlobalPath.ModelHome + "\\" + nowTime.ToString("yyyyMMddHHmmss") + "\\";
+                string defaultName = nowTime.ToString("yyyyMMddHHmmss");
+             
+                string inputName = ShowInputBox("请输入模型名称：", "模型命名", defaultName,out bool isAccept);
 
-                //Save model cfg
-                var modelConfigPath = saveDir + GlobalPath.ModelConfigName;
-                modelConfig.SaveToFile(modelConfigPath);
+                if (isAccept)
+                {
+                    if (string.IsNullOrWhiteSpace(inputName))
+                    {
+                        MessageBox.Show("模型名称不能为空！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
 
-                //save pro img
-                vmParamsConfigWithRenderControl1.SaveRenderedImage(saveDir+GlobalPath.SourceImgName);
+                    ModelConfig modelConfig = new ModelConfig();
+                    modelConfig.cameraCfg = config.frmPunchPressCfg.cameraCfg;
+                    modelConfig.correction = config.frmPunchPressCfg.correction;
+                    modelConfig.lightCfg = config.frmPunchPressCfg.lightCfg;
+                    modelConfig.trainDate = nowTime.ToString("yyyy-MM-dd HH:mm:ss");
+                    modelConfig.modelName = inputName;
 
-                //save model
-                IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
-                byte[] modelData = FeatureMatch.GetModel();
-                File.WriteAllBytes(saveDir + GlobalPath.ModelBinName, modelData);
+                    var saveDir = GlobalPath.ModelHome + "\\" + defaultName + "\\";
 
+                    var modelConfigPath = saveDir + GlobalPath.ModelConfigName;
+                    modelConfig.SaveToFile(modelConfigPath);
+
+                    vmParamsConfigWithRenderControl1.SaveRenderedImage(saveDir + GlobalPath.SourceImgName);
+
+                    IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
+                    byte[] modelData = FeatureMatch.GetModel();
+                    File.WriteAllBytes(saveDir + GlobalPath.ModelBinName, modelData);
+
+                }
+              
             }
             else
             {
@@ -148,7 +167,38 @@ namespace PunchPressCsharp.UI
             }
         }
 
+        private string ShowInputBox(string prompt, string title, string defaultValue, out bool isAccept)
+        {
+            Form inputForm = new Form();
+            inputForm.Width = 400;
+            inputForm.Height = 150;
+            inputForm.Text = title;
+            inputForm.StartPosition = FormStartPosition.CenterParent; // 居中显示在父窗体
+            Label textLabel = new Label() { Left = 10, Top = 20, Text = prompt, Width = 360 };
+            TextBox inputBox = new TextBox() { Left = 10, Top = 50, Width = 360, Text = defaultValue };
+            Button okButton = new Button() { Text = "确定新建模型", Left = 220, Width = 70, Top = 80, DialogResult = DialogResult.OK };
+            Button cancelButton = new Button() { Text = "取消新建模型", Left = 300, Width = 70, Top = 80, DialogResult = DialogResult.Cancel };
+            inputForm.Controls.Add(textLabel);
+            inputForm.Controls.Add(inputBox);
+            inputForm.Controls.Add(okButton);
+            inputForm.Controls.Add(cancelButton);
+            inputForm.AcceptButton = okButton;
+            inputForm.CancelButton = cancelButton;
 
+            var result = inputForm.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                isAccept = true;
+            }
+            else { 
+                isAccept = false;
+            }
+
+
+                return inputBox.Text;
+
+        }
         #endregion
 
     }

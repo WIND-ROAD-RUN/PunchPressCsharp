@@ -34,9 +34,7 @@
             this.btn9 = new Sunny.UI.UIButton();
             this.btnConfirm = new Sunny.UI.UIButton();
             this.uiTextBox1 = new Sunny.UI.UITextBox();
-            this.titleBar = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.btnClose = new Sunny.UI.UIButton();
             this.btn6 = new Sunny.UI.UIButton();
             this.btn5 = new Sunny.UI.UIButton();
             this.btn4 = new Sunny.UI.UIButton();
@@ -46,8 +44,11 @@
             this.btnDecimal = new Sunny.UI.UIButton();
             this.btn0 = new Sunny.UI.UIButton();
             this.btnNegative = new Sunny.UI.UIButton();
+            this.pic_Close = new System.Windows.Forms.PictureBox();
+            this.panel1 = new AntdUI.Panel();
             this.btnBackspace = new Sunny.UI.UIButton();
-            this.titleBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Close)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnClear
@@ -76,6 +77,7 @@
             // btn7
             // 
             this.btn7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.btn7.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn7.Location = new System.Drawing.Point(22, 220);
             this.btn7.MinimumSize = new System.Drawing.Size(1, 1);
@@ -90,6 +92,7 @@
             // btn8
             // 
             this.btn8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn8.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.btn8.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn8.Location = new System.Drawing.Point(110, 220);
             this.btn8.MinimumSize = new System.Drawing.Size(1, 1);
@@ -103,6 +106,7 @@
             // btn9
             // 
             this.btn9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn9.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.btn9.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn9.Location = new System.Drawing.Point(197, 220);
             this.btn9.MinimumSize = new System.Drawing.Size(1, 1);
@@ -116,8 +120,9 @@
             // btnConfirm
             // 
             this.btnConfirm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConfirm.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.btnConfirm.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnConfirm.Location = new System.Drawing.Point(280, 220);
+            this.btnConfirm.Location = new System.Drawing.Point(282, 220);
             this.btnConfirm.MinimumSize = new System.Drawing.Size(1, 1);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(100, 348);
@@ -145,44 +150,21 @@
             this.uiTextBox1.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
             this.uiTextBox1.Watermark = "";
             // 
-            // titleBar
-            // 
-            this.titleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(224)))));
-            this.titleBar.Controls.Add(this.lblTitle);
-            this.titleBar.Controls.Add(this.btnClose);
-            this.titleBar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.titleBar.Location = new System.Drawing.Point(0, 0);
-            this.titleBar.Name = "titleBar";
-            this.titleBar.Size = new System.Drawing.Size(400, 40);
-            this.titleBar.TabIndex = 10;
-            // 
             // lblTitle
             // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("宋体", 12F);
+            this.lblTitle.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblTitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTitle.Location = new System.Drawing.Point(12, 12);
+            this.lblTitle.Location = new System.Drawing.Point(3, 6);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(103, 16);
+            this.lblTitle.Size = new System.Drawing.Size(168, 36);
             this.lblTitle.TabIndex = 1;
             this.lblTitle.Text = "数值输入面板";
-            // 
-            // btnClose
-            // 
-            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClose.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnClose.Location = new System.Drawing.Point(355, 0);
-            this.btnClose.MinimumSize = new System.Drawing.Size(1, 1);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(45, 40);
-            this.btnClose.TabIndex = 0;
-            this.btnClose.Text = "X";
-            this.btnClose.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btn6
             // 
             this.btn6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.btn6.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn6.Location = new System.Drawing.Point(197, 314);
             this.btn6.MinimumSize = new System.Drawing.Size(1, 1);
@@ -196,6 +178,7 @@
             // btn5
             // 
             this.btn5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.btn5.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn5.Location = new System.Drawing.Point(110, 314);
             this.btn5.MinimumSize = new System.Drawing.Size(1, 1);
@@ -209,6 +192,7 @@
             // btn4
             // 
             this.btn4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.btn4.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn4.Location = new System.Drawing.Point(22, 314);
             this.btn4.MinimumSize = new System.Drawing.Size(1, 1);
@@ -223,6 +207,7 @@
             // btn3
             // 
             this.btn3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.btn3.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn3.Location = new System.Drawing.Point(197, 408);
             this.btn3.MinimumSize = new System.Drawing.Size(1, 1);
@@ -236,6 +221,7 @@
             // btn2
             // 
             this.btn2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.btn2.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn2.Location = new System.Drawing.Point(110, 408);
             this.btn2.MinimumSize = new System.Drawing.Size(1, 1);
@@ -249,6 +235,7 @@
             // btn1
             // 
             this.btn1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.btn1.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn1.Location = new System.Drawing.Point(22, 408);
             this.btn1.MinimumSize = new System.Drawing.Size(1, 1);
@@ -263,6 +250,7 @@
             // btnDecimal
             // 
             this.btnDecimal.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDecimal.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.btnDecimal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnDecimal.Location = new System.Drawing.Point(197, 498);
             this.btnDecimal.MinimumSize = new System.Drawing.Size(1, 1);
@@ -276,6 +264,7 @@
             // btn0
             // 
             this.btn0.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn0.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.btn0.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn0.Location = new System.Drawing.Point(110, 498);
             this.btn0.MinimumSize = new System.Drawing.Size(1, 1);
@@ -289,6 +278,7 @@
             // btnNegative
             // 
             this.btnNegative.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNegative.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.btnNegative.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnNegative.Location = new System.Drawing.Point(22, 498);
             this.btnNegative.MinimumSize = new System.Drawing.Size(1, 1);
@@ -300,9 +290,35 @@
             this.btnNegative.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnNegative.Click += new System.EventHandler(this.btnNegative_Click);
             // 
+            // pic_Close
+            // 
+            this.pic_Close.BackColor = System.Drawing.Color.Transparent;
+            this.pic_Close.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pic_Close.Image = global::PunchPressCsharp.Properties.Resources.x;
+            this.pic_Close.Location = new System.Drawing.Point(348, 2);
+            this.pic_Close.Name = "pic_Close";
+            this.pic_Close.Size = new System.Drawing.Size(49, 50);
+            this.pic_Close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_Close.TabIndex = 14;
+            this.pic_Close.TabStop = false;
+            this.pic_Close.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Back = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.panel1.Controls.Add(this.pic_Close);
+            this.panel1.Controls.Add(this.lblTitle);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Radius = 0;
+            this.panel1.Size = new System.Drawing.Size(400, 52);
+            this.panel1.TabIndex = 24;
+            this.panel1.Text = "panel1";
+            // 
             // btnBackspace
             // 
             this.btnBackspace.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBackspace.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
             this.btnBackspace.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnBackspace.Location = new System.Drawing.Point(110, 135);
             this.btnBackspace.MinimumSize = new System.Drawing.Size(1, 1);
@@ -319,6 +335,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(400, 580);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnBackspace);
             this.Controls.Add(this.btnDecimal);
             this.Controls.Add(this.btn0);
@@ -329,7 +346,6 @@
             this.Controls.Add(this.btn6);
             this.Controls.Add(this.btn5);
             this.Controls.Add(this.btn4);
-            this.Controls.Add(this.titleBar);
             this.Controls.Add(this.uiTextBox1);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.btn9);
@@ -340,8 +356,8 @@
             this.Name = "Frm_InputPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frm_InputPage";
-            this.titleBar.ResumeLayout(false);
-            this.titleBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Close)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -354,9 +370,7 @@
         private Sunny.UI.UIButton btn9;
         private Sunny.UI.UIButton btnConfirm;
         private Sunny.UI.UITextBox uiTextBox1;
-        private System.Windows.Forms.Panel titleBar;
         private System.Windows.Forms.Label lblTitle;
-        private Sunny.UI.UIButton btnClose;
         private Sunny.UI.UIButton btn6;
         private Sunny.UI.UIButton btn5;
         private Sunny.UI.UIButton btn4;
@@ -366,6 +380,8 @@
         private Sunny.UI.UIButton btnDecimal;
         private Sunny.UI.UIButton btn0;
         private Sunny.UI.UIButton btnNegative;
+        private System.Windows.Forms.PictureBox pic_Close;
+        private AntdUI.Panel panel1;
         private Sunny.UI.UIButton btnBackspace;
     }
 }

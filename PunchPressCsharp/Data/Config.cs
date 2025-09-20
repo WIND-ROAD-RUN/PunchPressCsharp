@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VM.Core;
 
 namespace PunchPressCsharp.Data
 {
@@ -147,7 +148,6 @@ namespace PunchPressCsharp.Data
 
         internal class Configs
         {
-            //public FrmSetCfg frmSetCfg = new FrmSetCfg();
             public FrmPunchPressCfg frmPunchPressCfg = new FrmPunchPressCfg();
             public FrmConfigurationCfg frmConfigurationCfg = new FrmConfigurationCfg();
 
@@ -156,6 +156,7 @@ namespace PunchPressCsharp.Data
                 //frmSetCfg.SaveToFile(GlobalPath.FrmSetCfgPath);
                 frmPunchPressCfg.SaveToFile(GlobalPath.FrmPunchPressCfgPath);
                 frmConfigurationCfg.SaveToFile(GlobalPath.FrmConfigurationCfgPath);
+                VmSolution.Save();
             }
 
             public void LoadConfigs()
