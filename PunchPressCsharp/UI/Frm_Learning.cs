@@ -7,6 +7,8 @@ using System.IO;
 using System.Windows.Forms;
 using AntdUI.Svg;
 using VM.Core;
+using static PunchPressCsharp.Data.Config;
+using PunchPressCsharp.Data;
 
 namespace PunchPressCsharp.UI
 {
@@ -89,14 +91,21 @@ namespace PunchPressCsharp.UI
         private void btn_close_Click(object sender, EventArgs e)
         {
 
-
-
             //新建一个保存
             if (isnew == true)
             {
                 //弹窗显示名称允许修改，默认为当前日期，如果为孔=空需要报警保护
+                var config = GlobalData.Instance.configs;
 
+                ModelConfig modelConfig = new ModelConfig();
+                modelConfig.cameraCfg = config.frmPunchPressCfg.cameraCfg;
+                modelConfig.correction = config.frmPunchPressCfg.correction;
+                modelConfig.lightCfg = config.frmPunchPressCfg.lightCfg;
+                var nowTime= DateTime.Now;
+                modelConfig.trainDate = nowTime.ToString("yyyy-MM-dd HH:mm:ss");
 
+                var modelConfigPath = GlobalPath.ModelHome + "\\" + nowTime.ToString("yyyyMMddHHmmss") + "\\" + GlobalPath.ModelConfigName;
+                modelConfig.SaveToFile(modelConfigPath);
             }
             //覆盖原有的数据
             else

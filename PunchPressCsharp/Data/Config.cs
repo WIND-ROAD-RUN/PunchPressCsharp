@@ -122,9 +122,14 @@ namespace PunchPressCsharp.Data
             public CameraCfg cameraCfg = new CameraCfg();
             public void SaveToFile(string filePath)
              {
-                 var json = JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-                 File.WriteAllText(filePath, json);
-             }
+                var dir = Path.GetDirectoryName(filePath);
+                if (!Directory.Exists(dir))
+                {
+                    Directory.CreateDirectory(dir);
+                }
+                var json = JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(filePath, json);
+            }
 
              public static ModelConfig LoadFromFile(string filePath)
              {
