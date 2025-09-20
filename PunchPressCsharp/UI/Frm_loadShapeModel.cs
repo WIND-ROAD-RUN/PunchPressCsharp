@@ -1,10 +1,14 @@
-﻿using PunchPressCsharp.Data;
+﻿using ImageSourceModuleCs;
+using IMVSHPFeatureMatchModuCs;
+using PunchPressCsharp.Data;
+using Sunny.UI;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using VM.Core;
 using static PunchPressCsharp.Data.Config;
 
 namespace PunchPressCsharp.UI
@@ -297,7 +301,31 @@ namespace PunchPressCsharp.UI
 
         private void btn_loadModel_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(@"加载成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // 获取当前选中的模型名称
+            string selectedModelName = list_modelList.SelectedItem?.ToString();
+
+            string path = null;
+            if (!string.IsNullOrEmpty(selectedModelName) && listNameWithPath.ContainsKey(selectedModelName))
+            {
+                path = listNameWithPath[selectedModelName] + "\\" + GlobalPath.ModelBinName;
+                if (!System.IO.File.Exists(path)) {
+                    MessageBox.Show("未找到模型文件或模型文件丢失", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("未找到模型路径或未选择模型！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
+            var imageSource = (ImageSourceModuleTool)VmSolution.Instance["流程1.图像源1"];
+
+            FeatureMatch.ImportModel(path);
+
+
+            MessageBox.Show($@"加载成功: {selectedModelName}", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Close();
         }
 
