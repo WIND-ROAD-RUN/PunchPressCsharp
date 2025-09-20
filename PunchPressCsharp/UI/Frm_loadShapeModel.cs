@@ -159,12 +159,6 @@ namespace PunchPressCsharp.UI
                 var result = MessageBox.Show(@"确定要删除选中的模型吗？", @"删除确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    // 释放图片资源
-                    if (pictureBox_proImg.Image != null)
-                    {
-                        pictureBox_proImg.Image.Dispose();
-                        pictureBox_proImg.Image = null;
-                    }
                     if (pictureBox_srcImg.Image != null)
                     {
                         pictureBox_srcImg.Image.Dispose();
@@ -256,18 +250,6 @@ namespace PunchPressCsharp.UI
 
                     string proImgPath = configPath + @"\" + GlobalPath.ProImgName;
                     string srcImgPath = configPath + @"\" + GlobalPath.SourceImgName;
-
-                    if (System.IO.File.Exists(proImgPath))
-                    {
-                        using (var fs = new System.IO.FileStream(proImgPath, System.IO.FileMode.Open, System.IO.FileAccess.Read))
-                        {
-                            pictureBox_proImg.Image = Image.FromStream(fs);
-                        }
-                    }
-                    else
-                    {
-                        pictureBox_proImg.Image = null;
-                    }
 
                     if (System.IO.File.Exists(srcImgPath))
                     {
