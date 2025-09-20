@@ -551,7 +551,7 @@ namespace PunchPressCsharp.UI
                 CalibTransform.IsForbidden = true;
                 GlobalData.Instance.vmMainProcedure.ContinuousRunEnable = true;
 
-                uiTabControl1.SelectedIndex = 1;
+                modernTabControl1.SelectedIndex = 1;
             }
             else
             {
@@ -583,7 +583,7 @@ namespace PunchPressCsharp.UI
                 cameraParam.TriggerSource = 0; // 设置触发源为硬触发
 
 
-                uiTabControl1.SelectedIndex = 0;
+                modernTabControl1.SelectedIndex = 0;
             }
             else
             {
@@ -764,6 +764,11 @@ namespace PunchPressCsharp.UI
         {
             Frm_Learning frm_Learning = new Frm_Learning(false);
             frm_Learning.ShowDialog();
+
+        }
+
+        private void uiCheckBoxGroup1_ValueChanged(object sender, Sunny.UI.CheckBoxGroupEventArgs e)
+        {
 
         }
     }

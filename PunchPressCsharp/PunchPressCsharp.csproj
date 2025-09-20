@@ -645,6 +645,18 @@
     <Compile Include="Data\GlobalPath.cs" />
     <Compile Include="Func\FormSizeChange.cs" />
     <Compile Include="Func\ModelManager.cs" />
+    <Compile Include="Controls\FlatButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\FlatButton.Designer.cs" />
+    <Compile Include="Controls\ModernTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ModernTabControl.Designer.cs" />
+    <Compile Include="Controls\RoundedPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\RoundedPanel.Designer.cs" />
     <Compile Include="UI\Frm_Configuration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -722,7 +734,6 @@
     <EmbeddedResource Include="UI\Frm_set.resx">
       <DependentUpon>Frm_set.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
