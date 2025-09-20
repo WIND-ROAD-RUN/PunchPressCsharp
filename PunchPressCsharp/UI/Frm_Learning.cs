@@ -103,9 +103,20 @@ namespace PunchPressCsharp.UI
                 modelConfig.lightCfg = config.frmPunchPressCfg.lightCfg;
                 var nowTime= DateTime.Now;
                 modelConfig.trainDate = nowTime.ToString("yyyy-MM-dd HH:mm:ss");
+                var saveDir = GlobalPath.ModelHome + "\\" + nowTime.ToString("yyyyMMddHHmmss") + "\\";
 
-                var modelConfigPath = GlobalPath.ModelHome + "\\" + nowTime.ToString("yyyyMMddHHmmss") + "\\" + GlobalPath.ModelConfigName;
+                //Save model cfg
+                var modelConfigPath = saveDir + GlobalPath.ModelConfigName;
                 modelConfig.SaveToFile(modelConfigPath);
+
+                //save pro img
+                vmParamsConfigWithRenderControl1.SaveRenderedImage(saveDir+GlobalPath.SourceImgName);
+
+                //save model
+                IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
+                byte[] modelData = FeatureMatch.GetModel();
+                File.WriteAllBytes(saveDir + GlobalPath.ModelBinName, modelData);
+
             }
             //覆盖原有的数据
             else
@@ -123,17 +134,17 @@ namespace PunchPressCsharp.UI
                 vmParamsConfigWithRenderControl1.SaveRenderedImage("D:\\zfkjData\\PunchPress\\model\\1.jpg");
 
             //村模型
-            string savePath = @"D:\zfkjData\PunchPress\model\saved_template1.bin";
-            IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
+            //string savePath = @"D:\zfkjData\PunchPress\model\saved_template1.bin";
+            //IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
           
-            // 获取模型数据（字节数组）
-            byte[] modelData = FeatureMatch.GetModel();
+            //// 获取模型数据（字节数组）
+            //byte[] modelData = FeatureMatch.GetModel();
 
 
-            // 保存到文件
-            File.WriteAllBytes(savePath, modelData);
+            //// 保存到文件
+            //File.WriteAllBytes(savePath, modelData);
 
-            //存参数
+            ////存参数
 
 
 

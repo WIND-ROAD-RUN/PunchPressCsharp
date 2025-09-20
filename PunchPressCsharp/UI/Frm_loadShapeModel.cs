@@ -67,9 +67,9 @@ namespace PunchPressCsharp.UI
                     else if (long.TryParse(folderName, out long num))
                     {
                         // 这里假设数字为yyyyMMdd格式
-                        if (folderName.Length == 8)
+                        if (folderName.Length == 14)
                         {
-                            if (DateTime.TryParseExact(folderName, "yyyyMMdd", null, System.Globalization.DateTimeStyles.None, out time))
+                            if (DateTime.TryParseExact(folderName, "yyyyMMddHHmmss", null, System.Globalization.DateTimeStyles.None, out time))
                             {
                                 folderList.Add((folderName, time));
                             }
@@ -248,7 +248,6 @@ namespace PunchPressCsharp.UI
                     table_modelInfo.Controls.Add(val7, 1, 6);
                     table_modelInfo.Controls.Add(val8, 1, 7);
 
-                    string proImgPath = configPath + @"\" + GlobalPath.ProImgName;
                     string srcImgPath = configPath + @"\" + GlobalPath.SourceImgName;
 
                     if (System.IO.File.Exists(srcImgPath))

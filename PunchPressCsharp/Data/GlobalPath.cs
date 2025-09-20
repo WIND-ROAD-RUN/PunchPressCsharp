@@ -2,12 +2,6 @@
 {
     internal class GlobalPath
     {
-        #region 成员
-
-        public static string VMSolPath = @"D:\zfkjData\PunchPress\shibie.sol";
-
-        #endregion 成员
-
         #region 配置
 
         private static readonly string _ProjectHome = @"D:\zfkjData\PunchPress";
@@ -22,8 +16,14 @@
 
         public static readonly string ModelHome=_ProjectHome+ @"\Templates";
         public static readonly string ModelConfigName = "ModelConfig.json";
-        public static readonly string ProImgName = "proImg.jpg";
         public static readonly string SourceImgName = "sourceImg.jpg";
+        public static readonly string ModelBinName = "model.bin";
+        #endregion
+
+        #region 解决方案
+        public static readonly string SolutionBackupDir = _ProjectHome + @"\sol";
+
+        public static readonly string VMSolPath = SolutionBackupDir+@"\shibie.sol";
         #endregion
     }
 }
