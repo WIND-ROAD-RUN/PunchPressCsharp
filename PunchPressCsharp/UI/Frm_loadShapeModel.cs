@@ -267,7 +267,7 @@ namespace PunchPressCsharp.UI
                     return;
                 }
                 else {
-
+                    GlobalData.Instance.modelManager.currentModelDir = listNameWithPath[selectedModelName];
                     System.IO.File.Copy(path, GlobalPath.ModelLoadPath, true);
                 }
             }

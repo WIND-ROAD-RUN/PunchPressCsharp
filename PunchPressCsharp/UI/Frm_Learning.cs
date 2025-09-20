@@ -78,8 +78,6 @@ namespace PunchPressCsharp.UI
 
         private void btn_close_Click(object sender, EventArgs e)
         {
-
-            //新建一个保存
             if (isnew == true)
             {
                 //弹窗显示名称允许修改，默认为当前日期，如果为孔=空需要报警保护
@@ -106,33 +104,26 @@ namespace PunchPressCsharp.UI
                 File.WriteAllBytes(saveDir + GlobalPath.ModelBinName, modelData);
 
             }
-            //覆盖原有的数据
             else
             {
-
+                var olderCfgPath = GlobalData.Instance.modelManager.currentModelDir;
+                var modelConfigPath = olderCfgPath + "\\" + GlobalPath.ModelConfigName;
+                if (System.IO.File.Exists(modelConfigPath))
+                {
+                    ModelConfig modelConfig = ModelConfig.LoadFromFile(modelConfigPath);
+                    var config = GlobalData.Instance.configs;
+                    modelConfig.cameraCfg = config.frmPunchPressCfg.cameraCfg;
+                    modelConfig.correction = config.frmPunchPressCfg.correction;
+                    modelConfig.lightCfg = config.frmPunchPressCfg.lightCfg;
+                    modelConfig.SaveToFile(modelConfigPath);
+                    //save pro img
+                    vmParamsConfigWithRenderControl1.SaveRenderedImage(olderCfgPath + "\\" + GlobalPath.SourceImgName);
+                    //save model
+                    IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
+                    byte[] modelData = FeatureMatch.GetModel();
+                    File.WriteAllBytes(olderCfgPath + "\\" + GlobalPath.ModelBinName, modelData);
+                }
             }
-
-
-            //弹窗存图位置
-                //按时间
-
-                //存图片，参数，模型
-
-                //存图
-                vmParamsConfigWithRenderControl1.SaveRenderedImage("D:\\zfkjData\\PunchPress\\model\\1.jpg");
-
-            //村模型
-            //string savePath = @"D:\zfkjData\PunchPress\model\saved_template1.bin";
-            //IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
-          
-            //// 获取模型数据（字节数组）
-            //byte[] modelData = FeatureMatch.GetModel();
-
-
-            //// 保存到文件
-            //File.WriteAllBytes(savePath, modelData);
-
-            ////存参数
 
 
 

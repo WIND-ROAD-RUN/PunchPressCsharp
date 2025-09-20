@@ -77,5 +77,7 @@ namespace PunchPressCsharp.Func
             }
 
         }
+
+        public string currentModelDir= "";
     }
 }
