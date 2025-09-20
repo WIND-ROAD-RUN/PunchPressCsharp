@@ -644,6 +644,7 @@
     <Compile Include="Data\GlobalData.cs" />
     <Compile Include="Data\GlobalPath.cs" />
     <Compile Include="Func\FormSizeChange.cs" />
+    <Compile Include="Func\ModelManager.cs" />
     <Compile Include="UI\Frm_Configuration.cs">
       <SubType>Form</SubType>
     </Compile>

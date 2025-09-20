@@ -1,5 +1,6 @@
 ﻿using GlobalCameraModuleCs;
 using Newtonsoft.Json;
+using PunchPressCsharp.Func;
 using PunchPressCsharp.HardwareCom;
 using System.IO;
 using VM.Core;
@@ -28,9 +29,8 @@ namespace PunchPressCsharp.Data
         public VmProcedure vmMainProcedure;
         public GlobalCameraModuleTool cameraModuleTool;
         public Config.Configs configs = new Config.Configs();
+        public ModelManager modelManager = new ModelManager();
         public volatile bool cameraIsConnect=false;
         #endregion 成员
-
-
     }
 }

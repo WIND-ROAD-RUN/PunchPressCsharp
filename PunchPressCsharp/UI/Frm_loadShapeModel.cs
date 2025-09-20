@@ -52,71 +52,18 @@ namespace PunchPressCsharp.UI
 
         private void ReadModelHomeDirectory()
         {
-            var path = GlobalPath.ModelHome;
-            if (System.IO.Directory.Exists(path))
-            {
-                var dirs = System.IO.Directory.GetDirectories(path);
-                var folderList = new List<(string Name, DateTime Time)>();
+            list_modelList.Items.Clear();
 
-                foreach (var dir in dirs)
-                {
-                    var folderName = System.IO.Path.GetFileName(dir);
-                    DateTime time;
-                    // 尝试解析为日期
-                    if (DateTime.TryParse(folderName, out time))
-                    {
-                        folderList.Add((folderName, time));
-                    }
-                    // 如果是纯数字，按数字转为时间（如时间戳或年月日等，可根据实际需求调整）
-                    else if (long.TryParse(folderName, out long num))
-                    {
-                        // 这里假设数字为yyyyMMdd格式
-                        if (folderName.Length == 14)
-                        {
-                            if (DateTime.TryParseExact(folderName, "yyyyMMddHHmmss", null, System.Globalization.DateTimeStyles.None, out time))
-                            {
-                                folderList.Add((folderName, time));
-                            }
-                        }
-                    }
-                }
+            GlobalData.Instance.modelManager.ReadModelHomeDirectory();
 
-                var sortedList = folderList
-                    .OrderByDescending(f => f.Time)
-                    .Select(f => (Name: f.Name, Path: System.IO.Path.Combine(path, f.Name)))
-                    .ToList();
+            var listNameWithPath= GlobalData.Instance.modelManager.listNameWithPath;
 
+            foreach (var name in GlobalData.Instance.modelManager.listNameWithPath) {
+                list_modelList.Items.Add(name.Key);
 
-                foreach (var dir in sortedList)
-                {
-                    string modelConfigPath = dir.Path + @"\" + GlobalPath.ModelConfigName;
-
-                    // 检查配置文件是否存在，并捕获异常
-                    if (System.IO.File.Exists(modelConfigPath))
-                    {
-                        try
-                        {
-                            ModelConfig.LoadFromFile(modelConfigPath);
-                            list_modelList.Items.Add(dir.Name);
-                            listNameWithPath.Add(dir.Name, dir.Path);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show($"配置文件格式错误或无法读取：{ex.Message}");
-                            return;
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show($"配置文件不存在！:{dir.Path}");
-                        return;
-                    }
-                }
             }
 
         }
-
-        public Dictionary<string, string> listNameWithPath = new Dictionary<string, string>();
 
         #endregion
 
@@ -157,6 +104,8 @@ namespace PunchPressCsharp.UI
 
         private void btn_delete_Click(object sender, EventArgs e)
         {
+            var listNameWithPath = GlobalData.Instance.modelManager.listNameWithPath;
+
             int idx = list_modelList.SelectedIndex;
             if (idx >= 0 && list_modelList.Items.Count > 0)
             {
@@ -204,6 +153,8 @@ namespace PunchPressCsharp.UI
 
         private void list_modelList_SelectedIndexChanged(object sender, EventArgs e)
         {
+            var listNameWithPath = GlobalData.Instance.modelManager.listNameWithPath;
+
             if (list_modelList.SelectedIndex >= 0)
             {
                 string selectedName = list_modelList.SelectedItem.ToString();
@@ -301,6 +252,8 @@ namespace PunchPressCsharp.UI
 
         private void btn_loadModel_Click(object sender, EventArgs e)
         {
+            var listNameWithPath = GlobalData.Instance.modelManager.listNameWithPath;
+
             // 获取当前选中的模型名称
             string selectedModelName = list_modelList.SelectedItem?.ToString();
 
