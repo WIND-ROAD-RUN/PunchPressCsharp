@@ -84,6 +84,7 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnClose = new Sunny.UI.UIButton();
             this.titleBar = new System.Windows.Forms.Panel();
+            this.btn_changeModel = new Sunny.UI.UIButton();
             this.panelContainer.SuspendLayout();
             this.uiTabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -677,6 +678,7 @@
             this.uiCheckBoxGroup3.BackColor = System.Drawing.Color.Transparent;
             this.uiCheckBoxGroup3.Controls.Add(this.pbtn_templateLoad);
             this.uiCheckBoxGroup3.Controls.Add(this.btn_set);
+            this.uiCheckBoxGroup3.Controls.Add(this.btn_changeModel);
             this.uiCheckBoxGroup3.Controls.Add(this.btn_templateLearn);
             this.uiCheckBoxGroup3.FillColor = System.Drawing.Color.DimGray;
             this.uiCheckBoxGroup3.Font = new System.Drawing.Font("微软雅黑", 12F);
@@ -698,10 +700,10 @@
             // 
             this.pbtn_templateLoad.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbtn_templateLoad.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.pbtn_templateLoad.Location = new System.Drawing.Point(137, 11);
+            this.pbtn_templateLoad.Location = new System.Drawing.Point(223, 11);
             this.pbtn_templateLoad.MinimumSize = new System.Drawing.Size(1, 1);
             this.pbtn_templateLoad.Name = "pbtn_templateLoad";
-            this.pbtn_templateLoad.Size = new System.Drawing.Size(115, 32);
+            this.pbtn_templateLoad.Size = new System.Drawing.Size(80, 32);
             this.pbtn_templateLoad.Style = Sunny.UI.UIStyle.Custom;
             this.pbtn_templateLoad.TabIndex = 3;
             this.pbtn_templateLoad.Text = "模板加载";
@@ -712,10 +714,10 @@
             // 
             this.btn_set.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_set.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.btn_set.Location = new System.Drawing.Point(268, 11);
+            this.btn_set.Location = new System.Drawing.Point(313, 11);
             this.btn_set.MinimumSize = new System.Drawing.Size(1, 1);
             this.btn_set.Name = "btn_set";
-            this.btn_set.Size = new System.Drawing.Size(115, 32);
+            this.btn_set.Size = new System.Drawing.Size(70, 32);
             this.btn_set.Style = Sunny.UI.UIStyle.Custom;
             this.btn_set.TabIndex = 3;
             this.btn_set.Text = "设置";
@@ -732,7 +734,7 @@
             this.btn_templateLearn.Size = new System.Drawing.Size(98, 32);
             this.btn_templateLearn.Style = Sunny.UI.UIStyle.Custom;
             this.btn_templateLearn.TabIndex = 1;
-            this.btn_templateLearn.Text = "模板学习";
+            this.btn_templateLearn.Text = "学习模板";
             this.btn_templateLearn.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_templateLearn.Click += new System.EventHandler(this.btn_templateLearn_Click);
             // 
@@ -869,6 +871,20 @@
             this.titleBar.Size = new System.Drawing.Size(1180, 40);
             this.titleBar.TabIndex = 10;
             // 
+            // btn_changeModel
+            // 
+            this.btn_changeModel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_changeModel.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.btn_changeModel.Location = new System.Drawing.Point(119, 11);
+            this.btn_changeModel.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btn_changeModel.Name = "btn_changeModel";
+            this.btn_changeModel.Size = new System.Drawing.Size(98, 32);
+            this.btn_changeModel.Style = Sunny.UI.UIStyle.Custom;
+            this.btn_changeModel.TabIndex = 1;
+            this.btn_changeModel.Text = "修改模板";
+            this.btn_changeModel.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_changeModel.Click += new System.EventHandler(this.btn_changeModel_Click);
+            // 
             // Frm_PunchPress
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -957,6 +973,7 @@
         private Sunny.UI.UIButton btn_yDecrease;
         private Sunny.UI.UIButton btn_xIncease;
         private Sunny.UI.UIButton btn_xDecrease;
+        private Sunny.UI.UIButton btn_changeModel;
     }
 }
 

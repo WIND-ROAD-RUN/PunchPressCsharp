@@ -365,7 +365,7 @@ namespace PunchPressCsharp.UI
                 //cameraModule2.ModuParams.TriggerSource = 7; // 设置触发源为软件触发
 
 
-                Frm_Learning frm_Learning = new Frm_Learning();
+                Frm_Learning frm_Learning = new Frm_Learning(true);
                 frm_Learning.ShowDialog();
 
                 //cameraModule1.ModuParams.TriggerSource = 0; // 设置触发源为硬触发
@@ -757,8 +757,14 @@ namespace PunchPressCsharp.UI
             frmLoadShapeModel.ShowDialog();
         }
 
+
         #endregion
 
+        private void btn_changeModel_Click(object sender, EventArgs e)
+        {
+            Frm_Learning frm_Learning = new Frm_Learning(false);
+            frm_Learning.ShowDialog();
 
+        }
     }
 }
