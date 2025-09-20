@@ -54,22 +54,10 @@ namespace PunchPressCsharp.UI
 
             IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
             var imageSource = (ImageSourceModuleTool)VmSolution.Instance["流程1.图像源1"];
-          
 
-            vmParamsConfigWithRenderControl1.ModuleSource = FeatureMatch;
-            string savePath = @"C:\Users\zzw\Desktop\saved_template.bin";
+            byte[] modelData = File.ReadAllBytes(GlobalPath.ModelLoadPath);
 
-            // 4. 从文件读取模板数据
-           // byte[] modelData = File.ReadAllBytes(savePath);
-
-            // 5. 导入模板
-           // FeatureMatch.ImportModel(modelData);
-
-
-
-
-
-
+            FeatureMatch.ImportModel(modelData);
         }
 
         private void Frm_Learning_FormClosing(object sender, FormClosingEventArgs e)

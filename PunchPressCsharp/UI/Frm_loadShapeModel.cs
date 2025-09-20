@@ -308,9 +308,14 @@ namespace PunchPressCsharp.UI
             if (!string.IsNullOrEmpty(selectedModelName) && listNameWithPath.ContainsKey(selectedModelName))
             {
                 path = listNameWithPath[selectedModelName] + "\\" + GlobalPath.ModelBinName;
-                if (!System.IO.File.Exists(path)) {
+                if (!System.IO.File.Exists(path))
+                {
                     MessageBox.Show("未找到模型文件或模型文件丢失", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
+                }
+                else {
+
+                    System.IO.File.Copy(path, GlobalPath.ModelLoadPath, true);
                 }
             }
             else

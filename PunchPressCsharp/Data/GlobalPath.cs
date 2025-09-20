@@ -18,6 +18,7 @@
         public static readonly string ModelConfigName = "ModelConfig.json";
         public static readonly string SourceImgName = "sourceImg.jpg";
         public static readonly string ModelBinName = "model.bin";
+        public static readonly string ModelLoadPath= _ProjectHome + @"\\model\\"+ ModelBinName;
         #endregion
 
         #region 解决方案
