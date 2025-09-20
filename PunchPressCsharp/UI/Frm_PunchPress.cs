@@ -13,10 +13,12 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Threading;
 using System.Windows.Forms;
 using VM.Core;
 using VM.PlatformSDKCS;
+using static PunchPressCsharp.Data.Config;
 
 namespace PunchPressCsharp.UI
 {
@@ -79,8 +81,16 @@ namespace PunchPressCsharp.UI
             GlobalData.Instance.configs.frmPunchPressCfg.correction.angle = (float)currentAngle;
             lb_angle.Text = currentAngle.ToString("F1");
 
+            //read last loaded model
+            IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
+            vmRenderControl1.ModuleSource = FeatureMatch;
+            var lastModelPath = GlobalData.Instance.configs.frmPunchPressCfg.lastLoadModelDirPath + "\\" + GlobalPath.ModelConfigName;
+            if (System.IO.File.Exists(lastModelPath))
+            {
+                byte[] modelData = File.ReadAllBytes(GlobalPath.ModelLoadPath);
 
-            //lb_angle.Text= cfg.angle.ToString();
+                FeatureMatch.ImportModel(modelData);
+            }
 
             UpdateCameraSet();
         }

@@ -59,6 +59,7 @@ namespace PunchPressCsharp.Data
             public float PixToWorld = 0.1F;
             public bool isWorkMode = true;
             public bool isDebugMode = false;
+            public string lastLoadModelDirPath = "default";
 
             public void SaveToFile(string filePath)
             {
