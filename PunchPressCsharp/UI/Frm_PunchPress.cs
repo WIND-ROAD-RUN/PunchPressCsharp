@@ -91,8 +91,13 @@ namespace PunchPressCsharp.UI
 
                 FeatureMatch.ImportModel(modelData);
             }
+            else if(System.IO.File.Exists(GlobalPath.ModelLoadPath))
+            { 
+                byte[] modelData = File.ReadAllBytes(GlobalPath.ModelLoadPath);
+                FeatureMatch.ImportModel(modelData);
+            }
 
-            UpdateCameraSet();
+                UpdateCameraSet();
         }
 
         private void DesExtraComponent()
@@ -605,6 +610,7 @@ namespace PunchPressCsharp.UI
 
         private void cBox_upLight_CheckedChanged(object sender, EventArgs e)
         {
+            GlobalData.Instance.configs.frmPunchPressCfg.lightCfg.isUpLightOpen = cBox_upLight.Checked;
             GlobalData.Instance.modbusTool.writeBool(860,true);
         }
 
@@ -780,6 +786,12 @@ namespace PunchPressCsharp.UI
         private void uiCheckBoxGroup1_ValueChanged(object sender, Sunny.UI.CheckBoxGroupEventArgs e)
         {
 
+        }
+
+        private void cBox_downLight_CheckedChanged(object sender, EventArgs e)
+        {
+            GlobalData.Instance.configs.frmPunchPressCfg.lightCfg.isDownLightOpen = cBox_downLight.Checked;
+           // GlobalData.Instance.modbusTool.writeBool(862, true);
         }
     }
 }

@@ -90,7 +90,7 @@
             this.uiGroupBox1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiGroupBox1.Name = "uiGroupBox1";
             this.uiGroupBox1.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
-            this.uiGroupBox1.Size = new System.Drawing.Size(281, 548);
+            this.uiGroupBox1.Size = new System.Drawing.Size(270, 534);
             this.uiGroupBox1.TabIndex = 14;
             this.uiGroupBox1.Text = "模型列表";
             this.uiGroupBox1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -99,12 +99,12 @@
             // 
             this.uiGroupBox2.Controls.Add(this.pictureBox_srcImg);
             this.uiGroupBox2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiGroupBox2.Location = new System.Drawing.Point(302, 45);
+            this.uiGroupBox2.Location = new System.Drawing.Point(309, 45);
             this.uiGroupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiGroupBox2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiGroupBox2.Name = "uiGroupBox2";
             this.uiGroupBox2.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
-            this.uiGroupBox2.Size = new System.Drawing.Size(806, 548);
+            this.uiGroupBox2.Size = new System.Drawing.Size(799, 534);
             this.uiGroupBox2.TabIndex = 15;
             this.uiGroupBox2.Text = "模型图片";
             this.uiGroupBox2.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -121,12 +121,12 @@
             // 
             this.uiGroupBox3.Controls.Add(this.table_modelInfo);
             this.uiGroupBox3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiGroupBox3.Location = new System.Drawing.Point(13, 603);
+            this.uiGroupBox3.Location = new System.Drawing.Point(13, 580);
             this.uiGroupBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiGroupBox3.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiGroupBox3.Name = "uiGroupBox3";
             this.uiGroupBox3.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
-            this.uiGroupBox3.Size = new System.Drawing.Size(281, 203);
+            this.uiGroupBox3.Size = new System.Drawing.Size(270, 226);
             this.uiGroupBox3.TabIndex = 16;
             this.uiGroupBox3.Text = "模型详细信息";
             this.uiGroupBox3.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -136,9 +136,9 @@
             this.table_modelInfo.ColumnCount = 2;
             this.table_modelInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.table_modelInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.table_modelInfo.Location = new System.Drawing.Point(19, 35);
+            this.table_modelInfo.Location = new System.Drawing.Point(3, 35);
             this.table_modelInfo.Name = "table_modelInfo";
-            this.table_modelInfo.RowCount = 8;
+            this.table_modelInfo.RowCount = 9;
             this.table_modelInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.table_modelInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.table_modelInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
@@ -147,7 +147,8 @@
             this.table_modelInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.table_modelInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.table_modelInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.table_modelInfo.Size = new System.Drawing.Size(251, 151);
+            this.table_modelInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.table_modelInfo.Size = new System.Drawing.Size(267, 178);
             this.table_modelInfo.TabIndex = 0;
             this.table_modelInfo.TagString = null;
             // 
@@ -159,12 +160,12 @@
             this.uiGroupBox4.Controls.Add(this.btn_preModel);
             this.uiGroupBox4.Controls.Add(this.btn_exit);
             this.uiGroupBox4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiGroupBox4.Location = new System.Drawing.Point(302, 603);
+            this.uiGroupBox4.Location = new System.Drawing.Point(306, 589);
             this.uiGroupBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiGroupBox4.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiGroupBox4.Name = "uiGroupBox4";
             this.uiGroupBox4.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
-            this.uiGroupBox4.Size = new System.Drawing.Size(806, 203);
+            this.uiGroupBox4.Size = new System.Drawing.Size(802, 217);
             this.uiGroupBox4.TabIndex = 17;
             this.uiGroupBox4.Text = null;
             this.uiGroupBox4.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;

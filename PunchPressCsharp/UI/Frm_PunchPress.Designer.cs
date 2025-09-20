@@ -838,6 +838,7 @@
             this.cBox_downLight.Size = new System.Drawing.Size(160, 59);
             this.cBox_downLight.TabIndex = 14;
             this.cBox_downLight.Text = "下光源";
+            this.cBox_downLight.CheckedChanged += new System.EventHandler(this.cBox_downLight_CheckedChanged);
             // 
             // cBox_upLight
             // 

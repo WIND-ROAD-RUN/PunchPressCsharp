@@ -166,21 +166,11 @@ namespace PunchPressCsharp.UI
                     table_modelInfo.Controls.Clear();
                     SetTableViewTitle();
 
-                    Label val1 = new Label { Text = modelConfig.trainDate };
-                    Label val2 = new Label { Text = modelConfig.cameraCfg.exposureTime.ToString() };
-                    Label val3 = new Label { Text = modelConfig.cameraCfg.gain.ToString() };
+                    Label val1 = new Label { Text = modelConfig.modelName };
+                    Label val2 = new Label { Text = modelConfig.trainDate };
+                    Label val3 = new Label { Text = modelConfig.cameraCfg.exposureTime.ToString() };
+                    Label val4 = new Label { Text = modelConfig.cameraCfg.gain.ToString() };
                     if (modelConfig.lightCfg.isUpLightOpen)
-                    {
-                        Label val4 = new Label { Text = @"开启" };
-                        table_modelInfo.Controls.Add(val4, 1, 3);
-                    }
-                    else
-                    {
-                        Label val4 = new Label { Text = @"关闭" };
-                        table_modelInfo.Controls.Add(val4, 1, 3);
-                    }
-
-                    if (modelConfig.lightCfg.isDownLightOpen)
                     {
                         Label val5 = new Label { Text = @"开启" };
                         table_modelInfo.Controls.Add(val5, 1, 4);
@@ -191,17 +181,29 @@ namespace PunchPressCsharp.UI
                         table_modelInfo.Controls.Add(val5, 1, 4);
                     }
 
+                    if (modelConfig.lightCfg.isDownLightOpen)
+                    {
+                        Label val6 = new Label { Text = @"开启" };
+                        table_modelInfo.Controls.Add(val6, 1, 5);
+                    }
+                    else
+                    {
+                        Label val6 = new Label { Text = @"关闭" };
+                        table_modelInfo.Controls.Add(val6, 1, 5);
+                    }
 
 
-                    Label val6 = new Label { Text = modelConfig.correction.centralX.ToString("F1") };
-                    Label val7 = new Label { Text = modelConfig.correction.centralY.ToString("F1") };
-                    Label val8 = new Label { Text = modelConfig.correction.angle.ToString("F1") };
+
+                    Label val7 = new Label { Text = modelConfig.correction.centralX.ToString("F1") };
+                    Label val8 = new Label { Text = modelConfig.correction.centralY.ToString("F1") };
+                    Label val9 = new Label { Text = modelConfig.correction.angle.ToString("F1") };
                     table_modelInfo.Controls.Add(val1, 1, 0);
                     table_modelInfo.Controls.Add(val2, 1, 1);
                     table_modelInfo.Controls.Add(val3, 1, 2);
-                    table_modelInfo.Controls.Add(val6, 1, 5);
+                    table_modelInfo.Controls.Add(val4, 1, 3);
                     table_modelInfo.Controls.Add(val7, 1, 6);
                     table_modelInfo.Controls.Add(val8, 1, 7);
+                    table_modelInfo.Controls.Add(val9, 1, 8);
 
                     string srcImgPath = configPath + @"\" + GlobalPath.SourceImgName;
 
@@ -232,14 +234,15 @@ namespace PunchPressCsharp.UI
 
         private void SetTableViewTitle()
         {
-            Label lbl1 = new Label { Text = @"训练日期" };
-            Label lbl2 = new Label { Text = @"曝光" };
-            Label lbl3 = new Label { Text = @"增益" };
-            Label lbl4 = new Label { Text = @"上光源" };
-            Label lbl5 = new Label { Text = @"下光源" };
-            Label lbl6 = new Label { Text = @"中心坐标x偏移量" };
-            Label lbl7 = new Label { Text = @"中心坐标y偏移量" };
-            Label lbl8 = new Label { Text = @"角度偏移量" };
+            Label lbl1 = new Label { Text = @"模型名称" };
+            Label lbl2 = new Label { Text = @"训练日期" };
+            Label lbl3 = new Label { Text = @"曝光" };
+            Label lbl4 = new Label { Text = @"增益" };
+            Label lbl5 = new Label { Text = @"上光源" };
+            Label lbl6 = new Label { Text = @"下光源" };
+            Label lbl7 = new Label { Text = @"中心坐标x偏移量" };
+            Label lbl8 = new Label { Text = @"中心坐标y偏移量" };
+            Label lbl9 = new Label { Text = @"角度偏移量" };
             table_modelInfo.Controls.Add(lbl1, 0, 0);
             table_modelInfo.Controls.Add(lbl2, 0, 1);
             table_modelInfo.Controls.Add(lbl3, 0, 2);
@@ -248,6 +251,7 @@ namespace PunchPressCsharp.UI
             table_modelInfo.Controls.Add(lbl6, 0, 5);
             table_modelInfo.Controls.Add(lbl7, 0, 6);
             table_modelInfo.Controls.Add(lbl8, 0, 7);
+            table_modelInfo.Controls.Add(lbl9, 0, 8);
         }
 
         private void btn_loadModel_Click(object sender, EventArgs e)

@@ -121,6 +121,7 @@ namespace PunchPressCsharp.Data
             public LightCfg lightCfg = new LightCfg();
             public CorrectionCfg correction = new CorrectionCfg();
             public CameraCfg cameraCfg = new CameraCfg();
+            public string modelName="default";
             public void SaveToFile(string filePath)
              {
                 var dir = Path.GetDirectoryName(filePath);
