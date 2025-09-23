@@ -358,13 +358,12 @@ namespace PunchPressCsharp.UI
                 cameraParam.Gain = GlobalData.Instance.configs.frmPunchPressCfg.cameraCfg.gain;
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-              
+                AppendLog($"设置相机参数异常: {ex.Message}");
             }
 
-             }
+        }
 
         #endregion
 
@@ -392,8 +391,12 @@ namespace PunchPressCsharp.UI
         }
 
 
+        private bool _isClosing = false;
         private void btnClose_Click(object sender, EventArgs e)
         {
+            if (_isClosing) return; 
+            _isClosing = true;
+
             GlobalData.Instance.configs.SaveConfigs();
             DesExtraComponent();
             this.Close();
@@ -428,21 +431,21 @@ namespace PunchPressCsharp.UI
 
             Frm_Configuration frmSet = new Frm_Configuration();
             frmSet.ShowDialog();
-
-            
-           
         }
 
         private void btn_runOnce_Click(object sender, EventArgs e)
         {
-            var cameraParam = GlobalData.Instance.cameraModuleTool.ModuParams;
-
-            cameraParam.TriggerSource = 7; // 设置触发源为软触发
-
-            var procedure = GlobalData.Instance.vmMainProcedure;
-            if (!procedure.IsRunning)
+            if (GlobalData.Instance.cameraIsConnect)
             {
-                procedure.Run();
+                var cameraParam = GlobalData.Instance.cameraModuleTool.ModuParams;
+
+                cameraParam.TriggerSource = 7; // 设置触发源为软触发
+
+                var procedure = GlobalData.Instance.vmMainProcedure;
+                if (!procedure.IsRunning)
+                {
+                    procedure.Run();
+                }
             }
         }
 
@@ -542,39 +545,42 @@ namespace PunchPressCsharp.UI
 
         private void cBox_debugMode_Click(object sender, EventArgs e)
         {
-            if (cBox_workMode.Checked)
-            {
-                GlobalData.Instance.configs.frmPunchPressCfg.isDebugMode = true;
-                GlobalData.Instance.configs.frmPunchPressCfg.isWorkMode = false;
-                cBox_debugMode.Checked = true;
-                cBox_workMode.Checked = false;
+                if (cBox_workMode.Checked)
+                {
+                    GlobalData.Instance.configs.frmPunchPressCfg.isDebugMode = true;
+                    GlobalData.Instance.configs.frmPunchPressCfg.isWorkMode = false;
+                    cBox_debugMode.Checked = true;
+                    cBox_workMode.Checked = false;
 
 
-                //禁用模块加速显示
+                    //禁用模块加速显示
 
-                IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
-                IMVSCalibTransformModuTool CalibTransform = (IMVSCalibTransformModuTool)VmSolution.Instance["流程1.标定转换1"];
-                IMVSGeometricTransformModuTool GeoTransform = (IMVSGeometricTransformModuTool)VmSolution.Instance["流程1.几何变换1"];
-                //var imageSource = (ImageSourceModuleCs.ImageSourceModuleTool)VmSolution.Instance["流程1.图像源1"];
+                    IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
+                    IMVSCalibTransformModuTool CalibTransform = (IMVSCalibTransformModuTool)VmSolution.Instance["流程1.标定转换1"];
+                    IMVSGeometricTransformModuTool GeoTransform = (IMVSGeometricTransformModuTool)VmSolution.Instance["流程1.几何变换1"];
+                    //var imageSource = (ImageSourceModuleCs.ImageSourceModuleTool)VmSolution.Instance["流程1.图像源1"];
 
 
 
-                vmRenderControl1.ModuleSource = FeatureMatch;
+                    vmRenderControl1.ModuleSource = FeatureMatch;
 
-                FeatureMatch.IsForbidden = true;
-                CalibTransform.IsForbidden = true;
-                GlobalData.Instance.vmMainProcedure.ContinuousRunEnable = true;
-                var cameraParam = GlobalData.Instance.cameraModuleTool.ModuParams;
+                    FeatureMatch.IsForbidden = true;
+                    CalibTransform.IsForbidden = true;
+                    GlobalData.Instance.vmMainProcedure.ContinuousRunEnable = true;
 
-                cameraParam.TriggerSource = 7; // 设置触发源为软触发
+                    if (GlobalData.Instance.cameraIsConnect)
+                    {
+                        var cameraParam = GlobalData.Instance.cameraModuleTool.ModuParams;
 
-                modernTabControl1.SelectedIndex = 1;
-              
-            }
-            else
-            {
-                cBox_workMode.Checked = true;
-            }
+                        cameraParam.TriggerSource = 7; // 设置触发源为软触发
+                    }
+
+                    modernTabControl1.SelectedIndex = 1;
+                }
+                else
+                {
+                    cBox_debugMode.Checked = true;
+                }
 
         }
 
@@ -596,21 +602,22 @@ namespace PunchPressCsharp.UI
                 vmRenderControl1.ModuleSource = FeatureMatch;
                 GlobalData.Instance.vmMainProcedure.ContinuousRunEnable = false;
 
-                FeatureMatch.IsForbidden = false;
-                CalibTransform.IsForbidden = false;
-                var cameraParam = GlobalData.Instance.cameraModuleTool.ModuParams;
-                cameraParam.TriggerSource = 0; // 设置触发源为硬触发
 
+                if (GlobalData.Instance.cameraIsConnect)
+                {
+                    FeatureMatch.IsForbidden = false;
+                    CalibTransform.IsForbidden = false;
+                    var cameraParam = GlobalData.Instance.cameraModuleTool.ModuParams;
+                    cameraParam.TriggerSource = 0; // 设置触发源为硬触发
+                }
 
                 modernTabControl1.SelectedIndex = 0;
-               
             }
             else
             {
-                cBox_debugMode.Checked = true;
+                cBox_workMode.Checked = true;
             }
 
-            
         }
 
         private void cBox_upLight_CheckedChanged(object sender, EventArgs e)

@@ -60,9 +60,11 @@ namespace PunchPressCsharp.UI
             vmParamsConfigWithRenderControl1.ModuleSource= FeatureMatch;
 
 
-            byte[] modelData = File.ReadAllBytes(GlobalPath.ModelLoadPath);
-
-            FeatureMatch.ImportModel(modelData);
+            if (File.Exists(GlobalPath.ModelLoadPath))
+            {
+                byte[] modelData = File.ReadAllBytes(GlobalPath.ModelLoadPath);
+                FeatureMatch.ImportModel(modelData);
+            }
         }
 
         private void Frm_Learning_FormClosing(object sender, FormClosingEventArgs e)
