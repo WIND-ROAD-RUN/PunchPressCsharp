@@ -149,8 +149,8 @@ namespace PunchPressCsharp.Data
         #region 标定界面光源和参数配置
         internal class VisualCorrectionCfg
         {
-            public LightCfg lightCfg=new LightCfg();
-            public CameraCfg cameraCfg = new CameraCfg();
+            public LightCfg lightCfgForDistortion = new LightCfg();
+            public CameraCfg cameraCfgForDistortion = new CameraCfg();
             public void SaveToFile(string filePath)
             {
                 var dir = Path.GetDirectoryName(filePath);

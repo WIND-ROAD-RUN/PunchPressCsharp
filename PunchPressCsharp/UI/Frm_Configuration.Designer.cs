@@ -89,6 +89,12 @@
             this.btn_exit = new Sunny.UI.UIButton();
             this.uiTextBox11 = new Sunny.UI.UITextBox();
             this.uiTextBox4 = new Sunny.UI.UITextBox();
+            this.cbox_downLight1 = new Sunny.UI.UICheckBox();
+            this.btn_gainForVisualCorrection1 = new Sunny.UI.UITextBox();
+            this.cbox_upLight1 = new Sunny.UI.UICheckBox();
+            this.uiLabel18 = new Sunny.UI.UILabel();
+            this.btn_exposureForVisualCorrection1 = new Sunny.UI.UITextBox();
+            this.uiLabel19 = new Sunny.UI.UILabel();
             this.titleBar.SuspendLayout();
             this.uiTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -737,8 +743,12 @@
             // 
             // uiCheckBoxGroup1
             // 
-            this.uiCheckBoxGroup1.Controls.Add(this.cbox_downLight);
-            this.uiCheckBoxGroup1.Controls.Add(this.cbox_upLight);
+            this.uiCheckBoxGroup1.Controls.Add(this.cbox_downLight1);
+            this.uiCheckBoxGroup1.Controls.Add(this.btn_gainForVisualCorrection1);
+            this.uiCheckBoxGroup1.Controls.Add(this.cbox_upLight1);
+            this.uiCheckBoxGroup1.Controls.Add(this.uiLabel18);
+            this.uiCheckBoxGroup1.Controls.Add(this.btn_exposureForVisualCorrection1);
+            this.uiCheckBoxGroup1.Controls.Add(this.uiLabel19);
             this.uiCheckBoxGroup1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiCheckBoxGroup1.Location = new System.Drawing.Point(1, 248);
             this.uiCheckBoxGroup1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -749,7 +759,7 @@
             this.uiCheckBoxGroup1.SelectedIndexes = ((System.Collections.Generic.List<int>)(resources.GetObject("uiCheckBoxGroup1.SelectedIndexes")));
             this.uiCheckBoxGroup1.Size = new System.Drawing.Size(644, 192);
             this.uiCheckBoxGroup1.TabIndex = 8;
-            this.uiCheckBoxGroup1.Text = "光源设置";
+            this.uiCheckBoxGroup1.Text = "九点标定";
             this.uiCheckBoxGroup1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cbox_downLight
@@ -757,7 +767,7 @@
             this.cbox_downLight.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbox_downLight.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cbox_downLight.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.cbox_downLight.Location = new System.Drawing.Point(235, 111);
+            this.cbox_downLight.Location = new System.Drawing.Point(396, 106);
             this.cbox_downLight.MinimumSize = new System.Drawing.Size(1, 1);
             this.cbox_downLight.Name = "cbox_downLight";
             this.cbox_downLight.Size = new System.Drawing.Size(150, 29);
@@ -769,7 +779,7 @@
             this.cbox_upLight.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbox_upLight.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cbox_upLight.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.cbox_upLight.Location = new System.Drawing.Point(235, 49);
+            this.cbox_upLight.Location = new System.Drawing.Point(396, 55);
             this.cbox_upLight.MinimumSize = new System.Drawing.Size(1, 1);
             this.cbox_upLight.Name = "cbox_upLight";
             this.cbox_upLight.Size = new System.Drawing.Size(150, 29);
@@ -779,7 +789,9 @@
             // 
             // uiCheckBoxGroup2
             // 
+            this.uiCheckBoxGroup2.Controls.Add(this.cbox_downLight);
             this.uiCheckBoxGroup2.Controls.Add(this.btn_gainForVisualCorrection);
+            this.uiCheckBoxGroup2.Controls.Add(this.cbox_upLight);
             this.uiCheckBoxGroup2.Controls.Add(this.uiLabel17);
             this.uiCheckBoxGroup2.Controls.Add(this.btn_exposureForVisualCorrection);
             this.uiCheckBoxGroup2.Controls.Add(this.uiLabel16);
@@ -793,7 +805,7 @@
             this.uiCheckBoxGroup2.SelectedIndexes = ((System.Collections.Generic.List<int>)(resources.GetObject("uiCheckBoxGroup2.SelectedIndexes")));
             this.uiCheckBoxGroup2.Size = new System.Drawing.Size(641, 209);
             this.uiCheckBoxGroup2.TabIndex = 7;
-            this.uiCheckBoxGroup2.Text = "亮度设置";
+            this.uiCheckBoxGroup2.Text = "畸变标定";
             this.uiCheckBoxGroup2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btn_gainForVisualCorrection
@@ -802,7 +814,7 @@
             this.btn_gainForVisualCorrection.DoubleValue = 1000D;
             this.btn_gainForVisualCorrection.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_gainForVisualCorrection.IntValue = 1000;
-            this.btn_gainForVisualCorrection.Location = new System.Drawing.Point(275, 100);
+            this.btn_gainForVisualCorrection.Location = new System.Drawing.Point(173, 100);
             this.btn_gainForVisualCorrection.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_gainForVisualCorrection.MinimumSize = new System.Drawing.Size(1, 16);
             this.btn_gainForVisualCorrection.Name = "btn_gainForVisualCorrection";
@@ -819,7 +831,7 @@
             // 
             this.uiLabel17.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiLabel17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.uiLabel17.Location = new System.Drawing.Point(165, 106);
+            this.uiLabel17.Location = new System.Drawing.Point(28, 112);
             this.uiLabel17.Name = "uiLabel17";
             this.uiLabel17.Size = new System.Drawing.Size(100, 23);
             this.uiLabel17.TabIndex = 9;
@@ -832,7 +844,7 @@
             this.btn_exposureForVisualCorrection.DoubleValue = 1000D;
             this.btn_exposureForVisualCorrection.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_exposureForVisualCorrection.IntValue = 1000;
-            this.btn_exposureForVisualCorrection.Location = new System.Drawing.Point(275, 40);
+            this.btn_exposureForVisualCorrection.Location = new System.Drawing.Point(173, 55);
             this.btn_exposureForVisualCorrection.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_exposureForVisualCorrection.MinimumSize = new System.Drawing.Size(1, 16);
             this.btn_exposureForVisualCorrection.Name = "btn_exposureForVisualCorrection";
@@ -849,7 +861,7 @@
             // 
             this.uiLabel16.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiLabel16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.uiLabel16.Location = new System.Drawing.Point(165, 46);
+            this.uiLabel16.Location = new System.Drawing.Point(28, 55);
             this.uiLabel16.Name = "uiLabel16";
             this.uiLabel16.Size = new System.Drawing.Size(100, 23);
             this.uiLabel16.TabIndex = 7;
@@ -1014,6 +1026,88 @@
             this.uiTextBox4.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.uiTextBox4.Watermark = "";
             // 
+            // cbox_downLight1
+            // 
+            this.cbox_downLight1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbox_downLight1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cbox_downLight1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.cbox_downLight1.Location = new System.Drawing.Point(396, 108);
+            this.cbox_downLight1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.cbox_downLight1.Name = "cbox_downLight1";
+            this.cbox_downLight1.Size = new System.Drawing.Size(150, 29);
+            this.cbox_downLight1.TabIndex = 11;
+            this.cbox_downLight1.Text = "下光源";
+            // 
+            // btn_gainForVisualCorrection1
+            // 
+            this.btn_gainForVisualCorrection1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.btn_gainForVisualCorrection1.DoubleValue = 1000D;
+            this.btn_gainForVisualCorrection1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_gainForVisualCorrection1.IntValue = 1000;
+            this.btn_gainForVisualCorrection1.Location = new System.Drawing.Point(173, 102);
+            this.btn_gainForVisualCorrection1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_gainForVisualCorrection1.MinimumSize = new System.Drawing.Size(1, 16);
+            this.btn_gainForVisualCorrection1.Name = "btn_gainForVisualCorrection1";
+            this.btn_gainForVisualCorrection1.Padding = new System.Windows.Forms.Padding(5);
+            this.btn_gainForVisualCorrection1.ShowText = false;
+            this.btn_gainForVisualCorrection1.Size = new System.Drawing.Size(160, 35);
+            this.btn_gainForVisualCorrection1.TabIndex = 16;
+            this.btn_gainForVisualCorrection1.Text = "1000";
+            this.btn_gainForVisualCorrection1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_gainForVisualCorrection1.Watermark = "";
+            // 
+            // cbox_upLight1
+            // 
+            this.cbox_upLight1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbox_upLight1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cbox_upLight1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.cbox_upLight1.Location = new System.Drawing.Point(396, 57);
+            this.cbox_upLight1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.cbox_upLight1.Name = "cbox_upLight1";
+            this.cbox_upLight1.Size = new System.Drawing.Size(150, 29);
+            this.cbox_upLight1.TabIndex = 12;
+            this.cbox_upLight1.Text = "上光源";
+            // 
+            // uiLabel18
+            // 
+            this.uiLabel18.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiLabel18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.uiLabel18.Location = new System.Drawing.Point(28, 114);
+            this.uiLabel18.Name = "uiLabel18";
+            this.uiLabel18.Size = new System.Drawing.Size(100, 23);
+            this.uiLabel18.TabIndex = 15;
+            this.uiLabel18.Text = "增益";
+            this.uiLabel18.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btn_exposureForVisualCorrection1
+            // 
+            this.btn_exposureForVisualCorrection1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.btn_exposureForVisualCorrection1.DoubleValue = 1000D;
+            this.btn_exposureForVisualCorrection1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_exposureForVisualCorrection1.IntValue = 1000;
+            this.btn_exposureForVisualCorrection1.Location = new System.Drawing.Point(173, 57);
+            this.btn_exposureForVisualCorrection1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_exposureForVisualCorrection1.MinimumSize = new System.Drawing.Size(1, 16);
+            this.btn_exposureForVisualCorrection1.Name = "btn_exposureForVisualCorrection1";
+            this.btn_exposureForVisualCorrection1.Padding = new System.Windows.Forms.Padding(5);
+            this.btn_exposureForVisualCorrection1.ShowText = false;
+            this.btn_exposureForVisualCorrection1.Size = new System.Drawing.Size(160, 35);
+            this.btn_exposureForVisualCorrection1.TabIndex = 14;
+            this.btn_exposureForVisualCorrection1.Text = "1000";
+            this.btn_exposureForVisualCorrection1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_exposureForVisualCorrection1.Watermark = "";
+            // 
+            // uiLabel19
+            // 
+            this.uiLabel19.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiLabel19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.uiLabel19.Location = new System.Drawing.Point(28, 57);
+            this.uiLabel19.Name = "uiLabel19";
+            this.uiLabel19.Size = new System.Drawing.Size(100, 23);
+            this.uiLabel19.TabIndex = 13;
+            this.uiLabel19.Text = "曝光";
+            this.uiLabel19.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // Frm_Configuration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1107,5 +1201,11 @@
         private Sunny.UI.UILabel uiLabel17;
         private Sunny.UI.UICheckBox cbox_downLight;
         private Sunny.UI.UICheckBox cbox_upLight;
+        private Sunny.UI.UICheckBox cbox_downLight1;
+        private Sunny.UI.UITextBox btn_gainForVisualCorrection1;
+        private Sunny.UI.UICheckBox cbox_upLight1;
+        private Sunny.UI.UILabel uiLabel18;
+        private Sunny.UI.UITextBox btn_exposureForVisualCorrection1;
+        private Sunny.UI.UILabel uiLabel19;
     }
 }

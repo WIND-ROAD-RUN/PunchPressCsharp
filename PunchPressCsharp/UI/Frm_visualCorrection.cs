@@ -1,4 +1,6 @@
 ﻿using IMVSImageCorrectCalibModuCs;
+using PunchPressCsharp.Data;
+using PunchPressCsharp.Utility;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,8 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PunchPressCsharp.Data;
-using PunchPressCsharp.Utility;
+using TranslationCalibModuCs;
 using VM.Core;
 
 namespace PunchPressCsharp.UI
@@ -41,10 +42,10 @@ namespace PunchPressCsharp.UI
         private void IniCameraAndLight()
         {
             var config = GlobalData.Instance.configs.visualCorrectionCfg;
-            UtilityFunc.ChangeDownLightStatus(config.lightCfg.isDownLightOpen);
-            UtilityFunc.ChangeUpLightStatus(config.lightCfg.isUpLightOpen);
-            UtilityFunc.UpdateCameraGain(config.cameraCfg.gain);
-            UtilityFunc.UpdateCameraExposureTime(config.cameraCfg.exposureTime);
+            UtilityFunc.ChangeDownLightStatus(config.lightCfgForDistortion.isDownLightOpen);
+            UtilityFunc.ChangeUpLightStatus(config.lightCfgForDistortion.isUpLightOpen);
+            UtilityFunc.UpdateCameraGain(config.cameraCfgForDistortion.gain);
+            UtilityFunc.UpdateCameraExposureTime(config.cameraCfgForDistortion.exposureTime);
         }
 
         private void ResetCameraAndLight()
@@ -66,13 +67,19 @@ namespace PunchPressCsharp.UI
         private void Frm_visualCorrection_Load(object sender, EventArgs e)
         {
 
-           // //加载流程畸变矫正
-           //  vmProcess1 = (VmProcedure)VmSolution.Instance["流程2"];
+            //加载流程畸变矫正
+             vmProcess1 = (VmProcedure)VmSolution.Instance["流程2"];
 
-           // vmProcess1.OnWorkEndStatusCallBack += VmProcess1_OnWorkEndStatusCallBack;
-           // IMVSImageCorrectCalibModuTool ImageCorrectCalibModu = (IMVSImageCorrectCalibModuTool)VmSolution.Instance["流程2.畸变标定1"];
-           //// ImageCorrectCalibModu.ModuParams.CalibPath = "";
+            vmProcess1.OnWorkEndStatusCallBack += VmProcess1_OnWorkEndStatusCallBack;
+           var ImageCorrectCalibModu = (IMVSImageCalibModuCs.IMVSImageCalibModuTool)VmSolution.Instance["流程2.畸变标定1"];
 
+           vmRenderControl1.ModuleSource = ImageCorrectCalibModu;
+
+
+
+
+
+         
 
         }
 
@@ -105,6 +112,22 @@ namespace PunchPressCsharp.UI
             }
 
             tab_stepManager.SelectedIndex = 1;
+
+
+
+
+            //第二部
+
+            //设置相机为硬触发模式
+
+            //加载流程畸变矫正
+            vmProcess1 = (VmProcedure)VmSolution.Instance["流程3"];
+
+            var lationCalibModuTool = (TranslationCalibModuTool)VmSolution.Instance["流程3.平移旋转标定"];
+
+            vmRenderControl1.ModuleSource = lationCalibModuTool;
+
+
         }
 
         private void btn_finish_Click(object sender, EventArgs e)

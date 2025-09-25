@@ -51,10 +51,10 @@ namespace PunchPressCsharp.UI
             txt_angleCorrectionStep.Text = cfg.angleCorrectionStep.ToString("F1");
 
             var visualConfig= GlobalData.Instance.configs.visualCorrectionCfg;
-            btn_exposureForVisualCorrection.Text= visualConfig.cameraCfg.exposureTime.ToString();
-            btn_gainForVisualCorrection.Text= visualConfig.cameraCfg.gain.ToString();
-            cbox_upLight.Checked= visualConfig.lightCfg.isUpLightOpen;
-            cbox_downLight.Checked= visualConfig.lightCfg.isDownLightOpen;
+            btn_exposureForVisualCorrection.Text= visualConfig.cameraCfgForDistortion.exposureTime.ToString();
+            btn_gainForVisualCorrection.Text= visualConfig.cameraCfgForDistortion.gain.ToString();
+            cbox_upLight.Checked= visualConfig.lightCfgForDistortion.isUpLightOpen;
+            cbox_downLight.Checked= visualConfig.lightCfgForDistortion.isDownLightOpen;
         }
 
         #endregion
@@ -284,7 +284,7 @@ namespace PunchPressCsharp.UI
             numKeyBoard.ShowDialog();
 
             var visualCfg = GlobalData.Instance.configs.visualCorrectionCfg;
-            visualCfg.cameraCfg.exposureTime = int.Parse(((Control)sender).Text);
+            visualCfg.cameraCfgForDistortion.exposureTime = int.Parse(((Control)sender).Text);
         }
 
         private void btn_gainForVisualCorrection_Click(object sender, EventArgs e)
@@ -294,18 +294,18 @@ namespace PunchPressCsharp.UI
             numKeyBoard.ShowDialog();
 
             var visualCfg = GlobalData.Instance.configs.visualCorrectionCfg;
-            visualCfg.cameraCfg.gain = int.Parse(((Control)sender).Text);
+            visualCfg.cameraCfgForDistortion.gain = int.Parse(((Control)sender).Text);
         }
 
         private void cbox_upLight_Click(object sender, EventArgs e)
         {
             var visualCfg = GlobalData.Instance.configs.visualCorrectionCfg;
-            visualCfg.lightCfg.isUpLightOpen = cbox_upLight.Checked;
+            visualCfg.lightCfgForDistortion.isUpLightOpen = cbox_upLight.Checked;
         }
         private void cbox_downLight_Click(object sender, EventArgs e)
         {
             var visualCfg = GlobalData.Instance.configs.visualCorrectionCfg;
-            visualCfg.lightCfg.isDownLightOpen = cbox_downLight.Checked;
+            visualCfg.lightCfgForDistortion.isDownLightOpen = cbox_downLight.Checked;
         }
     }
 }
