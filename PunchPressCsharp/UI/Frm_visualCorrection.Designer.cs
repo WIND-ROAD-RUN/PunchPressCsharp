@@ -171,6 +171,7 @@
             this.btn_punchForDistortion.TabIndex = 2;
             this.btn_punchForDistortion.Text = "冲压";
             this.btn_punchForDistortion.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_punchForDistortion.Click += new System.EventHandler(this.btn_punchForDistortion_Click);
             // 
             // btn_nextStepForDistortion
             // 
@@ -183,6 +184,7 @@
             this.btn_nextStepForDistortion.TabIndex = 3;
             this.btn_nextStepForDistortion.Text = "下一步";
             this.btn_nextStepForDistortion.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_nextStepForDistortion.Click += new System.EventHandler(this.btn_nextStepForDistortion_Click);
             // 
             // btn_calibrationForDistortion
             // 
@@ -195,6 +197,7 @@
             this.btn_calibrationForDistortion.TabIndex = 2;
             this.btn_calibrationForDistortion.Text = "标定";
             this.btn_calibrationForDistortion.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_calibrationForDistortion.Click += new System.EventHandler(this.btn_calibrationForDistortion_Click);
             // 
             // btn_calibrationForCalibration
             // 
@@ -207,6 +210,7 @@
             this.btn_calibrationForCalibration.TabIndex = 3;
             this.btn_calibrationForCalibration.Text = "标定";
             this.btn_calibrationForCalibration.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_calibrationForCalibration.Click += new System.EventHandler(this.btn_calibrationForCalibration_Click);
             // 
             // btn_finish
             // 
@@ -219,6 +223,7 @@
             this.btn_finish.TabIndex = 4;
             this.btn_finish.Text = "完成";
             this.btn_finish.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_finish.Click += new System.EventHandler(this.btn_finish_Click);
             // 
             // proBar_forNineCalibration
             // 
