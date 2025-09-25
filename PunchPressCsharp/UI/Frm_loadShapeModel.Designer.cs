@@ -72,6 +72,7 @@
             this.table_modelInfo.ColumnCount = 2;
             this.table_modelInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.table_modelInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.table_modelInfo.Font = new System.Drawing.Font("微软雅黑", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Inch, ((byte)(134)));
             this.table_modelInfo.Location = new System.Drawing.Point(7, 30);
             this.table_modelInfo.Name = "table_modelInfo";
             this.table_modelInfo.RowCount = 9;
@@ -170,7 +171,7 @@
             this.roundGroupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(232)))), ((int)(((byte)(232)))));
             this.roundGroupBox1.Controls.Add(this.list_modelList);
             this.roundGroupBox1.CornerRadius = 16;
-            this.roundGroupBox1.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.roundGroupBox1.Font = new System.Drawing.Font("微软雅黑", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.roundGroupBox1.Location = new System.Drawing.Point(12, 63);
             this.roundGroupBox1.Name = "roundGroupBox1";
             this.roundGroupBox1.Size = new System.Drawing.Size(286, 526);
@@ -186,14 +187,14 @@
             this.list_modelList.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
             this.list_modelList.ItemSelectBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.list_modelList.ItemSelectForeColor = System.Drawing.Color.White;
-            this.list_modelList.Location = new System.Drawing.Point(17, 27);
+            this.list_modelList.Location = new System.Drawing.Point(17, 31);
             this.list_modelList.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.list_modelList.MinimumSize = new System.Drawing.Size(1, 1);
             this.list_modelList.Name = "list_modelList";
             this.list_modelList.Padding = new System.Windows.Forms.Padding(2);
             this.list_modelList.RectColor = System.Drawing.Color.Gray;
             this.list_modelList.ShowText = false;
-            this.list_modelList.Size = new System.Drawing.Size(250, 472);
+            this.list_modelList.Size = new System.Drawing.Size(250, 468);
             this.list_modelList.TabIndex = 13;
             this.list_modelList.Text = "uiListBox1";
             this.list_modelList.SelectedIndexChanged += new System.EventHandler(this.list_modelList_SelectedIndexChanged);
@@ -235,7 +236,7 @@
             this.roundGroupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(232)))), ((int)(((byte)(232)))));
             this.roundGroupBox3.Controls.Add(this.table_modelInfo);
             this.roundGroupBox3.CornerRadius = 16;
-            this.roundGroupBox3.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.roundGroupBox3.Font = new System.Drawing.Font("微软雅黑", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.roundGroupBox3.Location = new System.Drawing.Point(13, 600);
             this.roundGroupBox3.Name = "roundGroupBox3";
             this.roundGroupBox3.Size = new System.Drawing.Size(285, 219);

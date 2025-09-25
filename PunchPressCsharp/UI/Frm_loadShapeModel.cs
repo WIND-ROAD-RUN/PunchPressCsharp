@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using PunchPressCsharp.Func;
 using VM.Core;
 using static PunchPressCsharp.Data.Config;
 
@@ -24,13 +25,14 @@ namespace PunchPressCsharp.UI
         private void Frm_loadShapeModel_Load(object sender, EventArgs e)
         {
             build_ui();
-            //IMVSFastFeatureMatchModuTool fastFeatureMatch = (IMVSFastFeatureMatchModuTool)VmSolution.Instance["流程1.快速匹配1"];
-            //    //  准备模板文件路径
-            //    // 可以导入多个模板文件，这里只导入一个
-            //    string[] templatePaths = new string[1] { @"D:\Templates\your_template.fmxml" };
+#if DEBUG
 
-            //// 导入模板文件（注意：这会替换模块当前所有模型文件）
-            //fastFeatureMatch.ImportModelData(templatePaths);
+#else
+            FormSizeChange formalizable = new FormSizeChange();
+            formalizable.MakeControlsResponsive(this);
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
+#endif
         }
 
         private void build_ui()
@@ -253,6 +255,12 @@ namespace PunchPressCsharp.UI
 
         private void SetTableViewTitle()
         {
+            table_modelInfo.RowCount = 9;
+            table_modelInfo.RowStyles.Clear();
+            for (int i = 0; i < table_modelInfo.RowCount; i++)
+            {
+                table_modelInfo.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F)); // 每行高30像素
+            }
             Label lbl1 = new Label { Text = @"模型名称" };
             Label lbl2 = new Label { Text = @"训练日期" };
             Label lbl3 = new Label { Text = @"曝光" };
