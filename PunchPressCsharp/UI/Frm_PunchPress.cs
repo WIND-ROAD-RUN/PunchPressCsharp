@@ -803,5 +803,11 @@ namespace PunchPressCsharp.UI
             GlobalData.Instance.configs.frmPunchPressCfg.lightCfg.isDownLightOpen = cBox_downLight.Checked;
             GlobalData.Instance.modbusTool.writeBool(5014, GlobalData.Instance.configs.frmPunchPressCfg.lightCfg.isDownLightOpen);
         }
+
+        private void btn_visualCorrenction_Click(object sender, EventArgs e)
+        {
+            Frm_visualCorrection frmVisualCorrection=new Frm_visualCorrection();
+            frmVisualCorrection.ShowDialog();
+        }
     }
 }
