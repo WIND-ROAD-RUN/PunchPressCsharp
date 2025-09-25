@@ -123,7 +123,15 @@ namespace PunchPressCsharp.UI
                 lb_plcStatus.ForeColor = Color.Red;
             }
 
-          
+
+            var lightCfg = GlobalData.Instance.configs.frmPunchPressCfg.lightCfg;
+            if (connectResult)
+            {
+                modbus.writeBool(5013, lightCfg.isUpLightOpen);
+                modbus.writeBool(5014, lightCfg.isUpLightOpen);
+            }
+
+
         }
 
         private void IniVMSol()
@@ -372,22 +380,8 @@ namespace PunchPressCsharp.UI
 
         private void btn_templateLearn_Click(object sender, EventArgs e)
         {
-           
-                //GlobalCameraModuleTool cameraModule1 = (GlobalCameraModuleTool)VmSolution.Instance["全局相机1"];
-                //GlobalCameraModuleTool cameraModule2 = (GlobalCameraModuleTool)VmSolution.Instance["全局相机1"];
-
-
-                //cameraModule1.ModuParams.TriggerSource = 7; // 设置触发源为软件触发
-                //cameraModule2.ModuParams.TriggerSource = 7; // 设置触发源为软件触发
-
-
                 Frm_Learning frm_Learning = new Frm_Learning(true);
                 frm_Learning.ShowDialog();
-
-                //cameraModule1.ModuParams.TriggerSource = 0; // 设置触发源为硬触发
-                //cameraModule2.ModuParams.TriggerSource = 0; // 设置触发源为硬触发
-
-          
         }
 
 
@@ -623,7 +617,7 @@ namespace PunchPressCsharp.UI
         private void cBox_upLight_CheckedChanged(object sender, EventArgs e)
         {
             GlobalData.Instance.configs.frmPunchPressCfg.lightCfg.isUpLightOpen = cBox_upLight.Checked;
-            GlobalData.Instance.modbusTool.writeBool(860,true);
+            GlobalData.Instance.modbusTool.writeBool(5013, GlobalData.Instance.configs.frmPunchPressCfg.lightCfg.isUpLightOpen);
         }
 
         private void btn_xIncease_Click(object sender, EventArgs e)
@@ -802,12 +796,12 @@ namespace PunchPressCsharp.UI
 
         }
 
-   
+
 
         private void cBox_downLight_CheckedChanged(object sender, EventArgs e)
         {
             GlobalData.Instance.configs.frmPunchPressCfg.lightCfg.isDownLightOpen = cBox_downLight.Checked;
-           // GlobalData.Instance.modbusTool.writeBool(862, true);
+            GlobalData.Instance.modbusTool.writeBool(5014, GlobalData.Instance.configs.frmPunchPressCfg.lightCfg.isDownLightOpen);
         }
     }
 }
