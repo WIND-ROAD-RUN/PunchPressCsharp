@@ -20,6 +20,8 @@ namespace PunchPressCsharp.UI
             InitializeComponent();
 
             IniUi();
+
+            IniCameraAndLight();
 #if DEBUG
 
 #else
@@ -28,6 +30,11 @@ namespace PunchPressCsharp.UI
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
 #endif
+        }
+
+        private void IniCameraAndLight()
+        {
+
         }
 
         private void IniUi()

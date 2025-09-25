@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VM.Core;
+using static PunchPressCsharp.Data.Config;
 
 namespace PunchPressCsharp.Data
 {
@@ -145,31 +146,46 @@ namespace PunchPressCsharp.Data
 
         #endregion
 
+        #region 标定界面光源和参数配置
+        internal class VisualCorrectionCfg
+        {
+            public LightCfg lightCfg=new LightCfg();
+            public CameraCfg cameraCfg = new CameraCfg();
+            public void SaveToFile(string filePath)
+            {
+                var dir = Path.GetDirectoryName(filePath);
+                if (!Directory.Exists(dir))
+                {
+                    Directory.CreateDirectory(dir);
+                }
+                var json = JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(filePath, json);
+            }
+
+            public static VisualCorrectionCfg LoadFromFile(string filePath)
+            {
+                var json = File.ReadAllText(filePath);
+                return JsonConvert.DeserializeObject<VisualCorrectionCfg>(json);
+            }
+        }
+        #endregion
 
         internal class Configs
         {
             public FrmPunchPressCfg frmPunchPressCfg = new FrmPunchPressCfg();
             public FrmConfigurationCfg frmConfigurationCfg = new FrmConfigurationCfg();
+            public VisualCorrectionCfg visualCorrectionCfg = new VisualCorrectionCfg();
 
             public void SaveConfigs()
             {
-                //frmSetCfg.SaveToFile(GlobalPath.FrmSetCfgPath);
                 frmPunchPressCfg.SaveToFile(GlobalPath.FrmPunchPressCfgPath);
                 frmConfigurationCfg.SaveToFile(GlobalPath.FrmConfigurationCfgPath);
+                visualCorrectionCfg.SaveToFile(GlobalPath.VisualCorrectionCfgPath);
                 VmSolution.Save();
             }
 
             public void LoadConfigs()
             {
-                if (File.Exists(GlobalPath.FrmSetCfgPath))
-                {
-                    //frmSetCfg = FrmSetCfg.LoadFromFile(GlobalPath.FrmSetCfgPath);
-                }
-                else
-                {
-                    //frmSetCfg.SaveToFile(GlobalPath.FrmSetCfgPath);
-                }
-
                 if (File.Exists(GlobalPath.FrmPunchPressCfgPath))
                 {
                     frmPunchPressCfg = FrmPunchPressCfg.LoadFromFile(GlobalPath.FrmPunchPressCfgPath);
@@ -186,6 +202,14 @@ namespace PunchPressCsharp.Data
                 else
                 {
                     frmConfigurationCfg.SaveToFile(GlobalPath.FrmConfigurationCfgPath);
+                }
+                if (File.Exists(GlobalPath.VisualCorrectionCfgPath))
+                {
+                    visualCorrectionCfg = VisualCorrectionCfg.LoadFromFile(GlobalPath.VisualCorrectionCfgPath);
+                }
+                else
+                {
+                    visualCorrectionCfg.SaveToFile(GlobalPath.VisualCorrectionCfgPath);
                 }
             }
         }

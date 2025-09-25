@@ -9,6 +9,7 @@
         public static readonly string FrmSetCfgPath = _ConfigRootPath + @"\Frm_setCfg.json";
         public static readonly string FrmPunchPressCfgPath = _ConfigRootPath + @"\Frm_PunchPressCfg.json";
         public static readonly string FrmConfigurationCfgPath = _ConfigRootPath + @"\Frm_ConfigurationCfg.json";
+        public static readonly string VisualCorrectionCfgPath = _ConfigRootPath + @"\VisualCorrectionCfg.json";
 
         #endregion 配置
 
