@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PunchPressCsharp.Data;
+using PunchPressCsharp.Utility;
 using VM.Core;
 
 namespace PunchPressCsharp.UI
@@ -20,6 +22,8 @@ namespace PunchPressCsharp.UI
             InitializeComponent();
 
             IniUi();
+
+            IniCameraAndLight();
 #if DEBUG
 
 #else
@@ -28,6 +32,24 @@ namespace PunchPressCsharp.UI
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
 #endif
+        }
+
+        private void IniCameraAndLight()
+        {
+            var config = GlobalData.Instance.configs.visualCorrectionCfg;
+            UtilityFunc.ChangeDownLightStatus(config.lightCfg.isDownLightOpen);
+            UtilityFunc.ChangeUpLightStatus(config.lightCfg.isUpLightOpen);
+            UtilityFunc.UpdateCameraGain(config.cameraCfg.gain);
+            UtilityFunc.UpdateCameraExposureTime(config.cameraCfg.exposureTime);
+        }
+
+        private void ResetCameraAndLight()
+        {
+            var config = GlobalData.Instance.configs.frmPunchPressCfg;
+            UtilityFunc.ChangeDownLightStatus(config.lightCfg.isDownLightOpen);
+            UtilityFunc.ChangeUpLightStatus(config.lightCfg.isUpLightOpen);
+            UtilityFunc.UpdateCameraGain(config.cameraCfg.gain);
+            UtilityFunc.UpdateCameraExposureTime(config.cameraCfg.exposureTime);
         }
 
         private void IniUi()
@@ -61,17 +83,9 @@ namespace PunchPressCsharp.UI
 
         private void pic_Close_Click(object sender, EventArgs e)
         {
+            ResetCameraAndLight();
             Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            vmProcess1.Run();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

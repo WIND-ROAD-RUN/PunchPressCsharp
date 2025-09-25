@@ -358,19 +358,14 @@ namespace PunchPressCsharp.UI
 
         private void UpdateCameraSet()
         {
-            try
-            {
-             
-                var cameraParam = GlobalData.Instance.cameraModuleTool.ModuParams;
-                cameraParam.ExposureTime = GlobalData.Instance.configs.frmPunchPressCfg.cameraCfg.exposureTime;
-                cameraParam.Gain = GlobalData.Instance.configs.frmPunchPressCfg.cameraCfg.gain;
+            var cameraParam = GlobalData.Instance.cameraModuleTool.ModuParams;
+            var updateExposureResult = UtilityFunc.UpdateCameraExposureTime(GlobalData.Instance.configs.frmPunchPressCfg.cameraCfg.exposureTime);
+            var updateGainResult = UtilityFunc.UpdateCameraGain(GlobalData.Instance.configs.frmPunchPressCfg.cameraCfg.gain);
 
-            }
-            catch (Exception ex)
+            if (!(updateExposureResult && updateGainResult))
             {
-                AppendLog($"设置相机参数异常: {ex.Message}");
+                AppendLog($"设置相机参数异常");
             }
-
         }
 
         #endregion
@@ -617,7 +612,7 @@ namespace PunchPressCsharp.UI
         private void cBox_upLight_CheckedChanged(object sender, EventArgs e)
         {
             GlobalData.Instance.configs.frmPunchPressCfg.lightCfg.isUpLightOpen = cBox_upLight.Checked;
-            GlobalData.Instance.modbusTool.writeBool(5013, GlobalData.Instance.configs.frmPunchPressCfg.lightCfg.isUpLightOpen);
+            UtilityFunc.ChangeUpLightStatus(GlobalData.Instance.configs.frmPunchPressCfg.lightCfg.isUpLightOpen);
         }
 
         private void btn_xIncease_Click(object sender, EventArgs e)
@@ -801,7 +796,7 @@ namespace PunchPressCsharp.UI
         private void cBox_downLight_CheckedChanged(object sender, EventArgs e)
         {
             GlobalData.Instance.configs.frmPunchPressCfg.lightCfg.isDownLightOpen = cBox_downLight.Checked;
-            GlobalData.Instance.modbusTool.writeBool(5014, GlobalData.Instance.configs.frmPunchPressCfg.lightCfg.isDownLightOpen);
+            UtilityFunc.ChangeDownLightStatus(GlobalData.Instance.configs.frmPunchPressCfg.lightCfg.isDownLightOpen);
         }
 
         private void btn_visualCorrenction_Click(object sender, EventArgs e)
