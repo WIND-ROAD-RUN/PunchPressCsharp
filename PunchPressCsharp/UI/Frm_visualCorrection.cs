@@ -227,13 +227,24 @@ namespace PunchPressCsharp.UI
             {
                 //再次回原
                 GlobalData.Instance.modbusTool.writeBool(3, true);
-                //TODO:监控如果超时直接跳出循环
+                int timeoutMs = 10000;
+                int elapsedMs = 0;
                 while (true)
                 {
                     Thread.Sleep(100);
+                    elapsedMs += 100;
                     bool state = GlobalData.Instance.modbusTool.getbool(480);
                     if (state == false)
                     {
+                        break;
+                    }
+                    if (elapsedMs >= timeoutMs)
+                    {
+                        // 超时处理
+                        this.Invoke(new Action(() =>
+                        {
+                            MessageBox.Show("回原操作超时！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }));
                         break;
                     }
                 }
@@ -304,17 +315,29 @@ namespace PunchPressCsharp.UI
             {
                 //再次回原
                 GlobalData.Instance.modbusTool.writeBool(1220, true);
-                //TODO:监控如果超时直接跳出循环
+                // 监控如果超时直接跳出循环（超时时间 10 秒）
+                int timeoutMs = 10000;
+                int elapsedMs = 0;
                 while (true)
                 {
                     Thread.Sleep(100);
+                    elapsedMs += 100;
                     bool state = GlobalData.Instance.modbusTool.getbool(1230);
                     if (state == false)
                     {
                         break;
                     }
+                    if (elapsedMs >= timeoutMs)
+                    {
+                        // 超时处理
+                        this.Invoke(new Action(() =>
+                        {
+                            MessageBox.Show("九点标定回原操作超时！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }));
+                        break;
+                    }
                 }
-              
+
 
 
                 //跨线程安全修改窗体控件
