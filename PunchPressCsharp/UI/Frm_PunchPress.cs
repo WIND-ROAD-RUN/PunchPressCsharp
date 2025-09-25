@@ -98,7 +98,7 @@ namespace PunchPressCsharp.UI
                 FeatureMatch.ImportModel(modelData);
             }
 
-                UpdateCameraSet();
+            UpdateCameraSet();
         }
 
         private void DesExtraComponent()
@@ -412,14 +412,17 @@ namespace PunchPressCsharp.UI
 
         private void btn_set_Click(object sender, EventArgs e)
         {
+#if DEBUG
+#else
             if (!GlobalData.Instance.cameraIsConnect)
             {
                 MessageBox.Show(@"相机未连接，请等待重连。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
+#endif
             Frm_Configuration frmSet = new Frm_Configuration();
             frmSet.ShowDialog();
+
         }
 
         private void btn_runOnce_Click(object sender, EventArgs e)
