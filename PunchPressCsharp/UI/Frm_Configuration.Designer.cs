@@ -35,27 +35,37 @@
             this.uiTabControl1 = new Sunny.UI.UITabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupGain = new Sunny.UI.UICheckBoxGroup();
+            this.txt_gainStep = new Sunny.UI.UITextBox();
+            this.uiLabel12 = new Sunny.UI.UILabel();
             this.uiLabel1 = new Sunny.UI.UILabel();
             this.txt_gainMax = new Sunny.UI.UITextBox();
             this.txt_gainMin = new Sunny.UI.UITextBox();
             this.uiLabel4 = new Sunny.UI.UILabel();
             this.groupExposure = new Sunny.UI.UICheckBoxGroup();
+            this.txt_exposureStep = new Sunny.UI.UITextBox();
+            this.uiLabel11 = new Sunny.UI.UILabel();
             this.uiLabel2 = new Sunny.UI.UILabel();
             this.txt_exposureMax = new Sunny.UI.UITextBox();
             this.txt_exposureMin = new Sunny.UI.UITextBox();
             this.uiLabel3 = new Sunny.UI.UILabel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupAngle = new Sunny.UI.UICheckBoxGroup();
+            this.txt_angleCorrectionStep = new Sunny.UI.UITextBox();
+            this.uiLabel15 = new Sunny.UI.UILabel();
             this.txt_angleCorrectionMax = new Sunny.UI.UITextBox();
             this.uiLabel9 = new Sunny.UI.UILabel();
             this.txt_angleCorrectionMin = new Sunny.UI.UITextBox();
             this.uiLabel10 = new Sunny.UI.UILabel();
             this.groupCenterY = new Sunny.UI.UICheckBoxGroup();
+            this.txt_centralYStep = new Sunny.UI.UITextBox();
+            this.uiLabel14 = new Sunny.UI.UILabel();
             this.txt_centralYCorrectionMax = new Sunny.UI.UITextBox();
             this.uiLabel7 = new Sunny.UI.UILabel();
             this.txt_centralYCorrectionMin = new Sunny.UI.UITextBox();
             this.uiLabel8 = new Sunny.UI.UILabel();
             this.groupCenterX = new Sunny.UI.UICheckBoxGroup();
+            this.txt_centralXStep = new Sunny.UI.UITextBox();
+            this.uiLabel13 = new Sunny.UI.UILabel();
             this.txt_centralXCorrectionMax = new Sunny.UI.UITextBox();
             this.uiLabel6 = new Sunny.UI.UILabel();
             this.txt_centralXCorrectionMin = new Sunny.UI.UITextBox();
@@ -68,16 +78,17 @@
             this.uiTextBox6 = new Sunny.UI.UITextBox();
             this.uiTextBox5 = new Sunny.UI.UITextBox();
             this.btn_exit = new Sunny.UI.UIButton();
-            this.txt_exposureStep = new Sunny.UI.UITextBox();
-            this.uiLabel11 = new Sunny.UI.UILabel();
-            this.txt_gainStep = new Sunny.UI.UITextBox();
-            this.uiLabel12 = new Sunny.UI.UILabel();
-            this.txt_centralXStep = new Sunny.UI.UITextBox();
-            this.uiLabel13 = new Sunny.UI.UILabel();
-            this.txt_centralYStep = new Sunny.UI.UITextBox();
-            this.uiLabel14 = new Sunny.UI.UILabel();
-            this.txt_angleCorrectionStep = new Sunny.UI.UITextBox();
-            this.uiLabel15 = new Sunny.UI.UILabel();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.uiCheckBoxGroup1 = new Sunny.UI.UICheckBoxGroup();
+            this.uiTextBox11 = new Sunny.UI.UITextBox();
+            this.uiTextBox4 = new Sunny.UI.UITextBox();
+            this.uiCheckBoxGroup2 = new Sunny.UI.UICheckBoxGroup();
+            this.btn_exposureForVisualCorrection = new Sunny.UI.UITextBox();
+            this.uiLabel16 = new Sunny.UI.UILabel();
+            this.btn_gainForVisualCorrection = new Sunny.UI.UITextBox();
+            this.uiLabel17 = new Sunny.UI.UILabel();
+            this.cbox_upLight = new Sunny.UI.UICheckBox();
+            this.cbox_downLight = new Sunny.UI.UICheckBox();
             this.titleBar.SuspendLayout();
             this.uiTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -87,6 +98,9 @@
             this.groupAngle.SuspendLayout();
             this.groupCenterY.SuspendLayout();
             this.groupCenterX.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.uiCheckBoxGroup1.SuspendLayout();
+            this.uiCheckBoxGroup2.SuspendLayout();
             this.SuspendLayout();
             // 
             // titleBar
@@ -128,6 +142,7 @@
             // 
             this.uiTabControl1.Controls.Add(this.tabPage1);
             this.uiTabControl1.Controls.Add(this.tabPage2);
+            this.uiTabControl1.Controls.Add(this.tabPage3);
             this.uiTabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.uiTabControl1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiTabControl1.ItemSize = new System.Drawing.Size(150, 45);
@@ -172,6 +187,36 @@
             this.groupGain.TabIndex = 6;
             this.groupGain.Text = "增益设置";
             this.groupGain.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txt_gainStep
+            // 
+            this.txt_gainStep.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_gainStep.DoubleValue = 1000D;
+            this.txt_gainStep.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txt_gainStep.IntValue = 1000;
+            this.txt_gainStep.Location = new System.Drawing.Point(293, 138);
+            this.txt_gainStep.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_gainStep.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txt_gainStep.Name = "txt_gainStep";
+            this.txt_gainStep.Padding = new System.Windows.Forms.Padding(5);
+            this.txt_gainStep.ShowText = false;
+            this.txt_gainStep.Size = new System.Drawing.Size(160, 35);
+            this.txt_gainStep.TabIndex = 8;
+            this.txt_gainStep.Text = "1000";
+            this.txt_gainStep.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txt_gainStep.Watermark = "";
+            this.txt_gainStep.Click += new System.EventHandler(this.txt_gainStep_Click);
+            // 
+            // uiLabel12
+            // 
+            this.uiLabel12.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiLabel12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.uiLabel12.Location = new System.Drawing.Point(183, 144);
+            this.uiLabel12.Name = "uiLabel12";
+            this.uiLabel12.Size = new System.Drawing.Size(100, 23);
+            this.uiLabel12.TabIndex = 7;
+            this.uiLabel12.Text = "设置步长:";
+            this.uiLabel12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // uiLabel1
             // 
@@ -252,6 +297,36 @@
             this.groupExposure.Text = "曝光设置";
             this.groupExposure.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.groupExposure.ValueChanged += new Sunny.UI.UICheckBoxGroup.OnValueChanged(this.uiCheckBoxGroup1_ValueChanged);
+            // 
+            // txt_exposureStep
+            // 
+            this.txt_exposureStep.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_exposureStep.DoubleValue = 1000D;
+            this.txt_exposureStep.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txt_exposureStep.IntValue = 1000;
+            this.txt_exposureStep.Location = new System.Drawing.Point(293, 138);
+            this.txt_exposureStep.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_exposureStep.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txt_exposureStep.Name = "txt_exposureStep";
+            this.txt_exposureStep.Padding = new System.Windows.Forms.Padding(5);
+            this.txt_exposureStep.ShowText = false;
+            this.txt_exposureStep.Size = new System.Drawing.Size(160, 35);
+            this.txt_exposureStep.TabIndex = 6;
+            this.txt_exposureStep.Text = "1000";
+            this.txt_exposureStep.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txt_exposureStep.Watermark = "";
+            this.txt_exposureStep.Click += new System.EventHandler(this.txt_exposureStep_Click);
+            // 
+            // uiLabel11
+            // 
+            this.uiLabel11.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiLabel11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.uiLabel11.Location = new System.Drawing.Point(183, 144);
+            this.uiLabel11.Name = "uiLabel11";
+            this.uiLabel11.Size = new System.Drawing.Size(100, 23);
+            this.uiLabel11.TabIndex = 5;
+            this.uiLabel11.Text = "设置步长:";
+            this.uiLabel11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // uiLabel2
             // 
@@ -344,6 +419,36 @@
             this.groupAngle.Text = "角度矫正";
             this.groupAngle.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // txt_angleCorrectionStep
+            // 
+            this.txt_angleCorrectionStep.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_angleCorrectionStep.DoubleValue = 1000D;
+            this.txt_angleCorrectionStep.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txt_angleCorrectionStep.IntValue = 1000;
+            this.txt_angleCorrectionStep.Location = new System.Drawing.Point(302, 116);
+            this.txt_angleCorrectionStep.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_angleCorrectionStep.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txt_angleCorrectionStep.Name = "txt_angleCorrectionStep";
+            this.txt_angleCorrectionStep.Padding = new System.Windows.Forms.Padding(5);
+            this.txt_angleCorrectionStep.ShowText = false;
+            this.txt_angleCorrectionStep.Size = new System.Drawing.Size(160, 35);
+            this.txt_angleCorrectionStep.TabIndex = 8;
+            this.txt_angleCorrectionStep.Text = "1000";
+            this.txt_angleCorrectionStep.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txt_angleCorrectionStep.Watermark = "";
+            this.txt_angleCorrectionStep.Click += new System.EventHandler(this.txt_angleCorrectionStep_Click);
+            // 
+            // uiLabel15
+            // 
+            this.uiLabel15.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiLabel15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.uiLabel15.Location = new System.Drawing.Point(192, 122);
+            this.uiLabel15.Name = "uiLabel15";
+            this.uiLabel15.Size = new System.Drawing.Size(100, 23);
+            this.uiLabel15.TabIndex = 7;
+            this.uiLabel15.Text = "设置步长:";
+            this.uiLabel15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // txt_angleCorrectionMax
             // 
             this.txt_angleCorrectionMax.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -424,6 +529,36 @@
             this.groupCenterY.Text = "中心矫正y";
             this.groupCenterY.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // txt_centralYStep
+            // 
+            this.txt_centralYStep.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_centralYStep.DoubleValue = 1000D;
+            this.txt_centralYStep.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txt_centralYStep.IntValue = 1000;
+            this.txt_centralYStep.Location = new System.Drawing.Point(301, 117);
+            this.txt_centralYStep.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_centralYStep.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txt_centralYStep.Name = "txt_centralYStep";
+            this.txt_centralYStep.Padding = new System.Windows.Forms.Padding(5);
+            this.txt_centralYStep.ShowText = false;
+            this.txt_centralYStep.Size = new System.Drawing.Size(160, 32);
+            this.txt_centralYStep.TabIndex = 8;
+            this.txt_centralYStep.Text = "1000";
+            this.txt_centralYStep.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txt_centralYStep.Watermark = "";
+            this.txt_centralYStep.Click += new System.EventHandler(this.txt_centralYStep_Click);
+            // 
+            // uiLabel14
+            // 
+            this.uiLabel14.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiLabel14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.uiLabel14.Location = new System.Drawing.Point(191, 117);
+            this.uiLabel14.Name = "uiLabel14";
+            this.uiLabel14.Size = new System.Drawing.Size(100, 23);
+            this.uiLabel14.TabIndex = 7;
+            this.uiLabel14.Text = "设置步长:";
+            this.uiLabel14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // txt_centralYCorrectionMax
             // 
             this.txt_centralYCorrectionMax.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -500,6 +635,36 @@
             this.groupCenterX.TabIndex = 6;
             this.groupCenterX.Text = "中心矫正x";
             this.groupCenterX.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txt_centralXStep
+            // 
+            this.txt_centralXStep.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_centralXStep.DoubleValue = 1000D;
+            this.txt_centralXStep.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txt_centralXStep.IntValue = 1000;
+            this.txt_centralXStep.Location = new System.Drawing.Point(302, 120);
+            this.txt_centralXStep.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_centralXStep.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txt_centralXStep.Name = "txt_centralXStep";
+            this.txt_centralXStep.Padding = new System.Windows.Forms.Padding(5);
+            this.txt_centralXStep.ShowText = false;
+            this.txt_centralXStep.Size = new System.Drawing.Size(160, 29);
+            this.txt_centralXStep.TabIndex = 8;
+            this.txt_centralXStep.Text = "1000";
+            this.txt_centralXStep.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txt_centralXStep.Watermark = "";
+            this.txt_centralXStep.Click += new System.EventHandler(this.txt_centralXStep_Click);
+            // 
+            // uiLabel13
+            // 
+            this.uiLabel13.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiLabel13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.uiLabel13.Location = new System.Drawing.Point(192, 126);
+            this.uiLabel13.Name = "uiLabel13";
+            this.uiLabel13.Size = new System.Drawing.Size(100, 23);
+            this.uiLabel13.TabIndex = 7;
+            this.uiLabel13.Text = "设置步长:";
+            this.uiLabel13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txt_centralXCorrectionMax
             // 
@@ -681,155 +846,170 @@
             this.btn_exit.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
             // 
-            // txt_exposureStep
+            // tabPage3
             // 
-            this.txt_exposureStep.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_exposureStep.DoubleValue = 1000D;
-            this.txt_exposureStep.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txt_exposureStep.IntValue = 1000;
-            this.txt_exposureStep.Location = new System.Drawing.Point(293, 138);
-            this.txt_exposureStep.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_exposureStep.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txt_exposureStep.Name = "txt_exposureStep";
-            this.txt_exposureStep.Padding = new System.Windows.Forms.Padding(5);
-            this.txt_exposureStep.ShowText = false;
-            this.txt_exposureStep.Size = new System.Drawing.Size(160, 35);
-            this.txt_exposureStep.TabIndex = 6;
-            this.txt_exposureStep.Text = "1000";
-            this.txt_exposureStep.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txt_exposureStep.Watermark = "";
-            this.txt_exposureStep.Click += new System.EventHandler(this.txt_exposureStep_Click);
+            this.tabPage3.Controls.Add(this.uiCheckBoxGroup1);
+            this.tabPage3.Controls.Add(this.uiCheckBoxGroup2);
+            this.tabPage3.Location = new System.Drawing.Point(0, 45);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(642, 493);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // uiLabel11
+            // uiCheckBoxGroup1
             // 
-            this.uiLabel11.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiLabel11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.uiLabel11.Location = new System.Drawing.Point(183, 144);
-            this.uiLabel11.Name = "uiLabel11";
-            this.uiLabel11.Size = new System.Drawing.Size(100, 23);
-            this.uiLabel11.TabIndex = 5;
-            this.uiLabel11.Text = "设置步长:";
-            this.uiLabel11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.uiCheckBoxGroup1.Controls.Add(this.cbox_downLight);
+            this.uiCheckBoxGroup1.Controls.Add(this.cbox_upLight);
+            this.uiCheckBoxGroup1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiCheckBoxGroup1.Location = new System.Drawing.Point(1, 248);
+            this.uiCheckBoxGroup1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiCheckBoxGroup1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiCheckBoxGroup1.Name = "uiCheckBoxGroup1";
+            this.uiCheckBoxGroup1.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
+            this.uiCheckBoxGroup1.Radius = 15;
+            this.uiCheckBoxGroup1.SelectedIndexes = ((System.Collections.Generic.List<int>)(resources.GetObject("uiCheckBoxGroup1.SelectedIndexes")));
+            this.uiCheckBoxGroup1.Size = new System.Drawing.Size(644, 192);
+            this.uiCheckBoxGroup1.TabIndex = 8;
+            this.uiCheckBoxGroup1.Text = "光源设置";
+            this.uiCheckBoxGroup1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txt_gainStep
+            // uiTextBox11
             // 
-            this.txt_gainStep.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_gainStep.DoubleValue = 1000D;
-            this.txt_gainStep.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txt_gainStep.IntValue = 1000;
-            this.txt_gainStep.Location = new System.Drawing.Point(293, 138);
-            this.txt_gainStep.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_gainStep.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txt_gainStep.Name = "txt_gainStep";
-            this.txt_gainStep.Padding = new System.Windows.Forms.Padding(5);
-            this.txt_gainStep.ShowText = false;
-            this.txt_gainStep.Size = new System.Drawing.Size(160, 35);
-            this.txt_gainStep.TabIndex = 8;
-            this.txt_gainStep.Text = "1000";
-            this.txt_gainStep.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txt_gainStep.Watermark = "";
-            this.txt_gainStep.Click += new System.EventHandler(this.txt_gainStep_Click);
+            this.uiTextBox11.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.uiTextBox11.DoubleValue = 1000D;
+            this.uiTextBox11.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiTextBox11.IntValue = 1000;
+            this.uiTextBox11.Location = new System.Drawing.Point(293, 93);
+            this.uiTextBox11.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiTextBox11.MinimumSize = new System.Drawing.Size(1, 16);
+            this.uiTextBox11.Name = "uiTextBox11";
+            this.uiTextBox11.Padding = new System.Windows.Forms.Padding(5);
+            this.uiTextBox11.ShowText = false;
+            this.uiTextBox11.Size = new System.Drawing.Size(160, 35);
+            this.uiTextBox11.TabIndex = 4;
+            this.uiTextBox11.Text = "1000";
+            this.uiTextBox11.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiTextBox11.Watermark = "";
             // 
-            // uiLabel12
+            // uiTextBox4
             // 
-            this.uiLabel12.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiLabel12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.uiLabel12.Location = new System.Drawing.Point(183, 144);
-            this.uiLabel12.Name = "uiLabel12";
-            this.uiLabel12.Size = new System.Drawing.Size(100, 23);
-            this.uiLabel12.TabIndex = 7;
-            this.uiLabel12.Text = "设置步长:";
-            this.uiLabel12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.uiTextBox4.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.uiTextBox4.DoubleValue = 1000D;
+            this.uiTextBox4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiTextBox4.IntValue = 1000;
+            this.uiTextBox4.Location = new System.Drawing.Point(293, 138);
+            this.uiTextBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiTextBox4.MinimumSize = new System.Drawing.Size(1, 16);
+            this.uiTextBox4.Name = "uiTextBox4";
+            this.uiTextBox4.Padding = new System.Windows.Forms.Padding(5);
+            this.uiTextBox4.ShowText = false;
+            this.uiTextBox4.Size = new System.Drawing.Size(160, 35);
+            this.uiTextBox4.TabIndex = 6;
+            this.uiTextBox4.Text = "1000";
+            this.uiTextBox4.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiTextBox4.Watermark = "";
             // 
-            // txt_centralXStep
+            // uiCheckBoxGroup2
             // 
-            this.txt_centralXStep.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_centralXStep.DoubleValue = 1000D;
-            this.txt_centralXStep.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txt_centralXStep.IntValue = 1000;
-            this.txt_centralXStep.Location = new System.Drawing.Point(302, 120);
-            this.txt_centralXStep.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_centralXStep.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txt_centralXStep.Name = "txt_centralXStep";
-            this.txt_centralXStep.Padding = new System.Windows.Forms.Padding(5);
-            this.txt_centralXStep.ShowText = false;
-            this.txt_centralXStep.Size = new System.Drawing.Size(160, 29);
-            this.txt_centralXStep.TabIndex = 8;
-            this.txt_centralXStep.Text = "1000";
-            this.txt_centralXStep.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txt_centralXStep.Watermark = "";
-            this.txt_centralXStep.Click += new System.EventHandler(this.txt_centralXStep_Click);
+            this.uiCheckBoxGroup2.Controls.Add(this.btn_gainForVisualCorrection);
+            this.uiCheckBoxGroup2.Controls.Add(this.uiLabel17);
+            this.uiCheckBoxGroup2.Controls.Add(this.btn_exposureForVisualCorrection);
+            this.uiCheckBoxGroup2.Controls.Add(this.uiLabel16);
+            this.uiCheckBoxGroup2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiCheckBoxGroup2.Location = new System.Drawing.Point(1, 29);
+            this.uiCheckBoxGroup2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiCheckBoxGroup2.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiCheckBoxGroup2.Name = "uiCheckBoxGroup2";
+            this.uiCheckBoxGroup2.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
+            this.uiCheckBoxGroup2.Radius = 15;
+            this.uiCheckBoxGroup2.SelectedIndexes = ((System.Collections.Generic.List<int>)(resources.GetObject("uiCheckBoxGroup2.SelectedIndexes")));
+            this.uiCheckBoxGroup2.Size = new System.Drawing.Size(641, 209);
+            this.uiCheckBoxGroup2.TabIndex = 7;
+            this.uiCheckBoxGroup2.Text = "亮度设置";
+            this.uiCheckBoxGroup2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // uiLabel13
+            // btn_exposureForVisualCorrection
             // 
-            this.uiLabel13.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiLabel13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.uiLabel13.Location = new System.Drawing.Point(192, 126);
-            this.uiLabel13.Name = "uiLabel13";
-            this.uiLabel13.Size = new System.Drawing.Size(100, 23);
-            this.uiLabel13.TabIndex = 7;
-            this.uiLabel13.Text = "设置步长:";
-            this.uiLabel13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_exposureForVisualCorrection.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.btn_exposureForVisualCorrection.DoubleValue = 1000D;
+            this.btn_exposureForVisualCorrection.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_exposureForVisualCorrection.IntValue = 1000;
+            this.btn_exposureForVisualCorrection.Location = new System.Drawing.Point(275, 40);
+            this.btn_exposureForVisualCorrection.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_exposureForVisualCorrection.MinimumSize = new System.Drawing.Size(1, 16);
+            this.btn_exposureForVisualCorrection.Name = "btn_exposureForVisualCorrection";
+            this.btn_exposureForVisualCorrection.Padding = new System.Windows.Forms.Padding(5);
+            this.btn_exposureForVisualCorrection.ShowText = false;
+            this.btn_exposureForVisualCorrection.Size = new System.Drawing.Size(160, 35);
+            this.btn_exposureForVisualCorrection.TabIndex = 8;
+            this.btn_exposureForVisualCorrection.Text = "1000";
+            this.btn_exposureForVisualCorrection.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_exposureForVisualCorrection.Watermark = "";
             // 
-            // txt_centralYStep
+            // uiLabel16
             // 
-            this.txt_centralYStep.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_centralYStep.DoubleValue = 1000D;
-            this.txt_centralYStep.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txt_centralYStep.IntValue = 1000;
-            this.txt_centralYStep.Location = new System.Drawing.Point(301, 117);
-            this.txt_centralYStep.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_centralYStep.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txt_centralYStep.Name = "txt_centralYStep";
-            this.txt_centralYStep.Padding = new System.Windows.Forms.Padding(5);
-            this.txt_centralYStep.ShowText = false;
-            this.txt_centralYStep.Size = new System.Drawing.Size(160, 32);
-            this.txt_centralYStep.TabIndex = 8;
-            this.txt_centralYStep.Text = "1000";
-            this.txt_centralYStep.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txt_centralYStep.Watermark = "";
-            this.txt_centralYStep.Click += new System.EventHandler(this.txt_centralYStep_Click);
+            this.uiLabel16.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiLabel16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.uiLabel16.Location = new System.Drawing.Point(165, 46);
+            this.uiLabel16.Name = "uiLabel16";
+            this.uiLabel16.Size = new System.Drawing.Size(100, 23);
+            this.uiLabel16.TabIndex = 7;
+            this.uiLabel16.Text = "曝光";
+            this.uiLabel16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // uiLabel14
+            // btn_gainForVisualCorrection
             // 
-            this.uiLabel14.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiLabel14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.uiLabel14.Location = new System.Drawing.Point(191, 117);
-            this.uiLabel14.Name = "uiLabel14";
-            this.uiLabel14.Size = new System.Drawing.Size(100, 23);
-            this.uiLabel14.TabIndex = 7;
-            this.uiLabel14.Text = "设置步长:";
-            this.uiLabel14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_gainForVisualCorrection.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.btn_gainForVisualCorrection.DoubleValue = 1000D;
+            this.btn_gainForVisualCorrection.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_gainForVisualCorrection.IntValue = 1000;
+            this.btn_gainForVisualCorrection.Location = new System.Drawing.Point(275, 100);
+            this.btn_gainForVisualCorrection.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_gainForVisualCorrection.MinimumSize = new System.Drawing.Size(1, 16);
+            this.btn_gainForVisualCorrection.Name = "btn_gainForVisualCorrection";
+            this.btn_gainForVisualCorrection.Padding = new System.Windows.Forms.Padding(5);
+            this.btn_gainForVisualCorrection.ShowText = false;
+            this.btn_gainForVisualCorrection.Size = new System.Drawing.Size(160, 35);
+            this.btn_gainForVisualCorrection.TabIndex = 10;
+            this.btn_gainForVisualCorrection.Text = "1000";
+            this.btn_gainForVisualCorrection.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_gainForVisualCorrection.Watermark = "";
             // 
-            // txt_angleCorrectionStep
+            // uiLabel17
             // 
-            this.txt_angleCorrectionStep.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_angleCorrectionStep.DoubleValue = 1000D;
-            this.txt_angleCorrectionStep.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txt_angleCorrectionStep.IntValue = 1000;
-            this.txt_angleCorrectionStep.Location = new System.Drawing.Point(302, 116);
-            this.txt_angleCorrectionStep.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_angleCorrectionStep.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txt_angleCorrectionStep.Name = "txt_angleCorrectionStep";
-            this.txt_angleCorrectionStep.Padding = new System.Windows.Forms.Padding(5);
-            this.txt_angleCorrectionStep.ShowText = false;
-            this.txt_angleCorrectionStep.Size = new System.Drawing.Size(160, 35);
-            this.txt_angleCorrectionStep.TabIndex = 8;
-            this.txt_angleCorrectionStep.Text = "1000";
-            this.txt_angleCorrectionStep.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txt_angleCorrectionStep.Watermark = "";
-            this.txt_angleCorrectionStep.Click += new System.EventHandler(this.txt_angleCorrectionStep_Click);
+            this.uiLabel17.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiLabel17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.uiLabel17.Location = new System.Drawing.Point(165, 106);
+            this.uiLabel17.Name = "uiLabel17";
+            this.uiLabel17.Size = new System.Drawing.Size(100, 23);
+            this.uiLabel17.TabIndex = 9;
+            this.uiLabel17.Text = "增益";
+            this.uiLabel17.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // uiLabel15
+            // cbox_upLight
             // 
-            this.uiLabel15.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiLabel15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.uiLabel15.Location = new System.Drawing.Point(192, 122);
-            this.uiLabel15.Name = "uiLabel15";
-            this.uiLabel15.Size = new System.Drawing.Size(100, 23);
-            this.uiLabel15.TabIndex = 7;
-            this.uiLabel15.Text = "设置步长:";
-            this.uiLabel15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbox_upLight.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbox_upLight.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cbox_upLight.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.cbox_upLight.Location = new System.Drawing.Point(235, 49);
+            this.cbox_upLight.MinimumSize = new System.Drawing.Size(1, 1);
+            this.cbox_upLight.Name = "cbox_upLight";
+            this.cbox_upLight.Size = new System.Drawing.Size(150, 29);
+            this.cbox_upLight.TabIndex = 0;
+            this.cbox_upLight.Text = "上光源";
+            // 
+            // cbox_downLight
+            // 
+            this.cbox_downLight.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbox_downLight.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cbox_downLight.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.cbox_downLight.Location = new System.Drawing.Point(235, 111);
+            this.cbox_downLight.MinimumSize = new System.Drawing.Size(1, 1);
+            this.cbox_downLight.Name = "cbox_downLight";
+            this.cbox_downLight.Size = new System.Drawing.Size(150, 29);
+            this.cbox_downLight.TabIndex = 0;
+            this.cbox_downLight.Text = "下光源";
             // 
             // Frm_Configuration
             // 
@@ -856,6 +1036,9 @@
             this.groupAngle.ResumeLayout(false);
             this.groupCenterY.ResumeLayout(false);
             this.groupCenterX.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.uiCheckBoxGroup1.ResumeLayout(false);
+            this.uiCheckBoxGroup2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -910,5 +1093,16 @@
         private Sunny.UI.UILabel uiLabel14;
         private Sunny.UI.UITextBox txt_centralXStep;
         private Sunny.UI.UILabel uiLabel13;
+        private System.Windows.Forms.TabPage tabPage3;
+        private Sunny.UI.UICheckBoxGroup uiCheckBoxGroup1;
+        private Sunny.UI.UICheckBoxGroup uiCheckBoxGroup2;
+        private Sunny.UI.UITextBox btn_exposureForVisualCorrection;
+        private Sunny.UI.UILabel uiLabel16;
+        private Sunny.UI.UITextBox uiTextBox11;
+        private Sunny.UI.UITextBox uiTextBox4;
+        private Sunny.UI.UITextBox btn_gainForVisualCorrection;
+        private Sunny.UI.UILabel uiLabel17;
+        private Sunny.UI.UICheckBox cbox_downLight;
+        private Sunny.UI.UICheckBox cbox_upLight;
     }
 }
