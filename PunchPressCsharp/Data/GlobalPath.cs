@@ -22,6 +22,16 @@
         public static readonly string ModelLoadPath= _ProjectHome + @"\\model\\"+ ModelBinName;
         #endregion
 
+        #region 数据文件
+
+        public static readonly string DataHome=_ProjectHome+ @"\Data";
+        public static readonly string DataJibianJiaoZhengConfigName = "畸变矫正.iccal";
+        public static readonly string DataJiudianbiaodingConfigName = "九点标定.xml";
+        public static readonly string DataJibianJiaoZhengLoadPath = DataHome + @"\0mm\" + DataJibianJiaoZhengConfigName;
+        public static readonly string DataJiudianbiaodingLoadPath = DataHome + @"\0mm\" + DataJiudianbiaodingConfigName;
+
+        #endregion
+
         #region 解决方案
         public static readonly string SolutionBackupDir = _ProjectHome + @"\sol";
 

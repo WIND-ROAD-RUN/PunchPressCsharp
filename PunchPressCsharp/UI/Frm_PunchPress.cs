@@ -3,6 +3,7 @@ using GlobalCameraModuleCs;
 using IMVSCalibTransformModuCs;
 using IMVSGeometricTransformModuCs;
 using IMVSHPFeatureMatchModuCs;
+using IMVSImageCorrectCalibModuCs;
 using Newtonsoft.Json.Linq;
 using PunchPressCsharp.Data;
 using PunchPressCsharp.Func;
@@ -585,7 +586,13 @@ namespace PunchPressCsharp.UI
                 cBox_debugMode.Checked = false;
 
                 cBox_workMode.Checked = true;
+                var ImageCorrectCalibModuTool = (IMVSImageCorrectCalibModuTool)VmSolution.Instance["流程1.畸变矫正1"];
 
+
+                if (System.IO.File.Exists(GlobalPath.DataJibianJiaoZhengLoadPath))
+                {
+                    ImageCorrectCalibModuTool.ImportModel(GlobalPath.DataJibianJiaoZhengLoadPath);
+                }
                 //禁用模块加速显示
                 IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
 
@@ -806,6 +813,12 @@ namespace PunchPressCsharp.UI
         {
             Frm_visualCorrection frmVisualCorrection=new Frm_visualCorrection();
             frmVisualCorrection.ShowDialog();
+            //当窗体结束回到流程1
+            VmProcedure vmProcess1 = (VmProcedure)VmSolution.Instance["流程1"];
+            //设置图像
+            IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
+            vmRenderControl1.ModuleSource = FeatureMatch;
+
         }
     }
 }

@@ -44,6 +44,7 @@
             this.btn_calibrationForNine = new Sunny.UI.UIButton();
             this.uiLabel3 = new Sunny.UI.UILabel();
             this.vmRenderControl1 = new VMControls.Winform.Release.VmRenderControl();
+            this.uiLabel4 = new Sunny.UI.UILabel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Close)).BeginInit();
             this.tab_stepManager.SuspendLayout();
@@ -107,6 +108,7 @@
             // 
             this.tabPage1.Controls.Add(this.btn_nextStepForDistortion);
             this.tabPage1.Controls.Add(this.btn_calibrationForDistortion);
+            this.tabPage1.Controls.Add(this.uiLabel4);
             this.tabPage1.Controls.Add(this.uiLabel2);
             this.tabPage1.Location = new System.Drawing.Point(0, 40);
             this.tabPage1.Name = "tabPage1";
@@ -248,6 +250,16 @@
             this.vmRenderControl1.Size = new System.Drawing.Size(603, 662);
             this.vmRenderControl1.TabIndex = 26;
             // 
+            // uiLabel4
+            // 
+            this.uiLabel4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.uiLabel4.Location = new System.Drawing.Point(16, 73);
+            this.uiLabel4.Name = "uiLabel4";
+            this.uiLabel4.Size = new System.Drawing.Size(356, 29);
+            this.uiLabel4.TabIndex = 0;
+            this.uiLabel4.Text = "请把标定板放置在合适的位置";
+            // 
             // Frm_visualCorrection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -286,5 +298,6 @@
         private Sunny.UI.UIProcessBar proBar_forNineCalibration;
         private Sunny.UI.UIButton btn_punchForNine;
         private Sunny.UI.UILabel label_info;
+        private Sunny.UI.UILabel uiLabel4;
     }
 }

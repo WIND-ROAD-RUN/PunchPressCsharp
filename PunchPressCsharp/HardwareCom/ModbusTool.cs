@@ -71,7 +71,7 @@ namespace PunchPressCsharp.HardwareCom
 
             return true;
         }
-        public bool readbool(int adress)
+        public bool getbool(int adress)
         {
 
             bool[] state = modbusClient.ReadCoils(adress, 1);
