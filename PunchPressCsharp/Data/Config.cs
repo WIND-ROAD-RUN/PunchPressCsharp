@@ -151,6 +151,8 @@ namespace PunchPressCsharp.Data
         {
             public LightCfg lightCfgForDistortion = new LightCfg();
             public CameraCfg cameraCfgForDistortion = new CameraCfg();
+            public LightCfg lightCfgForNine = new LightCfg();
+            public CameraCfg cameraCfgForNine = new CameraCfg();
             public void SaveToFile(string filePath)
             {
                 var dir = Path.GetDirectoryName(filePath);

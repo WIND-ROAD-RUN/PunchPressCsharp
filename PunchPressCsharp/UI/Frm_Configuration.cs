@@ -51,10 +51,15 @@ namespace PunchPressCsharp.UI
             txt_angleCorrectionStep.Text = cfg.angleCorrectionStep.ToString("F1");
 
             var visualConfig= GlobalData.Instance.configs.visualCorrectionCfg;
-            btn_exposureForVisualCorrection.Text= visualConfig.cameraCfgForDistortion.exposureTime.ToString();
-            btn_gainForVisualCorrection.Text= visualConfig.cameraCfgForDistortion.gain.ToString();
-            cbox_upLight.Checked= visualConfig.lightCfgForDistortion.isUpLightOpen;
-            cbox_downLight.Checked= visualConfig.lightCfgForDistortion.isDownLightOpen;
+            btn_exposureForDistortion.Text= visualConfig.cameraCfgForDistortion.exposureTime.ToString();
+            btn_gainForDistortion.Text= visualConfig.cameraCfgForDistortion.gain.ToString();
+            cbox_upLightForDistortion.Checked= visualConfig.lightCfgForDistortion.isUpLightOpen;
+            cbox_downLightForDistortion.Checked= visualConfig.lightCfgForDistortion.isDownLightOpen;
+
+            btn_exposureForNine.Text= visualConfig.cameraCfgForNine.exposureTime.ToString();
+            btn_gainForNine.Text= visualConfig.cameraCfgForNine.gain.ToString();
+            cbox_upLightForNine.Checked= visualConfig.lightCfgForNine.isUpLightOpen;
+            cbox_downLightForNine.Checked= visualConfig.lightCfgForNine.isDownLightOpen;
         }
 
         #endregion
@@ -300,12 +305,43 @@ namespace PunchPressCsharp.UI
         private void cbox_upLight_Click(object sender, EventArgs e)
         {
             var visualCfg = GlobalData.Instance.configs.visualCorrectionCfg;
-            visualCfg.lightCfgForDistortion.isUpLightOpen = cbox_upLight.Checked;
+            visualCfg.lightCfgForDistortion.isUpLightOpen = cbox_upLightForDistortion.Checked;
         }
         private void cbox_downLight_Click(object sender, EventArgs e)
         {
             var visualCfg = GlobalData.Instance.configs.visualCorrectionCfg;
-            visualCfg.lightCfgForDistortion.isDownLightOpen = cbox_downLight.Checked;
+            visualCfg.lightCfgForDistortion.isDownLightOpen = cbox_downLightForDistortion.Checked;
+        }
+
+        private void btn_exposureForNine_Click(object sender, EventArgs e)
+        {
+            var cfg = GlobalData.Instance.configs.frmConfigurationCfg;
+            Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, cfg.exposureTimeMin, cfg.exposureTimeMax);
+            numKeyBoard.ShowDialog();
+
+            var visualCfg = GlobalData.Instance.configs.visualCorrectionCfg;
+            visualCfg.cameraCfgForNine.exposureTime = int.Parse(((Control)sender).Text);
+        }
+
+        private void btn_gainForNine_Click(object sender, EventArgs e)
+        {
+            var cfg = GlobalData.Instance.configs.frmConfigurationCfg;
+            Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, cfg.gainMin, cfg.gainMax);
+            numKeyBoard.ShowDialog();
+            var visualCfg = GlobalData.Instance.configs.visualCorrectionCfg;
+            visualCfg.cameraCfgForNine.gain = int.Parse(((Control)sender).Text);
+        }
+
+        private void cbox_upLightForNine_Click(object sender, EventArgs e)
+        {
+            var visualCfg = GlobalData.Instance.configs.visualCorrectionCfg;
+            visualCfg.lightCfgForNine.isUpLightOpen = cbox_upLightForNine.Checked;
+        }
+
+        private void cbox_downLightForNine_Click(object sender, EventArgs e)
+        {
+            var visualCfg = GlobalData.Instance.configs.visualCorrectionCfg;
+            visualCfg.lightCfgForNine.isDownLightOpen = cbox_downLightForNine.Checked;
         }
     }
 }

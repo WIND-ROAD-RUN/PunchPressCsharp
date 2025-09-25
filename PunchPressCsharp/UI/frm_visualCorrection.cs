@@ -24,11 +24,11 @@ namespace PunchPressCsharp.UI
 
             IniUi();
 
-            IniCameraAndLight();
+            IniCameraAndLightForDistortion();
 
             _hasPunch = false;
             _hasCalibrationForDistortion = false;
-            _hasCalibrationForCalibration = false;
+            _hasCalibrationForNine = false;
 #if DEBUG
 
 #else
@@ -39,7 +39,7 @@ namespace PunchPressCsharp.UI
 #endif
         }
 
-        private void IniCameraAndLight()
+        private void IniCameraAndLightForDistortion()
         {
             var config = GlobalData.Instance.configs.visualCorrectionCfg;
             UtilityFunc.ChangeDownLightStatus(config.lightCfgForDistortion.isDownLightOpen);
@@ -47,6 +47,16 @@ namespace PunchPressCsharp.UI
             UtilityFunc.UpdateCameraGain(config.cameraCfgForDistortion.gain);
             UtilityFunc.UpdateCameraExposureTime(config.cameraCfgForDistortion.exposureTime);
         }
+
+        private void IniCameraAndLightForNine()
+        {
+            var config = GlobalData.Instance.configs.visualCorrectionCfg;
+            UtilityFunc.ChangeDownLightStatus(config.lightCfgForNine.isDownLightOpen);
+            UtilityFunc.ChangeUpLightStatus(config.lightCfgForNine.isUpLightOpen);
+            UtilityFunc.UpdateCameraGain(config.cameraCfgForNine.gain);
+            UtilityFunc.UpdateCameraExposureTime(config.cameraCfgForNine.exposureTime);
+        }
+
 
         private void ResetCameraAndLight()
         {
@@ -61,7 +71,7 @@ namespace PunchPressCsharp.UI
         {
             tab_stepManager.TabVisible = false;
             tab_stepManager.SelectedIndex = 0;
-
+            label_info.Visible = false;
         }
 
         private void Frm_visualCorrection_Load(object sender, EventArgs e)
@@ -90,7 +100,7 @@ namespace PunchPressCsharp.UI
 
         private bool _hasPunch = false;
         private bool _hasCalibrationForDistortion = false;
-        private bool _hasCalibrationForCalibration = false;
+        private bool _hasCalibrationForNine = false;
 
         private void pic_Close_Click(object sender, EventArgs e)
         {
@@ -100,11 +110,6 @@ namespace PunchPressCsharp.UI
 
         private void btn_nextStepForDistortion_Click(object sender, EventArgs e)
         {
-            if (!_hasPunch)
-            {
-                MessageBox.Show(@"请先完成冲压操作！", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
             if (!_hasCalibrationForDistortion)
             {
                 MessageBox.Show(@"请先完成畸变标定！", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -114,7 +119,7 @@ namespace PunchPressCsharp.UI
             tab_stepManager.SelectedIndex = 1;
 
 
-
+            IniCameraAndLightForNine();
 
             //第二部
 
@@ -132,7 +137,12 @@ namespace PunchPressCsharp.UI
 
         private void btn_finish_Click(object sender, EventArgs e)
         {
-            if (!_hasCalibrationForCalibration)
+            if (!_hasPunch)
+            {
+                MessageBox.Show(@"请先完成冲压操作！", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (!_hasCalibrationForNine)
             {
                 MessageBox.Show(@"请先完成九点标定！", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -141,9 +151,10 @@ namespace PunchPressCsharp.UI
             pic_Close_Click(sender,e);
         }
 
-        private void btn_punchForDistortion_Click(object sender, EventArgs e)
+        private void btn_punchForNine_Click(object sender, EventArgs e)
         {
             _hasPunch = true;
+            label_info.Visible = true;
         }
 
         private void btn_calibrationForDistortion_Click(object sender, EventArgs e)
@@ -151,9 +162,15 @@ namespace PunchPressCsharp.UI
             _hasCalibrationForDistortion = true;
         }
 
-        private void btn_calibrationForCalibration_Click(object sender, EventArgs e)
+        private void btn_calibrationForNine_Click(object sender, EventArgs e)
         {
-            _hasCalibrationForCalibration = true;
+            if (!_hasPunch)
+            {
+                MessageBox.Show(@"请先完成冲压操作！", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            _hasCalibrationForNine = true;
         }
+
     }
 }

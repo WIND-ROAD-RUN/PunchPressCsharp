@@ -72,12 +72,18 @@
             this.uiLabel5 = new Sunny.UI.UILabel();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.uiCheckBoxGroup1 = new Sunny.UI.UICheckBoxGroup();
-            this.cbox_downLight = new Sunny.UI.UICheckBox();
-            this.cbox_upLight = new Sunny.UI.UICheckBox();
+            this.cbox_downLightForNine = new Sunny.UI.UICheckBox();
+            this.btn_gainForNine = new Sunny.UI.UITextBox();
+            this.cbox_upLightForNine = new Sunny.UI.UICheckBox();
+            this.uiLabel18 = new Sunny.UI.UILabel();
+            this.btn_exposureForNine = new Sunny.UI.UITextBox();
+            this.uiLabel19 = new Sunny.UI.UILabel();
             this.uiCheckBoxGroup2 = new Sunny.UI.UICheckBoxGroup();
-            this.btn_gainForVisualCorrection = new Sunny.UI.UITextBox();
+            this.cbox_downLightForDistortion = new Sunny.UI.UICheckBox();
+            this.btn_gainForDistortion = new Sunny.UI.UITextBox();
+            this.cbox_upLightForDistortion = new Sunny.UI.UICheckBox();
             this.uiLabel17 = new Sunny.UI.UILabel();
-            this.btn_exposureForVisualCorrection = new Sunny.UI.UITextBox();
+            this.btn_exposureForDistortion = new Sunny.UI.UITextBox();
             this.uiLabel16 = new Sunny.UI.UILabel();
             this.btnSave = new Sunny.UI.UIButton();
             this.uiTextBox10 = new Sunny.UI.UITextBox();
@@ -89,12 +95,6 @@
             this.btn_exit = new Sunny.UI.UIButton();
             this.uiTextBox11 = new Sunny.UI.UITextBox();
             this.uiTextBox4 = new Sunny.UI.UITextBox();
-            this.cbox_downLight1 = new Sunny.UI.UICheckBox();
-            this.btn_gainForVisualCorrection1 = new Sunny.UI.UITextBox();
-            this.cbox_upLight1 = new Sunny.UI.UICheckBox();
-            this.uiLabel18 = new Sunny.UI.UILabel();
-            this.btn_exposureForVisualCorrection1 = new Sunny.UI.UITextBox();
-            this.uiLabel19 = new Sunny.UI.UILabel();
             this.titleBar.SuspendLayout();
             this.uiTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -743,11 +743,11 @@
             // 
             // uiCheckBoxGroup1
             // 
-            this.uiCheckBoxGroup1.Controls.Add(this.cbox_downLight1);
-            this.uiCheckBoxGroup1.Controls.Add(this.btn_gainForVisualCorrection1);
-            this.uiCheckBoxGroup1.Controls.Add(this.cbox_upLight1);
+            this.uiCheckBoxGroup1.Controls.Add(this.cbox_downLightForNine);
+            this.uiCheckBoxGroup1.Controls.Add(this.btn_gainForNine);
+            this.uiCheckBoxGroup1.Controls.Add(this.cbox_upLightForNine);
             this.uiCheckBoxGroup1.Controls.Add(this.uiLabel18);
-            this.uiCheckBoxGroup1.Controls.Add(this.btn_exposureForVisualCorrection1);
+            this.uiCheckBoxGroup1.Controls.Add(this.btn_exposureForNine);
             this.uiCheckBoxGroup1.Controls.Add(this.uiLabel19);
             this.uiCheckBoxGroup1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiCheckBoxGroup1.Location = new System.Drawing.Point(1, 248);
@@ -762,38 +762,99 @@
             this.uiCheckBoxGroup1.Text = "九点标定";
             this.uiCheckBoxGroup1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // cbox_downLight
+            // cbox_downLightForNine
             // 
-            this.cbox_downLight.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbox_downLight.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.cbox_downLight.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.cbox_downLight.Location = new System.Drawing.Point(396, 106);
-            this.cbox_downLight.MinimumSize = new System.Drawing.Size(1, 1);
-            this.cbox_downLight.Name = "cbox_downLight";
-            this.cbox_downLight.Size = new System.Drawing.Size(150, 29);
-            this.cbox_downLight.TabIndex = 0;
-            this.cbox_downLight.Text = "下光源";
+            this.cbox_downLightForNine.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbox_downLightForNine.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cbox_downLightForNine.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.cbox_downLightForNine.Location = new System.Drawing.Point(396, 108);
+            this.cbox_downLightForNine.MinimumSize = new System.Drawing.Size(1, 1);
+            this.cbox_downLightForNine.Name = "cbox_downLightForNine";
+            this.cbox_downLightForNine.Size = new System.Drawing.Size(150, 29);
+            this.cbox_downLightForNine.TabIndex = 11;
+            this.cbox_downLightForNine.Text = "下光源";
+            this.cbox_downLightForNine.Click += new System.EventHandler(this.cbox_downLightForNine_Click);
             // 
-            // cbox_upLight
+            // btn_gainForNine
             // 
-            this.cbox_upLight.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbox_upLight.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.cbox_upLight.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.cbox_upLight.Location = new System.Drawing.Point(396, 55);
-            this.cbox_upLight.MinimumSize = new System.Drawing.Size(1, 1);
-            this.cbox_upLight.Name = "cbox_upLight";
-            this.cbox_upLight.Size = new System.Drawing.Size(150, 29);
-            this.cbox_upLight.TabIndex = 0;
-            this.cbox_upLight.Text = "上光源";
-            this.cbox_upLight.Click += new System.EventHandler(this.cbox_upLight_Click);
+            this.btn_gainForNine.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.btn_gainForNine.DoubleValue = 1000D;
+            this.btn_gainForNine.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_gainForNine.IntValue = 1000;
+            this.btn_gainForNine.Location = new System.Drawing.Point(173, 102);
+            this.btn_gainForNine.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_gainForNine.MinimumSize = new System.Drawing.Size(1, 16);
+            this.btn_gainForNine.Name = "btn_gainForNine";
+            this.btn_gainForNine.Padding = new System.Windows.Forms.Padding(5);
+            this.btn_gainForNine.ShowText = false;
+            this.btn_gainForNine.Size = new System.Drawing.Size(160, 35);
+            this.btn_gainForNine.TabIndex = 16;
+            this.btn_gainForNine.Text = "1000";
+            this.btn_gainForNine.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_gainForNine.Watermark = "";
+            this.btn_gainForNine.Click += new System.EventHandler(this.btn_gainForNine_Click);
+            // 
+            // cbox_upLightForNine
+            // 
+            this.cbox_upLightForNine.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbox_upLightForNine.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cbox_upLightForNine.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.cbox_upLightForNine.Location = new System.Drawing.Point(396, 57);
+            this.cbox_upLightForNine.MinimumSize = new System.Drawing.Size(1, 1);
+            this.cbox_upLightForNine.Name = "cbox_upLightForNine";
+            this.cbox_upLightForNine.Size = new System.Drawing.Size(150, 29);
+            this.cbox_upLightForNine.TabIndex = 12;
+            this.cbox_upLightForNine.Text = "上光源";
+            this.cbox_upLightForNine.Click += new System.EventHandler(this.cbox_upLightForNine_Click);
+            // 
+            // uiLabel18
+            // 
+            this.uiLabel18.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiLabel18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.uiLabel18.Location = new System.Drawing.Point(28, 114);
+            this.uiLabel18.Name = "uiLabel18";
+            this.uiLabel18.Size = new System.Drawing.Size(100, 23);
+            this.uiLabel18.TabIndex = 15;
+            this.uiLabel18.Text = "增益";
+            this.uiLabel18.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btn_exposureForNine
+            // 
+            this.btn_exposureForNine.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.btn_exposureForNine.DoubleValue = 1000D;
+            this.btn_exposureForNine.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_exposureForNine.IntValue = 1000;
+            this.btn_exposureForNine.Location = new System.Drawing.Point(173, 57);
+            this.btn_exposureForNine.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_exposureForNine.MinimumSize = new System.Drawing.Size(1, 16);
+            this.btn_exposureForNine.Name = "btn_exposureForNine";
+            this.btn_exposureForNine.Padding = new System.Windows.Forms.Padding(5);
+            this.btn_exposureForNine.ShowText = false;
+            this.btn_exposureForNine.Size = new System.Drawing.Size(160, 35);
+            this.btn_exposureForNine.TabIndex = 14;
+            this.btn_exposureForNine.Text = "1000";
+            this.btn_exposureForNine.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_exposureForNine.Watermark = "";
+            this.btn_exposureForNine.Click += new System.EventHandler(this.btn_exposureForNine_Click);
+            // 
+            // uiLabel19
+            // 
+            this.uiLabel19.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiLabel19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.uiLabel19.Location = new System.Drawing.Point(28, 57);
+            this.uiLabel19.Name = "uiLabel19";
+            this.uiLabel19.Size = new System.Drawing.Size(100, 23);
+            this.uiLabel19.TabIndex = 13;
+            this.uiLabel19.Text = "曝光";
+            this.uiLabel19.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // uiCheckBoxGroup2
             // 
-            this.uiCheckBoxGroup2.Controls.Add(this.cbox_downLight);
-            this.uiCheckBoxGroup2.Controls.Add(this.btn_gainForVisualCorrection);
-            this.uiCheckBoxGroup2.Controls.Add(this.cbox_upLight);
+            this.uiCheckBoxGroup2.Controls.Add(this.cbox_downLightForDistortion);
+            this.uiCheckBoxGroup2.Controls.Add(this.btn_gainForDistortion);
+            this.uiCheckBoxGroup2.Controls.Add(this.cbox_upLightForDistortion);
             this.uiCheckBoxGroup2.Controls.Add(this.uiLabel17);
-            this.uiCheckBoxGroup2.Controls.Add(this.btn_exposureForVisualCorrection);
+            this.uiCheckBoxGroup2.Controls.Add(this.btn_exposureForDistortion);
             this.uiCheckBoxGroup2.Controls.Add(this.uiLabel16);
             this.uiCheckBoxGroup2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiCheckBoxGroup2.Location = new System.Drawing.Point(1, 29);
@@ -808,24 +869,49 @@
             this.uiCheckBoxGroup2.Text = "畸变标定";
             this.uiCheckBoxGroup2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btn_gainForVisualCorrection
+            // cbox_downLightForDistortion
             // 
-            this.btn_gainForVisualCorrection.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.btn_gainForVisualCorrection.DoubleValue = 1000D;
-            this.btn_gainForVisualCorrection.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_gainForVisualCorrection.IntValue = 1000;
-            this.btn_gainForVisualCorrection.Location = new System.Drawing.Point(173, 100);
-            this.btn_gainForVisualCorrection.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btn_gainForVisualCorrection.MinimumSize = new System.Drawing.Size(1, 16);
-            this.btn_gainForVisualCorrection.Name = "btn_gainForVisualCorrection";
-            this.btn_gainForVisualCorrection.Padding = new System.Windows.Forms.Padding(5);
-            this.btn_gainForVisualCorrection.ShowText = false;
-            this.btn_gainForVisualCorrection.Size = new System.Drawing.Size(160, 35);
-            this.btn_gainForVisualCorrection.TabIndex = 10;
-            this.btn_gainForVisualCorrection.Text = "1000";
-            this.btn_gainForVisualCorrection.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_gainForVisualCorrection.Watermark = "";
-            this.btn_gainForVisualCorrection.Click += new System.EventHandler(this.btn_gainForVisualCorrection_Click);
+            this.cbox_downLightForDistortion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbox_downLightForDistortion.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cbox_downLightForDistortion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.cbox_downLightForDistortion.Location = new System.Drawing.Point(396, 106);
+            this.cbox_downLightForDistortion.MinimumSize = new System.Drawing.Size(1, 1);
+            this.cbox_downLightForDistortion.Name = "cbox_downLightForDistortion";
+            this.cbox_downLightForDistortion.Size = new System.Drawing.Size(150, 29);
+            this.cbox_downLightForDistortion.TabIndex = 0;
+            this.cbox_downLightForDistortion.Text = "下光源";
+            // 
+            // btn_gainForDistortion
+            // 
+            this.btn_gainForDistortion.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.btn_gainForDistortion.DoubleValue = 1000D;
+            this.btn_gainForDistortion.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_gainForDistortion.IntValue = 1000;
+            this.btn_gainForDistortion.Location = new System.Drawing.Point(173, 100);
+            this.btn_gainForDistortion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_gainForDistortion.MinimumSize = new System.Drawing.Size(1, 16);
+            this.btn_gainForDistortion.Name = "btn_gainForDistortion";
+            this.btn_gainForDistortion.Padding = new System.Windows.Forms.Padding(5);
+            this.btn_gainForDistortion.ShowText = false;
+            this.btn_gainForDistortion.Size = new System.Drawing.Size(160, 35);
+            this.btn_gainForDistortion.TabIndex = 10;
+            this.btn_gainForDistortion.Text = "1000";
+            this.btn_gainForDistortion.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_gainForDistortion.Watermark = "";
+            this.btn_gainForDistortion.Click += new System.EventHandler(this.btn_gainForVisualCorrection_Click);
+            // 
+            // cbox_upLightForDistortion
+            // 
+            this.cbox_upLightForDistortion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbox_upLightForDistortion.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cbox_upLightForDistortion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.cbox_upLightForDistortion.Location = new System.Drawing.Point(396, 55);
+            this.cbox_upLightForDistortion.MinimumSize = new System.Drawing.Size(1, 1);
+            this.cbox_upLightForDistortion.Name = "cbox_upLightForDistortion";
+            this.cbox_upLightForDistortion.Size = new System.Drawing.Size(150, 29);
+            this.cbox_upLightForDistortion.TabIndex = 0;
+            this.cbox_upLightForDistortion.Text = "上光源";
+            this.cbox_upLightForDistortion.Click += new System.EventHandler(this.cbox_upLight_Click);
             // 
             // uiLabel17
             // 
@@ -838,24 +924,24 @@
             this.uiLabel17.Text = "增益";
             this.uiLabel17.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // btn_exposureForVisualCorrection
+            // btn_exposureForDistortion
             // 
-            this.btn_exposureForVisualCorrection.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.btn_exposureForVisualCorrection.DoubleValue = 1000D;
-            this.btn_exposureForVisualCorrection.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_exposureForVisualCorrection.IntValue = 1000;
-            this.btn_exposureForVisualCorrection.Location = new System.Drawing.Point(173, 55);
-            this.btn_exposureForVisualCorrection.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btn_exposureForVisualCorrection.MinimumSize = new System.Drawing.Size(1, 16);
-            this.btn_exposureForVisualCorrection.Name = "btn_exposureForVisualCorrection";
-            this.btn_exposureForVisualCorrection.Padding = new System.Windows.Forms.Padding(5);
-            this.btn_exposureForVisualCorrection.ShowText = false;
-            this.btn_exposureForVisualCorrection.Size = new System.Drawing.Size(160, 35);
-            this.btn_exposureForVisualCorrection.TabIndex = 8;
-            this.btn_exposureForVisualCorrection.Text = "1000";
-            this.btn_exposureForVisualCorrection.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_exposureForVisualCorrection.Watermark = "";
-            this.btn_exposureForVisualCorrection.Click += new System.EventHandler(this.btn_exposureForVisualCorrection_Click);
+            this.btn_exposureForDistortion.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.btn_exposureForDistortion.DoubleValue = 1000D;
+            this.btn_exposureForDistortion.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_exposureForDistortion.IntValue = 1000;
+            this.btn_exposureForDistortion.Location = new System.Drawing.Point(173, 55);
+            this.btn_exposureForDistortion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_exposureForDistortion.MinimumSize = new System.Drawing.Size(1, 16);
+            this.btn_exposureForDistortion.Name = "btn_exposureForDistortion";
+            this.btn_exposureForDistortion.Padding = new System.Windows.Forms.Padding(5);
+            this.btn_exposureForDistortion.ShowText = false;
+            this.btn_exposureForDistortion.Size = new System.Drawing.Size(160, 35);
+            this.btn_exposureForDistortion.TabIndex = 8;
+            this.btn_exposureForDistortion.Text = "1000";
+            this.btn_exposureForDistortion.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_exposureForDistortion.Watermark = "";
+            this.btn_exposureForDistortion.Click += new System.EventHandler(this.btn_exposureForVisualCorrection_Click);
             // 
             // uiLabel16
             // 
@@ -1026,88 +1112,6 @@
             this.uiTextBox4.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.uiTextBox4.Watermark = "";
             // 
-            // cbox_downLight1
-            // 
-            this.cbox_downLight1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbox_downLight1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.cbox_downLight1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.cbox_downLight1.Location = new System.Drawing.Point(396, 108);
-            this.cbox_downLight1.MinimumSize = new System.Drawing.Size(1, 1);
-            this.cbox_downLight1.Name = "cbox_downLight1";
-            this.cbox_downLight1.Size = new System.Drawing.Size(150, 29);
-            this.cbox_downLight1.TabIndex = 11;
-            this.cbox_downLight1.Text = "下光源";
-            // 
-            // btn_gainForVisualCorrection1
-            // 
-            this.btn_gainForVisualCorrection1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.btn_gainForVisualCorrection1.DoubleValue = 1000D;
-            this.btn_gainForVisualCorrection1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_gainForVisualCorrection1.IntValue = 1000;
-            this.btn_gainForVisualCorrection1.Location = new System.Drawing.Point(173, 102);
-            this.btn_gainForVisualCorrection1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btn_gainForVisualCorrection1.MinimumSize = new System.Drawing.Size(1, 16);
-            this.btn_gainForVisualCorrection1.Name = "btn_gainForVisualCorrection1";
-            this.btn_gainForVisualCorrection1.Padding = new System.Windows.Forms.Padding(5);
-            this.btn_gainForVisualCorrection1.ShowText = false;
-            this.btn_gainForVisualCorrection1.Size = new System.Drawing.Size(160, 35);
-            this.btn_gainForVisualCorrection1.TabIndex = 16;
-            this.btn_gainForVisualCorrection1.Text = "1000";
-            this.btn_gainForVisualCorrection1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_gainForVisualCorrection1.Watermark = "";
-            // 
-            // cbox_upLight1
-            // 
-            this.cbox_upLight1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbox_upLight1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.cbox_upLight1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.cbox_upLight1.Location = new System.Drawing.Point(396, 57);
-            this.cbox_upLight1.MinimumSize = new System.Drawing.Size(1, 1);
-            this.cbox_upLight1.Name = "cbox_upLight1";
-            this.cbox_upLight1.Size = new System.Drawing.Size(150, 29);
-            this.cbox_upLight1.TabIndex = 12;
-            this.cbox_upLight1.Text = "上光源";
-            // 
-            // uiLabel18
-            // 
-            this.uiLabel18.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiLabel18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.uiLabel18.Location = new System.Drawing.Point(28, 114);
-            this.uiLabel18.Name = "uiLabel18";
-            this.uiLabel18.Size = new System.Drawing.Size(100, 23);
-            this.uiLabel18.TabIndex = 15;
-            this.uiLabel18.Text = "增益";
-            this.uiLabel18.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // btn_exposureForVisualCorrection1
-            // 
-            this.btn_exposureForVisualCorrection1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.btn_exposureForVisualCorrection1.DoubleValue = 1000D;
-            this.btn_exposureForVisualCorrection1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_exposureForVisualCorrection1.IntValue = 1000;
-            this.btn_exposureForVisualCorrection1.Location = new System.Drawing.Point(173, 57);
-            this.btn_exposureForVisualCorrection1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btn_exposureForVisualCorrection1.MinimumSize = new System.Drawing.Size(1, 16);
-            this.btn_exposureForVisualCorrection1.Name = "btn_exposureForVisualCorrection1";
-            this.btn_exposureForVisualCorrection1.Padding = new System.Windows.Forms.Padding(5);
-            this.btn_exposureForVisualCorrection1.ShowText = false;
-            this.btn_exposureForVisualCorrection1.Size = new System.Drawing.Size(160, 35);
-            this.btn_exposureForVisualCorrection1.TabIndex = 14;
-            this.btn_exposureForVisualCorrection1.Text = "1000";
-            this.btn_exposureForVisualCorrection1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_exposureForVisualCorrection1.Watermark = "";
-            // 
-            // uiLabel19
-            // 
-            this.uiLabel19.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiLabel19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.uiLabel19.Location = new System.Drawing.Point(28, 57);
-            this.uiLabel19.Name = "uiLabel19";
-            this.uiLabel19.Size = new System.Drawing.Size(100, 23);
-            this.uiLabel19.TabIndex = 13;
-            this.uiLabel19.Text = "曝光";
-            this.uiLabel19.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // Frm_Configuration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1193,19 +1197,19 @@
         private System.Windows.Forms.TabPage tabPage3;
         private Sunny.UI.UICheckBoxGroup uiCheckBoxGroup1;
         private Sunny.UI.UICheckBoxGroup uiCheckBoxGroup2;
-        private Sunny.UI.UITextBox btn_exposureForVisualCorrection;
+        private Sunny.UI.UITextBox btn_exposureForDistortion;
         private Sunny.UI.UILabel uiLabel16;
         private Sunny.UI.UITextBox uiTextBox11;
         private Sunny.UI.UITextBox uiTextBox4;
-        private Sunny.UI.UITextBox btn_gainForVisualCorrection;
+        private Sunny.UI.UITextBox btn_gainForDistortion;
         private Sunny.UI.UILabel uiLabel17;
-        private Sunny.UI.UICheckBox cbox_downLight;
-        private Sunny.UI.UICheckBox cbox_upLight;
-        private Sunny.UI.UICheckBox cbox_downLight1;
-        private Sunny.UI.UITextBox btn_gainForVisualCorrection1;
-        private Sunny.UI.UICheckBox cbox_upLight1;
+        private Sunny.UI.UICheckBox cbox_downLightForDistortion;
+        private Sunny.UI.UICheckBox cbox_upLightForDistortion;
+        private Sunny.UI.UICheckBox cbox_downLightForNine;
+        private Sunny.UI.UITextBox btn_gainForNine;
+        private Sunny.UI.UICheckBox cbox_upLightForNine;
         private Sunny.UI.UILabel uiLabel18;
-        private Sunny.UI.UITextBox btn_exposureForVisualCorrection1;
+        private Sunny.UI.UITextBox btn_exposureForNine;
         private Sunny.UI.UILabel uiLabel19;
     }
 }
