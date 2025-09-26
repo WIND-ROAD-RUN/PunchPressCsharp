@@ -9,13 +9,17 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using PunchPressCsharp.Func;
+using PunchPressCsharp.Utility;
 using VM.Core;
 using static PunchPressCsharp.Data.Config;
 
 namespace PunchPressCsharp.UI
 {
+
     public partial class Frm_loadShapeModel : Form
     {
+        public event Action<string> ModelLoaded;
+
         #region 模型生命周期管理
         public Frm_loadShapeModel()
         {
@@ -315,6 +319,13 @@ namespace PunchPressCsharp.UI
             }
 
 
+            UtilityFunc.ChangeUpLightStatus(modelConfig.lightCfg.isUpLightOpen);
+            UtilityFunc.ChangeDownLightStatus(modelConfig.lightCfg.isDownLightOpen);
+            UtilityFunc.UpdateCameraExposureTime(modelConfig.cameraCfg.exposureTime);
+            UtilityFunc.UpdateCameraGain(modelConfig.cameraCfg.gain);
+            GlobalData.Instance.configs.frmPunchPressCfg.cameraCfg= modelConfig.cameraCfg;
+            GlobalData.Instance.configs.frmPunchPressCfg.lightCfg=modelConfig.lightCfg;
+            GlobalData.Instance.configs.frmPunchPressCfg.correction = modelConfig.correction;
 
             IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
             var imageSource = (ImageSourceModuleTool)VmSolution.Instance["流程1.图像源1"];
@@ -323,6 +334,8 @@ namespace PunchPressCsharp.UI
 
 
             MessageBox.Show($@"加载成功: {selectedModelName}", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            ModelLoaded?.Invoke(selectedModelName);
+
             Close();
         }
 

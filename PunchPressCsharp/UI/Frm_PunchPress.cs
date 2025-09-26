@@ -68,26 +68,31 @@ namespace PunchPressCsharp.UI
            
         }
 
-        private void LoadConfig()
+        private void LoadUICfg()
         {
             GlobalData.Instance.configs.LoadConfigs();
             var cfg = GlobalData.Instance.configs.frmPunchPressCfg;
-            lb_exposureValue.Text= cfg.cameraCfg.exposureTime.ToString();
-            lb_gainValue.Text= cfg.cameraCfg.gain.ToString();
-            cBox_workMode.Checked= cfg.isDebugMode;
-            cBox_upLight.Checked= cfg.lightCfg.isUpLightOpen;
-            cBox_downLight.Checked= cfg.lightCfg.isDownLightOpen;
-            cBox_debugMode.Checked=cfg.isWorkMode;
-            lb_centralX.Text=cfg.correction.centralX.ToString();
+            lb_exposureValue.Text = cfg.cameraCfg.exposureTime.ToString();
+            lb_gainValue.Text = cfg.cameraCfg.gain.ToString();
+            cBox_workMode.Checked = cfg.isDebugMode;
+            cBox_upLight.Checked = cfg.lightCfg.isUpLightOpen;
+            cBox_downLight.Checked = cfg.lightCfg.isDownLightOpen;
+            cBox_debugMode.Checked = cfg.isWorkMode;
+            lb_centralX.Text = cfg.correction.centralX.ToString();
             lb_centralY.Text = cfg.correction.centralY.ToString();
 
-            
             double currentAngle = GlobalData.Instance.configs.frmPunchPressCfg.correction.angle;
             GlobalData.Instance.configs.frmPunchPressCfg.correction.angle = (float)currentAngle;
             lb_angle.Text = currentAngle.ToString("F1");
 
-            //read last loaded model
-            IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
+        }
+
+        private void LoadConfig()
+        {
+            LoadUICfg();
+
+             //read last loaded model
+             IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
             vmRenderControl1.ModuleSource = FeatureMatch;
             var lastModelPath = GlobalData.Instance.configs.frmPunchPressCfg.lastLoadModelDirPath + "\\" + GlobalPath.ModelConfigName;
             if (System.IO.File.Exists(lastModelPath))
@@ -795,12 +800,16 @@ namespace PunchPressCsharp.UI
             numKeyBoard.ShowDialog();
             GlobalData.Instance.configs.frmPunchPressCfg.correction.angle = float.Parse(lb_angle.Text);
         }
-
+        private void OnModelLoaded(string modelName)
+        {
+            LoadUICfg();
+        }
         private void pbtn_templateLoad_Click(object sender, EventArgs e)
         {
             if (cBox_workMode.Checked)
             {
                 Frm_loadShapeModel frmLoadShapeModel = new Frm_loadShapeModel();
+                frmLoadShapeModel.ModelLoaded += OnModelLoaded;
                 frmLoadShapeModel.ShowDialog();
             }
             else
