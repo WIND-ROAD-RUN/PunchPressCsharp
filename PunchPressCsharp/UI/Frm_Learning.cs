@@ -178,8 +178,8 @@ namespace PunchPressCsharp.UI
             inputForm.StartPosition = FormStartPosition.CenterParent; // 居中显示在父窗体
             Label textLabel = new Label() { Left = 10, Top = 20, Text = prompt, Width = 360 };
             TextBox inputBox = new TextBox() { Left = 10, Top = 50, Width = 360, Text = defaultValue };
-            Button okButton = new Button() { Text = "确定新建模型", Left = 220, Width = 70, Top = 80, DialogResult = DialogResult.OK };
-            Button cancelButton = new Button() { Text = "取消新建模型", Left = 300, Width = 70, Top = 80, DialogResult = DialogResult.Cancel };
+            Button okButton = new Button() { Text = "确定", Left = 220, Width = 70, Top = 80, DialogResult = DialogResult.OK };
+            Button cancelButton = new Button() { Text = "取消", Left = 300, Width = 70, Top = 80, DialogResult = DialogResult.Cancel };
             inputForm.Controls.Add(textLabel);
             inputForm.Controls.Add(inputBox);
             inputForm.Controls.Add(okButton);
