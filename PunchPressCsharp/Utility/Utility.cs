@@ -48,12 +48,12 @@ namespace PunchPressCsharp.Utility
 
         public static void ChangeUpLightStatus(bool status)
         {
-            GlobalData.Instance.modbusTool.writeBool(5014, status);
+            GlobalData.Instance.modbusTool.writeBool(5013, status);
         }
 
         public static void ChangeDownLightStatus(bool status)
         {
-            GlobalData.Instance.modbusTool.writeBool(5013, status);
+            GlobalData.Instance.modbusTool.writeBool(5014, status);
         }
     }
 

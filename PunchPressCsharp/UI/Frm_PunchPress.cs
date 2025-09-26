@@ -19,7 +19,10 @@ using System.Threading;
 using System.Windows.Forms;
 using VM.Core;
 using VM.PlatformSDKCS;
+using VMControls.Interface;
 using static PunchPressCsharp.Data.Config;
+using VM.Core;
+using VM.PlatformSDKCS;
 
 namespace PunchPressCsharp.UI
 {
@@ -165,6 +168,8 @@ namespace PunchPressCsharp.UI
             }
 
             VmProcedure vmProcess1 = (VmProcedure)VmSolution.Instance["流程1"];
+            vmProcess1.IsEnabled = true;
+          
             GlobalData.Instance.vmMainProcedure = vmProcess1;
 
             IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
@@ -204,7 +209,6 @@ namespace PunchPressCsharp.UI
                     GlobalData.Instance.cameraIsConnect = true;
                 }
             }
-            vmProcess1.Run();
         }
 
         private void DesVMSol()
@@ -586,8 +590,16 @@ namespace PunchPressCsharp.UI
                 cBox_debugMode.Checked = false;
 
                 cBox_workMode.Checked = true;
-                var ImageCorrectCalibModuTool = (IMVSImageCorrectCalibModuTool)VmSolution.Instance["流程1.畸变矫正1"];
 
+                // 获取流程对象（假设流程名称为"流程1"）
+                VmProcedure vmProcedure = (VmProcedure)VmSolution.Instance["流程1"];
+
+              
+
+                // 获取流程对象
+
+
+                var ImageCorrectCalibModuTool = (IMVSImageCorrectCalibModuTool)VmSolution.Instance["流程1.畸变校正1"];
 
                 if (System.IO.File.Exists(GlobalPath.DataJibianJiaoZhengLoadPath))
                 {

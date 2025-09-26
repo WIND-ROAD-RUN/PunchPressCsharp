@@ -116,8 +116,9 @@
             this.titleBar.Controls.Add(this.btnClose);
             this.titleBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.titleBar.Location = new System.Drawing.Point(0, 0);
+            this.titleBar.Margin = new System.Windows.Forms.Padding(4);
             this.titleBar.Name = "titleBar";
-            this.titleBar.Size = new System.Drawing.Size(647, 40);
+            this.titleBar.Size = new System.Drawing.Size(863, 50);
             this.titleBar.TabIndex = 27;
             // 
             // lblTitle
@@ -125,9 +126,10 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("宋体", 12F);
             this.lblTitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTitle.Location = new System.Drawing.Point(12, 12);
+            this.lblTitle.Location = new System.Drawing.Point(16, 15);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(103, 16);
+            this.lblTitle.Size = new System.Drawing.Size(129, 20);
             this.lblTitle.TabIndex = 1;
             this.lblTitle.Text = "系统参数配置";
             // 
@@ -135,10 +137,11 @@
             // 
             this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnClose.Location = new System.Drawing.Point(602, 0);
+            this.btnClose.Location = new System.Drawing.Point(803, 0);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.MinimumSize = new System.Drawing.Size(1, 1);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(45, 40);
+            this.btnClose.Size = new System.Drawing.Size(60, 50);
             this.btnClose.TabIndex = 0;
             this.btnClose.Text = "X";
             this.btnClose.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -152,12 +155,13 @@
             this.uiTabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.uiTabControl1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiTabControl1.ItemSize = new System.Drawing.Size(150, 45);
-            this.uiTabControl1.Location = new System.Drawing.Point(2, 46);
+            this.uiTabControl1.Location = new System.Drawing.Point(3, 58);
             this.uiTabControl1.MainPage = "";
+            this.uiTabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.uiTabControl1.MenuStyle = Sunny.UI.UIMenuStyle.Custom;
             this.uiTabControl1.Name = "uiTabControl1";
             this.uiTabControl1.SelectedIndex = 0;
-            this.uiTabControl1.Size = new System.Drawing.Size(642, 538);
+            this.uiTabControl1.Size = new System.Drawing.Size(856, 672);
             this.uiTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.uiTabControl1.TabIndex = 29;
             this.uiTabControl1.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -167,8 +171,9 @@
             this.tabPage1.Controls.Add(this.groupGain);
             this.tabPage1.Controls.Add(this.groupExposure);
             this.tabPage1.Location = new System.Drawing.Point(0, 45);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(642, 493);
+            this.tabPage1.Size = new System.Drawing.Size(856, 627);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "光源亮度设置";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -182,14 +187,14 @@
             this.groupGain.Controls.Add(this.txt_gainMin);
             this.groupGain.Controls.Add(this.uiLabel4);
             this.groupGain.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupGain.Location = new System.Drawing.Point(1, 243);
-            this.groupGain.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupGain.Location = new System.Drawing.Point(1, 304);
+            this.groupGain.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.groupGain.MinimumSize = new System.Drawing.Size(1, 1);
             this.groupGain.Name = "groupGain";
-            this.groupGain.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
+            this.groupGain.Padding = new System.Windows.Forms.Padding(0, 40, 0, 0);
             this.groupGain.Radius = 15;
             this.groupGain.SelectedIndexes = ((System.Collections.Generic.List<int>)(resources.GetObject("groupGain.SelectedIndexes")));
-            this.groupGain.Size = new System.Drawing.Size(644, 192);
+            this.groupGain.Size = new System.Drawing.Size(859, 240);
             this.groupGain.TabIndex = 6;
             this.groupGain.Text = "增益设置";
             this.groupGain.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -291,14 +296,14 @@
             this.groupExposure.Controls.Add(this.txt_exposureMin);
             this.groupExposure.Controls.Add(this.uiLabel3);
             this.groupExposure.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupExposure.Location = new System.Drawing.Point(-2, 47);
-            this.groupExposure.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupExposure.Location = new System.Drawing.Point(-3, 59);
+            this.groupExposure.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.groupExposure.MinimumSize = new System.Drawing.Size(1, 1);
             this.groupExposure.Name = "groupExposure";
-            this.groupExposure.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
+            this.groupExposure.Padding = new System.Windows.Forms.Padding(0, 40, 0, 0);
             this.groupExposure.Radius = 15;
             this.groupExposure.SelectedIndexes = ((System.Collections.Generic.List<int>)(resources.GetObject("groupExposure.SelectedIndexes")));
-            this.groupExposure.Size = new System.Drawing.Size(644, 186);
+            this.groupExposure.Size = new System.Drawing.Size(859, 232);
             this.groupExposure.TabIndex = 5;
             this.groupExposure.Text = "曝光设置";
             this.groupExposure.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -399,8 +404,9 @@
             this.tabPage2.Controls.Add(this.groupCenterY);
             this.tabPage2.Controls.Add(this.groupCenterX);
             this.tabPage2.Location = new System.Drawing.Point(0, 45);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(642, 493);
+            this.tabPage2.Size = new System.Drawing.Size(856, 627);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "偏移量设置";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -414,13 +420,13 @@
             this.groupAngle.Controls.Add(this.txt_angleCorrectionMin);
             this.groupAngle.Controls.Add(this.uiLabel10);
             this.groupAngle.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupAngle.Location = new System.Drawing.Point(16, 332);
-            this.groupAngle.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupAngle.Location = new System.Drawing.Point(21, 415);
+            this.groupAngle.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.groupAngle.MinimumSize = new System.Drawing.Size(1, 1);
             this.groupAngle.Name = "groupAngle";
-            this.groupAngle.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
+            this.groupAngle.Padding = new System.Windows.Forms.Padding(0, 40, 0, 0);
             this.groupAngle.SelectedIndexes = ((System.Collections.Generic.List<int>)(resources.GetObject("groupAngle.SelectedIndexes")));
-            this.groupAngle.Size = new System.Drawing.Size(616, 156);
+            this.groupAngle.Size = new System.Drawing.Size(821, 195);
             this.groupAngle.TabIndex = 7;
             this.groupAngle.Text = "角度矫正";
             this.groupAngle.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -524,13 +530,13 @@
             this.groupCenterY.Controls.Add(this.txt_centralYCorrectionMin);
             this.groupCenterY.Controls.Add(this.uiLabel8);
             this.groupCenterY.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupCenterY.Location = new System.Drawing.Point(16, 173);
-            this.groupCenterY.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupCenterY.Location = new System.Drawing.Point(21, 216);
+            this.groupCenterY.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.groupCenterY.MinimumSize = new System.Drawing.Size(1, 1);
             this.groupCenterY.Name = "groupCenterY";
-            this.groupCenterY.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
+            this.groupCenterY.Padding = new System.Windows.Forms.Padding(0, 40, 0, 0);
             this.groupCenterY.SelectedIndexes = ((System.Collections.Generic.List<int>)(resources.GetObject("groupCenterY.SelectedIndexes")));
-            this.groupCenterY.Size = new System.Drawing.Size(616, 154);
+            this.groupCenterY.Size = new System.Drawing.Size(821, 192);
             this.groupCenterY.TabIndex = 7;
             this.groupCenterY.Text = "中心矫正y";
             this.groupCenterY.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -631,13 +637,13 @@
             this.groupCenterX.Controls.Add(this.txt_centralXCorrectionMin);
             this.groupCenterX.Controls.Add(this.uiLabel5);
             this.groupCenterX.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupCenterX.Location = new System.Drawing.Point(15, 14);
-            this.groupCenterX.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupCenterX.Location = new System.Drawing.Point(20, 18);
+            this.groupCenterX.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.groupCenterX.MinimumSize = new System.Drawing.Size(1, 1);
             this.groupCenterX.Name = "groupCenterX";
-            this.groupCenterX.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
+            this.groupCenterX.Padding = new System.Windows.Forms.Padding(0, 40, 0, 0);
             this.groupCenterX.SelectedIndexes = ((System.Collections.Generic.List<int>)(resources.GetObject("groupCenterX.SelectedIndexes")));
-            this.groupCenterX.Size = new System.Drawing.Size(616, 156);
+            this.groupCenterX.Size = new System.Drawing.Size(821, 195);
             this.groupCenterX.TabIndex = 6;
             this.groupCenterX.Text = "中心矫正x";
             this.groupCenterX.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -735,10 +741,11 @@
             this.tabPage3.Controls.Add(this.uiCheckBoxGroup1);
             this.tabPage3.Controls.Add(this.uiCheckBoxGroup2);
             this.tabPage3.Location = new System.Drawing.Point(0, 45);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(642, 493);
+            this.tabPage3.Size = new System.Drawing.Size(856, 627);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.Text = "视觉矫正参数";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // uiCheckBoxGroup1
@@ -750,14 +757,14 @@
             this.uiCheckBoxGroup1.Controls.Add(this.btn_exposureForNine);
             this.uiCheckBoxGroup1.Controls.Add(this.uiLabel19);
             this.uiCheckBoxGroup1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiCheckBoxGroup1.Location = new System.Drawing.Point(1, 248);
-            this.uiCheckBoxGroup1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiCheckBoxGroup1.Location = new System.Drawing.Point(1, 310);
+            this.uiCheckBoxGroup1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.uiCheckBoxGroup1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiCheckBoxGroup1.Name = "uiCheckBoxGroup1";
-            this.uiCheckBoxGroup1.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
+            this.uiCheckBoxGroup1.Padding = new System.Windows.Forms.Padding(0, 40, 0, 0);
             this.uiCheckBoxGroup1.Radius = 15;
             this.uiCheckBoxGroup1.SelectedIndexes = ((System.Collections.Generic.List<int>)(resources.GetObject("uiCheckBoxGroup1.SelectedIndexes")));
-            this.uiCheckBoxGroup1.Size = new System.Drawing.Size(644, 192);
+            this.uiCheckBoxGroup1.Size = new System.Drawing.Size(859, 240);
             this.uiCheckBoxGroup1.TabIndex = 8;
             this.uiCheckBoxGroup1.Text = "九点标定";
             this.uiCheckBoxGroup1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -857,14 +864,14 @@
             this.uiCheckBoxGroup2.Controls.Add(this.btn_exposureForDistortion);
             this.uiCheckBoxGroup2.Controls.Add(this.uiLabel16);
             this.uiCheckBoxGroup2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiCheckBoxGroup2.Location = new System.Drawing.Point(1, 29);
-            this.uiCheckBoxGroup2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiCheckBoxGroup2.Location = new System.Drawing.Point(1, 36);
+            this.uiCheckBoxGroup2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.uiCheckBoxGroup2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiCheckBoxGroup2.Name = "uiCheckBoxGroup2";
-            this.uiCheckBoxGroup2.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
+            this.uiCheckBoxGroup2.Padding = new System.Windows.Forms.Padding(0, 40, 0, 0);
             this.uiCheckBoxGroup2.Radius = 15;
             this.uiCheckBoxGroup2.SelectedIndexes = ((System.Collections.Generic.List<int>)(resources.GetObject("uiCheckBoxGroup2.SelectedIndexes")));
-            this.uiCheckBoxGroup2.Size = new System.Drawing.Size(641, 209);
+            this.uiCheckBoxGroup2.Size = new System.Drawing.Size(855, 261);
             this.uiCheckBoxGroup2.TabIndex = 7;
             this.uiCheckBoxGroup2.Text = "畸变标定";
             this.uiCheckBoxGroup2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -880,6 +887,7 @@
             this.cbox_downLightForDistortion.Size = new System.Drawing.Size(150, 29);
             this.cbox_downLightForDistortion.TabIndex = 0;
             this.cbox_downLightForDistortion.Text = "下光源";
+            this.cbox_downLightForDistortion.Click += new System.EventHandler(this.cbox_downLightForDistortion_Click);
             // 
             // btn_gainForDistortion
             // 
@@ -958,10 +966,11 @@
             // 
             this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSave.Location = new System.Drawing.Point(491, 600);
+            this.btnSave.Location = new System.Drawing.Point(655, 750);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.MinimumSize = new System.Drawing.Size(1, 1);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(144, 44);
+            this.btnSave.Size = new System.Drawing.Size(192, 55);
             this.btnSave.TabIndex = 30;
             this.btnSave.Text = "保存配置";
             this.btnSave.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -1067,10 +1076,11 @@
             // 
             this.btn_exit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_exit.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_exit.Location = new System.Drawing.Point(12, 600);
+            this.btn_exit.Location = new System.Drawing.Point(16, 750);
+            this.btn_exit.Margin = new System.Windows.Forms.Padding(4);
             this.btn_exit.MinimumSize = new System.Drawing.Size(1, 1);
             this.btn_exit.Name = "btn_exit";
-            this.btn_exit.Size = new System.Drawing.Size(144, 44);
+            this.btn_exit.Size = new System.Drawing.Size(192, 55);
             this.btn_exit.TabIndex = 31;
             this.btn_exit.Text = "退出";
             this.btn_exit.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -1114,16 +1124,17 @@
             // 
             // Frm_Configuration
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(647, 668);
+            this.ClientSize = new System.Drawing.Size(863, 835);
             this.Controls.Add(this.btn_exit);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.uiTabControl1);
             this.Controls.Add(this.titleBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Frm_Configuration";
             this.Text = "Frm_Configuration";
             this.Load += new System.EventHandler(this.Frm_Configuration_Load);

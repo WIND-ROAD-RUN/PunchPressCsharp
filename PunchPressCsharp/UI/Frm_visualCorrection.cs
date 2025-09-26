@@ -19,11 +19,76 @@ namespace PunchPressCsharp.UI
 {
     public partial class Frm_visualCorrection : Form
     {
-        private VmProcedure vmProcess1;
         private bool _hasPunch = false;
         private bool _hasCalibrationForDistortion = false;
         private bool _hasCalibrationForNine = false;
         private bool isclickJibianjiaozheng = false;
+
+
+
+
+        private void inisoljibian()
+        {
+            var path = GlobalPath.VMSolPathjibian;
+            if (!System.IO.File.Exists(path))
+            {
+                MessageBox.Show("流程文件不存在，请检查路径是否正确。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
+
+            var version = VmSolution.Instance.GetSolutionVersion(path, "");
+            if (UtilityValue.VMVersion != version)
+            {
+                MessageBox.Show(@"方案版本不正确应为" + UtilityValue.VMVersion, @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
+
+            try
+            {
+                VmSolution.Load(path);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("加载流程失败，请检查流程文件路径是否正确。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
+
+            VmProcedure vmProcess1 = (VmProcedure)VmSolution.Instance["流程1"];
+        }
+        private void inisoljiudian()
+        {
+            var path = GlobalPath.VMSolPathjiudain;
+            if (!System.IO.File.Exists(path))
+            {
+                MessageBox.Show("流程文件不存在，请检查路径是否正确。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
+
+            var version = VmSolution.Instance.GetSolutionVersion(path, "");
+            if (UtilityValue.VMVersion != version)
+            {
+                MessageBox.Show(@"方案版本不正确应为" + UtilityValue.VMVersion, @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
+
+            try
+            {
+                VmSolution.Load(path);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("加载流程失败，请检查流程文件路径是否正确。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
+
+            VmProcedure vmProcess1 = (VmProcedure)VmSolution.Instance["流程1"];
+        }
 
         public Frm_visualCorrection()
         {
@@ -48,14 +113,15 @@ namespace PunchPressCsharp.UI
 
         private void IniCameraAndLightForDistortion()
         {
-            var config = GlobalData.Instance.configs.visualCorrectionCfg;
+            inisoljibian();
+
+             var config = GlobalData.Instance.configs.visualCorrectionCfg;
             UtilityFunc.ChangeDownLightStatus(config.lightCfgForDistortion.isDownLightOpen);
             UtilityFunc.ChangeUpLightStatus(config.lightCfgForDistortion.isUpLightOpen);
             UtilityFunc.UpdateCameraGain(config.cameraCfgForDistortion.gain);
             UtilityFunc.UpdateCameraExposureTime(config.cameraCfgForDistortion.exposureTime);
             //设置相机为软触发模式
-            GlobalData.Instance.vmMainProcedure.ContinuousRunEnable = true;
-            var ImageCorrectCalibModu = (IMVSImageCalibModuCs.IMVSImageCalibModuTool)VmSolution.Instance["流程2.畸变标定1"];
+            var ImageCorrectCalibModu = (IMVSImageCalibModuCs.IMVSImageCalibModuTool)VmSolution.Instance["流程1.畸变标定1"];
             ImageCorrectCalibModu.IsForbidden = true;
             if (GlobalData.Instance.cameraIsConnect)
             {
@@ -63,7 +129,10 @@ namespace PunchPressCsharp.UI
 
                 cameraParam.TriggerSource = 7; // 设置触发源为软触发
             }
+            VmProcedure vmProcess1 = (VmProcedure)VmSolution.Instance["流程1"];
 
+            vmProcess1.ContinuousRunEnable = true;
+            vmRenderControl1.ModuleSource = ImageCorrectCalibModu;
 
 
 
@@ -72,14 +141,13 @@ namespace PunchPressCsharp.UI
 
         private void IniCameraAndLightForNine()
         {
-            var config = GlobalData.Instance.configs.visualCorrectionCfg;
+            inisoljiudian();
+              var config = GlobalData.Instance.configs.visualCorrectionCfg;
             UtilityFunc.ChangeDownLightStatus(config.lightCfgForNine.isDownLightOpen);
             UtilityFunc.ChangeUpLightStatus(config.lightCfgForNine.isUpLightOpen);
             UtilityFunc.UpdateCameraGain(config.cameraCfgForNine.gain);
             UtilityFunc.UpdateCameraExposureTime(config.cameraCfgForNine.exposureTime);
-
-            //设置相机为硬触发模式
-            GlobalData.Instance.vmMainProcedure.ContinuousRunEnable = false;
+            
 
 
             if (GlobalData.Instance.cameraIsConnect)
@@ -88,7 +156,13 @@ namespace PunchPressCsharp.UI
                 var cameraParam = GlobalData.Instance.cameraModuleTool.ModuParams;
                 cameraParam.TriggerSource = 0; // 设置触发源为硬触发
             }
+            
+            var TranslationCalibModu = (TranslationCalibModuTool)VmSolution.Instance["流程1.平移选择标定1"];
+           
+            VmProcedure vmProcess1 = (VmProcedure)VmSolution.Instance["流程1"];
 
+          
+            vmRenderControl1.ModuleSource = TranslationCalibModu;
         }
 
 
@@ -111,14 +185,7 @@ namespace PunchPressCsharp.UI
         private void Frm_visualCorrection_Load(object sender, EventArgs e)
         {
 
-            //加载流程畸变矫正
-             vmProcess1 = (VmProcedure)VmSolution.Instance["流程2"];
-
-            vmProcess1.OnWorkEndStatusCallBack += VmProcess1_OnWorkEndStatusCallBack;
-           var ImageCorrectCalibModu = (IMVSImageCalibModuCs.IMVSImageCalibModuTool)VmSolution.Instance["流程2.畸变标定1"];
-
-           vmRenderControl1.ModuleSource = ImageCorrectCalibModu;
-
+           
 
 
 
@@ -129,15 +196,8 @@ namespace PunchPressCsharp.UI
 
         private void VmProcess1_OnWorkEndStatusCallBack(object sender, EventArgs e)
         {
-            //畸变矫正界面
-            if (tab_stepManager.SelectedIndex == 0&& isclickJibianjiaozheng==true)
-            {
-                //如果畸变矫正完成
-                _hasCalibrationForDistortion = true;
-                
 
-
-            }
+           
 
 
 
@@ -151,7 +211,7 @@ namespace PunchPressCsharp.UI
             ResetCameraAndLight();
             //保存数据
 
-            var translationCalibModuTool = (TranslationCalibModuTool)VmSolution.Instance["流程3.平移旋转标定1"];
+            var translationCalibModuTool = (TranslationCalibModuTool)VmSolution.Instance["流程1.平移旋转标定1"];
 
             translationCalibModuTool.ModuParams.DoSaveFile(GlobalPath.DataJiudianbiaodingLoadPath);
 
@@ -182,16 +242,16 @@ namespace PunchPressCsharp.UI
 
             IniCameraAndLightForNine();
 
-            
 
-            
+
+            VmProcedure vmProcess1 = (VmProcedure)VmSolution.Instance["流程1"];
+
             //加载流程畸变矫正
-            vmProcess1 = (VmProcedure)VmSolution.Instance["流程3"];
 
-            var lationCalibModuTool = (TranslationCalibModuTool)VmSolution.Instance["流程3.平移旋转标定"];
+            var lationCalibModuTool = (TranslationCalibModuTool)VmSolution.Instance["流程1.平移旋转标定1"];
 
             vmRenderControl1.ModuleSource = lationCalibModuTool;
-            var ImageCorrectCalibModuTool = (IMVSImageCorrectCalibModuTool)VmSolution.Instance["流程3.畸变矫正1"];
+            var ImageCorrectCalibModuTool = (IMVSImageCorrectCalibModuTool)VmSolution.Instance["流程1.畸变校正1"];
 
             if (System.IO.File.Exists(GlobalPath.DataJibianJiaoZhengLoadPath))
             {
@@ -287,8 +347,10 @@ namespace PunchPressCsharp.UI
         private void btn_calibrationForDistortion_Click(object sender, EventArgs e)
         {
 
-            var ImageCorrectCalibModu = (IMVSImageCalibModuCs.IMVSImageCalibModuTool)VmSolution.Instance["流程2.畸变标定1"];
+            var ImageCorrectCalibModu = (IMVSImageCalibModuCs.IMVSImageCalibModuTool)VmSolution.Instance["流程1.畸变标定1"];
             ImageCorrectCalibModu.IsForbidden = false;
+            VmProcedure vmProcess1 = (VmProcedure)VmSolution.Instance["流程1"];
+
             vmProcess1.ContinuousRunEnable = false;
 
             
@@ -298,7 +360,7 @@ namespace PunchPressCsharp.UI
             ImageCorrectCalibModu.ModuParams.DoSaveFile(GlobalPath.DataJibianJiaoZhengLoadPath);
 
 
-
+            _hasCalibrationForDistortion = true;
         }
 
         private void btn_calibrationForNine_Click(object sender, EventArgs e)
@@ -315,8 +377,8 @@ namespace PunchPressCsharp.UI
             {
                 //再次回原
                 GlobalData.Instance.modbusTool.writeBool(1220, true);
-                // 监控如果超时直接跳出循环（超时时间 10 秒）
-                int timeoutMs = 10000;
+                // 监控如果超时直接跳出循环（超时时间 60 秒）
+                int timeoutMs = 60000;
                 int elapsedMs = 0;
                 while (true)
                 {

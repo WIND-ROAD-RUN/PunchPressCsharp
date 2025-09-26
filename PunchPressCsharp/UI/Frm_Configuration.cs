@@ -307,11 +307,6 @@ namespace PunchPressCsharp.UI
             var visualCfg = GlobalData.Instance.configs.visualCorrectionCfg;
             visualCfg.lightCfgForDistortion.isUpLightOpen = cbox_upLightForDistortion.Checked;
         }
-        private void cbox_downLight_Click(object sender, EventArgs e)
-        {
-            var visualCfg = GlobalData.Instance.configs.visualCorrectionCfg;
-            visualCfg.lightCfgForDistortion.isDownLightOpen = cbox_downLightForDistortion.Checked;
-        }
 
         private void btn_exposureForNine_Click(object sender, EventArgs e)
         {
@@ -342,6 +337,12 @@ namespace PunchPressCsharp.UI
         {
             var visualCfg = GlobalData.Instance.configs.visualCorrectionCfg;
             visualCfg.lightCfgForNine.isDownLightOpen = cbox_downLightForNine.Checked;
+        }
+
+        private void cbox_downLightForDistortion_Click(object sender, EventArgs e)
+        {
+            var visualCfg = GlobalData.Instance.configs.visualCorrectionCfg;
+            visualCfg.lightCfgForDistortion.isDownLightOpen = cbox_downLightForDistortion.Checked;
         }
     }
 }

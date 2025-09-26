@@ -36,6 +36,9 @@
         public static readonly string SolutionBackupDir = _ProjectHome + @"\sol";
 
         public static readonly string VMSolPath = SolutionBackupDir+@"\shibie.sol";
+        public static readonly string VMSolPathjibian = SolutionBackupDir + @"\biaoding.sol";
+        public static readonly string VMSolPathjiudain = SolutionBackupDir + @"\jiudainbiaoding.sol";
+
         #endregion
     }
 }
