@@ -107,6 +107,8 @@ namespace PunchPressCsharp.UI
 
         private void DesExtraComponent()
         {
+            UtilityFunc.ChangeUpLightStatus(false);
+            UtilityFunc.ChangeDownLightStatus(false);
             DesVMSol();
         }
 
