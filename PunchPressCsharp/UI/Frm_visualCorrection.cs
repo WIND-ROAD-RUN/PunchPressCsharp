@@ -209,13 +209,6 @@ namespace PunchPressCsharp.UI
         private void pic_Close_Click(object sender, EventArgs e)
         {
             ResetCameraAndLight();
-            //保存数据
-
-            var translationCalibModuTool = (TranslationCalibModuTool)VmSolution.Instance["流程1.平移旋转标定1"];
-
-            translationCalibModuTool.ModuParams.DoSaveFile(GlobalPath.DataJiudianbiaodingLoadPath);
-
-
 
             Close();
         }
@@ -272,7 +265,11 @@ namespace PunchPressCsharp.UI
                 return;
             }
 
-            
+
+            var translationCalibModuTool = (TranslationCalibModuTool)VmSolution.Instance["流程1.平移旋转标定1"];
+
+            translationCalibModuTool.ModuParams.DoSaveFile(GlobalPath.DataJiudianbiaodingLoadPath);
+
 
 
             pic_Close_Click(sender,e);
