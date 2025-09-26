@@ -845,14 +845,24 @@ namespace PunchPressCsharp.UI
 
         private void btn_visualCorrenction_Click(object sender, EventArgs e)
         {
-            Frm_visualCorrection frmVisualCorrection=new Frm_visualCorrection();
+            Frm_visualCorrection frmVisualCorrection = new Frm_visualCorrection();
             frmVisualCorrection.ShowDialog();
-            //当窗体结束回到流程1
+
+            // 当窗体结束回到流程1
             VmProcedure vmProcess1 = (VmProcedure)VmSolution.Instance["流程1"];
-            //设置图像
             IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
             vmRenderControl1.ModuleSource = FeatureMatch;
 
+            GlobalData.Instance.configs.SaveConfigs();
+            DesExtraComponent();
+
+            MessageBox.Show(@"软件需要重启，点击确定后自动重启。", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+            // 重启软件
+            Application.Restart();
+            Environment.Exit(0);
         }
     }
 }
+
