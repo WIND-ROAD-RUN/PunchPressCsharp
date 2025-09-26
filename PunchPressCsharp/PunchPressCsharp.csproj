@@ -667,6 +667,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="sol\biaoding.sol" />
+    <None Include="sol\jiudainbiaoding.sol" />
+    <None Include="sol\shibie.sol" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -674,5 +677,6 @@
   <ItemGroup>
     <None Include="Pictures\x.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
