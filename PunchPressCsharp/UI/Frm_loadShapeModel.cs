@@ -232,6 +232,7 @@ namespace PunchPressCsharp.UI
                     {
                         using (var fs = new System.IO.FileStream(srcImgPath, System.IO.FileMode.Open, System.IO.FileAccess.Read))
                         {
+                            pictureBox_srcImg.SizeMode = PictureBoxSizeMode.Zoom; // 图片自适应控件大小
                             pictureBox_srcImg.Image = Image.FromStream(fs);
                         }
                     }
@@ -285,13 +286,17 @@ namespace PunchPressCsharp.UI
         {
             var listNameWithPath = GlobalData.Instance.modelManager.listNameWithPath;
 
+
             // 获取当前选中的模型名称
             string selectedModelName = list_modelList.SelectedItem?.ToString();
 
             string path = null;
+            ModelConfig modelConfig;
             if (!string.IsNullOrEmpty(selectedModelName) && listNameWithPath.ContainsKey(selectedModelName))
             {
                 path = listNameWithPath[selectedModelName] + "\\" + GlobalPath.ModelBinName;
+                 modelConfig = ModelConfig.LoadFromFile(listNameWithPath[selectedModelName] + @"\\" + GlobalPath.ModelConfigName);
+
                 if (!System.IO.File.Exists(path))
                 {
                     MessageBox.Show("未找到模型文件或模型文件丢失", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -308,6 +313,8 @@ namespace PunchPressCsharp.UI
                 MessageBox.Show("未找到模型路径或未选择模型！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+
 
             IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
             var imageSource = (ImageSourceModuleTool)VmSolution.Instance["流程1.图像源1"];

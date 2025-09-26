@@ -64,8 +64,22 @@ namespace PunchPressCsharp.Func
                         control.Left = (int)(initialLocation.X * widthRatio);
                         control.Top = (int)(initialLocation.Y * heightRatio);
 
-                        // 调整控件字体
-                        control.Font = new Font(initialFont.FontFamily, initialFont.Size * widthRatio);
+                        // 字体缩放比例取宽高比例的较小值
+                        float fontScale = Math.Min(widthRatio, heightRatio);
+                        float newFontSize = initialFont.Size * fontScale;
+
+                        // 限制字体大小不超过控件高度的80%
+                        float maxFontSize = control.Height * 0.8f;
+                        if (newFontSize > maxFontSize)
+                        {
+                            newFontSize = maxFontSize;
+                        }
+                        if (newFontSize < 6f) // 最小字体限制
+                        {
+                            newFontSize = 6f;
+                        }
+
+                        control.Font = new Font(initialFont.FontFamily, newFontSize, initialFont.Style);
                     }
 
                     // 针对TabControl递归处理TabPage

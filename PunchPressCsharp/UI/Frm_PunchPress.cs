@@ -382,8 +382,16 @@ namespace PunchPressCsharp.UI
 
         private void btn_templateLearn_Click(object sender, EventArgs e)
         {
+            if (cBox_workMode.Checked)
+            {
                 Frm_Learning frm_Learning = new Frm_Learning(true);
                 frm_Learning.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show(@"请切换到工作模式后再进行模板学习！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
         }
 
 
@@ -434,18 +442,7 @@ namespace PunchPressCsharp.UI
 
         private void btn_runOnce_Click(object sender, EventArgs e)
         {
-            if (GlobalData.Instance.cameraIsConnect)
-            {
-                var cameraParam = GlobalData.Instance.cameraModuleTool.ModuParams;
-
-                cameraParam.TriggerSource = 7; // 设置触发源为软触发
-
-                var procedure = GlobalData.Instance.vmMainProcedure;
-                if (!procedure.IsRunning)
-                {
-                    procedure.Run();
-                }
-            }
+            
         }
 
         private void Frm_PunchPress_SizeChanged(object sender, EventArgs e)
@@ -801,8 +798,15 @@ namespace PunchPressCsharp.UI
 
         private void pbtn_templateLoad_Click(object sender, EventArgs e)
         {
-            Frm_loadShapeModel frmLoadShapeModel = new Frm_loadShapeModel();
-            frmLoadShapeModel.ShowDialog();
+            if (cBox_workMode.Checked)
+            {
+                Frm_loadShapeModel frmLoadShapeModel = new Frm_loadShapeModel();
+                frmLoadShapeModel.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show(@"请切换到工作模式后再进行模板记载！", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
 
@@ -810,8 +814,15 @@ namespace PunchPressCsharp.UI
 
         private void btn_changeModel_Click(object sender, EventArgs e)
         {
-            Frm_Learning frm_Learning = new Frm_Learning(false);
-            frm_Learning.ShowDialog();
+            if (cBox_workMode.Checked)
+            {
+                Frm_Learning frm_Learning = new Frm_Learning(false);
+                frm_Learning.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show(@"请切换到工作模式后再进行修改模板！", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
         }
 
