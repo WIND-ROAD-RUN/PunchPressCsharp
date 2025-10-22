@@ -183,7 +183,15 @@ namespace PunchPressCsharp.Data
                 frmPunchPressCfg.SaveToFile(GlobalPath.FrmPunchPressCfgPath);
                 frmConfigurationCfg.SaveToFile(GlobalPath.FrmConfigurationCfgPath);
                 visualCorrectionCfg.SaveToFile(GlobalPath.VisualCorrectionCfgPath);
-                VmSolution.Save();
+                try
+                {
+                    VmSolution.Save();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    return;
+                }
             }
 
             public void LoadConfigs()

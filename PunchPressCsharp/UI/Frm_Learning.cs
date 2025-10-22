@@ -2,6 +2,7 @@
 using IMVSHPFeatureMatchModuCs;
 using PunchPressCsharp.Func;
 using System;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -58,7 +59,6 @@ namespace PunchPressCsharp.UI
 
 
             vmParamsConfigWithRenderControl1.ModuleSource= FeatureMatch;
-
 
             if (File.Exists(GlobalPath.ModelLoadPath))
             {
@@ -120,7 +120,18 @@ namespace PunchPressCsharp.UI
 
                     IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
                     byte[] modelData = FeatureMatch.GetModel();
-                    File.WriteAllBytes(saveDir + GlobalPath.ModelBinName, modelData);
+
+                    if (modelData !=null)
+                    {
+                        File.WriteAllBytes(saveDir + GlobalPath.ModelBinName, modelData);
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("没有模板请重新创建模板");
+
+                    }
+
 
                 }
               
@@ -142,7 +153,16 @@ namespace PunchPressCsharp.UI
                     //save model
                     IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
                     byte[] modelData = FeatureMatch.GetModel();
-                    File.WriteAllBytes(olderCfgPath + "\\" + GlobalPath.ModelBinName, modelData);
+                    if (modelData != null)
+                    {
+                        File.WriteAllBytes(olderCfgPath + "\\" + GlobalPath.ModelBinName, modelData);
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("没有模板请重新创建模板");
+
+                    }
                 }
             }
 

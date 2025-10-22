@@ -221,6 +221,7 @@ namespace PunchPressCsharp.UI
         private void DesVMSol()
         {
             //VmSolution.Instance.CloseSolution();
+            VmSolution.Save();
             VmSolution.Instance.Dispose();
 
         }

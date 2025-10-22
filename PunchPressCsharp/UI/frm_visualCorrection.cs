@@ -38,7 +38,18 @@ namespace PunchPressCsharp.UI
                 return;
             }
 
-            var version = VmSolution.Instance.GetSolutionVersion(path, "");
+            string version;
+
+            try
+            {
+                 version = VmSolution.Instance.GetSolutionVersion(path, "");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return;
+            }
+            
             if (UtilityValue.VMVersion != version)
             {
                 MessageBox.Show(@"方案版本不正确应为" + UtilityValue.VMVersion, @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -132,8 +143,17 @@ namespace PunchPressCsharp.UI
             }
             VmProcedure vmProcess1 = (VmProcedure)VmSolution.Instance["流程1"];
 
-            vmProcess1.ContinuousRunEnable = true;
-            vmRenderControl1.ModuleSource = ImageCorrectCalibModu;
+            try
+            {
+                vmProcess1.ContinuousRunEnable = true;
+                vmRenderControl1.ModuleSource = ImageCorrectCalibModu;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return;
+            }
+            
 
 
 
