@@ -59,8 +59,8 @@ namespace PunchPressCsharp.Func
                     {
                         try
                         {
-                            ModelConfig.LoadFromFile(modelConfigPath);
-                            listNameWithPath.Add(dir.Name, dir.Path);
+                            var cfg=ModelConfig.LoadFromFile(modelConfigPath);
+                            listNameWithPath.Add(cfg.modelName, dir.Path);
                         }
                         catch (Exception ex)
                         {

@@ -1,16 +1,17 @@
-﻿using ImageSourceModuleCs;
+﻿using AntdUI.Svg;
+using ImageSourceModuleCs;
 using IMVSHPFeatureMatchModuCs;
+using Microsoft.VisualBasic;
+using PunchPressCsharp.Data;
 using PunchPressCsharp.Func;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using AntdUI.Svg;
 using VM.Core;
 using static PunchPressCsharp.Data.Config;
-using PunchPressCsharp.Data;
-using Microsoft.VisualBasic;
 
 namespace PunchPressCsharp.UI
 {
@@ -59,7 +60,10 @@ namespace PunchPressCsharp.UI
 
 
             vmParamsConfigWithRenderControl1.ModuleSource= FeatureMatch;
-
+            if (isnew == true)
+            {
+                FeatureMatch.ClearModelData();
+            }
             //if (File.Exists(GlobalPath.ModelLoadPath))
             //{
             //    byte[] modelData = File.ReadAllBytes(GlobalPath.ModelLoadPath);
@@ -85,7 +89,27 @@ namespace PunchPressCsharp.UI
 
         private void btn_close_Click(object sender, EventArgs e)
         {
+            IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
+            byte[] modelData = FeatureMatch.GetModel();
 
+            if (modelData != null)
+            {
+              
+            }
+            else
+            {
+                var dr = MessageBox.Show("没有模板，是否关闭？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dr == DialogResult.Yes)
+                {
+                    this.Close();
+                    return;
+                }
+                else
+                {
+                    // 选择“否”则返回，不做任何操作
+                    return;
+                }
+            }
             //新建一个保存
             if (isnew == true)
             {
@@ -118,8 +142,7 @@ namespace PunchPressCsharp.UI
 
                     vmParamsConfigWithRenderControl1.SaveRenderedImage(saveDir + GlobalPath.SourceImgName);
 
-                    IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
-                    byte[] modelData = FeatureMatch.GetModel();
+                    
 
                     if (modelData !=null)
                     {
@@ -151,8 +174,7 @@ namespace PunchPressCsharp.UI
                     //save pro img
                     vmParamsConfigWithRenderControl1.SaveRenderedImage(olderCfgPath + "\\" + GlobalPath.SourceImgName);
                     //save model
-                    IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
-                    byte[] modelData = FeatureMatch.GetModel();
+                   
                     if (modelData != null)
                     {
                         File.WriteAllBytes(olderCfgPath + "\\" + GlobalPath.ModelBinName, modelData);
