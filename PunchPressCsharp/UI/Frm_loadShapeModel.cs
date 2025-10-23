@@ -299,7 +299,7 @@ namespace PunchPressCsharp.UI
             if (!string.IsNullOrEmpty(selectedModelName) && listNameWithPath.ContainsKey(selectedModelName))
             {
                 path = listNameWithPath[selectedModelName] + "\\" + GlobalPath.ModelBinName;
-                 modelConfig = ModelConfig.LoadFromFile(listNameWithPath[selectedModelName] + @"\\" + GlobalPath.ModelConfigName);
+                modelConfig = ModelConfig.LoadFromFile(listNameWithPath[selectedModelName] + @"\\" + GlobalPath.ModelConfigName);
 
                 if (!System.IO.File.Exists(path))
                 {

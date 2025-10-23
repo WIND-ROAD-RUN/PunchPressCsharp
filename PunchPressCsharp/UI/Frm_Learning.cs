@@ -60,11 +60,11 @@ namespace PunchPressCsharp.UI
 
             vmParamsConfigWithRenderControl1.ModuleSource= FeatureMatch;
 
-            if (File.Exists(GlobalPath.ModelLoadPath))
-            {
-                byte[] modelData = File.ReadAllBytes(GlobalPath.ModelLoadPath);
-                FeatureMatch.ImportModel(modelData);
-            }
+            //if (File.Exists(GlobalPath.ModelLoadPath))
+            //{
+            //    byte[] modelData = File.ReadAllBytes(GlobalPath.ModelLoadPath);
+            //    FeatureMatch.ImportModel(modelData);
+            //}
         }
 
         private void Frm_Learning_FormClosing(object sender, FormClosingEventArgs e)
@@ -112,7 +112,7 @@ namespace PunchPressCsharp.UI
                     modelConfig.modelName = inputName;
 
                     var saveDir = GlobalPath.ModelHome + "\\" + defaultName + "\\";
-
+                    
                     var modelConfigPath = saveDir + GlobalPath.ModelConfigName;
                     modelConfig.SaveToFile(modelConfigPath);
 
@@ -124,7 +124,7 @@ namespace PunchPressCsharp.UI
                     if (modelData !=null)
                     {
                         File.WriteAllBytes(saveDir + GlobalPath.ModelBinName, modelData);
-
+                        GlobalData.Instance.configs.frmPunchPressCfg.lastLoadModelDirPath = saveDir;
                     }
                     else
                     {
@@ -156,7 +156,6 @@ namespace PunchPressCsharp.UI
                     if (modelData != null)
                     {
                         File.WriteAllBytes(olderCfgPath + "\\" + GlobalPath.ModelBinName, modelData);
-
                     }
                     else
                     {
