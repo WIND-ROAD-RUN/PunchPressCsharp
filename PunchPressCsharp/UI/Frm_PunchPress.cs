@@ -255,9 +255,9 @@ namespace PunchPressCsharp.UI
                     float angle = angles[i];
 
                     // 偏移参数
-                    float offsetx = GlobalData.Instance.configs.frmPunchPressCfg.correction.centralX;
-                    float offsety = GlobalData.Instance.configs.frmPunchPressCfg.correction.centralY;
-                    float offsetAngle = GlobalData.Instance.configs.frmPunchPressCfg.correction.angle;
+                    float offsetx = -GlobalData.Instance.configs.frmPunchPressCfg.correction.centralX;
+                    float offsety = -GlobalData.Instance.configs.frmPunchPressCfg.correction.centralY;
+                    float offsetAngle = -GlobalData.Instance.configs.frmPunchPressCfg.correction.angle;
 
                     // 角度转弧度
                     float rad = (angle) * (float)Math.PI / 180f;
@@ -812,9 +812,20 @@ namespace PunchPressCsharp.UI
             if (cBox_workMode.Checked)
             {
                 Frm_loadShapeModel frmLoadShapeModel = new Frm_loadShapeModel();
-                frmLoadShapeModel.ModelLoaded += OnModelLoaded;
                 frmLoadShapeModel.ShowDialog();
-                LoadUICfg();
+
+                GlobalData.Instance.configs.LoadConfigs();
+                var cfg = GlobalData.Instance.configs.frmPunchPressCfg;
+                lb_exposureValue.Text = cfg.cameraCfg.exposureTime.ToString();
+                lb_gainValue.Text = cfg.cameraCfg.gain.ToString();
+                cBox_upLight.Checked = cfg.lightCfg.isUpLightOpen;
+                cBox_downLight.Checked = cfg.lightCfg.isDownLightOpen;
+                lb_centralX.Text = cfg.correction.centralX.ToString();
+                lb_centralY.Text = cfg.correction.centralY.ToString();
+
+                double currentAngle = GlobalData.Instance.configs.frmPunchPressCfg.correction.angle;
+                GlobalData.Instance.configs.frmPunchPressCfg.correction.angle = (float)currentAngle;
+                lb_angle.Text = currentAngle.ToString("F1");
             }
             else
             {
