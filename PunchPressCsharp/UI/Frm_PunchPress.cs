@@ -814,6 +814,7 @@ namespace PunchPressCsharp.UI
                 Frm_loadShapeModel frmLoadShapeModel = new Frm_loadShapeModel();
                 frmLoadShapeModel.ModelLoaded += OnModelLoaded;
                 frmLoadShapeModel.ShowDialog();
+                LoadUICfg();
             }
             else
             {

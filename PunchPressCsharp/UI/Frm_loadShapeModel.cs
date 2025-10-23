@@ -326,7 +326,7 @@ namespace PunchPressCsharp.UI
             GlobalData.Instance.configs.frmPunchPressCfg.cameraCfg= modelConfig.cameraCfg;
             GlobalData.Instance.configs.frmPunchPressCfg.lightCfg=modelConfig.lightCfg;
             GlobalData.Instance.configs.frmPunchPressCfg.correction = modelConfig.correction;
-
+            GlobalData.Instance.configs.SaveConfigs();
             IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
             var imageSource = (ImageSourceModuleTool)VmSolution.Instance["流程1.图像源1"];
 
