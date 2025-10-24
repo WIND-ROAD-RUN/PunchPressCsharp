@@ -167,14 +167,14 @@ namespace PunchPressCsharp.UI
 
         private void txt_centralXCorrectionMin_Click(object sender, EventArgs e)
         {
-            Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, 0, 10000);
+            Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, -10000, 10000);
             numKeyBoard.ShowDialog();
             _valueIsChange=true;
         }
 
         private void txt_centralXCorrectionMax_Click(object sender, EventArgs e)
         {
-            Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, 0, 10000);
+            Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, -10000, 10000);
             numKeyBoard.ShowDialog();
             _valueIsChange = true;
 
@@ -182,7 +182,7 @@ namespace PunchPressCsharp.UI
 
         private void txt_centralYCorrectionMin_Click(object sender, EventArgs e)
         {
-            Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, 0, 10000);
+            Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, -10000, 10000);
             numKeyBoard.ShowDialog();
             _valueIsChange = true;
 
@@ -190,7 +190,7 @@ namespace PunchPressCsharp.UI
 
         private void txt_centralYCorrectionMax_Click(object sender, EventArgs e)
         {
-            Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, 0, 10000);
+            Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, -10000, 10000);
             numKeyBoard.ShowDialog();
             _valueIsChange = true;
 
