@@ -330,7 +330,17 @@ namespace PunchPressCsharp.UI
             IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
             var imageSource = (ImageSourceModuleTool)VmSolution.Instance["流程1.图像源1"];
 
-            FeatureMatch.ImportModel(path);
+            byte[] modelData;
+            try
+            {
+                modelData = System.IO.File.ReadAllBytes(path);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("读取模型二进制文件失败: " + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            FeatureMatch.ImportModel(modelData);
 
 
             MessageBox.Show($@"加载成功: {selectedModelName}", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);

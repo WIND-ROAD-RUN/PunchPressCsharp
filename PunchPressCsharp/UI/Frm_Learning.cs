@@ -99,8 +99,19 @@ namespace PunchPressCsharp.UI
             else
             {
                 var dr = MessageBox.Show("没有模板，是否关闭？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                //读上一次的模板
                 if (dr == DialogResult.Yes)
                 {
+                    try
+                    {
+                        modelData = System.IO.File.ReadAllBytes(GlobalPath.ModelLoadPath);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("读取上一次模型二进制文件失败: " + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    FeatureMatch.ImportModel(modelData);
                     this.Close();
                     return;
                 }
