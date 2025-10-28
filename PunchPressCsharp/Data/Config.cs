@@ -23,8 +23,8 @@ namespace PunchPressCsharp.Data
 
         internal class CorrectionCfg
         {
-            public float centralX = 100;
-            public float centralY = 100;
+            public float centralX = 0;
+            public float centralY = 0;
             public float angle = 0;
         }
 

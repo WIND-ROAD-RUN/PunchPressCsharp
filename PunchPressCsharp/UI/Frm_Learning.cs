@@ -87,6 +87,7 @@ namespace PunchPressCsharp.UI
 
         private Point _mouseOffset;
 
+        public bool isCreate = false;
         private void btn_close_Click(object sender, EventArgs e)
         {
             IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
@@ -113,6 +114,7 @@ namespace PunchPressCsharp.UI
                     }
                     FeatureMatch.ImportModel(modelData);
                     this.Close();
+                    isCreate = false;
                     return;
                 }
                 else
@@ -141,6 +143,7 @@ namespace PunchPressCsharp.UI
 
                     ModelConfig modelConfig = new ModelConfig();
                     modelConfig.cameraCfg = config.frmPunchPressCfg.cameraCfg;
+                    GlobalData.Instance.configs.frmPunchPressCfg.correction = new CorrectionCfg();
                     modelConfig.correction = config.frmPunchPressCfg.correction;
                     modelConfig.lightCfg = config.frmPunchPressCfg.lightCfg;
                     modelConfig.trainDate = nowTime.ToString("yyyy-MM-dd HH:mm:ss");
@@ -166,6 +169,7 @@ namespace PunchPressCsharp.UI
 
                     }
 
+                    isCreate = true;
 
                 }
               
@@ -196,6 +200,7 @@ namespace PunchPressCsharp.UI
 
                     }
                 }
+                isCreate = true;
             }
 
 

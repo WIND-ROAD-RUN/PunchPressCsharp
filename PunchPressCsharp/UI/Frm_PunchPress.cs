@@ -394,6 +394,17 @@ namespace PunchPressCsharp.UI
             {
                 Frm_Learning frm_Learning = new Frm_Learning(true);
                 frm_Learning.ShowDialog();
+                if (frm_Learning.isCreate)
+                {
+                    var cfg = GlobalData.Instance.configs.frmPunchPressCfg;
+                    lb_centralX.Text = cfg.correction.centralX.ToString();
+                    lb_centralY.Text = cfg.correction.centralY.ToString();
+
+                    double currentAngle = GlobalData.Instance.configs.frmPunchPressCfg.correction.angle;
+                    GlobalData.Instance.configs.frmPunchPressCfg.correction.angle = (float)currentAngle;
+                    lb_angle.Text = currentAngle.ToString("F1");
+                }
+
             }
             else
             {
