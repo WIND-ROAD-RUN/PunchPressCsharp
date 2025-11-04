@@ -490,6 +490,8 @@ namespace PunchPressCsharp.UI
             lb_exposureValue.Text = newValue.ToString();
 
             UpdateCameraSet();
+
+            SaveConfigData();
         }
 
         private void btn_exposureIncrease_Click(object sender, EventArgs e)
@@ -512,6 +514,8 @@ namespace PunchPressCsharp.UI
             lb_exposureValue.Text = newValue.ToString();
 
             UpdateCameraSet();
+
+            SaveConfigData();
         }
 
         private void btn_gainReduce_Click(object sender, EventArgs e)
@@ -534,6 +538,8 @@ namespace PunchPressCsharp.UI
             lb_gainValue.Text = newValue.ToString();
 
             UpdateCameraSet();
+
+            SaveConfigData();
         }
 
         private void btn_gainIncrease_Click(object sender, EventArgs e)
@@ -556,6 +562,8 @@ namespace PunchPressCsharp.UI
             lb_gainValue.Text = newValue.ToString();
 
             UpdateCameraSet();
+
+            SaveConfigData();
         }
 
         private void cBox_debugMode_Click(object sender, EventArgs e)
@@ -653,6 +661,23 @@ namespace PunchPressCsharp.UI
         {
             GlobalData.Instance.configs.frmPunchPressCfg.lightCfg.isUpLightOpen = cBox_upLight.Checked;
             UtilityFunc.ChangeUpLightStatus(GlobalData.Instance.configs.frmPunchPressCfg.lightCfg.isUpLightOpen);
+
+            SaveConfigData();
+        }
+
+        private void SaveConfigData()
+        {
+            var olderCfgPath = GlobalData.Instance.modelManager.currentModelDir;
+            var modelConfigPath = olderCfgPath + "\\" + GlobalPath.ModelConfigName;
+            if (System.IO.File.Exists(modelConfigPath))
+            {
+                ModelConfig modelConfig = ModelConfig.LoadFromFile(modelConfigPath);
+                var config = GlobalData.Instance.configs;
+                modelConfig.cameraCfg = config.frmPunchPressCfg.cameraCfg;
+                modelConfig.correction = config.frmPunchPressCfg.correction;
+                modelConfig.lightCfg = config.frmPunchPressCfg.lightCfg;
+                modelConfig.SaveToFile(modelConfigPath);
+            }
         }
 
         private void btn_xIncease_Click(object sender, EventArgs e)
@@ -674,6 +699,8 @@ namespace PunchPressCsharp.UI
             currentX = newValue;
             GlobalData.Instance.configs.frmPunchPressCfg.correction.centralX = currentX;
             lb_centralX.Text = currentX.ToString("F1");
+
+            SaveConfigData();
         }
 
         private void btn_xDecrease_Click(object sender, EventArgs e)
@@ -697,7 +724,7 @@ namespace PunchPressCsharp.UI
             lb_centralX.Text = currentX.ToString("F1");
 
 
-
+            SaveConfigData();
 
         }
 
@@ -720,6 +747,8 @@ namespace PunchPressCsharp.UI
             currentY = newValue;
             GlobalData.Instance.configs.frmPunchPressCfg.correction.centralY = currentY;
             lb_centralY.Text = currentY.ToString("F1");
+
+            SaveConfigData();
         }
 
         private void btn_yIncease_Click(object sender, EventArgs e)
@@ -741,6 +770,8 @@ namespace PunchPressCsharp.UI
             currentY = newValue;
             GlobalData.Instance.configs.frmPunchPressCfg.correction.centralY = currentY;
             lb_centralY.Text = currentY.ToString("F1");
+
+            SaveConfigData();
         }
 
         private void btn_angleDecrease_Click(object sender, EventArgs e)
@@ -755,6 +786,8 @@ namespace PunchPressCsharp.UI
             currentAngle -= 0.1f;
             GlobalData.Instance.configs.frmPunchPressCfg.correction.angle = (float)currentAngle;
             lb_angle.Text = currentAngle.ToString("F1");
+
+            SaveConfigData();
         }
 
         private void btn_angleIncease_Click(object sender, EventArgs e)
@@ -769,6 +802,8 @@ namespace PunchPressCsharp.UI
             currentAngle += 0.1f;
             GlobalData.Instance.configs.frmPunchPressCfg.correction.angle = (float)currentAngle;
             lb_angle.Text = currentAngle.ToString("F1");
+
+            SaveConfigData();
         }
 
         private void lb_centralX_Click(object sender, EventArgs e)
@@ -777,6 +812,8 @@ namespace PunchPressCsharp.UI
             Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, cfg.centralXCorrectionMin, cfg.centralXCorrectionMax);
             numKeyBoard.ShowDialog();
             GlobalData.Instance.configs.frmPunchPressCfg.correction.centralX= float.Parse(lb_centralX.Text);
+
+            SaveConfigData();
         }
 
         private void lb_exposureValue_Click(object sender, EventArgs e)
@@ -786,6 +823,8 @@ namespace PunchPressCsharp.UI
             numKeyBoard.ShowDialog();
             GlobalData.Instance.configs.frmPunchPressCfg.cameraCfg.exposureTime = int.Parse(lb_exposureValue.Text);
             UpdateCameraSet();
+
+            SaveConfigData();
 
         }
 
@@ -797,6 +836,7 @@ namespace PunchPressCsharp.UI
             GlobalData.Instance.configs.frmPunchPressCfg.cameraCfg.gain = int.Parse(lb_gainValue.Text);
             UpdateCameraSet();
 
+            SaveConfigData();
         }
 
         private void lb_centralY_Click(object sender, EventArgs e)
@@ -805,6 +845,8 @@ namespace PunchPressCsharp.UI
             Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, cfg.centralYCorrectionMin, cfg.centralYCorrectionMax);
             numKeyBoard.ShowDialog();
             GlobalData.Instance.configs.frmPunchPressCfg.correction.centralY = float.Parse(lb_centralY.Text);
+
+            SaveConfigData();
         }
 
         private void lb_angle_Click(object sender, EventArgs e)
@@ -813,6 +855,8 @@ namespace PunchPressCsharp.UI
             Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, cfg.angleCorrectionMin, cfg.angleCorrectionMax);
             numKeyBoard.ShowDialog();
             GlobalData.Instance.configs.frmPunchPressCfg.correction.angle = float.Parse(lb_angle.Text);
+
+            SaveConfigData();
         }
         private void OnModelLoaded(string modelName)
         {
@@ -867,6 +911,7 @@ namespace PunchPressCsharp.UI
         {
             GlobalData.Instance.configs.frmPunchPressCfg.lightCfg.isDownLightOpen = cBox_downLight.Checked;
             UtilityFunc.ChangeDownLightStatus(GlobalData.Instance.configs.frmPunchPressCfg.lightCfg.isDownLightOpen);
+            SaveConfigData();
         }
 
         private void btn_visualCorrenction_Click(object sender, EventArgs e)
