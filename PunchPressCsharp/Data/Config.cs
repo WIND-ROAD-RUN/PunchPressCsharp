@@ -80,25 +80,25 @@ namespace PunchPressCsharp.Data
         internal class FrmConfigurationCfg
         {
             public int exposureTimeMin = 0;
-            public int exposureTimeMax = 1000;
-            public int exposureTimeStep = 100;
+            public int exposureTimeMax = 500000;
+            public int exposureTimeStep = 1000;
 
             public int gainMin = 0;
             public int gainMax = 20;
             public int gainStep = 1;
 
-            public float centralXCorrectionMin = 0;
-            public float centralXCorrectionMax = 200;
-            public float centralXCorrectionStep = 10;
+            public float centralXCorrectionMin = -1000;
+            public float centralXCorrectionMax = 1000;
+            public float centralXCorrectionStep = 0.1f;
 
-            public float centralYCorrectionMin = 0;
-            public float centralYCorrectionMax = 200;
-            public float centralYCorrectionStep = 10;
+            public float centralYCorrectionMin = -1000;
+            public float centralYCorrectionMax = 1000;
+            public float centralYCorrectionStep = 0.1f;
 
 
             public float angleCorrectionMin = -360;
             public float angleCorrectionMax = 360;
-            public float angleCorrectionStep = 10;
+            public float angleCorrectionStep = 0.1f;
 
             public void SaveToFile(string filePath)
             {
