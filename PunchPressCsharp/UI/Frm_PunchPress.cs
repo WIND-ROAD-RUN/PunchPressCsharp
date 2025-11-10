@@ -43,10 +43,13 @@ namespace PunchPressCsharp.UI
 
         }
 
+        private bool _isLoadFinal = false;
+
         #region 窗体生命周期管理
         private void FrmPunchPress_Load(object sender, EventArgs e)
         {
             IniExtraComponent();
+            _isLoadFinal = true;
         }
 
         private void FrmPunchPress_FormClosing(object sender, FormClosingEventArgs e)
@@ -390,6 +393,11 @@ namespace PunchPressCsharp.UI
 
         private void btn_templateLearn_Click(object sender, EventArgs e)
         {
+            if (!_isLoadFinal)
+            {
+                return;
+            }
+
             if (cBox_workMode.Checked)
             {
                 Frm_Learning frm_Learning = new Frm_Learning(true);
@@ -417,6 +425,11 @@ namespace PunchPressCsharp.UI
         private bool _isClosing = false;
         private void btnClose_Click(object sender, EventArgs e)
         {
+            if (!_isLoadFinal)
+            {
+                return;
+            }
+
             if (_isClosing) return; 
             _isClosing = true;
 
@@ -427,6 +440,11 @@ namespace PunchPressCsharp.UI
 
         private void btn_disTemplate_Click(object sender, EventArgs e)
         {
+            if (!_isLoadFinal)
+            {
+                return;
+            }
+
             VmProcedure vmProcess1 = (VmProcedure)VmSolution.Instance["流程1"];
             //设置图像
             IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
@@ -437,6 +455,11 @@ namespace PunchPressCsharp.UI
 
         private void btn_disCentral_Click(object sender, EventArgs e)
         {
+            if (!_isLoadFinal)
+            {
+                return;
+            }
+
             VmProcedure vmProcess1 = (VmProcedure)VmSolution.Instance["流程1"];
 
             IMVSCalibTransformModuTool calibTransform = (IMVSCalibTransformModuTool)VmSolution.Instance["流程1.标定转换1"];
@@ -446,6 +469,11 @@ namespace PunchPressCsharp.UI
 
         private void btn_set_Click(object sender, EventArgs e)
         {
+            if (!_isLoadFinal)
+            {
+                return;
+            }
+
 #if DEBUG
 #else
             if (!GlobalData.Instance.cameraIsConnect)
@@ -472,6 +500,11 @@ namespace PunchPressCsharp.UI
 
         private void btn_exposureReduce_Click(object sender, EventArgs e)
         {
+            if (!_isLoadFinal)
+            {
+                return;
+            }
+
             var min = GlobalData.Instance.configs.frmConfigurationCfg.exposureTimeMin;
             var currentExposureValue = GlobalData.Instance.configs.frmPunchPressCfg.cameraCfg.exposureTime;
 
@@ -496,6 +529,11 @@ namespace PunchPressCsharp.UI
 
         private void btn_exposureIncrease_Click(object sender, EventArgs e)
         {
+            if (!_isLoadFinal)
+            {
+                return;
+            }
+
             var max = GlobalData.Instance.configs.frmConfigurationCfg.exposureTimeMax;
             var currentExposureValue = GlobalData.Instance.configs.frmPunchPressCfg.cameraCfg.exposureTime;
 
@@ -520,6 +558,11 @@ namespace PunchPressCsharp.UI
 
         private void btn_gainReduce_Click(object sender, EventArgs e)
         {
+            if (!_isLoadFinal)
+            {
+                return;
+            }
+
             var min = GlobalData.Instance.configs.frmConfigurationCfg.gainMin;
             var currentGainValue = GlobalData.Instance.configs.frmPunchPressCfg.cameraCfg.gain;
 
@@ -544,6 +587,11 @@ namespace PunchPressCsharp.UI
 
         private void btn_gainIncrease_Click(object sender, EventArgs e)
         {
+            if (!_isLoadFinal)
+            {
+                return;
+            }
+
             var max = GlobalData.Instance.configs.frmConfigurationCfg.gainMax;
             var currentGainValue = GlobalData.Instance.configs.frmPunchPressCfg.cameraCfg.gain;
 
@@ -568,7 +616,12 @@ namespace PunchPressCsharp.UI
 
         private void cBox_debugMode_Click(object sender, EventArgs e)
         {
-                if (cBox_workMode.Checked)
+            if (!_isLoadFinal)
+            {
+                return;
+            }
+
+            if (cBox_workMode.Checked)
                 {
                     GlobalData.Instance.configs.frmPunchPressCfg.isDebugMode = true;
                     GlobalData.Instance.configs.frmPunchPressCfg.isWorkMode = false;
@@ -609,6 +662,11 @@ namespace PunchPressCsharp.UI
 
         private void cBox_workMode_Click(object sender, EventArgs e)
         {
+            if (!_isLoadFinal)
+            {
+                return;
+            }
+
             if (cBox_debugMode.Checked)
             {
                 GlobalData.Instance.configs.frmPunchPressCfg.isDebugMode = false;
@@ -659,6 +717,11 @@ namespace PunchPressCsharp.UI
 
         private void cBox_upLight_CheckedChanged(object sender, EventArgs e)
         {
+            if (!_isLoadFinal)
+            {
+                return;
+            }
+
             GlobalData.Instance.configs.frmPunchPressCfg.lightCfg.isUpLightOpen = cBox_upLight.Checked;
             UtilityFunc.ChangeUpLightStatus(GlobalData.Instance.configs.frmPunchPressCfg.lightCfg.isUpLightOpen);
 
@@ -682,6 +745,11 @@ namespace PunchPressCsharp.UI
 
         private void btn_xIncease_Click(object sender, EventArgs e)
         {
+            if (!_isLoadFinal)
+            {
+                return;
+            }
+
             var max = GlobalData.Instance.configs.frmConfigurationCfg.centralXCorrectionMax;
             var currentX = GlobalData.Instance.configs.frmPunchPressCfg.correction.centralX;
 
@@ -705,6 +773,11 @@ namespace PunchPressCsharp.UI
 
         private void btn_xDecrease_Click(object sender, EventArgs e)
         {
+            if (!_isLoadFinal)
+            {
+                return;
+            }
+
             var min = GlobalData.Instance.configs.frmConfigurationCfg.centralXCorrectionMin;
             var currentX = GlobalData.Instance.configs.frmPunchPressCfg.correction.centralX;
 
@@ -730,6 +803,11 @@ namespace PunchPressCsharp.UI
 
         private void btn_yDecrease_Click(object sender, EventArgs e)
         {
+            if (!_isLoadFinal)
+            {
+                return;
+            }
+
             var min = GlobalData.Instance.configs.frmConfigurationCfg.centralYCorrectionMin;
             var currentY = GlobalData.Instance.configs.frmPunchPressCfg.correction.centralY;
 
@@ -753,6 +831,11 @@ namespace PunchPressCsharp.UI
 
         private void btn_yIncease_Click(object sender, EventArgs e)
         {
+            if (!_isLoadFinal)
+            {
+                return;
+            }
+
             var max = GlobalData.Instance.configs.frmConfigurationCfg.centralYCorrectionMax;
             var currentY = GlobalData.Instance.configs.frmPunchPressCfg.correction.centralY;
 
@@ -776,6 +859,11 @@ namespace PunchPressCsharp.UI
 
         private void btn_angleDecrease_Click(object sender, EventArgs e)
         {
+            if (!_isLoadFinal)
+            {
+                return;
+            }
+
             var min = GlobalData.Instance.configs.frmConfigurationCfg.angleCorrectionMin;
             var currentAngle = GlobalData.Instance.configs.frmPunchPressCfg.correction.angle;
             if (currentAngle - 0.1 <= min)
@@ -792,6 +880,11 @@ namespace PunchPressCsharp.UI
 
         private void btn_angleIncease_Click(object sender, EventArgs e)
         {
+            if (!_isLoadFinal)
+            {
+                return;
+            }
+
             var max = GlobalData.Instance.configs.frmConfigurationCfg.angleCorrectionMax;
             var currentAngle = GlobalData.Instance.configs.frmPunchPressCfg.correction.angle;
             if (currentAngle + 0.1 >= max)
@@ -808,6 +901,11 @@ namespace PunchPressCsharp.UI
 
         private void lb_centralX_Click(object sender, EventArgs e)
         {
+            if (!_isLoadFinal)
+            {
+                return;
+            }
+
             var cfg = GlobalData.Instance.configs.frmConfigurationCfg;
             Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, cfg.centralXCorrectionMin, cfg.centralXCorrectionMax);
             numKeyBoard.ShowDialog();
@@ -818,6 +916,11 @@ namespace PunchPressCsharp.UI
 
         private void lb_exposureValue_Click(object sender, EventArgs e)
         {
+            if (!_isLoadFinal)
+            {
+                return;
+            }
+
             var cfg = GlobalData.Instance.configs.frmConfigurationCfg;
             Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, cfg.exposureTimeMin, cfg.exposureTimeMax);
             numKeyBoard.ShowDialog();
@@ -830,6 +933,11 @@ namespace PunchPressCsharp.UI
 
         private void lb_gainValue_Click(object sender, EventArgs e)
         {
+            if (!_isLoadFinal)
+            {
+                return;
+            }
+
             var cfg = GlobalData.Instance.configs.frmConfigurationCfg;
             Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, cfg.gainMin, cfg.gainMax);
             numKeyBoard.ShowDialog();
@@ -841,6 +949,11 @@ namespace PunchPressCsharp.UI
 
         private void lb_centralY_Click(object sender, EventArgs e)
         {
+            if (!_isLoadFinal)
+            {
+                return;
+            }
+
             var cfg = GlobalData.Instance.configs.frmConfigurationCfg;
             Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, cfg.centralYCorrectionMin, cfg.centralYCorrectionMax);
             numKeyBoard.ShowDialog();
@@ -851,6 +964,11 @@ namespace PunchPressCsharp.UI
 
         private void lb_angle_Click(object sender, EventArgs e)
         {
+            if (!_isLoadFinal)
+            {
+                return;
+            }
+
             var cfg = GlobalData.Instance.configs.frmConfigurationCfg;
             Frm_InputPage numKeyBoard = new Frm_InputPage((Control)sender, cfg.angleCorrectionMin, cfg.angleCorrectionMax);
             numKeyBoard.ShowDialog();
@@ -864,6 +982,11 @@ namespace PunchPressCsharp.UI
         }
         private void pbtn_templateLoad_Click(object sender, EventArgs e)
         {
+            if (!_isLoadFinal)
+            {
+                return;
+            }
+
             if (cBox_workMode.Checked)
             {
                 Frm_loadShapeModel frmLoadShapeModel = new Frm_loadShapeModel();
@@ -893,6 +1016,11 @@ namespace PunchPressCsharp.UI
 
         private void btn_changeModel_Click(object sender, EventArgs e)
         {
+            if (!_isLoadFinal)
+            {
+                return;
+            }
+
             if (cBox_workMode.Checked)
             {
                 Frm_Learning frm_Learning = new Frm_Learning(false);
@@ -916,6 +1044,11 @@ namespace PunchPressCsharp.UI
 
         private void btn_visualCorrenction_Click(object sender, EventArgs e)
         {
+            if (!_isLoadFinal)
+            {
+                return;
+            }
+
             Frm_visualCorrection frmVisualCorrection = new Frm_visualCorrection();
             frmVisualCorrection.ShowDialog();
 
