@@ -45,6 +45,9 @@
             this.pictureBox_srcImg = new System.Windows.Forms.PictureBox();
             this.roundGroupBox1 = new PunchPressCsharp.Controls.RoundGroupBox();
             this.list_modelList = new Sunny.UI.UIListBox();
+            this.btn_listByRole = new Sunny.UI.UIButton();
+            this.btn_listAll = new Sunny.UI.UIButton();
+            this.textBox_searchStr = new Sunny.UI.UITextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Close)).BeginInit();
             this.panel1.SuspendLayout();
             this.roundGroupBox3.SuspendLayout();
@@ -254,6 +257,9 @@
             // roundGroupBox1
             // 
             this.roundGroupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(232)))), ((int)(((byte)(232)))));
+            this.roundGroupBox1.Controls.Add(this.textBox_searchStr);
+            this.roundGroupBox1.Controls.Add(this.btn_listAll);
+            this.roundGroupBox1.Controls.Add(this.btn_listByRole);
             this.roundGroupBox1.Controls.Add(this.list_modelList);
             this.roundGroupBox1.CornerRadius = 16;
             this.roundGroupBox1.Font = new System.Drawing.Font("微软雅黑", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -274,17 +280,58 @@
             this.list_modelList.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
             this.list_modelList.ItemSelectBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.list_modelList.ItemSelectForeColor = System.Drawing.Color.White;
-            this.list_modelList.Location = new System.Drawing.Point(23, 39);
+            this.list_modelList.Location = new System.Drawing.Point(23, 155);
             this.list_modelList.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.list_modelList.MinimumSize = new System.Drawing.Size(1, 1);
             this.list_modelList.Name = "list_modelList";
             this.list_modelList.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.list_modelList.RectColor = System.Drawing.Color.Gray;
             this.list_modelList.ShowText = false;
-            this.list_modelList.Size = new System.Drawing.Size(333, 585);
+            this.list_modelList.Size = new System.Drawing.Size(333, 469);
             this.list_modelList.TabIndex = 13;
             this.list_modelList.Text = "uiListBox1";
             this.list_modelList.SelectedIndexChanged += new System.EventHandler(this.list_modelList_SelectedIndexChanged);
+            // 
+            // btn_listByRole
+            // 
+            this.btn_listByRole.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_listByRole.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_listByRole.Location = new System.Drawing.Point(212, 98);
+            this.btn_listByRole.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btn_listByRole.Name = "btn_listByRole";
+            this.btn_listByRole.Size = new System.Drawing.Size(144, 35);
+            this.btn_listByRole.TabIndex = 14;
+            this.btn_listByRole.Text = "筛选";
+            this.btn_listByRole.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_listByRole.Click += new System.EventHandler(this.btn_listByRole_Click);
+            // 
+            // btn_listAll
+            // 
+            this.btn_listAll.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_listAll.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_listAll.Location = new System.Drawing.Point(23, 98);
+            this.btn_listAll.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btn_listAll.Name = "btn_listAll";
+            this.btn_listAll.Size = new System.Drawing.Size(158, 35);
+            this.btn_listAll.TabIndex = 15;
+            this.btn_listAll.Text = "查看所有";
+            this.btn_listAll.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_listAll.Click += new System.EventHandler(this.btn_listAll_Click);
+            // 
+            // textBox_searchStr
+            // 
+            this.textBox_searchStr.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textBox_searchStr.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox_searchStr.Location = new System.Drawing.Point(23, 54);
+            this.textBox_searchStr.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox_searchStr.MinimumSize = new System.Drawing.Size(1, 16);
+            this.textBox_searchStr.Name = "textBox_searchStr";
+            this.textBox_searchStr.Padding = new System.Windows.Forms.Padding(5);
+            this.textBox_searchStr.ShowText = false;
+            this.textBox_searchStr.Size = new System.Drawing.Size(333, 36);
+            this.textBox_searchStr.TabIndex = 16;
+            this.textBox_searchStr.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.textBox_searchStr.Watermark = "";
             // 
             // Frm_loadShapeModel
             // 
@@ -329,5 +376,8 @@
         private Controls.RoundGroupBox roundGroupBox3;
         private AntdUI.Panel panel1;
         private Sunny.UI.UILabel uiLabel1;
+        private Sunny.UI.UITextBox textBox_searchStr;
+        private Sunny.UI.UIButton btn_listAll;
+        private Sunny.UI.UIButton btn_listByRole;
     }
 }

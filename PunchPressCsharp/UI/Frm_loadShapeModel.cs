@@ -356,5 +356,69 @@ namespace PunchPressCsharp.UI
         {
             Close();
         }
+
+        private void btn_listByRole_Click(object sender, EventArgs e)
+        {
+            var str = textBox_searchStr.Text.Trim();
+
+            list_modelList.Items.Clear();
+
+            GlobalData.Instance.modelManager.ReadModelHomeDirectory();
+
+            var listNameWithPath = GlobalData.Instance.modelManager.listNameWithPath;
+
+            foreach (var kv in listNameWithPath)
+            {
+                // 读取配置
+                ModelConfig modelConfig = ModelConfig.LoadFromFile(kv.Value + @"\" + GlobalPath.ModelConfigName);
+
+                ModelListItem modelListItem = new ModelListItem
+                {
+                    Name = modelConfig.modelName,
+                    dirName = kv.Key
+                };
+
+                // 如果搜索字符串为空则添加全部
+                if (string.IsNullOrEmpty(str))
+                {
+                    list_modelList.Items.Add(modelListItem);
+                    continue;
+                }
+
+                // 将模型名称以常见分隔符拆分，取第一项进行匹配（忽略大小写）
+                var separators = new char[] { ' ', '_', '-', ',', ';', '.' };
+                var tokens = modelListItem.Name.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+                var firstToken = tokens.Length > 0 ? tokens[0] : modelListItem.Name;
+
+                if (firstToken.IndexOf(str, StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    list_modelList.Items.Add(modelListItem);
+                }
+            }
+
+            // 刷新后默认选中第一项或显示空信息
+            if (list_modelList.Items.Count > 0)
+            {
+                list_modelList.SelectedIndex = 0;
+            }
+            else
+            {
+                SetTableViewTitle();
+            }
+        }
+
+        private void btn_listAll_Click(object sender, EventArgs e)
+        {
+            textBox_searchStr.Text="";
+            ReadModelHomeDirectory();
+            if (list_modelList.Items.Count > 0)
+            {
+                list_modelList.SelectedIndex = 0;
+            }
+            else
+            {
+                SetTableViewTitle();
+            }
+        }
     }
 }
