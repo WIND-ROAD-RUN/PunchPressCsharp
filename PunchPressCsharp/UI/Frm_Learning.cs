@@ -10,6 +10,7 @@ using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using IMVSFastFeatureMatchModuCs;
 using VM.Core;
 using static PunchPressCsharp.Data.Config;
 
@@ -55,7 +56,7 @@ namespace PunchPressCsharp.UI
         {
             // 初始化视觉模块
 
-            IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
+            IMVSFastFeatureMatchModuTool FeatureMatch = (IMVSFastFeatureMatchModuTool)VmSolution.Instance["流程1.快速匹配1"];
             var imageSource = (ImageSourceModuleTool)VmSolution.Instance["流程1.图像源1"];
 
 
@@ -90,7 +91,7 @@ namespace PunchPressCsharp.UI
         public bool isCreate = false;
         private void btn_close_Click(object sender, EventArgs e)
         {
-            IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
+            IMVSFastFeatureMatchModuTool FeatureMatch = (IMVSFastFeatureMatchModuTool)VmSolution.Instance["流程1.快速匹配1"];
             byte[] modelData = FeatureMatch.GetModel();
 
             if (modelData != null)

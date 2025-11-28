@@ -17,6 +17,7 @@ using System.Drawing;
 using System.IO;
 using System.Threading;
 using System.Windows.Forms;
+using IMVSFastFeatureMatchModuCs;
 using VM.Core;
 using VM.PlatformSDKCS;
 using VMControls.Interface;
@@ -95,7 +96,7 @@ namespace PunchPressCsharp.UI
             LoadUICfg();
 
             //read last loaded model
-            IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
+            IMVSFastFeatureMatchModuTool FeatureMatch = (IMVSFastFeatureMatchModuTool)VmSolution.Instance["流程1.快速匹配1"];
             vmRenderControl1.ModuleSource = FeatureMatch;
             var lastModelPath = GlobalData.Instance.configs.frmPunchPressCfg.lastLoadModelDirPath + "\\" + GlobalPath.ModelConfigName;
 
@@ -184,7 +185,7 @@ namespace PunchPressCsharp.UI
           
             GlobalData.Instance.vmMainProcedure = vmProcess1;
 
-            IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
+            IMVSFastFeatureMatchModuTool FeatureMatch = (IMVSFastFeatureMatchModuTool)VmSolution.Instance["流程1.快速匹配1"];
             vmRenderControl1.ModuleSource = FeatureMatch;
 
             vmProcess1.OnWorkEndStatusCallBack += VMProcedure1OnWorkEndStatusCallBack;
@@ -238,78 +239,182 @@ namespace PunchPressCsharp.UI
         private void VMProcedure1OnWorkEndStatusCallBack(object sender, EventArgs e)
         {
             IMVSCalibTransformModuTool CalibTransform = (IMVSCalibTransformModuTool)VmSolution.Instance["流程1.标定转换1"];
-            IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
+            IMVSFastFeatureMatchModuTool FeatureMatch = (IMVSFastFeatureMatchModuTool)VmSolution.Instance["流程1.快速匹配1"];
             // var angles= fastFeatureMatch.ModuResult.MatchRect;
             var points = CalibTransform.ModuResult.TransPoint;
             var angles = CalibTransform.ModuResult.WorldPointA;
             // bool isPostive = GlobalData.Instance.modbusTool.readbool(330);
+
+            if (points.Count >0)
+            {
+                bool isPostive = !GlobalData.Instance.modbusTool.getbool(330);
+
+
+
+                for (int p = 0; p < points.Count - 1; p++)
+                {
+                    for (int q = 0; q < points.Count - 1 - p; q++)
+                    {
+                        bool needSwap = false;
+                        try
+                        {
+                            float x0 = points[q].X;
+                            float x1 = points[q + 1].X;
+                            if (isPostive)
+                                needSwap = x0 > x1; // 升序
+                            else
+                                needSwap = x0 < x1; // 降序
+                        }
+                        catch
+                        {
+                            // 若访问坐标失败则跳过该次比较
+                            continue;
+                        }
+
+                        if (needSwap)
+                        {
+                            // 交换点
+                            var tmpPoint = points[q];
+                            points[q] = points[q + 1];
+                            points[q + 1] = tmpPoint;
+
+                            // 同步交换 angles（如果存在且长度匹配）
+                            if (angles != null && angles.Count > q + 1)
+                            {
+                                var tmpAngle = angles[q];
+                                angles[q] = angles[q + 1];
+                                angles[q + 1] = tmpAngle;
+                            }
+                        }
+                    }
+                }
             
 
-
-            if (points.Count == 1)
-            {
-               
-
-                for (int i = 0; i < points.Count; i++)
-                {
-                    // 原始点
-                    float x = -points[i].X;
-                    float y = -points[i].Y;
-                    float angle = angles[i];
-
-                    // 偏移参数
-                    float offsetx = -GlobalData.Instance.configs.frmPunchPressCfg.correction.centralX;
-                    float offsety = -GlobalData.Instance.configs.frmPunchPressCfg.correction.centralY;
-                    float offsetAngle = -GlobalData.Instance.configs.frmPunchPressCfg.correction.angle;
-
-                    // 角度转弧度
-                    float rad = (angle) * (float)Math.PI / 180f;
-
-
-
-
-                    // 坐标变换：以原始点为原心，角度偏移建立新坐标系
-                    float tx = x + offsetx * (float)Math.Cos(rad) - offsety * (float)Math.Sin(rad);
-                    float ty = y + offsetx * (float)Math.Sin(rad) + offsety * (float)Math.Cos(rad);
-                    float tangle = angle + offsetAngle;
-
-                    // 发送数据
-                    float sendx = tx*100;
-                    float sendy = ty*100;
-                    float sendangle = tangle * 100;
-
-
-                    // 在UI中显示结果
-                    if (this.IsHandleCreated)
+            for (int i = 0; i < points.Count; i++)
                     {
-                        Invoke(new MethodInvoker(() =>
+                        // 原始点
+                        float x = points[i].X;
+                        float y = -points[i].Y;
+                        float angle = angles[i];
+
+                        // 偏移参数
+                        float offsetx = -GlobalData.Instance.configs.frmPunchPressCfg.correction.centralX;
+                        float offsety = -GlobalData.Instance.configs.frmPunchPressCfg.correction.centralY;
+                        float offsetAngle = -GlobalData.Instance.configs.frmPunchPressCfg.correction.angle;
+
+                        // 角度转弧度
+                        float rad = (angle) * (float)Math.PI / 180f;
+
+
+
+
+                        // 坐标变换：以原始点为原心，角度偏移建立新坐标系
+                        float tx = x + offsetx * (float)Math.Cos(rad) - offsety * (float)Math.Sin(rad);
+                        float ty = y + offsetx * (float)Math.Sin(rad) + offsety * (float)Math.Cos(rad);
+                        float tangle = angle + offsetAngle;
+
+                        // 发送数据
+                        float sendx = tx * 100;
+                        float sendy = ty * 100;
+                        float sendangle = tangle * 100;
+
+
+                        // 在UI中显示结果
+                        if (this.IsHandleCreated)
                         {
-                            AppendLog($"匹配点 {i + 1}: X={sendx / 100:F2}, Y={sendy / 100:F2},A={sendangle / 100:F2}");
-                        }));
+                            Invoke(new MethodInvoker(() =>
+                            {
+                                AppendLog($"匹配点 {i + 1}: X={sendx / 100:F2}, Y={sendy / 100:F2},A={sendangle / 100:F2}");
+                            }));
+                        }
+
+                        int sx = 6100 + 0 + i * 10;
+                        int sy = 6100 + 2 + i * 10;
+                        int sa = 6100 + 4 + i * 10;
+                        int sismessage = 6100 + 6 + i * 10;
+
+
+                        //发送数据到modbus
+                        GlobalData.Instance.modbusTool.WriteFloatToPlc(sx, sendx, false);
+                        GlobalData.Instance.modbusTool.WriteFloatToPlc(sy, sendy, false);
+                        GlobalData.Instance.modbusTool.WriteFloatToPlc(sa, sendangle, false);
+                        GlobalData.Instance.modbusTool.WriteMultipleRegisters(sismessage, new int[] { 1 });
                     }
 
-                    int sx = 1010 ;
-                    int sy = 1012;
-                    int sa = 1014;
-                    int sismessage = 1004 ;
 
-
-                    //发送数据到modbus
-                    GlobalData.Instance.modbusTool.WriteFloatToPlc(sx, sendx, false);
-                    GlobalData.Instance.modbusTool.WriteFloatToPlc(sy, sendy, false);
-                    GlobalData.Instance.modbusTool.WriteFloatToPlc(sa, sendangle, false);
-                    GlobalData.Instance.modbusTool.WriteMultipleRegisters(sismessage, new int[] { 1 });
-                }
-
-
-                GlobalData.Instance.modbusTool.WriteMultipleRegisters(1004, new int[] { 1 });
+                GlobalData.Instance.modbusTool.WriteMultipleRegisters(6004, new int[] { 1 });
 
 
             }
             else
             {
-                GlobalData.Instance.modbusTool.WriteMultipleRegisters(1004, new int[] { 2 });
+                GlobalData.Instance.modbusTool.WriteMultipleRegisters(6004, new int[] { 2 });
             }
+
+            //if (points.Count == 1)
+            //{
+
+
+            //    for (int i = 0; i < points.Count; i++)
+            //    {
+            //        // 原始点
+            //        float x = -points[i].X;
+            //        float y = -points[i].Y;
+            //        float angle = angles[i];
+
+            //        // 偏移参数
+            //        float offsetx = -GlobalData.Instance.configs.frmPunchPressCfg.correction.centralX;
+            //        float offsety = -GlobalData.Instance.configs.frmPunchPressCfg.correction.centralY;
+            //        float offsetAngle = -GlobalData.Instance.configs.frmPunchPressCfg.correction.angle;
+
+            //        // 角度转弧度
+            //        float rad = (angle) * (float)Math.PI / 180f;
+
+
+
+
+            //        // 坐标变换：以原始点为原心，角度偏移建立新坐标系
+            //        float tx = x + offsetx * (float)Math.Cos(rad) - offsety * (float)Math.Sin(rad);
+            //        float ty = y + offsetx * (float)Math.Sin(rad) + offsety * (float)Math.Cos(rad);
+            //        float tangle = angle + offsetAngle;
+
+            //        // 发送数据
+            //        float sendx = tx*100;
+            //        float sendy = ty*100;
+            //        float sendangle = tangle * 100;
+
+
+            //        // 在UI中显示结果
+            //        if (this.IsHandleCreated)
+            //        {
+            //            Invoke(new MethodInvoker(() =>
+            //            {
+            //                AppendLog($"匹配点 {i + 1}: X={sendx / 100:F2}, Y={sendy / 100:F2},A={sendangle / 100:F2}");
+            //            }));
+            //        }
+
+            //        int sx = 1010 ;
+            //        int sy = 1012;
+            //        int sa = 1014;
+            //        int sismessage = 1004 ;
+
+
+            //        //发送数据到modbus
+            //        GlobalData.Instance.modbusTool.WriteFloatToPlc(sx, sendx, false);
+            //        GlobalData.Instance.modbusTool.WriteFloatToPlc(sy, sendy, false);
+            //        GlobalData.Instance.modbusTool.WriteFloatToPlc(sa, sendangle, false);
+            //        GlobalData.Instance.modbusTool.WriteMultipleRegisters(sismessage, new int[] { 1 });
+            //    }
+
+
+            //    GlobalData.Instance.modbusTool.WriteMultipleRegisters(1004, new int[] { 1 });
+
+
+            //}
+            //else
+            //{
+            //    GlobalData.Instance.modbusTool.WriteMultipleRegisters(1004, new int[] { 2 });
+            //}
 
         }
 
@@ -447,7 +552,8 @@ namespace PunchPressCsharp.UI
 
             VmProcedure vmProcess1 = (VmProcedure)VmSolution.Instance["流程1"];
             //设置图像
-            IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
+            
+            IMVSFastFeatureMatchModuTool FeatureMatch = (IMVSFastFeatureMatchModuTool)VmSolution.Instance["流程1.快速匹配1"];
             vmRenderControl1.ModuleSource = FeatureMatch;
 
 
@@ -631,7 +737,7 @@ namespace PunchPressCsharp.UI
 
                     //禁用模块加速显示
 
-                    IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
+                    IMVSFastFeatureMatchModuTool FeatureMatch = (IMVSFastFeatureMatchModuTool)VmSolution.Instance["流程1.快速匹配1"];
                     IMVSCalibTransformModuTool CalibTransform = (IMVSCalibTransformModuTool)VmSolution.Instance["流程1.标定转换1"];
                     IMVSGeometricTransformModuTool GeoTransform = (IMVSGeometricTransformModuTool)VmSolution.Instance["流程1.几何变换1"];
                     //var imageSource = (ImageSourceModuleCs.ImageSourceModuleTool)VmSolution.Instance["流程1.图像源1"];
@@ -690,7 +796,7 @@ namespace PunchPressCsharp.UI
                     ImageCorrectCalibModuTool.ImportModel(GlobalPath.DataJibianJiaoZhengLoadPath);
                 }
                 //禁用模块加速显示
-                IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
+                IMVSFastFeatureMatchModuTool FeatureMatch = (IMVSFastFeatureMatchModuTool)VmSolution.Instance["流程1.快速匹配1"];
 
                 IMVSCalibTransformModuTool CalibTransform = (IMVSCalibTransformModuTool)VmSolution.Instance["流程1.标定转换1"];
 
@@ -1054,7 +1160,7 @@ namespace PunchPressCsharp.UI
 
             // 当窗体结束回到流程1
             VmProcedure vmProcess1 = (VmProcedure)VmSolution.Instance["流程1"];
-            IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
+            IMVSFastFeatureMatchModuTool FeatureMatch = (IMVSFastFeatureMatchModuTool)VmSolution.Instance["流程1.快速匹配1"];
             vmRenderControl1.ModuleSource = FeatureMatch;
 
             GlobalData.Instance.configs.SaveConfigs();

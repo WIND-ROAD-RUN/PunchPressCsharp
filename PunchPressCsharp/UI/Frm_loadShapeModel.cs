@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using IMVSFastFeatureMatchModuCs;
 using PunchPressCsharp.Func;
 using PunchPressCsharp.Utility;
 using VM.Core;
@@ -327,7 +328,7 @@ namespace PunchPressCsharp.UI
             GlobalData.Instance.configs.frmPunchPressCfg.lightCfg=modelConfig.lightCfg;
             GlobalData.Instance.configs.frmPunchPressCfg.correction = modelConfig.correction;
             GlobalData.Instance.configs.SaveConfigs();
-            IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
+            IMVSFastFeatureMatchModuTool FeatureMatch = (IMVSFastFeatureMatchModuTool)VmSolution.Instance["流程1.快速匹配1"];
             var imageSource = (ImageSourceModuleTool)VmSolution.Instance["流程1.图像源1"];
 
             byte[] modelData;
