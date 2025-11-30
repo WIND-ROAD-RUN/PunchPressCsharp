@@ -266,7 +266,8 @@ namespace PunchPressCsharp.UI
                     float offsetx = -GlobalData.Instance.configs.frmPunchPressCfg.correction.centralX;
                     float offsety = -GlobalData.Instance.configs.frmPunchPressCfg.correction.centralY;
                     float offsetAngle = -GlobalData.Instance.configs.frmPunchPressCfg.correction.angle;
-
+                    // 角度归一化到 [-180, 180] 范围
+                    angle = NormalizeAngle(angle);
                     // 角度转弧度
                     float rad = (angle) * (float)Math.PI / 180f;
 
@@ -317,7 +318,24 @@ namespace PunchPressCsharp.UI
             }
 
         }
+        /// <summary>
+        /// 将角度归一化到 [-180, 180] 范围
+        /// </summary>
+        /// <param name="angle">输入角度（度）</param>
+        /// <returns>归一化后的角度</returns>
+        private float NormalizeAngle(float angle)
+        {
+            // 将角度转换到 [0, 360) 范围
+            angle = angle % 360f;
 
+            // 转换到 [-180, 180] 范围
+            if (angle > 180f)
+                angle -= 360f;
+            else if (angle <= -180f)
+                angle += 360f;
+
+            return angle;
+        }
         private void Handle_CameraConnectStatus(ImvsSdkDefine.IMVS_CAMERA_CONNECT_STATUS_INFO statusInfo)
         {
             // statusInfo.nCameraID: 相机ID
