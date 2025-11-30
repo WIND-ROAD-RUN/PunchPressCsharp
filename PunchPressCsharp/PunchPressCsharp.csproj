@@ -576,6 +576,12 @@
     <Compile Include="UI\Frm_Configuration.Designer.cs">
       <DependentUpon>Frm_Configuration.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Frm_ImageChannel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Frm_ImageChannel.Designer.cs">
+      <DependentUpon>Frm_ImageChannel.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Frm_InputPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -625,6 +631,9 @@
     <Compile Include="Utility\UtilityValue.cs" />
     <EmbeddedResource Include="UI\Frm_Configuration.resx">
       <DependentUpon>Frm_Configuration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Frm_ImageChannel.resx">
+      <DependentUpon>Frm_ImageChannel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Frm_InputPage.resx">
       <DependentUpon>Frm_InputPage.cs</DependentUpon>

@@ -1,6 +1,8 @@
-﻿using Newtonsoft.Json;
+﻿using IMVSColorTransformModuCs;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -20,6 +22,14 @@ namespace PunchPressCsharp.Data
             public bool isUpLightOpen = false;
             public bool isDownLightOpen = false;
         }
+
+        internal class ImageCfg
+        {
+            ColorTransformParam param ;
+
+        }
+
+
 
         internal class CorrectionCfg
         {
@@ -58,6 +68,8 @@ namespace PunchPressCsharp.Data
             public LightCfg lightCfg = new LightCfg();
             public CorrectionCfg correction = new CorrectionCfg();
             public CameraCfg cameraCfg = new CameraCfg();
+            
+
             public float PixToWorld = 0.1F;
             public bool isWorkMode = true;
             public bool isDebugMode = false;
@@ -183,6 +195,10 @@ namespace PunchPressCsharp.Data
                 frmPunchPressCfg.SaveToFile(GlobalPath.FrmPunchPressCfgPath);
                 frmConfigurationCfg.SaveToFile(GlobalPath.FrmConfigurationCfgPath);
                 visualCorrectionCfg.SaveToFile(GlobalPath.VisualCorrectionCfgPath);
+
+                //TODO:保存选择通道参数
+             
+
                 try
                 {
                     VmSolution.Save();

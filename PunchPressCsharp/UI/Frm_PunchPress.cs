@@ -98,6 +98,11 @@ namespace PunchPressCsharp.UI
             IMVSHPFeatureMatchModuTool FeatureMatch = (IMVSHPFeatureMatchModuTool)VmSolution.Instance["流程1.高精度匹配1"];
             vmRenderControl1.ModuleSource = FeatureMatch;
             var lastModelPath = GlobalData.Instance.configs.frmPunchPressCfg.lastLoadModelDirPath + "\\" + GlobalPath.ModelConfigName;
+            
+
+
+
+
 
 
             if (System.IO.File.Exists(lastModelPath))
@@ -1067,6 +1072,15 @@ namespace PunchPressCsharp.UI
             Application.Restart();
             Environment.Exit(0);
         }
+
+        private void btn_ChangeChannel_Click(object sender, EventArgs e)
+        {
+           
+            Frm_ImageChannel frmImageChannel = new Frm_ImageChannel();
+            frmImageChannel.ShowDialog();
+        }
+
+       
     }
 }
 
