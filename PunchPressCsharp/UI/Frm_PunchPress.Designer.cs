@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_PunchPress));
             this.tim_getState = new System.Windows.Forms.Timer(this.components);
             this.panelContainer = new System.Windows.Forms.Panel();
-            this.vmRenderControl1 = new VMControls.Winform.Release.VmRenderControl();
             this.roundedPanel4 = new PunchPressCsharp.Controls.RoundedPanel();
             this.uiRichTextBox1 = new Sunny.UI.UIRichTextBox();
             this.roundedPanel3 = new PunchPressCsharp.Controls.RoundedPanel();
@@ -41,7 +40,6 @@
             this.btn_disCentral = new Sunny.UI.UIButton();
             this.roundedPanel2 = new PunchPressCsharp.Controls.RoundedPanel();
             this.btn_set = new Sunny.UI.UIButton();
-            this.btn_ChangeChannel = new Sunny.UI.UIButton();
             this.btn_templateLearn = new Sunny.UI.UIButton();
             this.pbtn_templateLoad = new Sunny.UI.UIButton();
             this.btn_changeModel = new Sunny.UI.UIButton();
@@ -54,6 +52,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lb_cameraStatus = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.vmRenderControl1 = new VMControls.Winform.Release.VmRenderControl();
             this.modernTabControl1 = new PunchPressCsharp.Controls.ModernTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.uiCheckBoxGroup8 = new Sunny.UI.UICheckBoxGroup();
@@ -113,18 +112,6 @@
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Size = new System.Drawing.Size(1180, 844);
             this.panelContainer.TabIndex = 11;
-            // 
-            // vmRenderControl1
-            // 
-            this.vmRenderControl1.BackColor = System.Drawing.Color.Black;
-            this.vmRenderControl1.CoordinateInfoVisible = true;
-            this.vmRenderControl1.ImageSource = null;
-            this.vmRenderControl1.Location = new System.Drawing.Point(16, 12);
-            this.vmRenderControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.vmRenderControl1.ModuleSource = null;
-            this.vmRenderControl1.Name = "vmRenderControl1";
-            this.vmRenderControl1.Size = new System.Drawing.Size(692, 865);
-            this.vmRenderControl1.TabIndex = 8;
             // 
             // roundedPanel4
             // 
@@ -222,7 +209,6 @@
             this.roundedPanel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.roundedPanel2.BorderThickness = 1;
             this.roundedPanel2.Controls.Add(this.btn_set);
-            this.roundedPanel2.Controls.Add(this.btn_ChangeChannel);
             this.roundedPanel2.Controls.Add(this.btn_templateLearn);
             this.roundedPanel2.Controls.Add(this.pbtn_templateLoad);
             this.roundedPanel2.Controls.Add(this.btn_changeModel);
@@ -238,7 +224,7 @@
             // 
             this.btn_set.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_set.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.btn_set.Location = new System.Drawing.Point(343, 9);
+            this.btn_set.Location = new System.Drawing.Point(343, 31);
             this.btn_set.MinimumSize = new System.Drawing.Size(1, 1);
             this.btn_set.Name = "btn_set";
             this.btn_set.Size = new System.Drawing.Size(70, 32);
@@ -248,25 +234,11 @@
             this.btn_set.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_set.Click += new System.EventHandler(this.btn_set_Click);
             // 
-            // btn_ChangeChannel
-            // 
-            this.btn_ChangeChannel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_ChangeChannel.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.btn_ChangeChannel.Location = new System.Drawing.Point(16, 58);
-            this.btn_ChangeChannel.MinimumSize = new System.Drawing.Size(1, 1);
-            this.btn_ChangeChannel.Name = "btn_ChangeChannel";
-            this.btn_ChangeChannel.Size = new System.Drawing.Size(70, 32);
-            this.btn_ChangeChannel.Style = Sunny.UI.UIStyle.Custom;
-            this.btn_ChangeChannel.TabIndex = 1;
-            this.btn_ChangeChannel.Text = "图像类型";
-            this.btn_ChangeChannel.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_ChangeChannel.Click += new System.EventHandler(this.btn_ChangeChannel_Click);
-            // 
             // btn_templateLearn
             // 
             this.btn_templateLearn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_templateLearn.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.btn_templateLearn.Location = new System.Drawing.Point(16, 9);
+            this.btn_templateLearn.Location = new System.Drawing.Point(16, 31);
             this.btn_templateLearn.MinimumSize = new System.Drawing.Size(1, 1);
             this.btn_templateLearn.Name = "btn_templateLearn";
             this.btn_templateLearn.Size = new System.Drawing.Size(70, 32);
@@ -280,7 +252,7 @@
             // 
             this.pbtn_templateLoad.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbtn_templateLoad.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.pbtn_templateLoad.Location = new System.Drawing.Point(230, 9);
+            this.pbtn_templateLoad.Location = new System.Drawing.Point(230, 31);
             this.pbtn_templateLoad.MinimumSize = new System.Drawing.Size(1, 1);
             this.pbtn_templateLoad.Name = "pbtn_templateLoad";
             this.pbtn_templateLoad.Size = new System.Drawing.Size(70, 32);
@@ -294,7 +266,7 @@
             // 
             this.btn_changeModel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_changeModel.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.btn_changeModel.Location = new System.Drawing.Point(123, 9);
+            this.btn_changeModel.Location = new System.Drawing.Point(120, 31);
             this.btn_changeModel.MinimumSize = new System.Drawing.Size(1, 1);
             this.btn_changeModel.Name = "btn_changeModel";
             this.btn_changeModel.Size = new System.Drawing.Size(70, 32);
@@ -411,6 +383,18 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "相机状态:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // vmRenderControl1
+            // 
+            this.vmRenderControl1.BackColor = System.Drawing.Color.Black;
+            this.vmRenderControl1.CoordinateInfoVisible = true;
+            this.vmRenderControl1.ImageSource = null;
+            this.vmRenderControl1.Location = new System.Drawing.Point(16, 12);
+            this.vmRenderControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.vmRenderControl1.ModuleSource = null;
+            this.vmRenderControl1.Name = "vmRenderControl1";
+            this.vmRenderControl1.Size = new System.Drawing.Size(692, 865);
+            this.vmRenderControl1.TabIndex = 8;
             // 
             // modernTabControl1
             // 
@@ -880,7 +864,6 @@
         private AntdUI.Checkbox cBox_debugMode;
         private AntdUI.Checkbox cBox_workMode;
         private Sunny.UI.UIButton btn_visualCorrenction;
-        private Sunny.UI.UIButton btn_ChangeChannel;
     }
 }
 
