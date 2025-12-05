@@ -184,20 +184,48 @@ namespace PunchPressCsharp.Data
         }
         #endregion
 
+        #region 运行期间信息
+        internal class DuringOperationInfo
+        {
+            public long produceTotal = 0;
+            public long producetCurrentModel = 0;
+
+            public void SaveToFile(string filePath)
+            {
+                var dir = Path.GetDirectoryName(filePath);
+                if (!Directory.Exists(dir))
+                {
+                    Directory.CreateDirectory(dir);
+                }
+                var json = JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(filePath, json);
+            }
+
+            public static DuringOperationInfo LoadFromFile(string filePath)
+            {
+                var json = File.ReadAllText(filePath);
+                return JsonConvert.DeserializeObject<DuringOperationInfo>(json);
+            }
+        }
+
+        #endregion
+
         internal class Configs
         {
             public FrmPunchPressCfg frmPunchPressCfg = new FrmPunchPressCfg();
             public FrmConfigurationCfg frmConfigurationCfg = new FrmConfigurationCfg();
             public VisualCorrectionCfg visualCorrectionCfg = new VisualCorrectionCfg();
+            public DuringOperationInfo duringOperationInfo = new DuringOperationInfo();
 
             public void SaveConfigs()
             {
                 frmPunchPressCfg.SaveToFile(GlobalPath.FrmPunchPressCfgPath);
                 frmConfigurationCfg.SaveToFile(GlobalPath.FrmConfigurationCfgPath);
                 visualCorrectionCfg.SaveToFile(GlobalPath.VisualCorrectionCfgPath);
+                duringOperationInfo.SaveToFile(GlobalPath.FrmSetCfgPath);
 
                 //TODO:保存选择通道参数
-             
+
 
                 try
                 {
@@ -229,6 +257,7 @@ namespace PunchPressCsharp.Data
                 {
                     frmConfigurationCfg.SaveToFile(GlobalPath.FrmConfigurationCfgPath);
                 }
+
                 if (File.Exists(GlobalPath.VisualCorrectionCfgPath))
                 {
                     visualCorrectionCfg = VisualCorrectionCfg.LoadFromFile(GlobalPath.VisualCorrectionCfgPath);
@@ -236,6 +265,15 @@ namespace PunchPressCsharp.Data
                 else
                 {
                     visualCorrectionCfg.SaveToFile(GlobalPath.VisualCorrectionCfgPath);
+                }
+
+                if (File.Exists(GlobalPath.DuringOperationInfoPath))
+                {
+                    duringOperationInfo = DuringOperationInfo.LoadFromFile(GlobalPath.DuringOperationInfoPath);
+                }
+                else
+                {
+                    duringOperationInfo.SaveToFile(GlobalPath.DuringOperationInfoPath);
                 }
             }
         }

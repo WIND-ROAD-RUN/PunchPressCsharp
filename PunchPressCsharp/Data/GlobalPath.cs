@@ -10,6 +10,7 @@
         public static readonly string FrmPunchPressCfgPath = _ConfigRootPath + @"\Frm_PunchPressCfg.json";
         public static readonly string FrmConfigurationCfgPath = _ConfigRootPath + @"\Frm_ConfigurationCfg.json";
         public static readonly string VisualCorrectionCfgPath = _ConfigRootPath + @"\VisualCorrectionCfg.json";
+        public static readonly string DuringOperationInfoPath = _ConfigRootPath + @"\DuringOperationInfo.json";
 
         #endregion 配置
 

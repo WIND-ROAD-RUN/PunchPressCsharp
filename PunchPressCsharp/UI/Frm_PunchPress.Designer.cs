@@ -80,6 +80,7 @@
             this.btn_gainReduce = new Sunny.UI.UIButton();
             this.btn_exposureIncrease = new Sunny.UI.UIButton();
             this.btn_exposureReduce = new Sunny.UI.UIButton();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panelContainer.SuspendLayout();
             this.roundedPanel4.SuspendLayout();
             this.roundedPanel3.SuspendLayout();
@@ -400,9 +401,10 @@
             // 
             this.modernTabControl1.Controls.Add(this.tabPage1);
             this.modernTabControl1.Controls.Add(this.tabPage2);
+            this.modernTabControl1.Controls.Add(this.tabPage3);
             this.modernTabControl1.CornerRadius = 15;
             this.modernTabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
-            this.modernTabControl1.HeaderBackColor = System.Drawing.Color.WhiteSmoke;
+            this.modernTabControl1.HeaderBackColor = System.Drawing.SystemColors.Window;
             this.modernTabControl1.HeaderBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.modernTabControl1.ItemSize = new System.Drawing.Size(120, 36);
             this.modernTabControl1.Location = new System.Drawing.Point(727, 237);
@@ -784,6 +786,17 @@
             this.btn_exposureReduce.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_exposureReduce.Click += new System.EventHandler(this.btn_exposureReduce_Click);
             // 
+            // tabPage3
+            // 
+            this.tabPage3.BackColor = System.Drawing.Color.White;
+            this.tabPage3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.tabPage3.Location = new System.Drawing.Point(4, 40);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(442, 214);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "生产信息";
+            // 
             // Frm_PunchPress
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -864,6 +877,7 @@
         private AntdUI.Checkbox cBox_debugMode;
         private AntdUI.Checkbox cBox_workMode;
         private Sunny.UI.UIButton btn_visualCorrenction;
+        private System.Windows.Forms.TabPage tabPage3;
     }
 }
 
