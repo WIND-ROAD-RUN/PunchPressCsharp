@@ -112,6 +112,9 @@ namespace PunchPressCsharp.UI
             }
 
             UpdateCameraSet();
+
+            label_currentProduceValue.Text= GlobalData.Instance.configs.duringOperationInfo.producetCurrentModel.ToString();
+            label_totalProduceValue.Text= GlobalData.Instance.configs.duringOperationInfo.produceTotal.ToString();
         }
 
         private void DesExtraComponent()
@@ -234,6 +237,14 @@ namespace PunchPressCsharp.UI
 
         #region VM触发
 
+        private void UpdateDuringOperationInfo()
+        {
+            GlobalData.Instance.configs.duringOperationInfo.produceTotal++;
+            GlobalData.Instance.configs.duringOperationInfo.producetCurrentModel++;
+            label_currentProduceValue.Text= GlobalData.Instance.configs.duringOperationInfo.producetCurrentModel.ToString();
+            label_totalProduceValue.Text= GlobalData.Instance.configs.duringOperationInfo.produceTotal.ToString();
+        }
+
         private void VMProcedure1OnWorkEndStatusCallBack(object sender, EventArgs e)
         {
             IMVSCalibTransformModuTool CalibTransform = (IMVSCalibTransformModuTool)VmSolution.Instance["流程1.标定转换1"];
@@ -299,6 +310,7 @@ namespace PunchPressCsharp.UI
                     GlobalData.Instance.modbusTool.WriteFloatToPlc(sy, sendy, false);
                     GlobalData.Instance.modbusTool.WriteFloatToPlc(sa, sendangle, false);
                     GlobalData.Instance.modbusTool.WriteMultipleRegisters(sismessage, new int[] { 1 });
+                    UpdateDuringOperationInfo();
                 }
 
 
@@ -1021,6 +1033,7 @@ namespace PunchPressCsharp.UI
                 double currentAngle = GlobalData.Instance.configs.frmPunchPressCfg.correction.angle;
                 GlobalData.Instance.configs.frmPunchPressCfg.correction.angle = (float)currentAngle;
                 lb_angle.Text = currentAngle.ToString("F1");
+                GlobalData.Instance.configs.duringOperationInfo.producetCurrentModel = 0;
             }
             else
             {

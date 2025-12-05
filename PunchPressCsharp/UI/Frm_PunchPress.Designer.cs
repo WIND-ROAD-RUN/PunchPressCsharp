@@ -81,6 +81,13 @@
             this.btn_exposureIncrease = new Sunny.UI.UIButton();
             this.btn_exposureReduce = new Sunny.UI.UIButton();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.uiCheckBoxGroup1 = new Sunny.UI.UICheckBoxGroup();
+            this.label_currentProduceValue = new Sunny.UI.UILabel();
+            this.label_currentProduce = new System.Windows.Forms.Label();
+            this.label_totalProduceValue = new Sunny.UI.UILabel();
+            this.label_totalProduce = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.panelContainer.SuspendLayout();
             this.roundedPanel4.SuspendLayout();
             this.roundedPanel3.SuspendLayout();
@@ -92,6 +99,8 @@
             this.uiCheckBoxGroup8.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.uiCheckBoxGroup7.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.uiCheckBoxGroup1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tim_getState
@@ -789,6 +798,7 @@
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.White;
+            this.tabPage3.Controls.Add(this.uiCheckBoxGroup1);
             this.tabPage3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.tabPage3.Location = new System.Drawing.Point(4, 40);
             this.tabPage3.Name = "tabPage3";
@@ -796,6 +806,99 @@
             this.tabPage3.Size = new System.Drawing.Size(442, 214);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "生产信息";
+            // 
+            // uiCheckBoxGroup1
+            // 
+            this.uiCheckBoxGroup1.BackColor = System.Drawing.Color.Transparent;
+            this.uiCheckBoxGroup1.Controls.Add(this.label_currentProduceValue);
+            this.uiCheckBoxGroup1.Controls.Add(this.label9);
+            this.uiCheckBoxGroup1.Controls.Add(this.label_currentProduce);
+            this.uiCheckBoxGroup1.Controls.Add(this.label_totalProduceValue);
+            this.uiCheckBoxGroup1.Controls.Add(this.label5);
+            this.uiCheckBoxGroup1.Controls.Add(this.label_totalProduce);
+            this.uiCheckBoxGroup1.FillColor = System.Drawing.Color.DimGray;
+            this.uiCheckBoxGroup1.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiCheckBoxGroup1.Location = new System.Drawing.Point(9, 6);
+            this.uiCheckBoxGroup1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiCheckBoxGroup1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiCheckBoxGroup1.Name = "uiCheckBoxGroup1";
+            this.uiCheckBoxGroup1.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
+            this.uiCheckBoxGroup1.RadiusSides = Sunny.UI.UICornerRadiusSides.None;
+            this.uiCheckBoxGroup1.RectSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.None;
+            this.uiCheckBoxGroup1.SelectedIndexes = ((System.Collections.Generic.List<int>)(resources.GetObject("uiCheckBoxGroup1.SelectedIndexes")));
+            this.uiCheckBoxGroup1.Size = new System.Drawing.Size(425, 202);
+            this.uiCheckBoxGroup1.Style = Sunny.UI.UIStyle.Custom;
+            this.uiCheckBoxGroup1.TabIndex = 23;
+            this.uiCheckBoxGroup1.Text = null;
+            this.uiCheckBoxGroup1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label_currentProduceValue
+            // 
+            this.label_currentProduceValue.Font = new System.Drawing.Font("Microsoft YaHei UI", 22F, System.Drawing.FontStyle.Bold);
+            this.label_currentProduceValue.ForeColor = System.Drawing.Color.White;
+            this.label_currentProduceValue.Location = new System.Drawing.Point(159, 110);
+            this.label_currentProduceValue.Name = "label_currentProduceValue";
+            this.label_currentProduceValue.Size = new System.Drawing.Size(113, 40);
+            this.label_currentProduceValue.Style = Sunny.UI.UIStyle.Custom;
+            this.label_currentProduceValue.TabIndex = 30;
+            this.label_currentProduceValue.Text = "0";
+            this.label_currentProduceValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label_currentProduce
+            // 
+            this.label_currentProduce.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_currentProduce.ForeColor = System.Drawing.Color.White;
+            this.label_currentProduce.Location = new System.Drawing.Point(20, 110);
+            this.label_currentProduce.Name = "label_currentProduce";
+            this.label_currentProduce.Size = new System.Drawing.Size(124, 38);
+            this.label_currentProduce.TabIndex = 29;
+            this.label_currentProduce.Text = "当期生产总量";
+            this.label_currentProduce.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label_totalProduceValue
+            // 
+            this.label_totalProduceValue.Font = new System.Drawing.Font("Microsoft YaHei UI", 22F, System.Drawing.FontStyle.Bold);
+            this.label_totalProduceValue.ForeColor = System.Drawing.Color.White;
+            this.label_totalProduceValue.Location = new System.Drawing.Point(159, 32);
+            this.label_totalProduceValue.Name = "label_totalProduceValue";
+            this.label_totalProduceValue.Size = new System.Drawing.Size(113, 40);
+            this.label_totalProduceValue.Style = Sunny.UI.UIStyle.Custom;
+            this.label_totalProduceValue.TabIndex = 30;
+            this.label_totalProduceValue.Text = "0";
+            this.label_totalProduceValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label_totalProduce
+            // 
+            this.label_totalProduce.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_totalProduce.ForeColor = System.Drawing.Color.White;
+            this.label_totalProduce.Location = new System.Drawing.Point(20, 32);
+            this.label_totalProduce.Name = "label_totalProduce";
+            this.label_totalProduce.Size = new System.Drawing.Size(124, 38);
+            this.label_totalProduce.TabIndex = 29;
+            this.label_totalProduce.Text = "总共生产总量";
+            this.label_totalProduce.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(345, 34);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(55, 38);
+            this.label5.TabIndex = 29;
+            this.label5.Text = "个";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label9
+            // 
+            this.label9.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(345, 110);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(44, 38);
+            this.label9.TabIndex = 29;
+            this.label9.Text = "个";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Frm_PunchPress
             // 
@@ -821,6 +924,8 @@
             this.uiCheckBoxGroup8.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.uiCheckBoxGroup7.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.uiCheckBoxGroup1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -878,6 +983,13 @@
         private AntdUI.Checkbox cBox_workMode;
         private Sunny.UI.UIButton btn_visualCorrenction;
         private System.Windows.Forms.TabPage tabPage3;
+        private Sunny.UI.UICheckBoxGroup uiCheckBoxGroup1;
+        private Sunny.UI.UILabel label_totalProduceValue;
+        private System.Windows.Forms.Label label_totalProduce;
+        private Sunny.UI.UILabel label_currentProduceValue;
+        private System.Windows.Forms.Label label_currentProduce;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label5;
     }
 }
 
