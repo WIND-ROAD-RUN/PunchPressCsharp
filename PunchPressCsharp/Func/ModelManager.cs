@@ -65,7 +65,8 @@ namespace PunchPressCsharp.Func
                         catch (Exception ex)
                         {
                             MessageBox.Show($"配置文件格式错误或无法读取：{ex.Message}");
-                            return;
+                            //TODO:同名模型处理
+                            continue;
                         }
                     }
                     else
