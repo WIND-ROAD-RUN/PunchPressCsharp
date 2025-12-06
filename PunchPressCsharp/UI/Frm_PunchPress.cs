@@ -553,7 +553,6 @@ namespace PunchPressCsharp.UI
 
             UpdateCameraSet();
 
-            SaveConfigData();
         }
 
         private void btn_exposureIncrease_Click(object sender, EventArgs e)
@@ -582,7 +581,6 @@ namespace PunchPressCsharp.UI
 
             UpdateCameraSet();
 
-            SaveConfigData();
         }
 
         private void btn_gainReduce_Click(object sender, EventArgs e)
@@ -611,7 +609,6 @@ namespace PunchPressCsharp.UI
 
             UpdateCameraSet();
 
-            SaveConfigData();
         }
 
         private void btn_gainIncrease_Click(object sender, EventArgs e)
@@ -640,7 +637,6 @@ namespace PunchPressCsharp.UI
 
             UpdateCameraSet();
 
-            SaveConfigData();
         }
 
         private void cBox_debugMode_Click(object sender, EventArgs e)
@@ -797,7 +793,6 @@ namespace PunchPressCsharp.UI
             GlobalData.Instance.configs.frmPunchPressCfg.correction.centralX = currentX;
             lb_centralX.Text = currentX.ToString("F1");
 
-            SaveConfigData();
         }
 
         private void btn_xDecrease_Click(object sender, EventArgs e)
@@ -824,10 +819,6 @@ namespace PunchPressCsharp.UI
             currentX = newValue;
             GlobalData.Instance.configs.frmPunchPressCfg.correction.centralX = currentX;
             lb_centralX.Text = currentX.ToString("F1");
-
-
-            SaveConfigData();
-
         }
 
         private void btn_yDecrease_Click(object sender, EventArgs e)
@@ -855,7 +846,6 @@ namespace PunchPressCsharp.UI
             GlobalData.Instance.configs.frmPunchPressCfg.correction.centralY = currentY;
             lb_centralY.Text = currentY.ToString("F1");
 
-            SaveConfigData();
         }
 
         private void btn_yIncease_Click(object sender, EventArgs e)
@@ -883,7 +873,6 @@ namespace PunchPressCsharp.UI
             GlobalData.Instance.configs.frmPunchPressCfg.correction.centralY = currentY;
             lb_centralY.Text = currentY.ToString("F1");
 
-            SaveConfigData();
         }
 
         private void btn_angleDecrease_Click(object sender, EventArgs e)
@@ -904,7 +893,6 @@ namespace PunchPressCsharp.UI
             GlobalData.Instance.configs.frmPunchPressCfg.correction.angle = (float)currentAngle;
             lb_angle.Text = currentAngle.ToString("F1");
 
-            SaveConfigData();
         }
 
         private void btn_angleIncease_Click(object sender, EventArgs e)
@@ -925,7 +913,6 @@ namespace PunchPressCsharp.UI
             GlobalData.Instance.configs.frmPunchPressCfg.correction.angle = (float)currentAngle;
             lb_angle.Text = currentAngle.ToString("F1");
 
-            SaveConfigData();
         }
 
         private void lb_centralX_Click(object sender, EventArgs e)
@@ -1105,7 +1092,10 @@ namespace PunchPressCsharp.UI
             frmImageChannel.ShowDialog();
         }
 
-       
+        private void btn_saveCfg_Click(object sender, EventArgs e)
+        {
+            SaveConfigData();
+        }
     }
 }
 
