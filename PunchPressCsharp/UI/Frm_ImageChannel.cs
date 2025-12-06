@@ -19,6 +19,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PunchPressCsharp.Func;
 using VM.Core;
 using VM.PlatformSDKCS;
 namespace PunchPressCsharp.UI
