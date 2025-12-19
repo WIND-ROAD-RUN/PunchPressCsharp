@@ -253,7 +253,7 @@ namespace PunchPressCsharp.UI
             var points = CalibTransform.ModuResult.TransPoint;
             var angles = CalibTransform.ModuResult.WorldPointA;
             // bool isPostive = GlobalData.Instance.modbusTool.readbool(330);
-            
+            //FeatureMatch.ModuResult.MatchRect[0].Angle
 
 
             if (points.Count == 1)
@@ -265,7 +265,7 @@ namespace PunchPressCsharp.UI
                     // 原始点
                     float x = -points[i].X;
                     float y = -points[i].Y;
-                    float angle = angles[i];
+                    float angle = FeatureMatch.ModuResult.MatchRect[i].Angle;
 
                     // 偏移参数
                     float offsetx = -GlobalData.Instance.configs.frmPunchPressCfg.correction.centralX;
