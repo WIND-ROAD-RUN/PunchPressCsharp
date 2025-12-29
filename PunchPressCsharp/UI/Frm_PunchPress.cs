@@ -265,7 +265,7 @@ namespace PunchPressCsharp.UI
                     // 原始点
                     float x = -points[i].X;
                     float y = -points[i].Y;
-                    float angle = FeatureMatch.ModuResult.MatchRect[i].Angle;
+                    float angle = -FeatureMatch.ModuResult.MatchRect[i].Angle;
 
                     // 偏移参数
                     float offsetx = -GlobalData.Instance.configs.frmPunchPressCfg.correction.centralX;
